@@ -1,5 +1,3 @@
-t
-
 This project is a fork from [TM Boilerplate Base](https://gitlab.com/turtlemint/tm-boilerplate-base). To pull in latest changes `git pull upstream master` while being on master branch of your project.
 
 ## Available Scripts
