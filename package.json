@@ -70,8 +70,9 @@
         "workbox-webpack-plugin": "4.2.0"
     },
     "scripts": {
-        "start": "node scripts/start.js",
-        "build": "node scripts/build.js",
+        "start": "env-cmd development node scripts/start.js ",
+        "build": "env-cmd production node scripts/build.js",
+        "build:staging": "env-cmd staging node scripts/build.js",
         "test": "node scripts/test.js",
         "lint": "tslint --project tsconfig.json",
         "lint-fix": "tslint --project tsconfig.json --fix",
