@@ -1,4 +1,3 @@
-// useCounter.test.js
 import { renderHook, act } from 'react-hooks-testing-library'
 import useCounter from './useCounter'
 
@@ -17,3 +16,7 @@ test('should decrement counter', () => {
 
   expect(result.current.count).toBe(-1)
 });
+
+
+// More on testing here 
+// https://github.com/mpeyper/react-hooks-testing-library
