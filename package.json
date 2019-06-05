@@ -70,9 +70,9 @@
         "workbox-webpack-plugin": "4.2.0"
     },
     "scripts": {
-        "start": "env-cmd development node scripts/start.js ",
-        "build": "env-cmd production node scripts/build.js",
-        "build:staging": "env-cmd staging node scripts/build.js",
+        "start": "env-cmd -e development node scripts/start.js ",
+        "build": "env-cmd -e production node scripts/build.js",
+        "build:staging": "env-cmd -e staging node scripts/build.js",
         "test": "node scripts/test.js",
         "lint": "tslint --project tsconfig.json",
         "lint-fix": "tslint --project tsconfig.json --fix",
@@ -106,6 +106,7 @@
         "@types/storybook__addon-knobs": "^5.0.0",
         "@types/storybook__react": "^4.0.1",
         "@types/styled-components": "^4.1.16",
+        "env-cmd": "^9.0.2",
         "husky": "^2.3.0",
         "react-docgen-typescript-loader": "^3.1.0",
         "react-hooks-testing-library": "^0.5.1",
