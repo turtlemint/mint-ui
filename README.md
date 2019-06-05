@@ -1,5 +1,9 @@
 This project is a fork from [TM Boilerplate Base](https://gitlab.com/turtlemint/tm-boilerplate-base). To pull in latest changes `git pull upstream master` while being on master branch of your project.
 
+What's more in this from base repo?
+
+1. Storybook configuration
+
 ## Available Scripts
 
 In the project directory, you can run:
