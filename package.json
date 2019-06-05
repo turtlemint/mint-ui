@@ -77,7 +77,8 @@
         "lint": "tslint --project tsconfig.json",
         "lint-fix": "tslint --project tsconfig.json --fix",
         "preinstall": "node src/tools/preinstall-script.js",
-        "analyze": "source-map-explorer 'build/static/js/*.js'"
+        "analyze": "source-map-explorer 'build/static/js/*.js'",
+        "storybook": "start-storybook -p 9001 -c .storybook"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -95,12 +96,22 @@
         ]
     },
     "devDependencies": {
+        "@storybook/addon-actions": "^5.1.1",
+        "@storybook/addon-info": "^5.1.1",
+        "@storybook/addon-knobs": "^5.1.1",
+        "@storybook/react": "^5.0.11",
         "@testing-library/react": "^8.0.1",
         "@types/lodash": "^4.14.133",
+        "@types/storybook__addon-info": "^4.1.1",
+        "@types/storybook__addon-knobs": "^5.0.0",
+        "@types/storybook__react": "^4.0.1",
         "@types/styled-components": "^4.1.16",
         "husky": "^2.3.0",
+        "react-docgen-typescript-loader": "^3.1.0",
         "react-hooks-testing-library": "^0.5.1",
         "react-test-renderer": "^16.8.6",
+        "storybook-addon-jsx": "^7.1.2",
+        "ts-loader": "^6.0.2",
         "tslint": "^5.17.0"
     },
     "jest": {
