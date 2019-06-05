@@ -1,48 +1,47 @@
-import { configure, addDecorator } from "@storybook/react";
-import { withInfo } from '@storybook/addon-info';
-import { jsxDecorator } from 'storybook-addon-jsx';
-import { withKnobs } from '@storybook/addon-knobs';
+    import { configure, addDecorator } from "@storybook/react";
+    import { withInfo } from '@storybook/addon-info';
+    import { jsxDecorator } from 'storybook-addon-jsx';
+    import { withKnobs } from '@storybook/addon-knobs';
 
-addDecorator(jsxDecorator);
-addDecorator(
-  withInfo({
-    styles: {
-      header: {
-        h1: {
-          marginRight: '20px',
-          fontSize: '25px',
-          display: 'inline',
+    addDecorator(jsxDecorator);
+    addDecorator(
+    withInfo({
+        styles: {
+        header: {
+            h1: {
+            marginRight: '20px',
+            fontSize: '25px',
+            display: 'inline',
+            },
+            body: {
+            paddingTop: 0,
+            paddingBottom: 0,
+            },
+            h2: {
+            display: 'inline',
+            color: '#999',
+            },
         },
-        body: {
-          paddingTop: 0,
-          paddingBottom: 0,
+        infoBody: {
+            backgroundColor: '#eee',
+            padding: '0px 5px',
+            lineHeight: '2',
         },
-        h2: {
-          display: 'inline',
-          color: '#999',
         },
-      },
-      infoBody: {
-        backgroundColor: '#eee',
-        padding: '0px 5px',
-        lineHeight: '2',
-      },
-      propTables: []
-    },
-    inline: true,
-    source: false,
-  })
-);
-addDecorator(withKnobs);
+        inline: true,
+        source: false,
+    })
+    );
+    addDecorator(withKnobs);
 
-// automatically import all files ending in *.stories.tsx
-const req = require.context('../src/components/', true, /.stories.tsx$/);
+    // automatically import all files ending in *.stories.tsx
+    const req = require.context('../src/components/', true, /.stories.tsx$/);
 
-function loadStories() {
-    require('./welcomeStory');
-    return req.keys().forEach(req);
-    
-}
+    function loadStories() {
+        require('./welcomeStory');
+        return req.keys().forEach(req);
+        
+    }
 
-configure(loadStories, module)
+    configure(loadStories, module)
 
