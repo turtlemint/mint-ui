@@ -1,5 +1,4 @@
 import React from "react";
-import { withInfo } from "@storybook/addon-info";
 import Label from "./label";
 import { stories } from '../storybook';
 import { text, boolean } from '@storybook/addon-knobs/react';
