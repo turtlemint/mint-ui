@@ -1,8 +1,11 @@
 {
     "name": "tm-components",
     "version": "0.1.0",
-    "private": true,
+    "description": "react, react-ui, react-base-components, react-library, react-ui-library",
     "author": "Kushal V. Mahajan",
+    "license": "MIT",
+    "main": "dist/main.js",
+    "repository": "https://gitlab.com/turtlemint/tm-components.git",
     "dependencies": {
         "@babel/core": "7.4.3",
         "@svgr/webpack": "4.1.0",
@@ -73,6 +76,7 @@
         "start": "env-cmd -e development node scripts/start.js ",
         "build": "env-cmd -e production node scripts/build.js",
         "build:staging": "env-cmd -e staging node scripts/build.js",
+        "build:lib": "babel --out-dir dist src/components --extensions '.ts,.tsx'",
         "test": "node scripts/test.js",
         "lint": "tslint --project tsconfig.json",
         "lint-fix": "tslint --project tsconfig.json --fix",
@@ -164,7 +168,10 @@
     },
     "babel": {
         "presets": [
-            "react-app"
+            "@babel/preset-typescript"
+        ],
+        "ignore": [
+            "**.d.ts"
         ]
     },
     "sideEffects": [
