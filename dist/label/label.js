@@ -6,9 +6,7 @@ const Label = ({
   text,
   isActive
 }) => {
-  return <LabelWrapper text={text} isActive={isActive}>
-            <Labelfont>{startCase(text)}</Labelfont>
-        </LabelWrapper>;
+  return <span>{text}</span>
 };
 
 export default Label;
