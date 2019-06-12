@@ -1,6 +1,14 @@
 This project is a fork from [TM Boilerplate Base](https://gitlab.com/turtlemint/tm-boilerplate-base). To pull in latest changes `git pull upstream master` while being on master branch of your project.
 
-What's more in this from base repo?
+
+### Steps to run
+
+1. git clone https://gitlab.com/turtlemint/tm-components.git
+2. yarn install
+3. yarn start
+
+
+### What's more in this from base repo?
 
 1. Storybook configuration
 
