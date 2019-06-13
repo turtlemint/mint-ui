@@ -17,7 +17,7 @@
 
 #
 # This example tests that the commit message contains DS, exit 1 will fail the commit.
-test "" != "$(grep '\(HSA\|GITR\|AQ\|LINT\|DEVOPS\|NIN\|DP360\|GA\|HDFCBANK\|HEAL\|HIT\|INSIGHTS\|INT\|ISF\|LEAD\|LS\|MIN\|M20\|MP\|MOTOR\|MF\|NET\|PM\|PS\|PI\|QA\|REN\|SDO\|M30\|SMF\|SCS\|C3\|LI20\|MV\|SV\|SLP\|SP\|SS\|MIS\|TR\)-[0-9]\+' "$1")" || {
+test "" != "$(grep '\(HSA\|GITR\|AQ\|LINT\|DEVOPS\|NIN\|DP360\|GA\|HDFCBANK\|HEAL\|HIT\|INSIGHTS\|INT\|ISF\|LEAD\|LS\|MIN\|M20\|MP\|MOTOR\|MF\|NET\|PM\|PS\|PI\|QA\|REN\|SDO\|M30\|SMF\|SCS\|C3\|LI20\|MV\|SV\|SLP\|SP\|SS\|MIS\|TR2\)-[0-9]\+' "$1")" || {
   echo >&2 "ERROR: Commit message is missing Jira issue number."
   exit 1
 }
