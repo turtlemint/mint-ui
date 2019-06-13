@@ -76,7 +76,7 @@
         "start": "env-cmd -e development node scripts/start.js ",
         "build": "env-cmd -e production node scripts/build.js",
         "build:staging": "env-cmd -e staging node scripts/build.js",
-        "build:lib": "babel --out-dir dist src/components --extensions '.ts,.tsx'",
+        "build:lib": "rm -rf dist && babel --out-dir dist src/components --extensions '.ts,.tsx'",
         "test": "node scripts/test.js",
         "lint": "tslint --project tsconfig.json",
         "lint-fix": "tslint --project tsconfig.json --fix",
@@ -176,7 +176,7 @@
             "@babel/preset-typescript"
         ],
         "ignore": [
-            "**.d.ts"
+            "**/*.stories.tsx"
         ]
     },
     "sideEffects": [

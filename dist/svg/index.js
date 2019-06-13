@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = exports.Icon = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -35,5 +35,6 @@ var Icon = function Icon(_ref) {
   }));
 };
 
+exports.Icon = Icon;
 var _default = Icon;
 exports.default = _default;
