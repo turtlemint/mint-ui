@@ -4,7 +4,7 @@ import React from 'react';
 import { Labelfont, LabelWrapper } from './label.styles';
 import { ILabelProps } from './label.typings';
 
-const Label = ({ text, isActive }: ILabelProps) => {
+export const Label = ({ text, isActive }: ILabelProps) => {
     return (
         <LabelWrapper text={text} isActive={isActive}>
             <Labelfont>{startCase(text)}</Labelfont>
@@ -13,4 +13,4 @@ const Label = ({ text, isActive }: ILabelProps) => {
 
 };
 
-export default Label;
+// export default Label;
