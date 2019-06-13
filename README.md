@@ -1,11 +1,21 @@
 This project is a fork from [TM Boilerplate Base](https://gitlab.com/turtlemint/tm-boilerplate-base). To pull in latest changes `git pull upstream master` while being on master branch of your project.
 
 
-### Steps to run
+### Usage if installed from npm
+1. yarn add 'tm-components'
+2. import Label from 'tm-components/label';
+
+### Usage if installed from git url
+
+1. `yarn add https://gitlab.com/turtlemint/tm-components.git`
+2. import Label from 'tm-components/dist/label';
+
+### Contribution
 
 1. git clone https://gitlab.com/turtlemint/tm-components.git
 2. yarn install
 3. yarn start
+4. do your thing and submit a PR
 
 
 ### What's more in this from base repo?
@@ -63,5 +73,3 @@ This checks for bundle size and spins up a separate link for a view window
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-
