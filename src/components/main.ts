@@ -1,2 +1,2 @@
-export { default as Label } from './label';
-export { default as Icon } from './svg/icon';
+export { Label } from './label';
+export { Icon as SVGIcon } from './svg/icon';

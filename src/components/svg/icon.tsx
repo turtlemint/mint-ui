@@ -5,7 +5,7 @@ interface IconProps {
     icon: string;
     color?: string;
 }
-const Icon = ({ size = 24, icon, color = 'black' }: IconProps) => {
+export const Icon = ({ size = 24, icon, color = 'black' }: IconProps) => {
     const styles = {
         svg: {
             display: 'inline-block',
