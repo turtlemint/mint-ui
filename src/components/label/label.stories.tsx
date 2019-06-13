@@ -1,5 +1,5 @@
 import React from "react";
-import Label from "./label";
+import Label from ".";
 import { stories } from '../storybook';
 import { text, boolean } from '@storybook/addon-knobs/react';
 

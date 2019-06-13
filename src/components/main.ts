@@ -1,3 +1,2 @@
-export * from './label/label';
+export * from './label';
 export * from './svg/icon';
-export * from './storybook';
