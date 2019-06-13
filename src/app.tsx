@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './app.css';
 
 const App: React.FC = () => {
-    //test
     return (
         <div className="App">
             <header className="App-header">
