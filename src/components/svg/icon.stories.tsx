@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "./icon";
+import Icon from ".";
 import { stories } from '../storybook';
 import { text, number } from '@storybook/addon-knobs/react';
 
