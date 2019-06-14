@@ -176,7 +176,9 @@
             "@babel/preset-typescript"
         ],
         "ignore": [
-            "**/*.stories.tsx"
+            "**/*.stories.tsx",
+            "**/*.test.ts",
+            "**/*.test.js"
         ]
     },
     "sideEffects": [
