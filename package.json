@@ -5,6 +5,7 @@
     "author": "Kushal V. Mahajan",
     "license": "MIT",
     "main": "dist/main.js",
+    "types": "dist/index.d.ts",
     "repository": "https://gitlab.com/turtlemint/tm-components.git",
     "dependencies": {
         "@babel/core": "7.4.3",
