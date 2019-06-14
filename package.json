@@ -179,6 +179,13 @@
             "**/*.stories.tsx",
             "**/*.test.ts",
             "**/*.test.js"
+        ],
+        "overrides": [
+            {
+                "exclude": [
+                    "**/*.d.ts"
+                ]
+            }
         ]
     },
     "sideEffects": [

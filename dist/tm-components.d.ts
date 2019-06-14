@@ -1,0 +1,1 @@
+declare module 'tm-components/dist/label';
