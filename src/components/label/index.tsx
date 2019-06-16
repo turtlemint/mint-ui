@@ -1,8 +1,8 @@
-import startCase from 'lodash/fp/startCase';
 import React from 'react';
+import startCase from 'lodash/fp/startCase';
 import styled, { css } from 'styled-components';
 
-interface ILabelProps {
+export interface ILabelProps {
     text: string,
     isActive?: boolean
 }

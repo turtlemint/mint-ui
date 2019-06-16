@@ -1,1 +1,2 @@
-declare module 'tm-components/dist/label';
+export * from './label';
+export * from './svg';

@@ -4,7 +4,7 @@
     "description": "react, react-ui, react-base-components, react-library, react-ui-library",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
-    "main": "dist/main.js",
+    "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": "https://gitlab.com/turtlemint/tm-components.git",
     "dependencies": {
@@ -77,13 +77,14 @@
         "start": "env-cmd -e development node scripts/start.js ",
         "build": "env-cmd -e production node scripts/build.js",
         "build:staging": "env-cmd -e staging node scripts/build.js",
-        "build:lib": "rm -rf dist && babel --out-dir dist src/components --extensions '.ts,.tsx'",
+        "build:lib": "rm -rf dist && tsc",
         "test": "node scripts/test.js",
         "lint": "tslint --project tsconfig.json",
         "lint-fix": "tslint --project tsconfig.json --fix",
         "preinstall": "node src/tools/preinstall-script.js",
         "analyze": "source-map-explorer 'build/static/js/*.js'",
-        "storybook": "start-storybook -p 9001 -c .storybook"
+        "storybook": "start-storybook -p 9001 -c .storybook",
+        "prepublish": "npm test"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -196,5 +197,9 @@
         "hooks": {
             "pre-commit": "yarn run lint && yarn run lint-fix"
         }
-    }
+    },
+    "files": [
+        "README.MD",
+        "dist"
+    ]
 }
