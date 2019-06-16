@@ -171,25 +171,6 @@
             "jest-watch-typeahead/testname"
         ]
     },
-    "babel": {
-        "presets": [
-            "@babel/preset-env",
-            "@babel/preset-react",
-            "@babel/preset-typescript"
-        ],
-        "ignore": [
-            "**/*.stories.tsx",
-            "**/*.test.ts",
-            "**/*.test.js"
-        ],
-        "overrides": [
-            {
-                "exclude": [
-                    "**/*.d.ts"
-                ]
-            }
-        ]
-    },
     "sideEffects": [
         "./src/setupTests"
     ],
