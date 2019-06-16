@@ -18,7 +18,7 @@ const App: React.FC = () => {
                     rel="noopener noreferrer"
                 >
                     Learn React
-        </a>
+                </a>
             </header>
         </div>
     );
