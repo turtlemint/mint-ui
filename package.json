@@ -1,6 +1,6 @@
 {
     "name": "tm-components",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "react, react-ui, react-base-components, react-library, react-ui-library",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
@@ -73,6 +73,9 @@
         "webpack-manifest-plugin": "2.0.4",
         "workbox-webpack-plugin": "4.2.0"
     },
+    "publishConfig": {
+        "registry": "http://nexus.turtlemint.com/repository/npm-private/"
+    },
     "scripts": {
         "start": "env-cmd -e development node scripts/start.js ",
         "build": "env-cmd -e production node scripts/build.js",
@@ -81,7 +84,6 @@
         "test": "node scripts/test.js",
         "lint": "tslint --project tsconfig.json",
         "lint-fix": "tslint --project tsconfig.json --fix",
-        "preinstall": "node src/tools/preinstall-script.js",
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "storybook": "start-storybook -p 9001 -c .storybook"
     },
