@@ -1,6 +1,6 @@
 {
     "name": "tm-components",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "react, react-ui, react-base-components, react-library, react-ui-library",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
@@ -182,6 +182,6 @@
     },
     "files": [
         "README.MD",
-        "dist"
+        "dist/**"
     ]
 }
