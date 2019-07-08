@@ -6,7 +6,6 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.<br />
                     Running app in <i>{process.env.REACT_APP_NODE_ENV}</i> environment
