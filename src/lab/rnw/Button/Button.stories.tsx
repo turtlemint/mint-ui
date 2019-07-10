@@ -5,7 +5,7 @@ import { text, select } from '@storybook/addon-knobs/react';
 import Button from './';
 
 storiesOf('Components (Experimental)', module)
-.add('Button', () => {
+.add('Button (RNW)', () => {
   const label = text('label', 'Button')
   const type = select('type', ['primary', 'outline', 'plain', 'destructive'], 'primary');
   const size = select('size', ['regular', 'small'], 'regular');

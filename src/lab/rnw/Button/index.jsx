@@ -1,9 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
-import { theme } from '../../../styles/theme';
 
 const Button = ({ type, size, icon, label }) => (
   <View>
@@ -76,8 +74,4 @@ const ButtonLabel = styled(Text)`
   margin: ${({ size }) => size === 'regular' ? '14px 24px' : '10px 16px'};
 `;
 
-export default ({ ...props }) => (
-  <ThemeProvider theme={theme}>
-    <Button {...props} />
-  </ThemeProvider>
-);
+export default Button;
