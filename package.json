@@ -28,6 +28,7 @@
         "@testing-library/jest-dom": "^4.0.0",
         "@testing-library/react": "8.0.1",
         "@types/lodash": "^4.14.133",
+        "@types/react-redux": "^7.1.1",
         "@types/react-router-dom": "^4.3.3",
         "@types/styled-components": "4.1.16",
         "env-cmd": "9.0.2",
