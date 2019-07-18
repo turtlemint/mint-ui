@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './app.css';
+import Button from 'components/buttons'; // Absolute imports
 
 const App: React.FC = () => {
     return (
@@ -10,6 +10,7 @@ const App: React.FC = () => {
                     Edit <code>src/App.tsx</code> and save to reload.<br />
                     Running app in <i>{process.env.REACT_APP_NODE_ENV}</i> environment
                 </p>
+                <Button>Hello</Button>
                 <a
                     className="App-link"
                     href="https://reactjs.org"
