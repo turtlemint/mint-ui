@@ -1,6 +1,6 @@
 {
     "name": "tm-components",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "react, react-ui, react-base-components, react-library, react-ui-library",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
@@ -28,6 +28,7 @@
         "redux-observable": "1.1.0",
         "rxjs": "6.5.2",
         "styled-components": "4.2.1",
+        "tm-components": "https://gitlab.com/turtlemint/tm-components.git",
         "typescript": "3.5.3"
     },
     "devDependencies": {
