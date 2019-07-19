@@ -35,7 +35,7 @@ export type NativeButtonProps = {
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
-const Button: React.FC = ({
+const Button = ({
     btnType = 'primary',
     size = 'md',
     disabled = false,
