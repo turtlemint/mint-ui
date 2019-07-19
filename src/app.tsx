@@ -6,7 +6,7 @@ import Input from 'components/input';
 import Row from './components/grid/row';
 import Col from './components/grid/col';
 
-const App = () => {
+const App: React.FC<{}> = () => {
     return (
         <div className="App">
             <p className='text-center'>
