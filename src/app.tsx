@@ -10,17 +10,17 @@ const App = () => {
     return (
         <div className="App">
             <p className='text-center'>
-                <Row>
+                <Row className='mb15'>
                     <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis accusamus, officiis provident consectetur, vero molestias dicta ab eaque tempora temporibus, non doloremque vel soluta minus aspernatur nostrum commodi voluptatibus animi.</Col>
                 </Row>
-                <Row>
+                <Row className='mb15'>
                     <Col md={4}><Button btnType='outlined' onClick={() => { }}>Button Label</Button></Col>
                     <Col md={4}><Button btnType='outlined' disabled>Button Label</Button></Col>
                     <Col md={4}>
                         <Button btnType='outlined' disabled size='sm' onClick={() => { }}>Button Label</Button>
                     </Col>
                 </Row>
-                <Row>
+                <Row className='mb15'>
                     <Col sm={4}>
                         <Button onClick={() => { }}>Button Label</Button>
                     </Col>
@@ -31,7 +31,7 @@ const App = () => {
                         <Button disabled size='sm' onClick={() => { }}>Button Label</Button>
                     </Col>
                 </Row>
-                <Row>
+                <Row className='mb15'>
                     <Col sm={6}>
                         <Button btnType='link' href='#'>Button Label</Button>
                     </Col>
@@ -39,7 +39,7 @@ const App = () => {
                         <Button id='#disabled-link' name='btn-link-disabled' btnType='link' className='alpha' href='#' disabled>Button Link Disabled</Button>
                     </Col>
                 </Row>
-                <Row>
+                <Row className='mb15'>
                     <Col sm={6}>
                         <Button btnType='danger' href='#'>Button Danger</Button>
                     </Col>
@@ -47,7 +47,7 @@ const App = () => {
                         <Button btnType='danger' href='#' disabled>Button Danger</Button>
                     </Col>
                 </Row>
-                <Row>
+                <Row className='mb15'>
                     <Col lg={3}>
                         <Button icon={ICONS.ALARM} />
                     </Col>
@@ -57,7 +57,7 @@ const App = () => {
                     <Col lg={3}> COl 3 Grid</Col>
                     <Col lg={3}> COl 3 Grid</Col>
                 </Row>
-                <Row>
+                <Row className='mb15'>
                     <Col xl={4}>
                         <Input
                             placeholder='Placeholder'
