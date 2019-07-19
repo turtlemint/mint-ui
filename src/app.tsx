@@ -3,8 +3,8 @@ import './app.css';
 import Button from 'components/button';
 import { ICONS } from 'components/_utils/icons';
 import Input from 'components/input';
-import Row from './components/grid/row';
-import Col from './components/grid/col';
+import Row from 'components/grid/row';
+import Col from 'components/grid/col';
 
 const App: React.FC<{}> = () => {
     return (
@@ -54,8 +54,8 @@ const App: React.FC<{}> = () => {
                     <Col lg={3}>
                         <Button icon={ICONS.ALARM}>Icon button</Button>
                     </Col>
-                    <Col lg={3}> COl 3 Grid</Col>
-                    <Col lg={3}> COl 3 Grid</Col>
+                    <Col lg={3}> Col 3 Grid</Col>
+                    <Col lg={3}> Col 3 Grid</Col>
                 </Row>
                 <Row className='mb15'>
                     <Col xl={4}>
