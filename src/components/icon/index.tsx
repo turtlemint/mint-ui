@@ -1,21 +1,17 @@
 import React from 'react';
-import PALETTE from '../_utils/colors';
 
 interface IconProps {
     size?: number;
     icon: string;
-    color?: string;
     className?: string
+    children?: SVGAElement
 }
-const Icon = ({ size = 24, icon, color = PALETTE.WHITE, ...rest }: IconProps) => {
+const Icon = ({ size = 24, icon, children, ...rest }: IconProps) => {
     const styles = {
         svg: {
             display: 'inline-block',
             verticalAlign: 'middle',
-        },
-        path: {
-            fill: color,
-        },
+        }
     };
     return (
         <svg
@@ -23,11 +19,12 @@ const Icon = ({ size = 24, icon, color = PALETTE.WHITE, ...rest }: IconProps) =>
             height={`${size}px`}
             viewBox='0 0 24 24'
             style={styles.svg}
+            dangerouslySetInnerHTML={{ __html: icon }}
             {...rest}>
-            <path
+            {/* <path
                 d={icon}
-                style={styles.path} />
-        </svg>
+                style={styles.path} /> */}
+        </svg >
     );
 };
 
