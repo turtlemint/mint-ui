@@ -5,11 +5,13 @@ import { ICONS } from 'components/_utils/icons';
 import Input from 'components/input';
 import Row from 'components/grid/row';
 import Col from 'components/grid/col';
+import Checkbox from 'components/checkbox';
+
 
 const App: React.FC<{}> = () => {
     return (
         <div className="App">
-            <p className='text-center'>
+            <div className='text-center'>
                 <Row className='mb15'>
                     <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis accusamus, officiis provident consectetur, vero molestias dicta ab eaque tempora temporibus, non doloremque vel soluta minus aspernatur nostrum commodi voluptatibus animi.</Col>
                 </Row>
@@ -81,9 +83,15 @@ const App: React.FC<{}> = () => {
                     </Col>
                 </Row>
 
-                {/* <Input.TextArea /> */}
-                {/* <Input placeholder='Placeholder' label='Label of the field/Regular' error='Numbers are not allowed' /> */}
-            </p>
+                <Row className='mb15'>
+                    <Col xl={4}>
+                        <Checkbox>
+                            Name on the previous policy is of someone else.
+                        </Checkbox>
+                    </Col>
+
+                </Row>
+            </div>
         </div>
     );
 }
