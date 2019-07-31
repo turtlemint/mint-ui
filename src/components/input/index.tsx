@@ -3,6 +3,7 @@ import TextArea from './textarea';
 import { StyledInput, StyledLabel, StyledError, HelpText, Wrapper } from './styles';
 
 export interface InputProps {
+    type?: string;
     placeholder?: string;
     label?: string;
     error?: string;
@@ -10,9 +11,10 @@ export interface InputProps {
     block?: boolean;
     disabled?: boolean;
     onChange?: React.ChangeEventHandler
+    onBlur?: React.FocusEventHandler
 }
 
-const Input = ({ placeholder, label, error, helpText, block, disabled, onChange, ...rest }: InputProps) => {
+const Input = ({ type = 'text', placeholder, label, error, helpText, block, disabled, onChange, onBlur }: InputProps) => {
     const handleChange: React.ChangeEventHandler = e => {
         if (onChange) {
             onChange(e);
@@ -23,7 +25,7 @@ const Input = ({ placeholder, label, error, helpText, block, disabled, onChange,
             <StyledLabel error={error}>
                 <label>{label}</label>
             </StyledLabel>
-            <StyledInput type='text' placeholder={placeholder} error={error} disabled={disabled} {...rest} onChange={handleChange} />
+            <StyledInput type={type} placeholder={placeholder} error={error} disabled={disabled} onBlur={onBlur} onChange={handleChange} />
             {error ? (
                 <StyledError>
                     <label>{error}</label>
