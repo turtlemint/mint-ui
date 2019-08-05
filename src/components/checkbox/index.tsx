@@ -44,7 +44,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     children,
     style,
     indeterminate = false,
-    color = PALETTE.PRIMARY,
+    color = PALETTE.BLACK,
     size = 24
 }: CheckboxProps) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

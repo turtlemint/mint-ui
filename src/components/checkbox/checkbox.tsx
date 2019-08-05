@@ -1,8 +1,9 @@
 import React from 'react';
 
 interface CheckboxProps {
-    size: number;
-    color: string;
+    size?: number;
+    color?: string;
+    outlineColor?: string;
     checked?: boolean;
     indeterminate?: boolean;
 };
@@ -10,6 +11,7 @@ interface CheckboxProps {
 export const CheckboxIcon: React.FC<CheckboxProps> = ({
     size = 24,
     color,
+    outlineColor,
     checked = false,
     indeterminate = false
 }: CheckboxProps) => {
@@ -32,7 +34,7 @@ export const CheckboxIcon: React.FC<CheckboxProps> = ({
             {
                 !checked ? (
                     <g style={styles.checkedGroup}>
-                        <path fill={color} d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
+                        <path fill={outlineColor} d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
                         <path d="M0 0h24v24H0z" fill="none" />
                     </g>
                 ) : null
