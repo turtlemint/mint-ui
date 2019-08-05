@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { BREAKPOINTS } from "../_utils/breakpoints";
-import { tupleNum } from "../_utils/type";
+import { BREAKPOINTS } from "_utils/breakpoints";
+import { tupleNum } from "_utils/type";
 
 const getColWidth = (gridSpan: number): string | null => {
     if (!gridSpan) return null;
