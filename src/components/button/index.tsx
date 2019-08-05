@@ -93,7 +93,7 @@ const Button: React.FC<ButtonProps> = ({
                                             className={`${prefixCls}-${className}`}
                                             {...rest}
                                         >
-                                            {IconComponent ? <IconComponent color={PALETTE.WHITE} size={16} /> : null}
+                                            {IconComponent ? <IconComponent outlineColor={PALETTE.WHITE} size={16} /> : null}
                                             <span style={{
                                                 verticalAlign: 'middle',
                                                 marginLeft: '8px'

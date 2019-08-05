@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './app.css';
 import Button from 'components/button';
-import { ICONS } from 'components/_utils/icons';
 import Input from 'components/input';
 import Row from 'components/grid/row';
 import Col from 'components/grid/col';
 import Checkbox from 'components/checkbox';
-
+import PALETTE from '_utils/colors';
 
 const App: React.FC<{}> = () => {
+    const [checked, setChecked] = useState(false);
+    const handleCheckboxChange = () => {
+        setChecked(!checked)
+    }
     return (
         <div className="App">
             <div className='text-center'>
@@ -51,10 +54,12 @@ const App: React.FC<{}> = () => {
                 </Row>
                 <Row className='mb15'>
                     <Col lg={3}>
-                        <Button icon={ICONS.ALARM} />
+                        <Button size='sm' icon='checkbox' />
                     </Col>
                     <Col lg={3}>
-                        <Button icon={ICONS.ALARM}>Icon button</Button>
+                        <Button size='sm' icon='checkbox'>
+                            Icon button
+                        </Button>
                     </Col>
                     <Col lg={3}> Col 3 Grid</Col>
                     <Col lg={3}> Col 3 Grid</Col>
@@ -82,14 +87,12 @@ const App: React.FC<{}> = () => {
                             block={true} />
                     </Col>
                 </Row>
-
                 <Row className='mb15'>
                     <Col xl={4}>
-                        <Checkbox>
+                        <Checkbox checked={checked} indeterminate={true} onChange={handleCheckboxChange} color={PALETTE.PRIMARY}>
                             Name on the previous policy is of someone else.
                         </Checkbox>
                     </Col>
-
                 </Row>
             </div>
         </div>
