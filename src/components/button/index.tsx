@@ -1,7 +1,8 @@
 import React from 'react';
-import { Omit, tuple } from '../_utils/type';
+import { Omit, tuple } from '_utils/type';
 import { StyledButton, StyledLink } from './styles';
-import Icon from '../icon';
+import { ICONS } from '_utils/icons';
+import PALETTE from '_utils/colors';
 
 const ButtonTypes = tuple('outlined', 'primary', 'danger', 'link');
 export type ButtonType = (typeof ButtonTypes)[number];
@@ -37,7 +38,7 @@ export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 const Button: React.FC<ButtonProps> = ({
     btnType = 'primary',
-    size = 'md',
+    size = 'sm',
     disabled = false,
     block = false,
     icon = '',
@@ -58,6 +59,7 @@ const Button: React.FC<ButtonProps> = ({
         }
         onClick(e);
     }
+    const IconComponent = ICONS[icon];
     return (
         <>
             {
@@ -91,10 +93,12 @@ const Button: React.FC<ButtonProps> = ({
                                             className={`${prefixCls}-${className}`}
                                             {...rest}
                                         >
-                                            {icon ? <Icon className='mr5' icon={icon} /> : null}
+                                            {IconComponent ? <IconComponent color={PALETTE.WHITE} size={16} /> : null}
                                             <span style={{
-                                                'verticalAlign': 'middle'
+                                                verticalAlign: 'middle',
+                                                marginLeft: '8px'
                                             }}>
+
                                                 {children}
                                             </span>
                                         </StyledButton>
