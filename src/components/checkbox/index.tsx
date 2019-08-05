@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import { PALETTE } from '../_utils/colors';
-import { ICONS } from '../_utils/icons';
-import Icon from "components/icon";
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import { PALETTE } from '_utils/colors';
+import { CheckboxIcon } from './checkbox';
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   // Hide checkbox visually but remain accessible to screen readers.
@@ -19,26 +18,6 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   width: 1px;
 `;
 
-
-const StyledCheckbox = styled.div<{ checked: boolean }>`
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background: transparent;
-  border: 2px solid ${PALETTE.BLACK};
-  opacity: 0.64;
-  border-radius: 3px;
-  transition: all 150ms;
-  ${props => props.checked && css`
-    background: ${PALETTE.PRIMARY};
-    opacity: 1;
-    border: 2px solid transparent;
-  `};
-//   ${HiddenCheckbox}:focus + & {
-//     box-shadow: 0 0 0 3px ${PALETTE.PRIMARY_LIGHT};
-//   };
-`;
-
 const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
@@ -47,41 +26,51 @@ const CheckboxContainer = styled.div`
 
 interface CheckboxProps {
     checked?: boolean;
-    defaultChecked?: boolean;
     disabled?: boolean;
     indeterminate?: boolean;
-    onChange?: (val: boolean) => void;
+    onChange?: () => void;
     children?: React.ReactNode,
     className?: string;
     style?: React.CSSProperties;
+    color?: string;
+    size?: number
 }
 
-const Checkbox = ({
+const Checkbox: React.FC<CheckboxProps> = ({
     checked = false,
     disabled = false,
-    onChange = () => { },
+    onChange = (): void => { },
     className = '',
     children,
-    style
-}: Omit<CheckboxProps, 'indeterminate' | 'defaultChecked'>) => {
+    style,
+    indeterminate = false,
+    color = PALETTE.PRIMARY,
+    size = 24
+}: CheckboxProps) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setIsChecked(e.target.checked);
-        onChange(e.target.checked);
+        onChange();
     }
-    const [isChecked, setIsChecked] = useState(checked);
+    const inputEl = useRef<HTMLInputElement>(null);
+    useEffect(() => {
+        if (inputEl.current) {
+            inputEl.current.indeterminate = indeterminate;
+        }
+    }, [indeterminate]);
 
     return (
         <label>
             <CheckboxContainer className={className} style={style}>
-                <HiddenCheckbox checked={isChecked} onChange={handleChange} disabled={disabled} />
-                <StyledCheckbox checked={isChecked}>
-                    {isChecked ? <Icon
-                        size={24}
-                        icon={ICONS.CHECKMARK}
-                    /> : null}
-                </StyledCheckbox>
+                <HiddenCheckbox checked={checked} onChange={handleChange} disabled={disabled} ref={inputEl} />
+                <CheckboxIcon
+                    size={size}
+                    color={color}
+                    checked={checked}
+                    indeterminate={indeterminate}
+                />
             </CheckboxContainer>
-            <span style={{ marginLeft: 8 }}>{children}</span>
+            {
+                children !== undefined && <span style={{ marginLeft: 8 }}>{children}</span>
+            }
         </label>
     )
 }
