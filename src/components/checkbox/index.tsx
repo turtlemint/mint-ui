@@ -23,12 +23,11 @@ const CheckboxContainer = styled.div`
   vertical-align: middle;
 `;
 
-
 interface CheckboxProps {
     checked?: boolean;
     disabled?: boolean;
     indeterminate?: boolean;
-    onChange?: () => void;
+    onChange?: (val: boolean) => void;
     children?: React.ReactNode,
     className?: string;
     style?: React.CSSProperties;
@@ -48,7 +47,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     size = 24
 }: CheckboxProps) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange();
+        onChange(e.target.checked);
     }
     const inputEl = useRef<HTMLInputElement>(null);
     useEffect(() => {
