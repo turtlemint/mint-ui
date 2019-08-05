@@ -8,6 +8,8 @@ import Checkbox from 'components/checkbox';
 import PALETTE from '_utils/colors';
 
 const App: React.FC<{}> = () => {
+    // common change handler and variables kept for demo purposes only. 
+    // Please don't take any inspiration :smile_cat:
     const [checked, setChecked] = useState(false);
     const handleCheckboxChange = () => {
         setChecked(!checked)
@@ -88,6 +90,11 @@ const App: React.FC<{}> = () => {
                     </Col>
                 </Row>
                 <Row className='mb15'>
+                    <Col xl={4}>
+                        <Checkbox checked={checked} onChange={handleCheckboxChange} color={PALETTE.PRIMARY}>
+                            Name on the previous policy is of someone else.
+                        </Checkbox>
+                    </Col>
                     <Col xl={4}>
                         <Checkbox checked={checked} indeterminate={true} onChange={handleCheckboxChange} color={PALETTE.PRIMARY}>
                             Name on the previous policy is of someone else.
