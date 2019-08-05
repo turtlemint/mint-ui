@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
-import PALETTE from '_utils/colors';
 import { InputProps } from './index';
-import { Omit } from '_utils/type';
+import PALETTE from '../utils/colors';
+import { Omit } from '../utils/type';
+
 export const Wrapper = styled.div<Pick<InputProps, 'block'>>`
     width: ${props => props.block ? '100%' : '328px'};
     text-align: left;

@@ -18,7 +18,7 @@
         "strictFunctionTypes": true,
         "strictNullChecks": true,
         "noUnusedLocals": true,
-        "noImplicitReturns": true
+        "noImplicitReturns": true,
     },
     "include": [
         "src/components"

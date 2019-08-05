@@ -1,8 +1,8 @@
 import React from 'react';
-import { Omit, tuple } from '_utils/type';
+import { Omit, tuple } from '../utils/type';
 import { StyledButton, StyledLink } from './styles';
-import { ICONS } from '_utils/icons';
-import PALETTE from '_utils/colors';
+import { ICONS } from '../utils/icons';
+import PALETTE from '../utils/colors';
 
 const ButtonTypes = tuple('outlined', 'primary', 'danger', 'link');
 export type ButtonType = (typeof ButtonTypes)[number];

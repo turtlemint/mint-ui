@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ButtonProps } from './index';
-import PALETTE from '_utils/colors';
+import PALETTE from '../utils/colors';
 
 const SharedStyles = css<ButtonProps>`
     font-size: 16px;
