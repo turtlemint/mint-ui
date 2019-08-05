@@ -11,8 +11,8 @@ const App: React.FC<{}> = () => {
     // common change handler and variables kept for demo purposes only. 
     // Please don't take any inspiration :smile_cat:
     const [checked, setChecked] = useState(false);
-    const handleCheckboxChange = () => {
-        setChecked(!checked)
+    const handleCheckboxChange = (val: boolean) => {
+        setChecked(val)
     }
     return (
         <div className="App">
