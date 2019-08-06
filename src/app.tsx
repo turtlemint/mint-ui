@@ -15,6 +15,9 @@ const App: React.FC<{}> = () => {
         console.log('val', val, typeof (val));
         setChecked(val)
     }
+    const handleChange = (val: string) => {
+        console.log(val);
+    }
     return (
         <div className="App">
             <div className='text-center'>
@@ -72,7 +75,8 @@ const App: React.FC<{}> = () => {
                         <Input
                             placeholder='Placeholder'
                             label='Label of the field/Regular'
-                            error='Numbers are not allowed. This error can flow into next line as well' />
+                            error='Numbers are not allowed. This error can flow into next line as well'
+                            onChange={handleChange} />
                     </Col>
                     <Col xl={4}>
                         <Input

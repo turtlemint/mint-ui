@@ -10,14 +10,14 @@ export interface InputProps {
     helpText?: string;
     block?: boolean;
     disabled?: boolean;
-    onChange?: React.ChangeEventHandler
+    onChange?: (val: string) => void
     onBlur?: React.FocusEventHandler
 }
 
 const Input = ({ type = 'text', placeholder, label, error, helpText, block, disabled, onChange, onBlur }: InputProps) => {
-    const handleChange: React.ChangeEventHandler = e => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
-            onChange(e);
+            onChange(e.target.value);
         }
     }
     return (
