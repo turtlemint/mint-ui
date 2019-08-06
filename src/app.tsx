@@ -12,6 +12,7 @@ const App: React.FC<{}> = () => {
     // Please don't take any inspiration :smile_cat:
     const [checked, setChecked] = useState(false);
     const handleCheckboxChange = (val: boolean) => {
+        console.log('val', val, typeof (val));
         setChecked(val)
     }
     return (
@@ -96,7 +97,7 @@ const App: React.FC<{}> = () => {
                         </Checkbox>
                     </Col>
                     <Col xl={4}>
-                        <Checkbox checked={checked} indeterminate={true} onChange={handleCheckboxChange} color={PALETTE.PRIMARY}>
+                        <Checkbox checked={checked} indeterminate={true} onChange={handleCheckboxChange}>
                             Name on the previous policy is of someone else.
                         </Checkbox>
                     </Col>

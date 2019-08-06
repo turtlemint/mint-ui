@@ -1,17 +1,18 @@
 import React from 'react';
+import PALETTE from 'components/utils/colors';
 
 interface CheckboxProps {
     size?: number;
     color?: string;
     outlineColor?: string;
-    checked?: boolean;
+    checked: boolean;
     indeterminate?: boolean;
 };
 
 export const CheckboxIcon: React.FC<CheckboxProps> = ({
     size = 24,
-    color,
-    outlineColor,
+    color = PALETTE.PRIMARY,
+    outlineColor = PALETTE.BLACK,
     checked = false,
     indeterminate = false
 }: CheckboxProps) => {

@@ -24,7 +24,7 @@ const CheckboxContainer = styled.div`
 `;
 
 interface CheckboxProps {
-    checked?: boolean;
+    checked: boolean;
     disabled?: boolean;
     indeterminate?: boolean;
     onChange?: (val: boolean) => void;
@@ -32,18 +32,20 @@ interface CheckboxProps {
     className?: string;
     style?: React.CSSProperties;
     color?: string;
+    outlineColor?: string;
     size?: number
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
     checked = false,
     disabled = false,
-    onChange = (): void => { },
+    onChange = (val: boolean): void => { },
     className = '',
     children,
     style,
     indeterminate = false,
-    color = PALETTE.BLACK,
+    color = PALETTE.PRIMARY,
+    outlineColor = PALETTE.BLACK,
     size = 24
 }: CheckboxProps) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +57,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
             inputEl.current.indeterminate = indeterminate;
         }
     }, [indeterminate]);
-
     return (
         <label>
             <CheckboxContainer className={className} style={style}>
@@ -63,6 +64,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
                 <CheckboxIcon
                     size={size}
                     color={color}
+                    outlineColor={outlineColor}
                     checked={checked}
                     indeterminate={indeterminate}
                 />
