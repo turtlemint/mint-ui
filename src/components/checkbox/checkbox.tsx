@@ -1,5 +1,5 @@
 import React from 'react';
-import PALETTE from 'components/utils/colors';
+import PALETTE from '../utils/colors';
 
 interface CheckboxProps {
     size?: number;
