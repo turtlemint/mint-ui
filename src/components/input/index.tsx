@@ -1,5 +1,5 @@
 import React from 'react';
-import TextArea from './textarea';
+// import TextArea from './textarea';
 import { StyledInput, StyledLabel, StyledError, HelpText, Wrapper } from './styles';
 
 export interface InputProps {
@@ -14,7 +14,7 @@ export interface InputProps {
     onBlur?: React.FocusEventHandler;
 }
 
-const Input = ({ type = 'text', placeholder, label, error, helpText, block, disabled, onChange, onBlur, ...rest }: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
+const Input: React.FC<InputProps & React.InputHTMLAttributes<HTMLInputElement>> = ({ type = 'text', placeholder, label, error, helpText, block, disabled, onChange, onBlur, ...rest }: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
             onChange(e.target.value);
@@ -37,6 +37,6 @@ const Input = ({ type = 'text', placeholder, label, error, helpText, block, disa
         </Wrapper>
     )
 }
-Input.TextArea = TextArea;
+// Input.TextArea = TextArea;
 
 export default Input;
