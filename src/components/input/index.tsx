@@ -14,7 +14,17 @@ export interface InputProps {
     onBlur?: React.FocusEventHandler;
 }
 
-const Input: React.FC<InputProps & React.InputHTMLAttributes<HTMLInputElement>> = ({ type = 'text', placeholder, label, error, helpText, block, disabled, onChange, onBlur, ...rest }: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
+const Input: React.FC<InputProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
+    type = 'text',
+    placeholder,
+    label,
+    error,
+    helpText,
+    block = false,
+    disabled = false,
+    onChange,
+    onBlur,
+    ...rest }: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
             onChange(e.target.value);
