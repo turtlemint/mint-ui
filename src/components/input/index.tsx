@@ -4,6 +4,7 @@ import { StyledInput, StyledLabel, StyledError, HelpText, Wrapper } from './styl
 
 export interface InputProps {
     type?: string;
+    value: string | number;
     placeholder?: string;
     label?: string;
     error?: string;
@@ -24,6 +25,7 @@ const Input: React.FC<InputProps & Omit<React.InputHTMLAttributes<HTMLInputEleme
     disabled = false,
     onChange,
     onBlur,
+    value,
     ...rest }: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
@@ -42,6 +44,7 @@ const Input: React.FC<InputProps & Omit<React.InputHTMLAttributes<HTMLInputEleme
                 disabled={disabled}
                 onBlur={onBlur}
                 onChange={handleChange}
+                value={value}
                 {...rest} />
             {error ? (
                 <StyledError>

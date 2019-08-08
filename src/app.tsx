@@ -75,17 +75,20 @@ const App: React.FC<{}> = () => {
                             placeholder='Placeholder'
                             label='Label of the field/Regular'
                             error='Numbers are not allowed. This error can flow into next line as well'
-                            onChange={handleChange} />
+                            onChange={handleChange}
+                            value='' />
                     </Col>
                     <Col xl={4}>
                         <Input
                             placeholder='Placeholder'
                             label='Label of the field/Regular'
                             helpText='Help text can go here'
-                            block={true} />
+                            block={true}
+                            value='Default Value' />
                     </Col>
                     <Col xl={4}>
                         <Input
+                            value=''
                             disabled
                             placeholder='Placeholder'
                             label='Label of the field/Regular'
