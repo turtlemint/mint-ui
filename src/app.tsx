@@ -17,6 +17,8 @@ const App: React.FC<{}> = () => {
     const handleChange = (val: string) => {
         console.log(val);
     }
+    const [inputValue, setInputValue] = useState('Default Value');
+
     return (
         <div className="App">
             <div className='text-center'>
@@ -84,7 +86,10 @@ const App: React.FC<{}> = () => {
                             label='Label of the field/Regular'
                             helpText='Help text can go here'
                             block={true}
-                            value='Default Value' />
+                            value={inputValue}
+                            onChange={(val: string) => {
+                                setInputValue(val);
+                            }} />
                     </Col>
                     <Col xl={4}>
                         <Input
