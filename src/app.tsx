@@ -15,7 +15,7 @@ const App: React.FC<{}> = () => {
         setChecked(val)
     }
     const handleChange = (val: string) => {
-        console.log(val);
+        setInputValue(val);
     }
     const [inputValue, setInputValue] = useState('Default Value');
 
@@ -78,7 +78,7 @@ const App: React.FC<{}> = () => {
                             label='Label of the field/Regular'
                             error='Numbers are not allowed. This error can flow into next line as well'
                             onChange={handleChange}
-                            value='' />
+                            value={inputValue} />
                     </Col>
                     <Col xl={4}>
                         <Input
