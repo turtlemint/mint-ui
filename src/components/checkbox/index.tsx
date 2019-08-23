@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { PALETTE } from '../utils/colors';
+import { PALETTE } from '__utils/colors';
 import { CheckboxIcon } from './checkbox';
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
