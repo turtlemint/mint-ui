@@ -1,8 +1,3 @@
-# tm-components
-
-This project is a fork from [TM Boilerplate Base](https://gitlab.com/turtlemint/tm-boilerplate-base). To pull in latest changes `git pull upstream master` while being on master branch of your project.
-
-
 ### Usage if installed from npm
 1. yarn add 'tm-components'
 2. import Label from 'tm-components/label';
