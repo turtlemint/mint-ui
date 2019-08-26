@@ -7,6 +7,10 @@
 1. `yarn add https://gitlab.com/turtlemint/tm-components.git`
 2. `import Label from 'tm-components/dist/label';`
 
+### Common Issue with git url
+1. fatal: could not read Username for 'https://gitlab.com': terminal prompts disabled
+Solution - Run this command `git config --global --add url."git@gitlab.com:".insteadOf "https://gitlab.com"`
+
 ### Contribution
 
 1. git clone https://gitlab.com/turtlemint/tm-components.git
