@@ -24,6 +24,9 @@ const App: React.FC<{}> = () => {
             <div className='text-center'>
                 <Row className='mb15'>
                     <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis accusamus, officiis provident consectetur, vero molestias dicta ab eaque tempora temporibus, non doloremque vel soluta minus aspernatur nostrum commodi voluptatibus animi.</Col>
+                    <Col xs={6} sm={4} md={3} lg={3}>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, nostrum.
+                    </Col>
                 </Row>
                 <Row className='mb15'>
                     <Col md={4}><Button btnType='outlined' onClick={() => { }}>Button Label</Button></Col>

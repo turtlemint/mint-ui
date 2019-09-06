@@ -96,7 +96,7 @@ const Button: React.FC<ButtonProps> = ({
                                             {IconComponent ? <IconComponent outlineColor={PALETTE.WHITE} size={16} /> : null}
                                             <span style={{
                                                 verticalAlign: 'middle',
-                                                marginLeft: '8px'
+                                                marginLeft: icon ? '8px' : '0px'
                                             }}>
 
                                                 {children}

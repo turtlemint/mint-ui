@@ -9,20 +9,20 @@ const getColWidth = (gridSpan: number): string | null => {
 };
 
 const ColValues = tupleNum(12, 6, 4, 3);
-export type ColValueType = (typeof ColValues)[number];
+export type ColValueType = (typeof ColValues)[number] | undefined;
 
 interface IColProps {
-    xs: ColValueType;
-    sm: ColValueType;
-    md: ColValueType;
-    lg: ColValueType;
-    xl: ColValueType;
-    xsOffset: ColValueType;
-    smOffset: ColValueType;
-    mdOffset: ColValueType;
-    lgOffset: ColValueType;
-    xlOffset: ColValueType;
-    align: string;
+    xs?: ColValueType;
+    sm?: ColValueType;
+    md?: ColValueType;
+    lg?: ColValueType;
+    xl?: ColValueType;
+    xsOffset?: ColValueType;
+    smOffset?: ColValueType;
+    mdOffset?: ColValueType;
+    lgOffset?: ColValueType;
+    xlOffset?: ColValueType;
+    align?: string;
 };
 
 const Col = styled.div<Partial<IColProps>>`
