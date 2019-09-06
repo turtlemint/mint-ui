@@ -8,7 +8,7 @@ const getColWidth = (gridSpan: number): string | null => {
     return `${width.toFixed(8)}%`;
 };
 
-const ColValues = tupleNum(12, 6, 4, 3);
+const ColValues = tupleNum(12, 9, 8, 6, 4, 3);
 export type ColValueType = (typeof ColValues)[number] | undefined;
 
 interface IColProps {
