@@ -1,8 +1,3 @@
-# tm-components
-
-This project is a fork from [TM Boilerplate Base](https://gitlab.com/turtlemint/tm-boilerplate-base). To pull in latest changes `git pull upstream master` while being on master branch of your project.
-
-
 ### Usage if installed from npm
 1. yarn add 'tm-components'
 2. import Label from 'tm-components/label';
@@ -11,6 +6,12 @@ This project is a fork from [TM Boilerplate Base](https://gitlab.com/turtlemint/
 
 1. `yarn add https://gitlab.com/turtlemint/tm-components.git`
 2. `import Label from 'tm-components/dist/label';`
+
+### Common Issue with git url
+
+Issue - fatal: could not read Username for 'https://gitlab.com': terminal prompts disabled
+
+Solution - Run this command `git config --global --add url."git@gitlab.com:".insteadOf "https://gitlab.com"`
 
 ### Contribution
 
