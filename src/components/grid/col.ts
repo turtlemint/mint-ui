@@ -11,21 +11,21 @@ const getColWidth = (gridSpan: number): string | null => {
 const ColValues = tupleNum(12, 9, 8, 6, 4, 3);
 export type ColValueType = (typeof ColValues)[number];
 
-interface IColProps {
-    xs?: ColValueType;
-    sm?: ColValueType;
-    md?: ColValueType;
-    lg?: ColValueType;
-    xl?: ColValueType;
-    xsOffset?: ColValueType;
-    smOffset?: ColValueType;
-    mdOffset?: ColValueType;
-    lgOffset?: ColValueType;
-    xlOffset?: ColValueType;
-    align?: string;
+interface ColProps {
+    xs: ColValueType;
+    sm: ColValueType;
+    md: ColValueType;
+    lg: ColValueType;
+    xl: ColValueType;
+    xsOffset: ColValueType;
+    smOffset: ColValueType;
+    mdOffset: ColValueType;
+    lgOffset: ColValueType;
+    xlOffset: ColValueType;
+    align: string;
 };
 
-const Col = styled.div<Partial<IColProps>>`
+const Col = styled.div<Partial<ColProps>>`
     padding-left: 15px;
     padding-right: 15px;
     min-height: 1px;
