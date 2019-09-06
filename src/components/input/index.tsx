@@ -1,6 +1,7 @@
 import React from 'react';
 // import TextArea from './textarea';
 import { StyledInput, StyledLabel, StyledError, HelpText, Wrapper } from './styles';
+import { Omit } from '__utils/type';
 
 export interface InputProps {
     type?: string;
