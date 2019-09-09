@@ -1,6 +1,5 @@
 export enum BREAKPOINTS {
-    SM = 576,
-    MD = 768,
-    LG = 992,
-    XL = 1200
+    SM = 768,
+    MD = 1024,
+    LG = 1440
 };

@@ -16,13 +16,15 @@ interface ColProps {
     sm: ColValueType;
     md: ColValueType;
     lg: ColValueType;
-    xl: ColValueType;
     xsOffset: ColValueType;
     smOffset: ColValueType;
     mdOffset: ColValueType;
     lgOffset: ColValueType;
-    xlOffset: ColValueType;
     align: string;
+    xsHidden: boolean;
+    smHidden: boolean;
+    mdHidden: boolean;
+    lgHidden: boolean
 };
 
 const Col = styled.div<Partial<ColProps>>`
@@ -32,54 +34,49 @@ const Col = styled.div<Partial<ColProps>>`
     float: left;
     width: 100%;
     text-align: ${props => (props.align ? props.align : 'left')};
-    ${({ xs }) => xs && css`
+    ${({ xsHidden = false }) => xsHidden && css`
+        display: none;
+    `};
+    ${({ xs, xsHidden }) => xs && !xsHidden && css`
         width: ${getColWidth(xs)}
     `};
+    ${({ xsOffset, xsHidden }) => xsOffset && !xsHidden && css`
+        margin-left: ${getColWidth(xsOffset)};
+    `};
+    
 
     @media(min-width: ${ BREAKPOINTS.SM}px) {
-        ${ ({ sm }) => sm && css`
-            width: ${getColWidth(sm)}
+        ${({ smHidden = false }) => smHidden && css`
+            display: none;
         `};
+        ${ ({ sm, smHidden }) => sm && !smHidden && css`
+            width: ${getColWidth(sm)};
+        `};
+        ${({ smOffset, smHidden }) => smOffset && !smHidden && css`
+            margin-left: ${getColWidth(smOffset)};
+        `};
+       
     }
     @media(min-width: ${ BREAKPOINTS.MD}px) {
-        ${ ({ md }) => md && css`
+        ${({ mdHidden = false }) => mdHidden && css`
+            display: none;
+        `};
+        ${({ md, mdHidden }) => md && !mdHidden && css`
             width: ${getColWidth(md)}
         `};
-    }
-    @media(min-width: ${ BREAKPOINTS.LG}px) {
-        ${ ({ lg }) => lg && css`
-            width: ${getColWidth(lg)}
-        `};
-    }
-    @media(min-width: ${ BREAKPOINTS.XL}px) {
-        ${ ({ xl }) => xl && css`
-            width: ${getColWidth(xl)}
-        `};
-    }
-    /* xsOffset, smOffset, mdOffset, lgOffset */
-    ${({ xsOffset }) =>
-        xsOffset !== null && xsOffset !== undefined && css`
-            margin-left: ${getColWidth(xsOffset)}
-        `
-    };
-    @media(min-width: ${ BREAKPOINTS.SM}px) {
-        ${({ smOffset }) => smOffset && css`
-            margin-left: ${getColWidth(smOffset)}
-        `};
-    }
-    @media(min-width: ${ BREAKPOINTS.MD}px) {
-        ${ ({ mdOffset }) => mdOffset && css`
+        ${({ mdOffset, mdHidden }) => mdOffset && !mdHidden && css`
             margin-left: ${getColWidth(mdOffset)}
         `};
     }
     @media(min-width: ${ BREAKPOINTS.LG}px) {
-        ${ ({ lgOffset }) => lgOffset && css`
-            margin-left: ${getColWidth(lgOffset)}
+        ${({ lgHidden = false }) => lgHidden && css`
+            display: none;
         `};
-    }
-    @media(min-width: ${ BREAKPOINTS.XL}) {
-        ${ ({ xlOffset }) => xlOffset && css`
-            margin-left: ${getColWidth(xlOffset)}
+        ${({ lg, lgHidden }) => lg && !lgHidden && css`
+            width: ${getColWidth(lg)}
+        `};
+        ${({ lgOffset, lgHidden }) => lgOffset && !lgHidden && css`
+            margin-left: ${getColWidth(lgOffset)}
         `};
     }
 `;
