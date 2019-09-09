@@ -24,7 +24,7 @@ interface ColProps {
     xsHidden: boolean;
     smHidden: boolean;
     mdHidden: boolean;
-    lgHidden: boolean
+    lgHidden: boolean;
 };
 
 const Col = styled.div<Partial<ColProps>>`
