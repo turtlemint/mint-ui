@@ -34,18 +34,20 @@ const Col = styled.div<Partial<ColProps>>`
     float: left;
     width: 100%;
     text-align: ${props => (props.align ? props.align : 'left')};
+    /* <= 768px */
     @media(max-width: ${BREAKPOINTS.SM}px) {
         ${({ xsHidden = false }) => xsHidden && css`
             display: none;
         `};
         ${({ xs, xsHidden }) => xs && !xsHidden && css`
-        width: ${getColWidth(xs)}
+            width: ${getColWidth(xs)}
         `};
         ${({ xsOffset, xsHidden }) => xsOffset && !xsHidden && css`
             margin-left: ${getColWidth(xsOffset)};
         `};
     }
-    @media(min-width: ${BREAKPOINTS.SM}px) {
+    /* 769 - 1024 */
+    @media(min-width: ${BREAKPOINTS.SM + 1}px ) and (max-width: ${BREAKPOINTS.MD}px ) {
         ${({ smHidden = false }) => smHidden && css`
             display: none;
         `};
@@ -56,7 +58,8 @@ const Col = styled.div<Partial<ColProps>>`
             margin-left: ${getColWidth(smOffset)};
         `};
     }
-    @media(min-width: ${BREAKPOINTS.MD}px) {
+    /* 1025 - 1440 */
+    @media(min-width: ${BREAKPOINTS.MD + 1}px) and (max-width: ${BREAKPOINTS.LG}px) {
         ${({ mdHidden = false }) => mdHidden && css`
             display: none;
         `};
@@ -67,7 +70,8 @@ const Col = styled.div<Partial<ColProps>>`
             margin-left: ${getColWidth(mdOffset)}
         `};
     }
-    @media(min-width: ${BREAKPOINTS.LG}px) {
+    /* > 1440 */
+    @media(min-width: ${BREAKPOINTS.LG + 1}px) {
         ${({ lgHidden = false }) => lgHidden && css`
             display: none;
         `};
