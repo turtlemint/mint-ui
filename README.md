@@ -1,24 +1,20 @@
-### Usage if installed from npm
-1. yarn add 'tm-components'
-2. import Label from 'tm-components/label';
+### Installation
+```
+yarn add '@turtlemint/tm-components'
+```
 
-### Usage if installed from git url
 
-1. `yarn add https://gitlab.com/turtlemint/tm-components.git`
-2. `import Label from 'tm-components/dist/label';`
-
-### Common Issue with git url
-
-Issue - fatal: could not read Username for 'https://gitlab.com': terminal prompts disabled
-
-Solution - Run this command `git config --global --add url."git@gitlab.com:".insteadOf "https://gitlab.com"`
+### Usage 
+```
+import { Row, Col } from '@turtlemint/tm-components';
+```
 
 ### Contribution
 
 1. git clone https://gitlab.com/turtlemint/tm-components.git
 2. yarn install
 3. yarn start
-4. do your thing and submit a PR
+4. do your thing and submit MR
 
 
 ### What's more in this from base repo?
@@ -76,3 +72,9 @@ This checks for bundle size and spins up a separate link for a view window
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Common Issues with git url
+
+Issue - fatal: could not read Username for 'https://gitlab.com': terminal prompts disabled
+
+Solution - Run this command `git config --global --add url."git@gitlab.com:".insteadOf "https://gitlab.com"`
