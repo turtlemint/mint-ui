@@ -19,6 +19,7 @@
         "strictNullChecks": true,
         "noUnusedLocals": true,
         "noImplicitReturns": true,
+        "inlineSourceMap": true
     },
     "include": [
         "src/components"
