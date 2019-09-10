@@ -6,7 +6,7 @@ yarn add '@turtlemint/tm-components'
 
 ### Usage 
 ```
-import { Row, Col } from '@turtlemint/tm-components';
+import Button from '@turtlemint/tm-components/button';
 ```
 
 ### Contribution
