@@ -1,6 +1,6 @@
 {
-    "name": "tm-components",
-    "version": "0.1.1",
+    "name": "@turtlemint/tm-components",
+    "version": "0.1.2",
     "description": "react, react-ui, react-base-components, react-library, react-ui-library",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
@@ -37,9 +37,6 @@
         "react-hooks-testing-library": "^0.5.1",
         "react-test-renderer": "^16.8.6",
         "source-map-explorer": "^2.0.1"
-    },
-    "publishConfig": {
-        "registry": "http://nexus.turtlemint.com/repository/npm-private/"
     },
     "scripts": {
         "start": "env-cmd -e development react-scripts start",

@@ -75,7 +75,7 @@ const App: React.FC<{}> = () => {
                     <Col lg={3}> Col 3 Grid</Col>
                 </Row>
                 <Row className='mb15'>
-                    <Col xl={4}>
+                    <Col lg={4}>
                         <Input
                             placeholder='Placeholder'
                             label='Label of the field/Regular'
@@ -83,7 +83,7 @@ const App: React.FC<{}> = () => {
                             onChange={handleChange}
                             value={inputValue} />
                     </Col>
-                    <Col xl={4}>
+                    <Col lg={4}>
                         <Input
                             placeholder='Placeholder'
                             label='Label of the field/Regular'
@@ -94,7 +94,7 @@ const App: React.FC<{}> = () => {
                                 setInputValue(val);
                             }} />
                     </Col>
-                    <Col xl={4}>
+                    <Col lg={4}>
                         <Input
                             value=''
                             disabled
@@ -105,12 +105,12 @@ const App: React.FC<{}> = () => {
                     </Col>
                 </Row>
                 <Row className='mb15'>
-                    <Col xl={4}>
+                    <Col lg={4}>
                         <Checkbox checked={checked} onChange={handleCheckboxChange} color={PALETTE.PRIMARY}>
                             Name on the previous policy is of someone else.
                         </Checkbox>
                     </Col>
-                    <Col xl={4}>
+                    <Col lg={4}>
                         <Checkbox checked={checked} indeterminate={true} onChange={handleCheckboxChange}>
                             Name on the previous policy is of someone else.
                         </Checkbox>
