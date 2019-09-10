@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-const Row = styled.div<{ children: React.ReactNode }>`
+interface RowProps {
+  children: React.ReactNode
+}
+const Row = styled.div<RowProps>`
   margin-left: -15px;
   margin-right: -15px;
   &:before,
