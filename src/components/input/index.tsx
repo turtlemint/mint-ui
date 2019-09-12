@@ -1,11 +1,11 @@
 import React from 'react';
 // import TextArea from './textarea';
 import { StyledInput, StyledLabel, StyledError, HelpText, Wrapper } from './styles';
-import { Omit } from '../__utils/type';
+import { Omit, CommonTypeTuple } from '../__utils/type';
 
 export interface InputProps {
     type?: string;
-    value: string | number;
+    value: CommonTypeTuple;
     placeholder?: string;
     label?: string;
     error?: string;

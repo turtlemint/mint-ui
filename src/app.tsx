@@ -36,46 +36,46 @@ const App: React.FC<{}> = () => {
                     </Col>
                 </Row>
                 <Row className='mb15'>
-                    <Col sm={4}>
+                    <Col sm={4} md={4} lg={4}>
                         <Button onClick={() => { }}>Button Label</Button>
                     </Col>
-                    <Col sm={4}>
+                    <Col sm={4} md={4} lg={4}>
                         <Button disabled onClick={() => { }}>Button Label</Button>
                     </Col>
-                    <Col sm={4}>
+                    <Col sm={4} md={4} lg={4}>
                         <Button disabled size='sm' onClick={() => { }}>Button Label</Button>
                     </Col>
                 </Row>
                 <Row className='mb15'>
-                    <Col sm={6}>
+                    <Col sm={6} md={6} lg={6}>
                         <Button btnType='link' href='#'>Button Label</Button>
                     </Col>
-                    <Col sm={6}>
+                    <Col sm={6} md={6} lg={6}>
                         <Button id='#disabled-link' name='btn-link-disabled' btnType='link' className='alpha' href='#' disabled>Button Link Disabled</Button>
                     </Col>
                 </Row>
                 <Row className='mb15'>
-                    <Col sm={6}>
+                    <Col sm={6} md={6} lg={6}>
                         <Button btnType='danger' href='#'>Button Danger</Button>
                     </Col>
-                    <Col sm={6}>
+                    <Col sm={6} md={6} lg={6}>
                         <Button btnType='danger' href='#' disabled>Button Danger</Button>
                     </Col>
                 </Row>
                 <Row className='mb15'>
-                    <Col lg={3}>
+                    <Col sm={3} md={3} lg={3}>
                         <Button size='sm' icon='checkbox' />
                     </Col>
-                    <Col lg={3}>
+                    <Col sm={3} md={3} lg={3}>
                         <Button size='sm' icon='checkbox'>
                             Icon button
                         </Button>
                     </Col>
-                    <Col lg={3}> Col 3 Grid</Col>
-                    <Col lg={3}> Col 3 Grid</Col>
+                    <Col sm={3} md={3} lg={3}> Col 3 Grid</Col>
+                    <Col sm={3} md={3} lg={3}> Col 3 Grid</Col>
                 </Row>
                 <Row className='mb15'>
-                    <Col lg={4}>
+                    <Col sm={4} md={4} lg={4}>
                         <Input
                             placeholder='Placeholder'
                             label='Label of the field/Regular'
@@ -83,7 +83,7 @@ const App: React.FC<{}> = () => {
                             onChange={handleChange}
                             value={inputValue} />
                     </Col>
-                    <Col lg={4}>
+                    <Col sm={4} md={4} lg={4}>
                         <Input
                             placeholder='Placeholder'
                             label='Label of the field/Regular'
@@ -94,7 +94,7 @@ const App: React.FC<{}> = () => {
                                 setInputValue(val);
                             }} />
                     </Col>
-                    <Col lg={4}>
+                    <Col sm={4} md={4} lg={4}>
                         <Input
                             value=''
                             disabled
@@ -105,12 +105,12 @@ const App: React.FC<{}> = () => {
                     </Col>
                 </Row>
                 <Row className='mb15'>
-                    <Col lg={4}>
+                    <Col sm={4} md={4} lg={4}>
                         <Checkbox checked={checked} onChange={handleCheckboxChange} color={PALETTE.PRIMARY}>
                             Name on the previous policy is of someone else.
                         </Checkbox>
                     </Col>
-                    <Col lg={4}>
+                    <Col sm={4} md={4} lg={4}>
                         <Checkbox checked={checked} indeterminate={true} onChange={handleCheckboxChange}>
                             Name on the previous policy is of someone else.
                         </Checkbox>

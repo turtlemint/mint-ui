@@ -6,3 +6,4 @@ export const tupleNum = <T extends number[]>(...args: T) => args;
 export interface IDict<T> {
     [key: string]: T
 }
+export type CommonTypeTuple = string | boolean | number | undefined;
