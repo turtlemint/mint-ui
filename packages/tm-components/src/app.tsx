@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './app.css';
-import Button from 'components/button';
-import Input from 'components/input';
-import Row from 'components/grid/row';
-import Col from 'components/grid/col';
-import Checkbox from 'components/checkbox';
-import PALETTE from 'components/__utils/colors';
+import Button from './components/button';
+import Input from './components/input';
+import Row from './components/grid/row';
+import Col from './components/grid/col';
+import Checkbox from './components/checkbox';
+import PALETTE from './components/__utils/colors';
 
 const App: React.FC<{}> = () => {
     // common change handler and variables kept for demo purposes only. 
