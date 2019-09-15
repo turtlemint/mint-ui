@@ -1,6 +1,6 @@
 {
     "name": "@turtlemint/tm-components-web-test",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "react, react-ui, react-base-components, react-library, react-ui-library",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
@@ -57,8 +57,7 @@
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "storybook": "start-storybook -p 9001 -c .storybook",
         "copy": "cp package.json README.MD dist",
-        "build:lib": "yarn run bundle; yarn run copy",
-        "publish": "sudo npm publish --access public"
+        "build:lib": "yarn run bundle; yarn run copy"
     },
     "eslintConfig": {
         "extends": [
@@ -91,7 +90,7 @@
     },
     "files": [
         "README.MD",
-        "**"
+        "dist"
     ],
-    "gitHead": "ffae49cb6ec901bd17211ff9fef33e10ca3d7676"
+    "gitHead": "ffeb0c710282ab6b0d785c1b22eac6ffa6353817"
 }
