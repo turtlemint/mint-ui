@@ -8,7 +8,7 @@
 0 silly argv }
 1 notice cli v3.16.4
 2 verbose rootPath /Users/vedant/Projects/tm-components
-3 verbose session 41993eb1ab50e5a9
+3 verbose session 3dbc4bfde43b48dd
 4 verbose user-agent lerna/3.16.4/node@v12.10.0+x64 (darwin)
 5 silly argv {
 5 silly argv   _: [ 'publish' ],
@@ -18,34 +18,28 @@
 5 silly argv   lernaVersion: '3.16.4'
 5 silly argv }
 6 verbose rootPath /Users/vedant/Projects/tm-components
-7 info current version 1.0.6
+7 info current version 1.0.7
 8 silly isAnythingCommitted
 9 verbose isAnythingCommitted 1
 10 silly currentBranch
 11 verbose currentBranch dev
 12 silly remoteBranchExists
 13 silly isBehindUpstream
-14 silly isBehindUpstream dev is behind origin/dev by 0 commit(s) and ahead by 3
+14 silly isBehindUpstream dev is behind origin/dev by 0 commit(s) and ahead by 1
 15 silly hasTags
 16 verbose hasTags true
-17 silly git-describe.sync "v1.0.6-3-gedf22ba" => {"lastTagName":"v1.0.6","lastVersion":"v1.0.6","refCount":"3","sha":"edf22ba","isDirty":false}
-18 info Looking for changed packages since v1.0.6
+17 silly git-describe.sync "v1.0.7-1-gca8f10d" => {"lastTagName":"v1.0.7","lastVersion":"v1.0.7","refCount":"1","sha":"ca8f10d","isDirty":false}
+18 info Looking for changed packages since v1.0.7
 19 silly checking diff packages/tm-components-mobile
 20 silly found diff in packages/tm-components-mobile/package.json
 21 verbose filtered diff [ 'packages/tm-components-mobile/package.json' ]
 22 silly checking diff packages/tm-components-web
-23 silly found diff in packages/tm-components-web/dist/README.MD
-23 silly found diff in packages/tm-components-web/dist/package.json
 23 silly found diff in packages/tm-components-web/package.json
-24 verbose filtered diff [
-24 verbose filtered diff   'packages/tm-components-web/dist/README.MD',
-24 verbose filtered diff   'packages/tm-components-web/dist/package.json',
-24 verbose filtered diff   'packages/tm-components-web/package.json'
-24 verbose filtered diff ]
+24 verbose filtered diff [ 'packages/tm-components-web/package.json' ]
 25 verbose updated @turtlemint/tm-components-mobile-test
 26 verbose updated @turtlemint/tm-components-web-test
-27 verbose git-describe undefined => "v1.0.6-3-gedf22ba"
-28 silly git-describe parsed => {"lastTagName":"v1.0.6","lastVersion":"v1.0.6","refCount":"3","sha":"edf22ba","isDirty":false}
+27 verbose git-describe undefined => "v1.0.7-1-gca8f10d"
+28 silly git-describe parsed => {"lastTagName":"v1.0.7","lastVersion":"v1.0.7","refCount":"1","sha":"ca8f10d","isDirty":false}
 29 info execute Skipping releases
 30 silly lifecycle No script for "preversion" in "tm-components", continuing
 31 silly lifecycle No script for "preversion" in "@turtlemint/tm-components-web-test", continuing
@@ -60,8 +54,8 @@
 36 silly gitAdd ]
 37 silly gitCommit DS-18 first test publish
 38 verbose git [ 'commit', '-m', 'DS-18 first test publish' ]
-39 silly gitTag v1.0.7
-40 verbose git [ 'tag', 'v1.0.7', '-m', 'v1.0.7' ]
+39 silly gitTag v1.0.8
+40 verbose git [ 'tag', 'v1.0.8', '-m', 'v1.0.8' ]
 41 silly lifecycle No script for "postversion" in "@turtlemint/tm-components-mobile-test", continuing
 42 silly lifecycle No script for "postversion" in "@turtlemint/tm-components-web-test", continuing
 43 silly lifecycle No script for "postversion" in "tm-components", continuing
@@ -70,18 +64,18 @@
 46 info publish Publishing packages to npm...
 47 info Verifying npm credentials
 48 verbose Retrieving npm user profile
-49 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 862ms
+49 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 940ms
 50 silly npm profile get received {"tfa":false,"name":"kushalvm","email":"kushal.m@turtlemint.com","email_verified":true,"created":"2019-05-17T05:47:52.009Z","updated":"2019-09-13T10:54:20.746Z","cidr_whitelist":null,"fullname":"Kushal V. Mahajan"}
 51 silly get npm username received {"username":"kushalvm","tfa":false,"name":"kushalvm","email":"kushal.m@turtlemint.com","email_verified":true,"created":"2019-05-17T05:47:52.009Z","updated":"2019-09-13T10:54:20.746Z","cidr_whitelist":null,"fullname":"Kushal V. Mahajan"}
 52 silly verifyNpmPackageAccess
-53 http fetch GET 200 https://registry.npmjs.org/-/org/kushalvm/package?format=cli 1272ms
+53 http fetch GET 200 https://registry.npmjs.org/-/org/kushalvm/package?format=cli 657ms
 54 info Checking two-factor auth mode
 55 verbose Retrieving npm user profile
-56 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 721ms
+56 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 605ms
 57 silly npm profile get received {"tfa":false,"name":"kushalvm","email":"kushal.m@turtlemint.com","email_verified":true,"created":"2019-05-17T05:47:52.009Z","updated":"2019-09-13T10:54:20.746Z","cidr_whitelist":null,"fullname":"Kushal V. Mahajan"}
 58 silly 2FA false
 59 silly getCurrentSHA
-60 verbose getCurrentSHA ff8a2cb647e247ed80d87125b3b6b0a193501e58
+60 verbose getCurrentSHA 14e2b96d971c77e17e7dab1eeec6697c3156b73b
 61 silly lifecycle No script for "prepublish" in "tm-components", continuing
 62 silly lifecycle No script for "prepare" in "tm-components", continuing
 63 silly lifecycle No script for "prepublishOnly" in "tm-components", continuing
