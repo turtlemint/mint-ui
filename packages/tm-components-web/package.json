@@ -50,13 +50,12 @@
         "start": "env-cmd -e development react-scripts start",
         "build": "env-cmd -e production react-scripts build",
         "build:staging": "env-cmd -e staging react-scripts build",
-        "bundle": "rm -rf dist & tsc -p ./tsconfig-lib.json",
+        "build:lib": "rm -rf dist & tsc -p ./tsconfig-lib.json",
         "test": "react-scripts test",
         "lint": "eslint './src/**/*.{ts,tsx}'",
         "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
         "analyze": "source-map-explorer 'build/static/js/*.js'",
-        "storybook": "start-storybook -p 9001 -c .storybook",
-        "build:lib": "rm -rf dist & tsc -p ./tsconfig-lib.json"
+        "storybook": "start-storybook -p 9001 -c .storybook"
     },
     "eslintConfig": {
         "extends": [
