@@ -4,8 +4,8 @@
     "description": "react, react-ui, react-base-components, react-library, react-ui-library",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "main": "index.js",
+    "types": "index.d.ts",
     "repository": "https://gitlab.com/turtlemint/tm-components.git",
     "workspaces": [
         "packages/*"
@@ -91,5 +91,6 @@
     "files": [
         "README.MD",
         "dist"
-    ]
+    ],
+    "gitHead": "d8b496b4b033ec67049b8fcc69daee3157209376"
 }
