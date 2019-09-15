@@ -1,8 +1,8 @@
 {
     "name": "@turtlemint/tm-components-mobile-test",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "dependencies": {
-        "@turtlemint/tm-components-web-test": "^1.0.8"
+        "@turtlemint/tm-components-web-test": "^1.0.9"
     },
     "gitHead": "14e2b96d971c77e17e7dab1eeec6697c3156b73b"
 }
