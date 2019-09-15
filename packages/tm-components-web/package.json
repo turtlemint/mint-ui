@@ -56,8 +56,7 @@
         "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "storybook": "start-storybook -p 9001 -c .storybook",
-        "copy": "cp package.json README.MD dist",
-        "build:lib": "yarn run bundle; yarn run copy"
+        "build:lib": "rm -rf dist & tsc -p ./tsconfig-lib.json"
     },
     "eslintConfig": {
         "extends": [
@@ -92,5 +91,5 @@
         "README.MD",
         "dist"
     ],
-    "gitHead": "459209fe873211dc488e1a95b5d93ec77ad460c8"
+    "gitHead": "1959a10d5b97d629baedef1c4184fc46ecac4406"
 }
