@@ -90,7 +90,7 @@
     },
     "files": [
         "README.MD",
-        "dist"
+        "**"
     ],
     "gitHead": "d8b496b4b033ec67049b8fcc69daee3157209376"
 }
