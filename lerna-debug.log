@@ -1,0 +1,5 @@
+40 error Error: Command failed: git commit -m v1.0.1
+40 error ERROR: Commit message is missing Jira issue number.
+40 error
+40 error     at makeError (/Users/vedant/Projects/tm-components/node_modules/execa/index.js:174:9)
+40 error     at /Users/vedant/Projects/tm-components/node_modules/execa/index.js:278:16
