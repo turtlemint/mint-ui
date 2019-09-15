@@ -11,8 +11,7 @@
         "packages/*"
     ],
     "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+        "access": "public"
     },
     "dependencies": {
         "@types/jest": "24.0.15",
@@ -92,5 +91,5 @@
         "README.MD",
         "**"
     ],
-    "gitHead": "d8b496b4b033ec67049b8fcc69daee3157209376"
+    "gitHead": "dea03a26dc2884cf6e3c9beab44c572286c8e251"
 }
