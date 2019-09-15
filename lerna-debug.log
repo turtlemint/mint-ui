@@ -1,5 +1,5 @@
-42 error Error: Command failed: git tag v1.0.1 -m v1.0.1
-42 error fatal: tag 'v1.0.1' already exists
+42 error Error: Command failed: git tag v1.0.3 -m v1.0.3
+42 error fatal: tag 'v1.0.3' already exists
 42 error
 42 error     at makeError (/Users/vedant/Projects/tm-components/node_modules/execa/index.js:174:9)
 42 error     at /Users/vedant/Projects/tm-components/node_modules/execa/index.js:278:16
