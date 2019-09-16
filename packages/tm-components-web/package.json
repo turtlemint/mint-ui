@@ -11,7 +11,8 @@
         "packages/*"
     ],
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "dependencies": {
         "@types/jest": "24.0.15",
@@ -56,7 +57,7 @@
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "storybook": "start-storybook -p 9001 -c .storybook",
         "copy": "cp README.MD package.json dist/",
-        "prepublish": "yarn run bundle; yarn run copy;"
+        "prepublish": "yarn run bundle;"
     },
     "eslintConfig": {
         "extends": [
@@ -89,6 +90,7 @@
     },
     "files": [
         "README.MD",
-        "**"
-    ]
+        "dist"
+    ],
+    "gitHead": "69e8293bef488db05be47abd7833d0337f806686"
 }

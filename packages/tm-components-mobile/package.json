@@ -1,7 +1,0 @@
-{
-    "name": "@turtlemint/tm-components-mobile-test",
-    "version": "1.0.12",
-    "dependencies": {
-        "@turtlemint/tm-components-web-test": "^1.0.12"
-    }
-}
