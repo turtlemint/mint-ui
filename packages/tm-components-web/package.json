@@ -56,8 +56,8 @@
         "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "storybook": "start-storybook -p 9001 -c .storybook",
-        "copy": "cp README.MD package.json dist/",
-        "prepublish": "yarn run bundle;"
+        "copy": "cp README.MD dist/",
+        "prepublish": "yarn run bundle; yarn run copy;"
     },
     "eslintConfig": {
         "extends": [
@@ -92,5 +92,5 @@
         "README.MD",
         "dist"
     ],
-    "gitHead": "69e8293bef488db05be47abd7833d0337f806686"
+    "gitHead": "9953ad0bf63567ffed98581896a9154a49492e7c"
 }
