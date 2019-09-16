@@ -1,24 +1,24 @@
 0 silly argv {
 0 silly argv   _: [ 'publish' ],
-0 silly argv   message: 'DS-18 first test publish',
-0 silly argv   m: 'DS-18 first test publish',
+0 silly argv   message: 'DS-18  publish',
+0 silly argv   m: 'DS-18  publish',
 0 silly argv   composed: 'publish',
 0 silly argv   lernaVersion: '3.16.4',
 0 silly argv   '$0': 'node_modules/.bin/lerna'
 0 silly argv }
 1 notice cli v3.16.4
 2 verbose rootPath /Users/vedant/Projects/tm-components
-3 verbose session 3dbc4bfde43b48dd
-4 verbose user-agent lerna/3.16.4/node@v12.10.0+x64 (darwin)
-5 silly argv {
-5 silly argv   _: [ 'publish' ],
-5 silly argv   message: 'DS-18 first test publish',
-5 silly argv   m: 'DS-18 first test publish',
-5 silly argv   composed: 'publish',
-5 silly argv   lernaVersion: '3.16.4'
-5 silly argv }
-6 verbose rootPath /Users/vedant/Projects/tm-components
-7 info current version 1.0.7
+3 info versioning independent
+4 verbose session 64cffd5646e8a2d4
+5 verbose user-agent lerna/3.16.4/node@v12.10.0+x64 (darwin)
+6 silly argv {
+6 silly argv   _: [ 'publish' ],
+6 silly argv   message: 'DS-18  publish',
+6 silly argv   m: 'DS-18  publish',
+6 silly argv   composed: 'publish',
+6 silly argv   lernaVersion: '3.16.4'
+6 silly argv }
+7 verbose rootPath /Users/vedant/Projects/tm-components
 8 silly isAnythingCommitted
 9 verbose isAnythingCommitted 1
 10 silly currentBranch
@@ -28,72 +28,74 @@
 14 silly isBehindUpstream dev is behind origin/dev by 0 commit(s) and ahead by 1
 15 silly hasTags
 16 verbose hasTags true
-17 silly git-describe.sync "v1.0.7-1-gca8f10d" => {"lastTagName":"v1.0.7","lastVersion":"v1.0.7","refCount":"1","sha":"ca8f10d","isDirty":false}
-18 info Looking for changed packages since v1.0.7
-19 silly checking diff packages/tm-components-mobile
-20 silly found diff in packages/tm-components-mobile/package.json
-21 verbose filtered diff [ 'packages/tm-components-mobile/package.json' ]
-22 silly checking diff packages/tm-components-web
-23 silly found diff in packages/tm-components-web/package.json
-24 verbose filtered diff [ 'packages/tm-components-web/package.json' ]
-25 verbose updated @turtlemint/tm-components-mobile-test
-26 verbose updated @turtlemint/tm-components-web-test
-27 verbose git-describe undefined => "v1.0.7-1-gca8f10d"
-28 silly git-describe parsed => {"lastTagName":"v1.0.7","lastVersion":"v1.0.7","refCount":"1","sha":"ca8f10d","isDirty":false}
-29 info execute Skipping releases
-30 silly lifecycle No script for "preversion" in "tm-components", continuing
-31 silly lifecycle No script for "preversion" in "@turtlemint/tm-components-web-test", continuing
-32 silly lifecycle No script for "version" in "@turtlemint/tm-components-web-test", continuing
-33 silly lifecycle No script for "preversion" in "@turtlemint/tm-components-mobile-test", continuing
-34 silly lifecycle No script for "version" in "@turtlemint/tm-components-mobile-test", continuing
-35 silly lifecycle No script for "version" in "tm-components", continuing
-36 silly gitAdd [
-36 silly gitAdd   '/Users/vedant/Projects/tm-components/packages/tm-components-web/package.json',
-36 silly gitAdd   '/Users/vedant/Projects/tm-components/packages/tm-components-mobile/package.json',
-36 silly gitAdd   '/Users/vedant/Projects/tm-components/lerna.json'
-36 silly gitAdd ]
-37 silly gitCommit DS-18 first test publish
-38 verbose git [ 'commit', '-m', 'DS-18 first test publish' ]
-39 silly gitTag v1.0.8
-40 verbose git [ 'tag', 'v1.0.8', '-m', 'v1.0.8' ]
-41 silly lifecycle No script for "postversion" in "@turtlemint/tm-components-mobile-test", continuing
-42 silly lifecycle No script for "postversion" in "@turtlemint/tm-components-web-test", continuing
-43 silly lifecycle No script for "postversion" in "tm-components", continuing
-44 info git Pushing tags...
-45 silly gitPush origin dev
-46 info publish Publishing packages to npm...
-47 info Verifying npm credentials
+17 silly git-describe.sync "@turtlemint/tm-components-web-test@1.0.13-1-g6267ff0" => {"lastTagName":"@turtlemint/tm-components-web-test@1.0.13","lastVersion":"1.0.13","refCount":"1","sha":"6267ff0","isDirty":false}
+18 info Looking for changed packages since @turtlemint/tm-components-web-test@1.0.13
+19 silly checking diff packages/tm-components-web
+20 silly found diff in packages/tm-components-web/package.json
+21 verbose filtered diff [ 'packages/tm-components-web/package.json' ]
+22 verbose updated @turtlemint/tm-components-web-test
+23 verbose git-describe undefined => "@turtlemint/tm-components-web-test@1.0.13-1-g6267ff0"
+24 silly git-describe parsed => {"lastTagName":"@turtlemint/tm-components-web-test@1.0.13","lastVersion":"1.0.13","refCount":"1","sha":"6267ff0","isDirty":false}
+25 info execute Skipping releases
+26 silly lifecycle No script for "preversion" in "tm-components", continuing
+27 silly lifecycle No script for "preversion" in "@turtlemint/tm-components-web-test", continuing
+28 silly lifecycle No script for "version" in "@turtlemint/tm-components-web-test", continuing
+29 silly lifecycle No script for "version" in "tm-components", continuing
+30 silly gitAdd [
+30 silly gitAdd   '/Users/vedant/Projects/tm-components/packages/tm-components-web/package.json'
+30 silly gitAdd ]
+31 silly gitCommit DS-18  publish
+31 silly gitCommit
+31 silly gitCommit  - @turtlemint/tm-components-web-test@1.0.14-alpha.0
+32 verbose git [
+32 verbose git   'commit',
+32 verbose git   '-F',
+32 verbose git   '/private/var/folders/sg/qcrfmmv93rd8pmbqjfz64bfh0000gp/T/796fad2b-26ca-45c4-9ad8-5326ee25992f/lerna-commit.txt'
+32 verbose git ]
+33 silly gitTag @turtlemint/tm-components-web-test@1.0.14-alpha.0
+34 verbose git [
+34 verbose git   'tag',
+34 verbose git   '@turtlemint/tm-components-web-test@1.0.14-alpha.0',
+34 verbose git   '-m',
+34 verbose git   '@turtlemint/tm-components-web-test@1.0.14-alpha.0'
+34 verbose git ]
+35 silly lifecycle No script for "postversion" in "@turtlemint/tm-components-web-test", continuing
+36 silly lifecycle No script for "postversion" in "tm-components", continuing
+37 info git Pushing tags...
+38 silly gitPush origin dev
+39 info publish Publishing packages to npm...
+40 info Verifying npm credentials
+41 verbose Retrieving npm user profile
+42 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 730ms
+43 silly npm profile get received {"tfa":false,"name":"kushalvm","email":"kushal.m@turtlemint.com","email_verified":true,"created":"2019-05-17T05:47:52.009Z","updated":"2019-09-13T10:54:20.746Z","cidr_whitelist":null,"fullname":"Kushal V. Mahajan"}
+44 silly get npm username received {"username":"kushalvm","tfa":false,"name":"kushalvm","email":"kushal.m@turtlemint.com","email_verified":true,"created":"2019-05-17T05:47:52.009Z","updated":"2019-09-13T10:54:20.746Z","cidr_whitelist":null,"fullname":"Kushal V. Mahajan"}
+45 silly verifyNpmPackageAccess
+46 http fetch GET 200 https://registry.npmjs.org/-/org/kushalvm/package?format=cli 385ms
+47 info Checking two-factor auth mode
 48 verbose Retrieving npm user profile
-49 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 940ms
+49 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 408ms
 50 silly npm profile get received {"tfa":false,"name":"kushalvm","email":"kushal.m@turtlemint.com","email_verified":true,"created":"2019-05-17T05:47:52.009Z","updated":"2019-09-13T10:54:20.746Z","cidr_whitelist":null,"fullname":"Kushal V. Mahajan"}
-51 silly get npm username received {"username":"kushalvm","tfa":false,"name":"kushalvm","email":"kushal.m@turtlemint.com","email_verified":true,"created":"2019-05-17T05:47:52.009Z","updated":"2019-09-13T10:54:20.746Z","cidr_whitelist":null,"fullname":"Kushal V. Mahajan"}
-52 silly verifyNpmPackageAccess
-53 http fetch GET 200 https://registry.npmjs.org/-/org/kushalvm/package?format=cli 657ms
-54 info Checking two-factor auth mode
-55 verbose Retrieving npm user profile
-56 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 605ms
-57 silly npm profile get received {"tfa":false,"name":"kushalvm","email":"kushal.m@turtlemint.com","email_verified":true,"created":"2019-05-17T05:47:52.009Z","updated":"2019-09-13T10:54:20.746Z","cidr_whitelist":null,"fullname":"Kushal V. Mahajan"}
-58 silly 2FA false
-59 silly getCurrentSHA
-60 verbose getCurrentSHA 14e2b96d971c77e17e7dab1eeec6697c3156b73b
-61 silly lifecycle No script for "prepublish" in "tm-components", continuing
-62 silly lifecycle No script for "prepare" in "tm-components", continuing
-63 silly lifecycle No script for "prepublishOnly" in "tm-components", continuing
-64 silly lifecycle No script for "prepack" in "tm-components", continuing
-65 verbose pack-directory packages/tm-components-web/dist
-66 silly lifecycle No script for "prepublish" in "@turtlemint/tm-components-web-test", continuing
+51 silly 2FA false
+52 silly getCurrentSHA
+53 verbose getCurrentSHA f817a961dbac1f0698cf20aadf9bd76516244842
+54 silly lifecycle No script for "prepublish" in "tm-components", continuing
+55 silly lifecycle No script for "prepare" in "tm-components", continuing
+56 silly lifecycle No script for "prepublishOnly" in "tm-components", continuing
+57 silly lifecycle No script for "prepack" in "tm-components", continuing
+58 verbose pack-directory packages/tm-components-web/dist
+59 silly lifecycle "prepublish" starting in "@turtlemint/tm-components-web-test"
+60 info lifecycle @turtlemint/tm-components-web-test@1.0.14-alpha.0~prepublish: @turtlemint/tm-components-web-test@1.0.14-alpha.0
+61 verbose lifecycle @turtlemint/tm-components-web-test@1.0.14-alpha.0~prepublish: unsafe-perm in lifecycle true
+62 verbose lifecycle @turtlemint/tm-components-web-test@1.0.14-alpha.0~prepublish: PATH: /Users/vedant/Projects/tm-components/node_modules/npm-lifecycle/node-gyp-bin:/Users/vedant/Projects/tm-components/packages/tm-components-web/node_modules/.bin:/Users/vedant/Projects/tm-components/node_modules/.bin:/Users/vedant/.nvm/versions/node/v12.10.0/bin:/usr/local/Cellar/python@2/2.7.15_1/bin/python2.7.15:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/python@2/2.7.15_1/bin/python2.7.15
+63 verbose lifecycle @turtlemint/tm-components-web-test@1.0.14-alpha.0~prepublish: CWD: /Users/vedant/Projects/tm-components/packages/tm-components-web
+64 silly lifecycle @turtlemint/tm-components-web-test@1.0.14-alpha.0~prepublish: Args: [ '-c', 'yarn run bundle; yarn run copy;' ]
+65 silly lifecycle @turtlemint/tm-components-web-test@1.0.14-alpha.0~prepublish: Returned: code: 0  signal: null
+66 silly lifecycle "prepublish" finished in "@turtlemint/tm-components-web-test"
 67 silly lifecycle No script for "prepare" in "@turtlemint/tm-components-web-test", continuing
 68 silly lifecycle No script for "prepublishOnly" in "@turtlemint/tm-components-web-test", continuing
 69 silly lifecycle No script for "prepack" in "@turtlemint/tm-components-web-test", continuing
 70 silly lifecycle No script for "postpack" in "@turtlemint/tm-components-web-test", continuing
 71 verbose packed packages/tm-components-web/dist
-72 verbose pack-directory packages/tm-components-mobile
-73 silly lifecycle No script for "prepublish" in "@turtlemint/tm-components-mobile-test", continuing
-74 silly lifecycle No script for "prepare" in "@turtlemint/tm-components-mobile-test", continuing
-75 silly lifecycle No script for "prepublishOnly" in "@turtlemint/tm-components-mobile-test", continuing
-76 silly lifecycle No script for "prepack" in "@turtlemint/tm-components-mobile-test", continuing
-77 silly lifecycle No script for "postpack" in "@turtlemint/tm-components-mobile-test", continuing
-78 verbose packed packages/tm-components-mobile
-79 silly lifecycle No script for "postpack" in "tm-components", continuing
-80 verbose publish @turtlemint/tm-components-web-test
-81 error
+72 silly lifecycle No script for "postpack" in "tm-components", continuing
+73 verbose publish @turtlemint/tm-components-web-test
+74 error
