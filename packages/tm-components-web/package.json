@@ -1,6 +1,6 @@
 {
-    "name": "@turtlemint/tm-components-web-test",
-    "version": "1.0.17",
+    "name": "@turtlemint/tm-components-web",
+    "version": "1.0.0",
     "description": "react, react-ui, react-base-components, react-library, react-ui-library",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
@@ -91,6 +91,5 @@
     "files": [
         "README.MD",
         "**"
-    ],
-    "gitHead": "9953ad0bf63567ffed98581896a9154a49492e7c"
+    ]
 }
