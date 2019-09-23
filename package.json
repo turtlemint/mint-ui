@@ -3,7 +3,7 @@
     "workspaces": [
         "packages/*"
     ],
-    "name": "tm-components",
+    "name": "yarn-workspaces-test",
     "devDependencies": {
         "lerna": "^3.16.4"
     }

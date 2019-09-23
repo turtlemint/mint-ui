@@ -1,7 +1,2 @@
-.DS_Store
-.vscode
-node_modules
-dist
-yarn-error.log
 .history
-lerna-debug.log
+node_modules/
