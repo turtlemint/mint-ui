@@ -88,6 +88,5 @@
     "files": [
         "README.MD",
         "**"
-    ],
-    "private": true
+    ]
 }
