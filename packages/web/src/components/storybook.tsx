@@ -1,3 +1,3 @@
-import { storiesOf } from '@storybook/react';
+import { storiesOf } from "@storybook/react";
 
-export const stories = storiesOf('./components', module);
+export const stories = storiesOf("./components", module);

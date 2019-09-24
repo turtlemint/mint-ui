@@ -4,7 +4,53 @@
         "packages/*"
     ],
     "name": "yarn-workspaces-test",
+    "scripts": {
+        "lint": "eslint './packages/**/*.{ts,tsx}'",
+        "lint:fix": "eslint './packages/**/*.{ts,tsx}' --fix"
+    },
+    "dependencies": {
+        "react": "16.8.6",
+        "react-dom": "16.8.6",
+        "styled-components": "4.3.2"
+    },
     "devDependencies": {
-        "lerna": "^3.16.4"
+        "@typescript-eslint/eslint-plugin": "^2.3.1",
+        "@typescript-eslint/parser": "^2.3.1",
+        "eslint": "^6.4.0",
+        "lerna": "^3.16.4",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-config-react": "^1.1.7",
+        "eslint-plugin-prettier": "^3.1.0",
+        "husky": "^2.3.0",
+        "prettier": "^1.18.2",
+        "react-hooks-testing-library": "^0.5.1",
+        "react-test-renderer": "^16.8.6",
+        "typescript": "3.5.3",
+        "lodash": "4.17.14",
+        "eslint-plugin-jsx-a11y": "6.2.3",
+        "@testing-library/jest-dom": "^4.0.0",
+        "@testing-library/react": "8.0.1",
+        "@types/lodash": "^4.14.133",
+        "@types/styled-components": "4.1.16",
+        "@storybook/addon-knobs": "^5.1.9",
+        "@types/storybook__addon-knobs": "^5.0.3",
+        "@types/jest": "24.0.15",
+        "@types/node": "12.6.8",
+        "@types/react": "16.8.23",
+        "@types/react-dom": "16.8.4"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "plugin:jsx-a11y/recommended"
+        ],
+        "plugins": [
+            "jsx-a11y"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn run lint && yarn run lint:fix"
+        }
     }
 }
