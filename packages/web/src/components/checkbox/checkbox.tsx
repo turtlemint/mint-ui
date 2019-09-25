@@ -1,5 +1,5 @@
 import React from "react";
-import PALETTE from "../__utils/colors";
+import PALETTE from "@turtlemint/shared/utils/colors";
 
 interface CheckboxProps {
 	size?: number;

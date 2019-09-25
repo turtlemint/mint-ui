@@ -7,7 +7,7 @@ import {
 	HelpText,
 	Wrapper
 } from "./styles";
-import { Omit, CommonTypeTuple } from "../__utils/type";
+import { Omit, CommonTypeTuple } from "@turtlemint/shared/utils/type";
 
 export interface InputProps {
 	type?: string;

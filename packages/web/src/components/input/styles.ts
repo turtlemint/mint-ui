@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { InputProps } from "./index";
-import PALETTE from "../__utils/colors";
-import { Omit } from "../__utils/type";
+import PALETTE from "@turtlemint/shared/utils/colors";
+import { Omit } from "@turtlemint/shared/utils/type";
 
 export const Wrapper = styled.div<Pick<InputProps, "block">>`
 	width: ${props => (props.block ? "100%" : "328px")};

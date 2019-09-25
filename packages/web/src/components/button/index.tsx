@@ -1,8 +1,8 @@
 import React from "react";
 import { StyledButton, StyledLink } from "./styles";
-import { Omit, tuple } from "../__utils/type";
+import { Omit, tuple } from "@turtlemint/shared/utils/type";
 import { ICONS } from "../__utils/icons";
-import PALETTE from "../__utils/colors";
+import PALETTE from "@turtlemint/shared/utils/colors";
 
 const ButtonTypes = tuple("outlined", "primary", "danger", "link");
 export type ButtonType = (typeof ButtonTypes)[number];
