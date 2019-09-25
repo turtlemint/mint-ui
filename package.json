@@ -50,7 +50,13 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "yarn run lint && yarn run lint:fix"
+            "pre-commit": "lint-staged"
         }
+    },
+    "lint-staged": {
+        "*.js": [
+            "eslint --fix",
+            "git add"
+        ]
     }
 }
