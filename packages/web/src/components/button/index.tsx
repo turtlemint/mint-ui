@@ -1,42 +1,19 @@
 import React from "react";
-import { StyledButton, StyledLink } from "./styles";
-import { Omit, tuple } from "@turtlemint/shared/utils/type";
-import { ICONS } from "../__utils/icons";
+import styled from "styled-components";
 import PALETTE from "@turtlemint/shared/utils/colors";
+import {
+	ButtonProps,
+	ButtonStyles,
+	LinkStyles
+} from "@turtlemint/shared/components/button";
+import { ICONS } from "../__utils/icons";
 
-const ButtonTypes = tuple("outlined", "primary", "danger", "link");
-export type ButtonType = (typeof ButtonTypes)[number];
-const ButtonSizes = tuple("sm", "md");
-export type ButtonSize = (typeof ButtonSizes)[number];
-const ButtonHTMLTypes = tuple("submit", "button", "reset");
-export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
-
-export interface IBaseButtonProps {
-	btnType?: ButtonType;
-	disabled?: boolean;
-	size?: ButtonSize;
-	block?: boolean;
-	loading?: boolean | { delay?: number };
-	icon?: string;
-	className?: string;
-	prefixCls?: string;
-	children: React.ReactNode;
-}
-
-export type AnchorButtonProps = {
-	href: string;
-	target?: string;
-	onClick?: React.MouseEventHandler<HTMLElement>;
-} & IBaseButtonProps &
-	Omit<React.AnchorHTMLAttributes<unknown>, "type" | "onClick">;
-
-export type NativeButtonProps = {
-	onClick: React.MouseEventHandler<HTMLElement>;
-	htmlType?: ButtonHTMLType;
-} & IBaseButtonProps &
-	Omit<React.ButtonHTMLAttributes<unknown>, "type" | "onClick">;
-
-export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
+const StyledButton = styled.button<ButtonProps>`
+	${ButtonStyles};
+`;
+const StyledLink = styled.a<ButtonProps>`
+	${LinkStyles};
+`;
 
 const Button: React.FC<ButtonProps> = ({
 	btnType = "primary",
@@ -93,7 +70,7 @@ const Button: React.FC<ButtonProps> = ({
 							block={block}
 							disabled={disabled}
 							type={htmlType}
-							className={`${prefixCls}-${className}`}
+							className={`${prefixCls}-${className} `}
 							{...rest}
 						>
 							{IconComponent ? (

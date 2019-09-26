@@ -3,7 +3,7 @@
     "workspaces": [
         "packages/*"
     ],
-    "name": "yarn-workspaces-test",
+    "name": "tm-components",
     "scripts": {
         "lint": "eslint './packages/**/*.{ts,tsx}'",
         "lint:fix": "eslint './packages/**/*.{ts,tsx}' --fix"

@@ -1,8 +1,41 @@
-import styled, { css } from "styled-components";
-import { ButtonProps } from "./index";
-import PALETTE from "@turtlemint/shared/utils/colors";
+import { css } from "styled-components";
+import { tuple } from "../utils/type";
+import PALETTE from "../utils/colors";
 
-const SharedStyles = css<ButtonProps>`
+const ButtonTypes = tuple("outlined", "primary", "danger", "link");
+export type ButtonType = (typeof ButtonTypes)[number];
+const ButtonSizes = tuple("sm", "md");
+export type ButtonSize = (typeof ButtonSizes)[number];
+const ButtonHTMLTypes = tuple("submit", "button", "reset");
+export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+
+export interface BaseButtonProps {
+	btnType?: ButtonType;
+	disabled?: boolean;
+	size?: ButtonSize;
+	block?: boolean;
+	loading?: boolean | { delay?: number };
+	icon?: string;
+	className?: string;
+	prefixCls?: string;
+	children?: React.ReactNode;
+}
+export type AnchorButtonProps = {
+	href: string;
+	target?: string;
+	onClick?: React.MouseEventHandler<HTMLElement>;
+} & BaseButtonProps &
+	Omit<React.AnchorHTMLAttributes<unknown>, "type" | "onClick">;
+
+export type NativeButtonProps = {
+	onClick: React.MouseEventHandler<HTMLElement>;
+	htmlType?: ButtonHTMLType;
+} & BaseButtonProps &
+	Omit<React.ButtonHTMLAttributes<unknown>, "type" | "onClick">;
+
+export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
+
+const BaseButtonStyles = css<ButtonProps>`
 	font-size: 16px;
 	font-weight: 500;
 	cursor: pointer;
@@ -18,8 +51,8 @@ const SharedStyles = css<ButtonProps>`
 		`}
 `;
 
-export const StyledButton = styled.button<ButtonProps>`
-	${SharedStyles};
+export const ButtonStyles = css<ButtonProps>`
+	${BaseButtonStyles};
 	background: ${PALETTE.PRIMARY};
 	border-radius: 4px;
 	border: 1px solid transparent;
@@ -101,8 +134,8 @@ export const StyledButton = styled.button<ButtonProps>`
 		`};
 `;
 
-export const StyledLink = styled.a<ButtonProps>`
-	${SharedStyles};
+export const LinkStyles = css<ButtonProps>`
+	${BaseButtonStyles};
 	text-decoration: none;
 	background: none;
 	border: 0;

@@ -1,11 +1,13 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import GoalInput from "./components/Goallnput";
+import ButtonNative from "./components/button";
 
 export default function App() {
 	return (
 		<View style={styles.container}>
 			<GoalInput />
+			<ButtonNative />
 		</View>
 	);
 }

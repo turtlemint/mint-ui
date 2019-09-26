@@ -15,6 +15,6 @@
     ]
   },
   "packagerOpts": {
-    "config": "rn-cli.config.js"
+    "config": "metro.config.js"
   }
 }
