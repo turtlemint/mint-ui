@@ -1,0 +1,9 @@
+{
+  "name": "shared",
+  "version": "1.0.0",
+  "description": "shared code react react native",
+  "main": "index.js",
+  "author": "Kushal V. Mahajan",
+  "license": "MIT",
+  "private": true
+}
