@@ -22,7 +22,8 @@
         "inlineSourceMap": true
     },
     "include": [
-        "src/components"
+        "src/components",
+        "../shared"
     ],
     "exclude": [
         "**/*.stories.tsx"
