@@ -1,3 +1,2 @@
-src/registerServiceWorker.js
-src/**/__tests__/**
+packages/**/src/**/__tests__/**
 node_modules

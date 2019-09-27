@@ -1,2 +1,6 @@
-.history
-node_modules/
+.log
+/DS_Store
+lib
+.jest-*
+node_modules
+.history/
