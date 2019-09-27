@@ -1,0 +1,6 @@
+52 warn complete Waiting for 1 child process to exit. CTRL-C to exit immediately.
+53 error Error: Command failed: git tag @turtlemint/tm-components-mobile@1.0.1 -m @turtlemint/tm-components-mobile@1.0.1
+53 error fatal: tag '@turtlemint/tm-components-mobile@1.0.1' already exists
+53 error
+53 error     at makeError (/Users/vedant/Projects/tm-components/node_modules/execa/index.js:174:9)
+53 error     at /Users/vedant/Projects/tm-components/node_modules/execa/index.js:278:16
