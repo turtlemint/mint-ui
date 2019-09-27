@@ -7,11 +7,16 @@
     "privacy": "unlisted",
     "sdkVersion": "35.0.0",
     "version": "1.0.0",
-    "entryPoint": "node_modules/expo/AppEntry.js",
+    "entryPoint": "./AppEntry.js",
     "platforms": [
       "ios",
       "android",
       "web"
-    ]
+    ],
+    "ignoreNodeModulesValidation": true,
+    "packagerOpts": {
+      "config": "rn-cli.config.js",
+      "projectRoots": ""
+    }
   }
 }
