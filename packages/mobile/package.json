@@ -1,6 +1,6 @@
 {
   "name": "@turtlemint/tm-components-mobile",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "postinstall": "expo-yarn-workspaces postinstall",
     "android": "react-native run-android",
@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@turtlemint/shared": "^1.0.0",
+    "@turtlemint/shared": "^1.0.1",
     "expo": "35.0.0",
     "react-native": "0.59.10",
     "react-native-gesture-handler": "1.3.0",

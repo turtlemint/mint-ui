@@ -1,6 +1,6 @@
 {
   "name": "@turtlemint/shared",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "shared code react and react native",
   "main": "index.js",
   "repository": "https://gitlab.com/turtlemint/tm-components.git",
