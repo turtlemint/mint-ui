@@ -7,7 +7,7 @@ exports[`Button renders correctly 1`] = `
   cursor: pointer;
   text-align: center;
   line-height: 1.25;
-  padding: 14px 24px;
+  padding: 15px 24px;
   display: inline-block;
   background: #00a465;
   border-radius: 4px;
@@ -48,7 +48,7 @@ exports[`Button renders correctly 1`] = `
       }
     }
   >
-    Test 
+    Test
   </span>
 </button>
 `;
