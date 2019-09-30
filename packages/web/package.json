@@ -1,12 +1,12 @@
 {
-    "name": "web",
-    "version": "1.0.1",
+    "name": "@turtlemint/tm-components-web",
+    "version": "1.0.0",
     "main": "lib/index.js",
     "module": "src/index.js",
     "dependencies": {
         "react": "16.8.6",
         "react-dom": "16.8.6",
-        "shared": "^1.0.1",
+        "@turtlemint/tm-components-shared": "^1.0.0",
         "styled-components": "4.3.2"
     },
     "peerDependencies": {

@@ -12,6 +12,11 @@
     "unit": "jest",
     "build": "yarn run lint:fix && lerna exec --parallel -- babel --root-mode upward src -d lib --extensions .ts,.tsx,.js,.jsx  --ignore **/*.story.tsx,**/*.spec.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run lint:fix"
+    }
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",

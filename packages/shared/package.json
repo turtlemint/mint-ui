@@ -1,6 +1,6 @@
 {
-    "name": "shared",
-    "version": "1.0.1",
+    "name": "@turtlemint/tm-components-shared",
+    "version": "1.0.0",
     "main": "lib/index.js",
     "module": "src/index.js",
     "dependencies": {

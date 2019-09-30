@@ -14,8 +14,7 @@
         "jsx": "react",
         "moduleResolution": "node",
         "rootDirs": [
-            "packages",
-            "stories"
+            "packages"
         ],
         "baseUrl": ".",
         "forceConsistentCasingInFileNames": true,
