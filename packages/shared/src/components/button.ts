@@ -1,3 +1,4 @@
+import * as React from "react";
 import { css } from "styled-components";
 import { tuple } from "../utils/type";
 import PALETTE from "../utils/colors";
