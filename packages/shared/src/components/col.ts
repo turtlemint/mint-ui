@@ -37,82 +37,82 @@ const Col = styled.div<Partial<ColProps>>`
 	/* <= 768px */
 	@media (max-width: ${BREAKPOINTS.SM}px) {
 		${({ xsHidden = false }) =>
-		xsHidden &&
-		css`
+			xsHidden &&
+			css`
 				display: none;
 			`};
 		${({ xs, xsHidden }) =>
-		xs &&
-		!xsHidden &&
-		css`
+			xs &&
+			!xsHidden &&
+			css`
 				width: ${getColWidth(xs)};
 			`};
 		${({ xsOffset, xsHidden }) =>
-		xsOffset &&
-		!xsHidden &&
-		css`
+			xsOffset &&
+			!xsHidden &&
+			css`
 				margin-left: ${getColWidth(xsOffset)};
 			`};
 	}
 	/* 769 - 1024 */
 	@media (min-width: ${BREAKPOINTS.SM +
-	1}px) and (max-width: ${BREAKPOINTS.MD}px) {
+			1}px) and (max-width: ${BREAKPOINTS.MD}px) {
 		${({ smHidden = false }) =>
-		smHidden &&
-		css`
+			smHidden &&
+			css`
 				display: none;
 			`};
 		${({ sm, smHidden }) =>
-		sm &&
-		!smHidden &&
-		css`
+			sm &&
+			!smHidden &&
+			css`
 				width: ${getColWidth(sm)};
 			`};
 		${({ smOffset, smHidden }) =>
-		smOffset &&
-		!smHidden &&
-		css`
+			smOffset &&
+			!smHidden &&
+			css`
 				margin-left: ${getColWidth(smOffset)};
 			`};
 	}
 	/* 1025 - 1440 */
 	@media (min-width: ${BREAKPOINTS.MD +
-	1}px) and (max-width: ${BREAKPOINTS.LG}px) {
+			1}px) and (max-width: ${BREAKPOINTS.LG}px) {
 		${({ mdHidden = false }) =>
-		mdHidden &&
-		css`
+			mdHidden &&
+			css`
 				display: none;
 			`};
 		${({ md, mdHidden }) =>
-		md &&
-		!mdHidden &&
-		css`
+			md &&
+			!mdHidden &&
+			css`
 				width: ${getColWidth(md)};
 			`};
 		${({ mdOffset, mdHidden }) =>
-		mdOffset &&
-		!mdHidden &&
-		css`
+			mdOffset &&
+			!mdHidden &&
+			css`
 				margin-left: ${getColWidth(mdOffset)};
 			`};
 	}
 	/* > 1440 */
 	@media (min-width: ${BREAKPOINTS.LG + 1}px) {
 		${({ lgHidden = false }) =>
-		lgHidden &&
-		css`
+			lgHidden &&
+			css`
 				display: none;
 			`};
 		${({ lg, lgHidden }) =>
-		lg &&
-		!lgHidden &&
-		css`
+			lg &&
+			!lgHidden &&
+			css`
 				width: ${getColWidth(lg)};
 			`};
 		${({ lgOffset, lgHidden }) =>
-		lgOffset &&
-		!lgHidden &&
-		css`
+			lgOffset &&
+			!lgHidden &&
+			css`
 				margin-left: ${getColWidth(lgOffset)};
 			`};
 	}
