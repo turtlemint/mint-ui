@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { Button } from "./button";
 import { action } from "@storybook/addon-actions";
 // Storybook Markdown support - https://github.com/storybookjs/storybook/issues/6434
-// import ButtonReadme from "./README.md";
+// import ButtonReadme from "./button.README.md";
 import Row from "@turtlemint/tm-components-shared/src/components/row";
 import Col from "@turtlemint/tm-components-shared/src/components/col";
 
