@@ -14,7 +14,7 @@ const StyledLink = styled.a<ButtonProps>`
 	${LinkStyles};
 `;
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
 	btnType = "primary",
 	size = "sm",
 	disabled = false,
