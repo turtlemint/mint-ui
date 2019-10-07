@@ -2,40 +2,8 @@
 
 exports[`Button renders button 1`] = `
 <DocumentFragment>
-  .c0 {
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  text-align: center;
-  line-height: 1.25;
-  padding: 14px 24px;
-  display: inline-block;
-  background: #00a465;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  color: #fff;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  touch-action: manipulation;
-  padding: 10px 16px;
-}
-
-.c0:hover {
-  background: #0fb877;
-}
-
-.c0:active {
-  color: #fff;
-  background: #078a58;
-}
-
-<button
-    class="c0 tm-button- "
+  <button
+    class="button__StyledButton-ic297r-0 ghBewn tm-button- "
     type="button"
   >
     <span

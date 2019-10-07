@@ -40,6 +40,7 @@ stories.add("Outlined", () => (
 		<Col sm={3} md={3} lg={3}>
 			<Button
 				btnType="outlined"
+				{...actions}
 				onClick={() => {
 					console.log("fired");
 				}}
