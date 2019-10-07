@@ -40,7 +40,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 	checked = false,
 	disabled = false,
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	onChange = (val: boolean): void => { },
+	onChange = (val: boolean): void => {},
 	className = "",
 	children,
 	style,
