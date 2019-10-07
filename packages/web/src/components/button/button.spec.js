@@ -1,16 +1,15 @@
 import React from "react";
-import renderer from "react-test-renderer";
-import "jest-styled-components";
 import { cleanup, fireEvent, render } from "@testing-library/react";
+import "jest-styled-components";
 
 import Button from "./button";
 
 describe("Button", () => {
-	test("renders correctly", () => {
-		const tree = renderer.create(<Button>Test</Button>).toJSON();
-		expect(tree).toMatchSnapshot();
+	test("renders button", () => {
+		const { asFragment } = render(<Button>Test</Button>);
+		expect(asFragment()).toMatchSnapshot();
 	});
-	test("captures click", done => {
+	test("captures button click", done => {
 		function handleClick() {
 			done();
 		}

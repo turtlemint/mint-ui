@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button renders correctly 1`] = `
-.c0 {
+exports[`Button renders button 1`] = `
+<DocumentFragment>
+  .c0 {
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -34,21 +35,14 @@ exports[`Button renders correctly 1`] = `
 }
 
 <button
-  className="c0 tm-button- "
-  disabled={false}
-  onClick={[Function]}
-  size="sm"
-  type="button"
->
-  <span
-    style={
-      Object {
-        "marginLeft": "0px",
-        "verticalAlign": "middle",
-      }
-    }
+    class="c0 tm-button- "
+    type="button"
   >
-    Test
-  </span>
-</button>
+    <span
+      style="vertical-align: middle; margin-left: 0px;"
+    >
+      Test
+    </span>
+  </button>
+</DocumentFragment>
 `;
