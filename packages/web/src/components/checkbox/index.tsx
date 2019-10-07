@@ -66,6 +66,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 					onChange={handleChange}
 					disabled={disabled}
 					ref={inputEl}
+					aria-label="tm-checkbox"
 				/>
 				<CheckboxIcon
 					size={size}
