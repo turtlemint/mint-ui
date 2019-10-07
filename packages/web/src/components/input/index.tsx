@@ -61,7 +61,7 @@ export const Input: React.FC<
 				onChange={handleChange}
 				value={value}
 				className={className}
-				aria-labelledby="tm-input"
+				aria-label="tm-input"
 				{...rest}
 			/>
 			{error ? (
