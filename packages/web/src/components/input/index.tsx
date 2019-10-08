@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import * as Styles from "@turtlemint/tm-components-shared/src/components/input";
-import { Omit } from "@turtlemint/tm-components-shared/src/utils/type";
+import * as Styles from "../../../../shared/src/components/input";
+import { Omit } from "../../../../shared/src/utils/type";
 
 const StyledWrapper = styled.div`
 	${Styles.Wrapper};

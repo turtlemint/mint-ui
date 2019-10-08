@@ -4,7 +4,7 @@ import {
 	ButtonProps,
 	ButtonStyles,
 	LinkStyles
-} from "@turtlemint/tm-components-shared/src/components/button";
+} from "../../../../shared/src/components/button";
 // import { ICONS } from "../utils/icons";
 
 const StyledButton = styled.button<ButtonProps>`

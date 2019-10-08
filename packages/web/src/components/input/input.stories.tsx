@@ -1,8 +1,8 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import Row from "@turtlemint/tm-components-shared/src/components/row";
-import Col from "@turtlemint/tm-components-shared/src/components/col";
 import { Input } from "./index";
+import Row from "../../../../shared/src/components/row";
+import Col from "../../../../shared/src/components/col";
 
 const stories = storiesOf("Input", module);
 

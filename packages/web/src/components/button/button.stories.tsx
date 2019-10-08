@@ -1,9 +1,9 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import Row from "@turtlemint/tm-components-shared/src/components/row";
-import Col from "@turtlemint/tm-components-shared/src/components/col";
 import { Button } from "./button";
+import Row from "../../../../shared/src/components/row";
+import Col from "../../../../shared/src/components/col";
 // Storybook Markdown support - https://github.com/storybookjs/storybook/issues/6434
 // import ButtonReadme from "./button.README.md";
 
