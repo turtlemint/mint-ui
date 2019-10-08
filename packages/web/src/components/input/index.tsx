@@ -73,6 +73,5 @@ export const Input: React.FC<
 		</StyledWrapper>
 	);
 };
-// Input.TextArea = TextArea;
 
 export default Input;
