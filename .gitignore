@@ -1,6 +1,6 @@
 .log
 /DS_Store
-lib
+dist
 .jest-*
 node_modules
 .history/

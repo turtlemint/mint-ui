@@ -10,7 +10,8 @@
     "dev": "start-storybook -p 5555",
     "coverage": "jest --coverage",
     "unit": "jest",
-    "build": "yarn run lint:fix && lerna exec --parallel -- babel --root-mode upward src -d lib --extensions .ts,.tsx,.js,.jsx  --ignore **/*.story.tsx,**/*.spec.js"
+    "prebundle": "yarn run lint:fix && lerna exec --parallel -- rm -rf dist",
+    "bundle": "yarn run prebundle && lerna exec --parallel -- tsc -p ./tsconfig.json"
   },
   "husky": {
     "hooks": {

@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "declaration": true,
+        "outDir": "dist",
+        "strict": true,
+        "esModuleInterop": true,
+        "jsx": "react",
+        "types": [],
+        "forceConsistentCasingInFileNames": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        "inlineSourceMap": true,
+        "skipLibCheck": true
+    },
+    "include": [
+        "src/components",
+        "src/utils",
+        "node_modules"
+    ]
+}

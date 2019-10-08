@@ -2,7 +2,7 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "sourceType": "module",
-        "project": "./packages/**/tsconfig.json"
+        "project": "./tsconfig.json"
     },
     "plugins": [
         "react",
