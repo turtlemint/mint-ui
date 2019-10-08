@@ -11,8 +11,7 @@
     "coverage": "jest --coverage",
     "unit": "jest",
     "prebundle": "yarn run lint:fix && lerna exec --parallel -- rm -rf dist",
-    "bundle": "yarn run prebundle && lerna exec --parallel -- tsc -p ./tsconfig.json",
-    "prepublishOnly": "yarn run bundle"
+    "bundle": "yarn run prebundle && lerna exec --parallel -- tsc -p ./tsconfig.json"
   },
   "husky": {
     "hooks": {
