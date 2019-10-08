@@ -16,6 +16,6 @@
     },
     "files": [
         "README.MD",
-        "components/**"
+        "dist"
     ]
 }
