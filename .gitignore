@@ -4,3 +4,4 @@ dist
 .jest-*
 node_modules
 .history/
+tasks.md
