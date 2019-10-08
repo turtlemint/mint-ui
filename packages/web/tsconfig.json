@@ -9,6 +9,12 @@
         ],
         "declaration": true,
         "outDir": "dist",
+        "rootDirs": [
+            "src/components",
+            "../shared/src/components",
+            "../shared/src/utils"
+        ],
+        "baseUrl": ".",
         "strict": true,
         "esModuleInterop": true,
         "jsx": "react",
@@ -22,13 +28,10 @@
         "inlineSourceMap": true,
         "skipLibCheck": true
     },
-    "include": [
-        "src/components"
-    ],
     "exclude": [
         "**/*.spec.js",
         "**/*.stories.tsx",
         "**/*.README.md",
-        "__snapshots"
+        "__snapshots__"
     ]
 }

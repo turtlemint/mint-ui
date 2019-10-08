@@ -9,6 +9,10 @@
         ],
         "declaration": true,
         "outDir": "dist",
+        "rootDirs": [
+            "src/components",
+            "src/utils"
+        ],
         "strict": true,
         "esModuleInterop": true,
         "jsx": "react",
@@ -21,10 +25,5 @@
         "noImplicitReturns": true,
         "inlineSourceMap": true,
         "skipLibCheck": true
-    },
-    "include": [
-        "src/components",
-        "src/utils",
-        "node_modules"
-    ]
+    }
 }

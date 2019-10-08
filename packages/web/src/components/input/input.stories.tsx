@@ -1,8 +1,8 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Input } from "./index";
-import Row from "../../../../shared/src/components/row";
-import Col from "../../../../shared/src/components/col";
+import Row from "../grid/row";
+import Col from "../grid/col";
 
 const stories = storiesOf("Input", module);
 

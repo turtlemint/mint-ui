@@ -1,7 +1,7 @@
 import React from "react";
 import { cleanup, fireEvent, render } from "@testing-library/react";
 
-import Button from "./button";
+import Button from "./index";
 
 describe("Button", () => {
 	test("renders button", () => {
