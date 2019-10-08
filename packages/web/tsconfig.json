@@ -23,7 +23,9 @@
         "skipLibCheck": true
     },
     "include": [
-        "src/components"
+        "src/components",
+        "../shared/src/components",
+        "../shared/src/utils"
     ],
     "exclude": [
         "**/*.spec.js",
