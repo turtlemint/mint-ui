@@ -1,8 +1,8 @@
 {
     "name": "@turtlemint/core",
-    "version": "1.0.3-alpha.0",
-    "main": "index.js",
-    "types": "index.d.ts",
+    "version": "1.0.2-alpha.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "repository": "https://gitlab.com/turtlemint/tm-components.git",
     "dependencies": {
         "react": "16.8.6",
@@ -16,9 +16,10 @@
     },
     "files": [
         "README.MD",
-        "**"
+        "dist"
     ],
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "gitHead": "d0391dd1dd1d2d18a53db5ea0d6c843263497af1"
 }
