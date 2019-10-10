@@ -117,6 +117,5 @@ const Col = styled.div<Partial<ColProps>>`
 			`};
 	}
 `;
-// remove this later
 
 export default Col;
