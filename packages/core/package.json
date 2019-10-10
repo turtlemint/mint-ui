@@ -15,7 +15,6 @@
         "styled-components": "^4.0.0"
     },
     "files": [
-        "README.MD",
         "dist"
     ],
     "publishConfig": {
