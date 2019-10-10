@@ -10,10 +10,9 @@
     "dev": "start-storybook -p 5555",
     "coverage": "jest --coverage",
     "unit": "jest",
-    "prebundle": "yarn run lint:fix && lerna exec --parallel -- rm -rf dist",
-    "bundle": "yarn run prebundle && lerna exec --parallel -- tsc -p ./tsconfig.json",
+    "bundle": "lerna exec --parallel -- rm -rf dist && lerna exec --parallel -- tsc -p ./tsconfig.json",
     "copy": "lerna exec --parallel -- cp README.MD package.json dist/",
-    "prepublishOnly": "yarn run bundle && yarn run copy"
+    "prepublishOnly": "yarn run lint:fix && yarn run bundle"
   },
   "husky": {
     "hooks": {
