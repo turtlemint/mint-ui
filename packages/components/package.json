@@ -5,6 +5,7 @@
     "types": "dist/index.d.ts",
     "repository": "https://gitlab.com/turtlemint/tm-components.git",
     "dependencies": {
+        "@turtlemint/core": "^1.0.5-alpha.0",
         "react": "16.8.6",
         "react-dom": "16.8.6",
         "styled-components": "4.3.2"
@@ -20,5 +21,6 @@
     ],
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "license": "GPL-3.0"
 }
