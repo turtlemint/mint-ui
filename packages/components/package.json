@@ -1,6 +1,6 @@
 {
     "name": "@turtlemint/ui-components",
-    "version": "1.0.0",
+    "version": "1.0.1-alpha.0",
     "main": "src/index.js",
     "types": "src/index.d.ts",
     "repository": "https://gitlab.com/turtlemint/tm-components.git",
