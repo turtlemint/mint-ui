@@ -1,4 +1,4 @@
-export enum PALETTE {
+export enum COLORS {
 	PRIMARY = "#00a465",
 	PRIMARY_LIGHT = "#0fb877",
 	PRIMARY_DARK = "#078a58",
@@ -20,4 +20,4 @@ export enum PALETTE {
 	PICTON_BLUE = "#23b2eb"
 }
 
-export default PALETTE;
+export default COLORS;

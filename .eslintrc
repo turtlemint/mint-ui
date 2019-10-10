@@ -3,8 +3,8 @@
     "parserOptions": {
         "sourceType": "module",
         "project": [
-            "./packages/web/tsconfig.json",
-            "./packages/shared/tsconfig.json"
+            "./packages/components/tsconfig.json",
+            "./packages/core/tsconfig.json"
         ]
     },
     "plugins": [

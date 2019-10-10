@@ -1,13 +1,12 @@
 import * as React from "react";
 import { css } from "styled-components";
-import { tuple } from "../utils/type";
-import PALETTE from "../utils/colors";
+import { Types, Colors } from "@turtlemint/core";
 
-const ButtonTypes = tuple("outlined", "primary", "danger", "link");
+const ButtonTypes = Types.tuple("outlined", "primary", "danger", "link");
 export type ButtonType = (typeof ButtonTypes)[number];
-const ButtonSizes = tuple("sm", "md");
+const ButtonSizes = Types.tuple("sm", "md");
 export type ButtonSize = (typeof ButtonSizes)[number];
-const ButtonHTMLTypes = tuple("submit", "button", "reset");
+const ButtonHTMLTypes = Types.tuple("submit", "button", "reset");
 export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
 
 export interface BaseButtonProps {
@@ -26,13 +25,13 @@ export type AnchorButtonProps = {
 	target?: string;
 	onClick?: React.MouseEventHandler<HTMLElement>;
 } & BaseButtonProps &
-	Omit<React.AnchorHTMLAttributes<unknown>, "type" | "onClick">;
+	Types.Omit<React.AnchorHTMLAttributes<unknown>, "type" | "onClick">;
 
 export type NativeButtonProps = {
 	onClick: React.MouseEventHandler<HTMLElement>;
 	htmlType?: ButtonHTMLType;
 } & BaseButtonProps &
-	Omit<React.ButtonHTMLAttributes<unknown>, "type" | "onClick">;
+	Types.Omit<React.ButtonHTMLAttributes<unknown>, "type" | "onClick">;
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
@@ -54,21 +53,21 @@ const BaseButtonStyles = css<ButtonProps>`
 
 export const ButtonStyles = css<ButtonProps>`
 	${BaseButtonStyles};
-	background: ${PALETTE.PRIMARY};
+	background: ${Colors.PRIMARY};
 	border-radius: 4px;
 	border: 1px solid transparent;
-	color: ${PALETTE.WHITE};
+	color: ${Colors.WHITE};
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	touch-action: manipulation;
 	&:hover {
-		background: ${PALETTE.PRIMARY_LIGHT};
+		background: ${Colors.PRIMARY_LIGHT};
 	}
 	&:active {
-		color: ${PALETTE.WHITE};
-		background: ${PALETTE.PRIMARY_DARK};
+		color: ${Colors.WHITE};
+		background: ${Colors.PRIMARY_DARK};
 	}
 	${props =>
 		props.size === "sm" &&
@@ -79,13 +78,13 @@ export const ButtonStyles = css<ButtonProps>`
 	${props =>
 		props.btnType === "danger" &&
 		css`
-			background: ${PALETTE.DANGER};
-			color: ${PALETTE.WHITE};
+			background: ${Colors.DANGER};
+			color: ${Colors.WHITE};
 			&:hover {
-				background: ${PALETTE.DANGER_LIGHT};
+				background: ${Colors.DANGER_LIGHT};
 			}
 			&:active {
-				background: ${PALETTE.DANGER_DARK};
+				background: ${Colors.DANGER_DARK};
 			}
 		`};
 
@@ -93,16 +92,16 @@ export const ButtonStyles = css<ButtonProps>`
 		props.btnType === "outlined" &&
 		css`
 			background: none;
-			color: ${PALETTE.PRIMARY};
-			border: 1px solid ${PALETTE.PRIMARY};
+			color: ${Colors.PRIMARY};
+			border: 1px solid ${Colors.PRIMARY};
 			&:hover {
-				border: 1px solid ${PALETTE.PRIMARY_LIGHT};
-				background: ${PALETTE.BACKGROUND_GREEN};
+				border: 1px solid ${Colors.PRIMARY_LIGHT};
+				background: ${Colors.BACKGROUND_GREEN};
 			}
 			&:active {
 				background: none;
-				border: 1px solid ${PALETTE.PRIMARY_DARK};
-				color: ${PALETTE.PRIMARY_DARK};
+				border: 1px solid ${Colors.PRIMARY_DARK};
+				color: ${Colors.PRIMARY_DARK};
 			}
 		`};
 
@@ -110,26 +109,26 @@ export const ButtonStyles = css<ButtonProps>`
 		props.disabled &&
 		css`
 			color: ${props.btnType === "outlined"
-				? PALETTE.DISABLED
-				: PALETTE.WHITE};
+				? Colors.DISABLED
+				: Colors.WHITE};
 			background: ${props.btnType === "outlined"
 				? "none"
-				: PALETTE.DISABLED};
+				: Colors.DISABLED};
 			cursor: no-drop;
 			${props.btnType === "outlined" &&
 				css`
-					border: 1px solid ${PALETTE.DISABLED};
+					border: 1px solid ${Colors.DISABLED};
 				`}
 			&:hover {
 				color: ${props.btnType === "outlined"
-					? PALETTE.DISABLED
-					: PALETTE.WHITE};
+					? Colors.DISABLED
+					: Colors.WHITE};
 				background: ${props.btnType === "outlined"
 					? "none"
-					: PALETTE.DISABLED};
+					: Colors.DISABLED};
 				border: 1px solid
 					${props.btnType === "outlined"
-						? PALETTE.DISABLED
+						? Colors.DISABLED
 						: "transparent"};
 			}
 		`};
@@ -140,25 +139,25 @@ export const LinkStyles = css<ButtonProps>`
 	text-decoration: none;
 	background: none;
 	border: 0;
-	color: ${PALETTE.PRIMARY};
+	color: ${Colors.PRIMARY};
 	&:hover {
-		background: ${PALETTE.BACKGROUND_GREEN};
+		background: ${Colors.BACKGROUND_GREEN};
 	}
 	&:active {
-		color: ${PALETTE.PRIMARY_DARK};
-		background: ${PALETTE.BACKGROUND_GREEN_DARK};
+		color: ${Colors.PRIMARY_DARK};
+		background: ${Colors.BACKGROUND_GREEN_DARK};
 	}
 	${props =>
 		props.disabled &&
 		css`
-			color: ${PALETTE.DISABLED};
+			color: ${Colors.DISABLED};
 			cursor: no-drop;
 			&:hover {
 				background: none;
 			}
 			&:active {
 				background: none;
-				color: ${PALETTE.DISABLED};
+				color: ${Colors.DISABLED};
 			}
 		`};
 `;

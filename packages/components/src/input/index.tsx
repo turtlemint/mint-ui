@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import * as Styles from "../../../../shared/src/components/input";
-import { Omit } from "../../../../shared/src/utils/type";
+import * as Styles from "./input.styles";
+import { Types } from "@turtlemint/core";
 
 const StyledWrapper = styled.div`
 	${Styles.Wrapper};
@@ -15,7 +15,7 @@ const StyledLabel = styled.div<LabelProps>`
 `;
 const StyledInput = styled.input<
 	Pick<Styles.InputProps, "error" | "disabled"> &
-		Omit<Styles.InputProps, "onChange">
+		Types.Omit<Styles.InputProps, "onChange">
 >`
 	${Styles.Input};
 `;
@@ -27,7 +27,7 @@ const StyledHelpText = styled.p<{ children: React.ReactNode }>`
 `;
 export const Input: React.FC<
 	Styles.InputProps &
-		Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">
+		Types.Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">
 > = ({
 	type = "text",
 	placeholder,

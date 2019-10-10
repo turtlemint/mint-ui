@@ -1,10 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import {
-	ButtonProps,
-	ButtonStyles,
-	LinkStyles
-} from "../../../../shared/src/components/button";
+import { ButtonProps, ButtonStyles, LinkStyles } from "./button.styles";
 // import { ICONS } from "../utils/icons";
 
 const StyledButton = styled.button<ButtonProps>`

@@ -9,10 +9,6 @@
         ],
         "declaration": true,
         "outDir": "dist",
-        "rootDirs": [
-            "src/components",
-            "src/utils"
-        ],
         "strict": true,
         "esModuleInterop": true,
         "jsx": "react",

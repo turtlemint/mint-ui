@@ -3,3 +3,4 @@ packages/**/src/**/__snapshots__/**
 packages/**/dist/
 packages/**/src/**/*.stories.tsx
 node_modules
+jest.config.js

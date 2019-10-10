@@ -9,12 +9,6 @@
         ],
         "declaration": true,
         "outDir": "dist",
-        "rootDirs": [
-            "src/components",
-            "../shared/src/components",
-            "../shared/src/utils"
-        ],
-        "baseUrl": ".",
         "strict": true,
         "esModuleInterop": true,
         "jsx": "react",

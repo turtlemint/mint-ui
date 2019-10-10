@@ -1,5 +1,5 @@
 import * as React from "react";
-import { PALETTE } from "../../../../shared/src/utils/colors";
+import { Colors } from "@turtlemint/core";
 
 interface CheckboxProps {
 	size?: number;
@@ -11,8 +11,8 @@ interface CheckboxProps {
 
 export const CheckboxIcon: React.FC<CheckboxProps> = ({
 	size = 24,
-	color = PALETTE.PRIMARY,
-	outlineColor = PALETTE.BLACK,
+	color = Colors.PRIMARY,
+	outlineColor = Colors.BLACK,
 	checked = false,
 	indeterminate = false
 }: CheckboxProps) => {

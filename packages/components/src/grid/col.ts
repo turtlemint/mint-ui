@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { BREAKPOINTS } from "./breakpoints";
-import { tupleNum } from "../../../../shared/src/utils/type";
+import { Types } from "@turtlemint/core";
 
 const getColWidth = (gridSpan: number): string | null => {
 	if (!gridSpan) return null;
@@ -8,7 +8,7 @@ const getColWidth = (gridSpan: number): string | null => {
 	return `${width.toFixed(8)}%`;
 };
 
-const ColValues = tupleNum(12, 9, 8, 6, 4, 3);
+const ColValues = Types.tupleNum(12, 9, 8, 6, 4, 3);
 export type ColValueType = (typeof ColValues)[number];
 
 interface ColProps {
