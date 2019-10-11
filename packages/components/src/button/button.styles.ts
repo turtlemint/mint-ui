@@ -1,12 +1,13 @@
 import * as React from "react";
 import { css } from "styled-components";
-import { Types, Colors } from "@turtlemint/core";
+import { Colors } from "@turtlemint/core";
+import { tuple } from "../__utils/type";
 
-const ButtonTypes = Types.tuple("outlined", "primary", "danger", "link");
+const ButtonTypes = tuple("outlined", "primary", "danger", "link");
 export type ButtonType = (typeof ButtonTypes)[number];
-const ButtonSizes = Types.tuple("sm", "md");
+const ButtonSizes = tuple("sm", "md");
 export type ButtonSize = (typeof ButtonSizes)[number];
-const ButtonHTMLTypes = Types.tuple("submit", "button", "reset");
+const ButtonHTMLTypes = tuple("submit", "button", "reset");
 export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
 
 export interface BaseButtonProps {
@@ -25,13 +26,13 @@ export type AnchorButtonProps = {
 	target?: string;
 	onClick?: React.MouseEventHandler<HTMLElement>;
 } & BaseButtonProps &
-	Types.Omit<React.AnchorHTMLAttributes<unknown>, "type" | "onClick">;
+	Omit<React.AnchorHTMLAttributes<unknown>, "type" | "onClick">;
 
 export type NativeButtonProps = {
 	onClick: React.MouseEventHandler<HTMLElement>;
 	htmlType?: ButtonHTMLType;
 } & BaseButtonProps &
-	Types.Omit<React.ButtonHTMLAttributes<unknown>, "type" | "onClick">;
+	Omit<React.ButtonHTMLAttributes<unknown>, "type" | "onClick">;
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 

@@ -1,9 +1,10 @@
 import { css } from "styled-components";
-import { Colors, Types } from "@turtlemint/core";
+import { Colors } from "@turtlemint/core";
+import { CommonTypeTuple } from "../__utils/type";
 
 export interface InputProps {
 	type?: string;
-	value: Types.CommonTypeTuple;
+	value: CommonTypeTuple;
 	placeholder?: string;
 	label?: string;
 	error?: string;
@@ -20,7 +21,7 @@ export const Wrapper = css<Pick<InputProps, "block">>`
 `;
 
 export const Input = css<
-	Pick<InputProps, "error" | "disabled"> & Types.Omit<InputProps, "onChange">
+	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
 >`
 	border: 0;
 	border: 1px solid ${Colors.DISABLED};
