@@ -19,7 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
 	loading = false,
 	className = "",
 	prefixCls = "tm-button",
-	onClick = function () { },
+	onClick = function() {},
 	href = "#",
 	target = "blank",
 	htmlType = "button",
@@ -47,45 +47,45 @@ export const Button: React.FC<ButtonProps> = ({
 					Loading...
 				</StyledButton>
 			) : (
-					<>
-						{btnType === "link" ? (
-							<StyledLink
-								href={href}
-								target={target}
-								disabled={disabled}
-								{...rest}
-							>
-								{children}
-							</StyledLink>
-						) : (
-								<StyledButton
-									onClick={handleClick}
-									btnType={btnType}
-									size={size}
-									block={block}
-									disabled={disabled}
-									type={htmlType}
-									className={`${prefixCls}-${className} `}
-									{...rest}
-								>
-									{/* {IconComponent ? (
+				<>
+					{btnType === "link" ? (
+						<StyledLink
+							href={href}
+							target={target}
+							disabled={disabled}
+							{...rest}
+						>
+							{children}
+						</StyledLink>
+					) : (
+						<StyledButton
+							onClick={handleClick}
+							btnType={btnType}
+							size={size}
+							block={block}
+							disabled={disabled}
+							type={htmlType}
+							className={`${prefixCls}-${className} `}
+							{...rest}
+						>
+							{/* {IconComponent ? (
 								<IconComponent
 									outlineColor={PALETTE.WHITE}
 									size={16}
 								/>
 							) : null} */}
-									<span
-										style={{
-											verticalAlign: "middle",
-											marginLeft: icon ? "8px" : "0px"
-										}}
-									>
-										{children}
-									</span>
-								</StyledButton>
-							)}
-					</>
-				)}
+							<span
+								style={{
+									verticalAlign: "middle",
+									marginLeft: icon ? "8px" : "0px"
+								}}
+							>
+								{children}
+							</span>
+						</StyledButton>
+					)}
+				</>
+			)}
 		</>
 	);
 };
