@@ -10,6 +10,9 @@
         "react-dom": "16.8.6",
         "styled-components": "4.3.2"
     },
+    "scripts": {
+        "dev": "start-storybook -p 5555"
+    },
     "peerDependencies": {
         "react": "^15.0.0 || ^16.0.0",
         "react-dom": "^15.0.0 || ^16.0.0",

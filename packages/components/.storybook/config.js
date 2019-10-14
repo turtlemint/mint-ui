@@ -44,7 +44,7 @@ addDecorator(withA11y);
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 
 // automatically import all files ending in *.stories.tsx
-const req = requireContext('../packages/', true, /\.stories\.tsx$/);
+const req = requireContext('../src/', true, /\.stories\.tsx$/);
 
 function loadStories() {
     req.keys().forEach(req);
