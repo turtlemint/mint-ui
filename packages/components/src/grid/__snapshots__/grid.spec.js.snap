@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row Col renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="row__Row-sc-1j7iuup-0 kHyiAL"
+  >
+    <div
+      class="col__Col-sc-6sbgfs-0 hjGsrv"
+    >
+      Some value
+    </div>
+    <div
+      class="col__Col-sc-6sbgfs-0 hjGsrv"
+    >
+      Another value
+    </div>
+    <div
+      class="col__Col-sc-6sbgfs-0 hjGsrv"
+    >
+      Third value
+    </div>
+  </div>
+</DocumentFragment>
+`;
