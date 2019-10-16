@@ -25,7 +25,7 @@ export interface TypeAheadProps {
 	notFoundContent?: React.ReactNode | null;
 	disabled?: boolean;
 	style?: React.CSSProperties;
-	placeholder?: string | React.ReactNode;
+	placeholder: string;
 	id?: string;
 	open?: boolean;
 	loading?: boolean;
@@ -143,6 +143,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	onSelect,
 	loading = false,
 	fetchFunc,
+	placeholder = "",
 	children
 }: TypeAheadProps) => {
 	const [inputValue, setInputValue] = React.useState<string>("");
@@ -167,7 +168,11 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	return (
 		<div className={className}>
 			{!showLabelInput ? (
-				<Input value={inputValue} onChange={handleInputChange} />
+				<Input
+					value={inputValue}
+					onChange={handleInputChange}
+					placeholder={placeholder}
+				/>
 			) : (
 				<StyledLabelInput onClick={handleSelectedValueClick}>
 					{inputValue}

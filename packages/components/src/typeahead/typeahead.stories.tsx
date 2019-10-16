@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import TypeAhead, { Option } from "./index";
 
-const stories = storiesOf("Select", module);
+const stories = storiesOf("Typeahead", module);
 
 const Demo = () => {
     const [data, setData] = React.useState([]);
@@ -35,6 +35,7 @@ const Demo = () => {
             fetchFunc={fetchUser}
             onSelect={handleSelect}
             open={open}
+            placeholder="Select user..."
         >
             {data.map((d: any) => (
                 <Option key={d.value} value={d.value}>{d.text}</Option>

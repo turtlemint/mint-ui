@@ -1,35 +1,12 @@
 import * as React from "react";
-import styled from "styled-components";
-import * as Styles from "./input.styles";
+import styled, { css } from "styled-components";
+import { Colors } from "@turtlemint/core";
 import { Omit, CommonTypeTuple } from "../__utils/type";
-
-const StyledWrapper = styled.div`
-	${Styles.Wrapper};
-`;
-type LabelProps = Pick<Styles.InputProps, "error"> & {
-	children: React.ReactNode;
-};
-
-const StyledLabel = styled.div<LabelProps>`
-	${Styles.Label};
-`;
-export const StyledInput = styled.input<
-	Pick<Styles.InputProps, "error" | "disabled"> &
-		Omit<Styles.InputProps, "onChange">
->`
-	${Styles.Input};
-`;
-const StyledError = styled.div<{ children: React.ReactNode }>`
-	${Styles.Error};
-`;
-const StyledHelpText = styled.p<{ children: React.ReactNode }>`
-	${Styles.HelpText};
-`;
 
 export interface InputProps {
 	type?: string;
 	value: CommonTypeTuple;
-	placeholder?: string;
+	placeholder: string;
 	label?: string;
 	error?: string;
 	helpText?: string;
@@ -38,6 +15,135 @@ export interface InputProps {
 	onChange?: (val: string) => void;
 	onBlur?: React.FocusEventHandler;
 }
+
+export const WrapperStyles = css<Pick<InputProps, "block">>`
+	width: ${props => (props.block ? "100%" : "328px")};
+	text-align: left;
+`;
+
+export const InputStyles = css<
+	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
+>`
+	border: 0;
+	border: 1px solid ${Colors.DISABLED};
+	padding: 14px 48px 14px 16px;
+	border-radius: 4px;
+	color: ${Colors.GREY1};
+	font-size: 16px;
+	width: 100%;
+	&:focus {
+		border: 2px solid ${Colors.PRIMARY};
+	}
+	::-webkit-input-placeholder {
+		/* Chrome/Opera/Safari */
+		color: ${Colors.DISABLED};
+	}
+	::-moz-placeholder {
+		/* Firefox 19+ */
+		color: ${Colors.DISABLED};
+	}
+	:-ms-input-placeholder {
+		/* IE 10+ */
+		color: ${Colors.DISABLED};
+	}
+	:-moz-placeholder {
+		/* Firefox 18- */
+		color: ${Colors.DISABLED};
+	}
+	::placeholder: {
+		color: ${Colors.DISABLED};
+	}
+	${props =>
+		props.error &&
+		css`
+			border: 1px solid ${Colors.DANGER};
+			&:focus {
+				border: 1px solid ${Colors.DANGER};
+			}
+		`};
+	${props =>
+		props.disabled &&
+		css`
+			opacity: 0.64;
+			cursor: no-drop;
+			background-color: ${Colors.DISABLED};
+			color: ${Colors.GREY3};
+			::-webkit-input-placeholder {
+				/* Chrome/Opera/Safari */
+				color: ${Colors.GREY3};
+			}
+			::-moz-placeholder {
+				/* Firefox 19+ */
+				color: ${Colors.GREY3};
+			}
+			:-ms-input-placeholder {
+				/* IE 10+ */
+				color: ${Colors.GREY3};
+			}
+			:-moz-placeholder {
+				/* Firefox 18- */
+				color: ${Colors.GREY3};
+			}
+			::placeholder: {
+				color: ${Colors.GREY3};
+			}
+		`};
+`;
+
+const SharedStyles = css`
+	color: ${Colors.GREY1};
+	font-size: 14px;
+	line-height: 1.43;
+`;
+
+export const LabelStyles = css<Pick<InputProps, "error">>`
+	margin-bottom: 4px;
+	label {
+		${SharedStyles};
+		${props =>
+			props.error &&
+			css`
+				color: ${Colors.DANGER};
+			`};
+	}
+`;
+
+export const Error = css`
+	${SharedStyles};
+	margin-top: 4px;
+	word-wrap: break-word;
+	label {
+		color: ${Colors.DANGER};
+	}
+`;
+
+export const HelpText = css`
+	${SharedStyles};
+	color: ${Colors.GREY2};
+`;
+
+const StyledWrapper = styled.div`
+	${WrapperStyles};
+`;
+type LabelProps = Pick<InputProps, "error"> & {
+	children: React.ReactNode;
+};
+
+const StyledLabel = styled.div<LabelProps>`
+	${LabelStyles};
+`;
+export const StyledInput = styled.input<
+	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
+>`
+	${InputStyles};
+`;
+const StyledError = styled.div<{ children: React.ReactNode }>`
+	${Error};
+`;
+const StyledHelpText = styled.p<{ children: React.ReactNode }>`
+	${HelpText};
+`;
+
 export const Input: React.FC<
 	InputProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">
 > = ({
@@ -53,7 +159,7 @@ export const Input: React.FC<
 	value,
 	className = "",
 	...rest
-}: Styles.InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
+}: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (onChange) {
 			onChange(e.target.value);
