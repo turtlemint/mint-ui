@@ -43,13 +43,7 @@
                 "ignoreRestSiblings": false
             }
         ],
-        "@typescript-eslint/no-explicit-any": [
-            "error",
-            {
-                "fixToUnknown": false,
-                "ignoreRestArgs": false
-            }
-        ],
+        "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/unbound-method": "off",
         "react/display-name": "off"
