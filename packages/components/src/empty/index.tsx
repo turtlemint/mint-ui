@@ -2,7 +2,8 @@ import * as React from "react";
 import DefaultEmptyImg from "./empty";
 import SimpleEmptyImg from "./simple";
 import styled, { css } from "styled-components";
-import { Colors, Size } from "@turtlemint/core";
+import { Colors } from "@turtlemint/core";
+import SIZE from "../__utils/size";
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
@@ -25,8 +26,9 @@ interface EmptyType extends React.FC<EmptyProps> {
 }
 
 const StyledContainer = styled.div<{ image: React.ReactNode }>`
+	box-sizing: border-box;
 	margin: 0 8px;
-	font-size: ${Size.EMPTY_FONT_SIZE};
+	font-size: ${SIZE.EMPTY_FONT_SIZE};
 	line-height: 22px;
 	text-align: center;
 	${props =>

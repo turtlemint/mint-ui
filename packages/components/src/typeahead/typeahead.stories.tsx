@@ -1,6 +1,8 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import TypeAhead, { Option } from "./index";
+import Row from "../grid/row";
+import Col from "../grid/col";
 
 const stories = storiesOf("Typeahead", module);
 
@@ -29,18 +31,24 @@ const Demo = () => {
     }
 
     return (
-        <TypeAhead
-            value="some value"
-            loading={fetching}
-            fetchFunc={fetchUser}
-            onSelect={handleSelect}
-            open={open}
-            placeholder="Select user..."
-        >
-            {data.map((d: any) => (
-                <Option key={d.value} value={d.value}>{d.text}</Option>
-            ))}
-        </TypeAhead>
+        <Row style={{
+            padding: "0 30px"
+        }}>
+            <Col>
+                <TypeAhead
+                    value="some value"
+                    loading={fetching}
+                    fetchFunc={fetchUser}
+                    onSelect={handleSelect}
+                    open={open}
+                    placeholder="Select user..."
+                >
+                    {data.map((d: any) => (
+                        <Option key={d.value} value={d.value}>{d.text}</Option>
+                    ))}
+                </TypeAhead>
+            </Col>
+        </Row>
     )
 }
 stories.add("default", () => <Demo />)

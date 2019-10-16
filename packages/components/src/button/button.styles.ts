@@ -44,6 +44,7 @@ const BaseButtonStyles = css<ButtonProps>`
 	line-height: 1.25;
 	padding: 14px 24px;
 	display: inline-block;
+	box-sizing: border-box;
 	${props =>
 		props.block &&
 		css`

@@ -21,6 +21,7 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 const CheckboxContainer = styled.div`
 	display: inline-block;
 	vertical-align: middle;
+	box-sizing: border-box;
 `;
 
 interface CheckboxProps {
