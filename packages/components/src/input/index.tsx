@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import * as Styles from "./input.styles";
-import { Omit } from "../__utils/type";
+import { Omit, CommonTypeTuple } from "../__utils/type";
 
 const StyledWrapper = styled.div`
 	${Styles.Wrapper};
@@ -13,7 +13,7 @@ type LabelProps = Pick<Styles.InputProps, "error"> & {
 const StyledLabel = styled.div<LabelProps>`
 	${Styles.Label};
 `;
-const StyledInput = styled.input<
+export const StyledInput = styled.input<
 	Pick<Styles.InputProps, "error" | "disabled"> &
 		Omit<Styles.InputProps, "onChange">
 >`
@@ -25,9 +25,21 @@ const StyledError = styled.div<{ children: React.ReactNode }>`
 const StyledHelpText = styled.p<{ children: React.ReactNode }>`
 	${Styles.HelpText};
 `;
+
+export interface InputProps {
+	type?: string;
+	value: CommonTypeTuple;
+	placeholder?: string;
+	label?: string;
+	error?: string;
+	helpText?: string;
+	block?: boolean;
+	disabled?: boolean;
+	onChange?: (val: string) => void;
+	onBlur?: React.FocusEventHandler;
+}
 export const Input: React.FC<
-	Styles.InputProps &
-		Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">
+	InputProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">
 > = ({
 	type = "text",
 	placeholder,
@@ -39,7 +51,7 @@ export const Input: React.FC<
 	onChange,
 	onBlur,
 	value,
-	className,
+	className = "",
 	...rest
 }: Styles.InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,6 +85,5 @@ export const Input: React.FC<
 		</StyledWrapper>
 	);
 };
-// remove this later
 
 export default Input;
