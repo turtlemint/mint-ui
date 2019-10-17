@@ -13,7 +13,7 @@ const Demo = () => {
     const fetchUser = (val: string): void => {
         setFetching(true);
         setOpen(false);
-        fetch('https://randomuser.me/api/?results=5')
+        fetch('https://randomuser.me/api/?results=15')
             .then(response => response.json())
             .then(body => {
                 const data = body.results.map((user: any) => ({
