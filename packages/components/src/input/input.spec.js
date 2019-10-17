@@ -1,6 +1,21 @@
-import React from "react";
+import * as React from "react";
 import { fireEvent, render, cleanup } from "@testing-library/react";
-import { TestInput } from "./input.stories";
+import Input from "./";
+
+export const TestInput = () => {
+	const [value, setValue] = React.useState("");
+	const handleChange = (val) => {
+		setValue(val);
+	};
+	return (
+		<Input
+			type="text"
+			placeholder="Test input"
+			value={value}
+			onChange={handleChange}
+		/>
+	);
+};
 
 afterEach(cleanup);
 

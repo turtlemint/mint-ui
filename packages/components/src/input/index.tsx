@@ -7,7 +7,7 @@ import { SIZE } from "../__utils/size";
 export interface InputProps {
 	type?: string;
 	value: CommonTypeTuple;
-	placeholder: string;
+	placeholder?: string;
 	label?: string;
 	error?: string;
 	helpText?: string;
