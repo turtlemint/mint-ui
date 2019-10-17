@@ -5,7 +5,7 @@ import Input from "../input";
 import { SIZE } from "../__utils/size";
 import useDebounce from "../hooks/use-debounce";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
 	width: 300px;
 `;
 export interface LabeledValue {
@@ -34,7 +34,7 @@ export interface TypeAheadProps {
 	id?: string;
 	open?: boolean;
 	loading?: boolean;
-	value: SelectValue;
+	value?: SelectValue;
 	onSelect: (option: SelectedOption) => void;
 	onBlur?: () => void;
 	fetchFunc: (value: string) => any;
@@ -54,7 +54,7 @@ export interface OptionProps {
 	onClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
 }
 
-const Dropdown = styled.div`
+export const Dropdown = styled.div`
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -68,7 +68,8 @@ const Dropdown = styled.div`
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 `;
 
-const List = styled.ul`
+export const List = styled.ul`
+	box-sizing: border-box;
 	border: 1px solid ${Colors.BACKGROUND_GREY};
 	border-radius: 4px;
 	list-style: none;
@@ -82,6 +83,7 @@ const List = styled.ul`
 `;
 
 export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
+	box-sizing: border-box;
 	display: block;
 	padding: 5px 12px;
 	overflow: hidden;
@@ -99,13 +101,13 @@ export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
 		css`
 			cursor: no-drop;
 		`}
-	&:hover {
-		background-color: #e6f7ff;
-	}
 	&:first-child {
 		color: rgba(0, 0, 0, 0.65);
 		font-weight: 600;
 		background-color: #fafafa;
+	}
+	&:hover {
+		background-color: #e6f7ff;
 	}
 `;
 
@@ -127,16 +129,21 @@ export const Option = ({
 		</StyledOption>
 	);
 };
-const StyledLabelInput = styled.div`
+export const StyledLabelInput = styled.div`
 	outline: none;
 	padding: 14px 48px 14px 16px;
 	border: 2px solid ${Colors.BACKGROUND_GREY};
 	border-radius: 4px;
 	font-size: 16px;
+	max-width: 300px;
 	&:hover {
 		border: 2px solid ${Colors.PERSIAN_GREEN};
 		cursor: pointer;
 	}
+`;
+
+const Loading = styled(StyledOption)`
+	// box-shadow: 0 0 4px 0px rgba(0,0,0,0.2);
 `;
 
 export const TypeAhead: React.FC<TypeAheadProps> = ({
@@ -165,9 +172,11 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	const handleInputChange = (val: string) => {
 		setInputValue(val);
 	};
-	const [labelValue, setLabelValue] = React.useState("");
-	const [showLabelInput, setShowLabelInput] = React.useState(false);
-	const [newPlaceholder, setNewPlaceholder] = React.useState(placeholder);
+	const [labelValue, setLabelValue] = React.useState<string>("");
+	const [showLabelInput, setShowLabelInput] = React.useState<boolean>(false);
+	const [newPlaceholder, setNewPlaceholder] = React.useState<string>(
+		placeholder
+	);
 
 	React.useEffect(() => {
 		if (labelValue) {
@@ -196,6 +205,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 		<Wrapper className={className}>
 			{!showLabelInput ? (
 				<Input
+					data-testid="typeahead-input"
 					block={true}
 					value={inputValue}
 					onChange={handleInputChange}
@@ -206,9 +216,13 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 					{labelValue}
 				</StyledLabelInput>
 			)}
-			{loading ? "Loading..." : null}
+			{loading ? (
+				<List>
+					<Loading>Loading...</Loading>
+				</List>
+			) : null}
 			{dropdownOpen ? (
-				<Dropdown>
+				<Dropdown data-testid="typeahead-dropdown">
 					<List>
 						{React.Children.map(
 							children,
