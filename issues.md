@@ -7,4 +7,8 @@
 - Storyshots not working and generating snaphshots - https://github.com/storybookjs/storybook/issues/8245
 - React Native SVG Icons - https://github.com/react-native-community/react-native-svg/issues/109
 
-- Prop table no working for checkbox - not filed yet
+- Prop table not working for mix of styled components and demo component
+
+- Highlight the selected item in dropdown - Typeahead component
+
+
