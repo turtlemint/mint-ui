@@ -32,7 +32,7 @@ export const List = styled.ul`
 `;
 
 export interface OptionProps {
-	key: string | number;
+	key?: string | number;
 	disabled?: boolean;
 	value?: string | number;
 	title?: string;
@@ -47,7 +47,7 @@ export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
 	display: block;
 	padding: 5px 12px;
 	overflow: hidden;
-	font-size: ${SIZE.BASE_FONT_SIZE};
+	font-size: ${SIZE.INPUT_FONT_SIZE};
 	color: ${Colors.GREY1};
 	font-weight: normal;
 	line-height: 22px;
@@ -71,6 +71,10 @@ export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
 	}
 `;
 
+export interface SelectedOption {
+	value: string | number;
+	title: string;
+}
 export const Option = ({
 	key,
 	value,
@@ -91,22 +95,33 @@ export const Option = ({
 };
 
 interface DropdownProps {
-	onSelect?: (event: React.ChangeEvent<HTMLDivElement>) => void;
+	onSelect?: (option: SelectedOption) => void;
 	children:
 		| React.ComponentElement<any, any>
 		| React.ComponentElement<any, any>[];
 }
 
-export const Dropdown = ({ onSelect, children }: DropdownProps) => (
-	<DropdownWrapper>
-		<List>
-			{React.Children.map(children, (child: React.CElement<any, any>) =>
-				React.cloneElement(child, {
-					onClick: onSelect
-				})
-			)}
-		</List>
-	</DropdownWrapper>
-);
+export const Dropdown = ({ onSelect, children }: DropdownProps) => {
+	const handleSelect = (event: React.ChangeEvent<HTMLDivElement>) => {
+		const title = event.target.innerText || event.target.textContent || "";
+		const value = event.target.getAttribute("value") || "";
+		if (event.target) {
+			onSelect ? onSelect({ value, title }) : null;
+		}
+	};
+	return (
+		<DropdownWrapper>
+			<List>
+				{React.Children.map(
+					children,
+					(child: React.CElement<any, any>) =>
+						React.cloneElement(child, {
+							onClick: handleSelect
+						})
+				)}
+			</List>
+		</DropdownWrapper>
+	);
+};
 
 export default Dropdown;

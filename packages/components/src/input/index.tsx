@@ -30,13 +30,13 @@ export const InputStyles = css<
 	border: 0;
 	border: 1px solid ${Colors.DISABLED};
 	outline: none;
-	padding: 14px 48px 14px 16px;
+	padding: 12px 48px 12px 16px;
 	border-radius: 4px;
 	color: ${Colors.GREY1};
-	font-size: 16px;
+	font-size: ${SIZE.INPUT_FONT_SIZE};
 	width: 100%;
 	&:focus {
-		border: 2px solid ${Colors.PRIMARY};
+		border: 1px solid ${Colors.PRIMARY};
 	}
 	::-webkit-input-placeholder {
 		/* Chrome/Opera/Safari */

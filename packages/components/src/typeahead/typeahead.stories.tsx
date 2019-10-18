@@ -1,8 +1,9 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import TypeAhead, { TypeaheadWrapper, StyledTypeaheadLabel } from "./index";
-import Dropdown, { List, Option } from "./dropdown";
-
+import axios from "axios";
+import TypeAhead from "./index";
+import { SelectCTA, SelectWrapper } from "../select";
+import Dropdown, { Option } from "../select/dropdown";
 import Row from "../grid/row";
 import Col from "../grid/col";
 import Input from "../input";
@@ -87,25 +88,71 @@ stories.add("loaded", () => (
 ));
 
 stories.add("selected value label", () => (
-    <TypeaheadWrapper>
-        <StyledTypeaheadLabel>Item 1</StyledTypeaheadLabel>
-    </TypeaheadWrapper>
+    <SelectWrapper>
+        <SelectCTA value="Item 1" />
+    </SelectWrapper>
 ));
 stories.add("clicked label", () => (
-    <TypeaheadWrapper>
+    <SelectWrapper>
         <Input
             block={true}
             value=""
             placeholder="Item 1"
         />
         <Dropdown data-testid="typeahead-dropdown">
-            <List>
-                {
-                    data.map((d: any) => (
-                        <Option key={d.value} value={d.value}>{d.text}</Option>
-                    ))
-                }
-            </List>
+            {
+                data.map((d: any) => (
+                    <Option key={d.value} value={d.value}>{d.text}</Option>
+                ))
+            }
         </Dropdown>
-    </TypeaheadWrapper>
+    </SelectWrapper>
+));
+
+export const TypeAheadDemo = () => {
+    const [data, setData] = React.useState([]);
+    const [open, setOpen] = React.useState(false);
+    const [fetching, setFetching] = React.useState(false);
+
+    const fetchUser = async () => {
+        setFetching(true);
+        setOpen(false);
+        const response = await axios.get('https://randomuser.me/api/?results=15');
+        const data = response.data.results.map((user: any) => ({
+            text: `${user.name.first} ${user.name.last}`,
+            value: user.login.username,
+        }));
+        setData(data);
+        setOpen(true);
+        setFetching(false);
+    }
+
+    const handleSelect = (value: unknown) => {
+        console.log(value);
+        setOpen(false);
+    }
+
+    return (
+        <Row style={{
+            padding: "0 30px"
+        }}>
+            <Col>
+                <TypeAhead
+                    value="some value"
+                    loading={fetching}
+                    fetchFunc={fetchUser}
+                    onSelect={handleSelect}
+                    open={open}
+                    placeholder="Select user..."
+                >
+                    {data.map((d: any) => (
+                        <Option key={d.value} value={d.value}>{d.text}</Option>
+                    ))}
+                </TypeAhead>
+            </Col>
+        </Row>
+    )
+}
+stories.add("functional demo", () => (
+    <TypeAheadDemo />
 ))

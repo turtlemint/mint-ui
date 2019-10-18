@@ -3,11 +3,13 @@ import styled from "styled-components";
 import { Colors } from "@turtlemint/core";
 import Input from "../input";
 import useDebounce from "../hooks/use-debounce";
-import Dropdown, { List, StyledOption } from "./dropdown";
+import Dropdown, { Option, SelectedOption } from "../select/dropdown";
+import { SelectCTA, SelectWrapper } from "../select";
 
-export const TypeaheadWrapper = styled.div`
-	width: 300px;
+const TypeAheadCTA = styled(SelectCTA)`
+	border: 2px solid ${Colors.BACKGROUND_GREY};
 `;
+
 export interface LabeledValue {
 	key: string;
 	label: React.ReactNode;
@@ -21,10 +23,6 @@ export type SelectValue =
 	| LabeledValue
 	| LabeledValue[];
 
-interface SelectedOption {
-	value: string | number;
-	title: string | number;
-}
 export interface TypeAheadProps {
 	className?: string;
 	notFoundContent?: React.ReactNode | null;
@@ -43,19 +41,6 @@ export interface TypeAheadProps {
 		| React.ComponentElement<any, any>[];
 }
 
-export const StyledTypeaheadLabel = styled.div`
-	outline: none;
-	padding: 14px 48px 14px 16px;
-	border: 2px solid ${Colors.BACKGROUND_GREY};
-	border-radius: 4px;
-	font-size: 16px;
-	max-width: 300px;
-	&:hover {
-		border: 2px solid ${Colors.PERSIAN_GREEN};
-		cursor: pointer;
-	}
-`;
-
 export const TypeAhead: React.FC<TypeAheadProps> = ({
 	className = "",
 	open = false,
@@ -71,6 +56,9 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	}, [open]);
 
 	const [inputValue, setInputValue] = React.useState<string>("");
+	const handleInputChange = (val: string) => {
+		setInputValue(val);
+	};
 	const debouncedInput = useDebounce(inputValue, 300);
 
 	React.useEffect(() => {
@@ -79,9 +67,6 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 		}
 	}, [debouncedInput]);
 
-	const handleInputChange = (val: string) => {
-		setInputValue(val);
-	};
 	const [labelValue, setLabelValue] = React.useState<string>("");
 	const [showLabelInput, setShowLabelInput] = React.useState<boolean>(false);
 	const [newPlaceholder, setNewPlaceholder] = React.useState<string>(
@@ -94,14 +79,10 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 		}
 	}, [labelValue]);
 
-	const handleSelect = (event: React.ChangeEvent<HTMLDivElement>) => {
-		const title = event.target.innerText || event.target.textContent || "";
-		const value = event.target.getAttribute("value") || "";
-		if (event.target) {
-			onSelect({ value, title });
-		}
+	const handleSelect = (option: SelectedOption) => {
+		onSelect ? onSelect(option) : null;
 		setInputValue("");
-		setLabelValue(title);
+		setLabelValue(option.title);
 		setShowLabelInput(true);
 		setDropdownOpen(false);
 	};
@@ -112,7 +93,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	};
 
 	return (
-		<TypeaheadWrapper className={className}>
+		<SelectWrapper className={className}>
 			{!showLabelInput ? (
 				<Input
 					data-testid="typeahead-input"
@@ -122,14 +103,16 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 					placeholder={newPlaceholder}
 				/>
 			) : (
-				<StyledTypeaheadLabel onClick={handleSelectedValueClick}>
-					{labelValue}
-				</StyledTypeaheadLabel>
+				<TypeAheadCTA
+					value={labelValue}
+					showArrow={false}
+					onClick={handleSelectedValueClick}
+				/>
 			)}
 			{loading ? (
-				<List>
-					<StyledOption>Loading...</StyledOption>
-				</List>
+				<Dropdown data-testid="typeahead-loading-dropdown">
+					<Option value="loading">Loading...</Option>
+				</Dropdown>
 			) : null}
 			{dropdownOpen ? (
 				<Dropdown
@@ -139,7 +122,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 					{children}
 				</Dropdown>
 			) : null}
-		</TypeaheadWrapper>
+		</SelectWrapper>
 	);
 };
 
