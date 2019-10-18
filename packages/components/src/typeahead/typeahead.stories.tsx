@@ -1,6 +1,8 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import TypeAhead, { Option, StyledLabelInput, Wrapper, Dropdown, List } from "./index";
+import TypeAhead, { TypeaheadWrapper, StyledTypeaheadLabel } from "./index";
+import Dropdown, { List, Option } from "./dropdown";
+
 import Row from "../grid/row";
 import Col from "../grid/col";
 import Input from "../input";
@@ -85,12 +87,12 @@ stories.add("loaded", () => (
 ));
 
 stories.add("selected value label", () => (
-    <Wrapper>
-        <StyledLabelInput>Item 1</StyledLabelInput>
-    </Wrapper>
+    <TypeaheadWrapper>
+        <StyledTypeaheadLabel>Item 1</StyledTypeaheadLabel>
+    </TypeaheadWrapper>
 ));
 stories.add("clicked label", () => (
-    <Wrapper>
+    <TypeaheadWrapper>
         <Input
             block={true}
             value=""
@@ -105,5 +107,5 @@ stories.add("clicked label", () => (
                 }
             </List>
         </Dropdown>
-    </Wrapper>
+    </TypeaheadWrapper>
 ))

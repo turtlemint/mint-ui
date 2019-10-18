@@ -1,11 +1,11 @@
 import * as React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Colors } from "@turtlemint/core";
 import Input from "../input";
-import { SIZE } from "../__utils/size";
 import useDebounce from "../hooks/use-debounce";
+import Dropdown, { List, StyledOption } from "./dropdown";
 
-export const Wrapper = styled.div`
+export const TypeaheadWrapper = styled.div`
 	width: 300px;
 `;
 export interface LabeledValue {
@@ -43,93 +43,7 @@ export interface TypeAheadProps {
 		| React.ComponentElement<any, any>[];
 }
 
-export interface OptionProps {
-	key: string | number;
-	disabled?: boolean;
-	value?: string | number;
-	title?: string;
-	children?: React.ReactNode;
-	className?: string;
-	style?: React.CSSProperties;
-	onClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
-}
-
-export const Dropdown = styled.div`
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	line-height: 1.5;
-	list-style: none;
-	font-variant: initial;
-	background-color: ${Colors.WHITE};
-	border-radius: 4px;
-	outline: none;
-	-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-`;
-
-export const List = styled.ul`
-	box-sizing: border-box;
-	border: 1px solid ${Colors.BACKGROUND_GREY};
-	border-radius: 4px;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	max-height: 250px;
-	margin-bottom: 0;
-	padding-left: 0;
-	overflow: auto;
-	outline: none;
-`;
-
-export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
-	box-sizing: border-box;
-	display: block;
-	padding: 5px 12px;
-	overflow: hidden;
-	font-size: ${SIZE.BASE_FONT_SIZE};
-	color: ${Colors.GREY1};
-	font-weight: normal;
-	line-height: 22px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	cursor: pointer;
-	-webkit-transition: background 0.3s ease;
-	transition: background 0.3s ease;
-	${props =>
-		props.disabled &&
-		css`
-			cursor: no-drop;
-		`}
-	&:first-child {
-		color: rgba(0, 0, 0, 0.65);
-		font-weight: 600;
-		background-color: #fafafa;
-	}
-	&:hover {
-		background-color: #e6f7ff;
-	}
-`;
-
-export const Option = ({
-	key,
-	value,
-	disabled = false,
-	children,
-	onClick
-}: OptionProps) => {
-	return (
-		<StyledOption
-			key={key}
-			value={value}
-			disabled={disabled}
-			onClick={onClick}
-		>
-			{children}
-		</StyledOption>
-	);
-};
-export const StyledLabelInput = styled.div`
+export const StyledTypeaheadLabel = styled.div`
 	outline: none;
 	padding: 14px 48px 14px 16px;
 	border: 2px solid ${Colors.BACKGROUND_GREY};
@@ -140,10 +54,6 @@ export const StyledLabelInput = styled.div`
 		border: 2px solid ${Colors.PERSIAN_GREEN};
 		cursor: pointer;
 	}
-`;
-
-const Loading = styled(StyledOption)`
-	// box-shadow: 0 0 4px 0px rgba(0,0,0,0.2);
 `;
 
 export const TypeAhead: React.FC<TypeAheadProps> = ({
@@ -202,7 +112,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	};
 
 	return (
-		<Wrapper className={className}>
+		<TypeaheadWrapper className={className}>
 			{!showLabelInput ? (
 				<Input
 					data-testid="typeahead-input"
@@ -212,29 +122,24 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 					placeholder={newPlaceholder}
 				/>
 			) : (
-				<StyledLabelInput onClick={handleSelectedValueClick}>
+				<StyledTypeaheadLabel onClick={handleSelectedValueClick}>
 					{labelValue}
-				</StyledLabelInput>
+				</StyledTypeaheadLabel>
 			)}
 			{loading ? (
 				<List>
-					<Loading>Loading...</Loading>
+					<StyledOption>Loading...</StyledOption>
 				</List>
 			) : null}
 			{dropdownOpen ? (
-				<Dropdown data-testid="typeahead-dropdown">
-					<List>
-						{React.Children.map(
-							children,
-							(child: React.CElement<any, any>) =>
-								React.cloneElement(child, {
-									onClick: handleSelect
-								})
-						)}
-					</List>
+				<Dropdown
+					data-testid="typeahead-dropdown"
+					onSelect={handleSelect}
+				>
+					{children}
 				</Dropdown>
 			) : null}
-		</Wrapper>
+		</TypeaheadWrapper>
 	);
 };
 
