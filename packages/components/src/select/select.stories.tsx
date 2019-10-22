@@ -24,7 +24,7 @@ export const DemoSelect = ({ onSelect }: DemoSelectProps) => {
     const handleSelect = (option: any) => {
         setValue(option.title);
         //for test case
-        onSelect(option.title);
+        onSelect ? onSelect(option.title) : null;
     }
     return (
         <Select value={value} onSelect={handleSelect}>
@@ -56,4 +56,4 @@ stories.add("default", () => (
             ))
         }
     </Select>
-))
+));
