@@ -110,7 +110,7 @@ export const Dropdown = ({ onSelect, children }: DropdownProps) => {
 		}
 	};
 	return (
-		<DropdownWrapper>
+		<DropdownWrapper data-testid="dropdown">
 			<List>
 				{React.Children.map(
 					children,

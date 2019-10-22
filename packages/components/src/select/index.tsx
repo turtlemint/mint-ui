@@ -76,7 +76,7 @@ export const Select = ({ value, onSelect, children }: SelectProps) => {
 		onSelect ? onSelect(option) : null;
 	};
 	return (
-		<SelectWrapper>
+		<SelectWrapper data-testid="select-wrapper">
 			<SelectCTA
 				open={open}
 				value={value}

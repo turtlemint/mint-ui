@@ -3,7 +3,7 @@
 exports[`Typeahead tests renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="typeahead__Wrapper-b1vh5f-0 hBLjOi"
+    class="select__SelectWrapper-sc-17jckrb-0 fuExSj"
   >
     <div
       class="input__StyledWrapper-j6wzrl-0 jOAQpk"
@@ -15,7 +15,7 @@ exports[`Typeahead tests renders correctly 1`] = `
       </div>
       <input
         aria-label="tm-input"
-        class="input__StyledInput-j6wzrl-2 cGocHf"
+        class="input__StyledInput-j6wzrl-2 bCJFah"
         data-testid="typeahead-input"
         placeholder="Select user..."
         type="text"
@@ -23,20 +23,20 @@ exports[`Typeahead tests renders correctly 1`] = `
       />
     </div>
     <div
-      class="typeahead__Dropdown-b1vh5f-1 bLNMxe"
-      data-testid="typeahead-dropdown"
+      class="dropdown__DropdownWrapper-graemb-0 hprthl"
+      data-testid="dropdown"
     >
       <ul
-        class="typeahead__List-b1vh5f-2 dStKum"
+        class="dropdown__List-graemb-1 iCvTJn"
       >
         <li
-          class="typeahead__StyledOption-b1vh5f-3 glrVZz"
+          class="dropdown__StyledOption-graemb-2 LjGJC"
           value="1"
         >
           Item 1
         </li>
         <li
-          class="typeahead__StyledOption-b1vh5f-3 glrVZz"
+          class="dropdown__StyledOption-graemb-2 LjGJC"
           value="2"
         >
           Item 2

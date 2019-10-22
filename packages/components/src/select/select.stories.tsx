@@ -15,12 +15,16 @@ export const data = [
         text: "Item 2"
     }
 ];
-const DemoSelect = () => {
+interface DemoSelectProps {
+    onSelect?: (value: string) => void;
+}
+export const DemoSelect = ({ onSelect }: DemoSelectProps) => {
     const [value, setValue] = React.useState("Select Value");
 
     const handleSelect = (option: any) => {
-        console.log(option);
         setValue(option.title);
+        //for test case
+        onSelect(option.title);
     }
     return (
         <Select value={value} onSelect={handleSelect}>
@@ -36,6 +40,20 @@ const DemoSelect = () => {
         </Select>
     );
 }
-stories.add("functional demo", () => (
+stories.add("full functional demo", () => (
     <DemoSelect />
+))
+
+stories.add("default", () => (
+    <Select value="Test value">
+        {
+            data.map((d: any) => (
+                <Option
+                    key={d.value}
+                    value={d.value}>
+                    {d.text}
+                </Option>
+            ))
+        }
+    </Select>
 ))

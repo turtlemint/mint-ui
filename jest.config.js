@@ -1,3 +1,4 @@
+
 module.exports = {
 	cacheDirectory: ".jest-cache",
 	coverageDirectory: ".jest-coverage",
@@ -11,5 +12,6 @@ module.exports = {
 			statements: 100
 		}
 	},
+	setupFilesAfterEnv: ['./jest.setup.js'],
 	testPathIgnorePatterns: ["<rootDir>/packages/(?:.+?)/dist/", "<rootDir>/packages/(?:.+?)/dist/package.json"]
 };

@@ -1,8 +1,8 @@
 import * as React from "react";
 import { render, cleanup, fireEvent} from "@testing-library/react";
-import '@testing-library/jest-dom/extend-expect'
 // import axiosMock from "axios";
-import TypeAhead, { Option } from "./index";
+import TypeAhead from "./index";
+import { Option } from "../select/dropdown";
 
 export const data = [
     {

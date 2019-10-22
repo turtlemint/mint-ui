@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown test suite Dropdown snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="dropdown__DropdownWrapper-graemb-0 hprthl"
+    data-testid="dropdown"
+  >
+    <ul
+      class="dropdown__List-graemb-1 iCvTJn"
+    >
+      <li
+        class="dropdown__StyledOption-graemb-2 LjGJC"
+        value="1"
+      >
+        Item 1
+      </li>
+      <li
+        class="dropdown__StyledOption-graemb-2 LjGJC"
+        value="2"
+      >
+        Item 2
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Select test suites Select snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="select__SelectWrapper-sc-17jckrb-0 fuExSj"
+    data-testid="select-wrapper"
+  >
+    <div
+      class="select__StyledSelectCTA-sc-17jckrb-1 eesZUx"
+    >
+      <span />
+      <span
+        class="select__ArrowWrapper-sc-17jckrb-2 joWHNN"
+      >
+        <svg
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
