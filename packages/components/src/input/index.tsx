@@ -2,7 +2,8 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import { Colors } from "@turtlemint/core";
 import { Omit, CommonTypeTuple } from "../__utils/type";
-import { SIZE } from "../__utils/size";
+// import { SIZE } from "../__utils/size";
+import "../app.css";
 
 export interface InputProps {
 	type?: string;
@@ -20,20 +21,17 @@ export interface InputProps {
 export const WrapperStyles = css<Pick<InputProps, "block">>`
 	width: ${props => (props.block ? "100%" : "328px")};
 	text-align: left;
-	box-sizing: border-box;
 `;
 
 export const InputStyles = css<
 	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
 >`
-	box-sizing: border-box;
 	border: 0;
 	border: 1px solid ${Colors.GREY3};
 	outline: none;
 	padding: 12px 48px 12px 16px;
 	border-radius: 4px;
 	color: ${Colors.GREY1};
-	font-size: ${SIZE.INPUT_FONT_SIZE};
 	width: 100%;
 	&:focus {
 		border: 1px solid ${Colors.PRIMARY};
@@ -96,8 +94,6 @@ export const InputStyles = css<
 
 const SharedStyles = css`
 	color: ${Colors.GREY1};
-	font-size: ${SIZE.BASE_FONT_SIZE};
-	line-height: 1.43;
 `;
 
 export const LabelStyles = css<Pick<InputProps, "error">>`

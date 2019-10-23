@@ -1,15 +1,12 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { Colors } from "@turtlemint/core";
-import { SIZE } from "../__utils/size";
+import "../app.css";
 
 export const DropdownWrapper = styled.div`
-	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	line-height: 1.5;
 	list-style: none;
-	font-variant: initial;
 	background-color: ${Colors.WHITE};
 	border-radius: 4px;
 	outline: none;
@@ -18,7 +15,6 @@ export const DropdownWrapper = styled.div`
 `;
 
 export const List = styled.ul`
-	box-sizing: border-box;
 	border: 1px solid ${Colors.BACKGROUND_GREY};
 	border-radius: 4px;
 	list-style: none;
@@ -43,11 +39,9 @@ export interface OptionProps {
 }
 
 export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
-	box-sizing: border-box;
 	display: block;
 	padding: 5px 12px;
 	overflow: hidden;
-	font-size: ${SIZE.INPUT_FONT_SIZE};
 	color: ${Colors.GREY1};
 	font-weight: normal;
 	line-height: 22px;

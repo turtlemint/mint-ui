@@ -4,20 +4,17 @@ import { Colors } from "@turtlemint/core";
 import ExpandMore from "../icons/expand-more";
 import ExpandLess from "../icons/expand-less";
 import Dropdown, { SelectedOption } from "./dropdown";
-import SIZE from "../__utils/size";
+import "../app.css";
 
 export const SelectWrapper = styled.div`
 	width: 300px;
-	box-sizing: border-box;
 `;
 export const StyledSelectCTA = styled.div`
-	box-sizing: border-box;
 	outline: none;
 	border: 0;
 	padding: 8px 16px;
 	border: 1px solid ${Colors.DISABLED};
 	border-radius: 4px;
-	font-size: ${SIZE.INPUT_FONT_SIZE};
 	color: ${Colors.GREY1};
 	max-width: 300px;
 	&:hover {

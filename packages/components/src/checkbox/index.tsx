@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { CheckboxIcon } from "./icon";
 import { Colors } from "@turtlemint/core";
+import "../app.css";
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 	// Hide checkbox visually but remain accessible to screen readers.
@@ -21,7 +22,6 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 const CheckboxContainer = styled.div`
 	display: inline-block;
 	vertical-align: middle;
-	box-sizing: border-box;
 `;
 
 interface CheckboxProps {

@@ -75,25 +75,29 @@ stories.add("loaded", () => (
 ));
 
 stories.add("selected value label", () => (
-    <SelectWrapper>
-        <SelectCTA value="Item 1" />
-    </SelectWrapper>
+    <StoryWrapper>
+        <SelectWrapper>
+            <SelectCTA value="Item 1" />
+        </SelectWrapper>
+    </StoryWrapper>
 ));
 stories.add("clicked label", () => (
-    <SelectWrapper>
-        <Input
-            block={true}
-            value=""
-            placeholder="Item 1"
-        />
-        <Dropdown data-testid="typeahead-dropdown">
-            {
-                data.map((d: any) => (
-                    <Option key={d.value} value={d.value}>{d.text}</Option>
-                ))
-            }
-        </Dropdown>
-    </SelectWrapper>
+    <StoryWrapper>
+        <SelectWrapper>
+            <Input
+                block={true}
+                value=""
+                placeholder="Item 1"
+            />
+            <Dropdown data-testid="typeahead-dropdown">
+                {
+                    data.map((d: any) => (
+                        <Option key={d.value} value={d.value}>{d.text}</Option>
+                    ))
+                }
+            </Dropdown>
+        </SelectWrapper>
+    </StoryWrapper>
 ));
 
 export const TypeAheadDemo = () => {

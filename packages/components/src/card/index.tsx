@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { Colors } from "@turtlemint/core";
-import SIZE from "../__utils/size";
+import "../app.css";
 
 interface CardProps {
 	children: React.ReactNode | React.ReactNode[];
@@ -17,7 +17,6 @@ const StyledBody = styled.div`
 	display: flex;
 	padding: 20px 20px 20px;
 	color: ${Colors.GREY1};
-	font-size: ${SIZE.BASE_FONT_SIZE};
 `;
 
 const Body = ({ children }: CardProps) => {
