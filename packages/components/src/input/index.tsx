@@ -28,7 +28,7 @@ export const InputStyles = css<
 >`
 	box-sizing: border-box;
 	border: 0;
-	border: 1px solid ${Colors.DISABLED};
+	border: 1px solid ${Colors.GREY3};
 	outline: none;
 	padding: 12px 48px 12px 16px;
 	border-radius: 4px;

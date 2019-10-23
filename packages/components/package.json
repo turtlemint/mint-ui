@@ -5,6 +5,7 @@
     "types": "dist/index.d.ts",
     "repository": "https://gitlab.com/turtlemint/tm-components.git",
     "dependencies": {
+        "@ant-design/icons-react": "^2.0.1",
         "@turtlemint/core": "^1.0.15-alpha.0",
         "react": "16.8.6",
         "react-dom": "16.8.6",
