@@ -2,6 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import Select from "./";
 import { Option } from "./dropdown";
+import { StoryWrapper } from "../storybook.setup";
 
 const stories = storiesOf("Select", module);
 
@@ -41,19 +42,24 @@ export const DemoSelect = ({ onSelect }: DemoSelectProps) => {
     );
 }
 stories.add("full functional demo", () => (
-    <DemoSelect />
+    <StoryWrapper>
+        <DemoSelect />
+    </StoryWrapper>
+
 ))
 
 stories.add("default", () => (
-    <Select value="Test value">
-        {
-            data.map((d: any) => (
-                <Option
-                    key={d.value}
-                    value={d.value}>
-                    {d.text}
-                </Option>
-            ))
-        }
-    </Select>
+    <StoryWrapper>
+        <Select value="Test value">
+            {
+                data.map((d: any) => (
+                    <Option
+                        key={d.value}
+                        value={d.value}>
+                        {d.text}
+                    </Option>
+                ))
+            }
+        </Select>
+    </StoryWrapper>
 ));

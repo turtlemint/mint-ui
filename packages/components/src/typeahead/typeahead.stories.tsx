@@ -4,9 +4,8 @@ import axios from "axios";
 import TypeAhead from "./index";
 import { SelectCTA, SelectWrapper } from "../select";
 import Dropdown, { Option } from "../select/dropdown";
-import Row from "../grid/row";
-import Col from "../grid/col";
 import Input from "../input";
+import { StoryWrapper } from "../storybook.setup";
 
 const stories = storiesOf("Typeahead", module);
 
@@ -21,13 +20,28 @@ export const data = [
     }
 ];
 
-stories.add("default", () => <Row style={{
-    padding: "0 30px"
-}}>
-    <Col sm={6} md={6} lg={6}>
+stories.add("default", () => <StoryWrapper>
+    <TypeAhead
+        value="some value"
+        loading={false}
+        fetchFunc={() => { }}
+        onSelect={() => { }}
+        open={false}
+        placeholder="Select user..."
+    >
+        {
+            data.map((d: any) => (
+                <Option key={d.value} value={d.value}>{d.text}</Option>
+            ))
+        }
+    </TypeAhead>
+</StoryWrapper>
+);
+
+stories.add("loading", () => (
+    <StoryWrapper>
         <TypeAhead
-            value="some value"
-            loading={false}
+            loading={true}
             fetchFunc={() => { }}
             onSelect={() => { }}
             open={false}
@@ -39,52 +53,25 @@ stories.add("default", () => <Row style={{
                 ))
             }
         </TypeAhead>
-    </Col>
-</Row>
-);
-
-stories.add("loading", () => (
-    <Row style={{
-        padding: "0 30px"
-    }}>
-        <Col sm={6} md={6} lg={6}>
-            <TypeAhead
-                loading={true}
-                fetchFunc={() => { }}
-                onSelect={() => { }}
-                open={false}
-                placeholder="Select user..."
-            >
-                {
-                    data.map((d: any) => (
-                        <Option key={d.value} value={d.value}>{d.text}</Option>
-                    ))
-                }
-            </TypeAhead>
-        </Col>
-    </Row>
+    </StoryWrapper>
 ));
 
 stories.add("loaded", () => (
-    <Row style={{
-        padding: "0 30px"
-    }}>
-        <Col sm={6} md={6} lg={6}>
-            <TypeAhead
-                loading={false}
-                fetchFunc={() => { }}
-                onSelect={() => { }}
-                open={true}
-                placeholder="Select user..."
-            >
-                {
-                    data.map((d: any) => (
-                        <Option key={d.value} value={d.value}>{d.text}</Option>
-                    ))
-                }
-            </TypeAhead>
-        </Col>
-    </Row>
+    <StoryWrapper>
+        <TypeAhead
+            loading={false}
+            fetchFunc={() => { }}
+            onSelect={() => { }}
+            open={true}
+            placeholder="Select user..."
+        >
+            {
+                data.map((d: any) => (
+                    <Option key={d.value} value={d.value}>{d.text}</Option>
+                ))
+            }
+        </TypeAhead>
+    </StoryWrapper>
 ));
 
 stories.add("selected value label", () => (
@@ -133,24 +120,20 @@ export const TypeAheadDemo = () => {
     }
 
     return (
-        <Row style={{
-            padding: "0 30px"
-        }}>
-            <Col>
-                <TypeAhead
-                    value="some value"
-                    loading={fetching}
-                    fetchFunc={fetchUser}
-                    onSelect={handleSelect}
-                    open={open}
-                    placeholder="Select user..."
-                >
-                    {data.map((d: any) => (
-                        <Option key={d.value} value={d.value}>{d.text}</Option>
-                    ))}
-                </TypeAhead>
-            </Col>
-        </Row>
+        <StoryWrapper>
+            <TypeAhead
+                value="some value"
+                loading={fetching}
+                fetchFunc={fetchUser}
+                onSelect={handleSelect}
+                open={open}
+                placeholder="Select user..."
+            >
+                {data.map((d: any) => (
+                    <Option key={d.value} value={d.value}>{d.text}</Option>
+                ))}
+            </TypeAhead>
+        </StoryWrapper>
     )
 }
 stories.add("functional demo", () => (

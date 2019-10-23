@@ -1,8 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import Checkbox from "./index";
-import Row from "../grid/row";
-import Col from "../grid/col";
+import { StoryWrapper } from "../storybook.setup";
 
 const stories = storiesOf("Checkbox", module);
 
@@ -27,37 +26,19 @@ const IndeterminateCheckboxDemo = () => {
 	);
 };
 
-stories.add("Normal", () => (
-	<Row
-		style={{
-			padding: "0 30px"
-		}}
-	>
-		<Col sm={3} md={3} lg={3}>
-			<NormalCheckbox />
-		</Col>
-	</Row>
+stories.add("Default", () => (
+	<StoryWrapper>
+		<NormalCheckbox />
+	</StoryWrapper>
 ));
 
 stories.add("Indeterminate", () => (
-	<Row
-		style={{
-			padding: "0 30px"
-		}}
-	>
-		<Col sm={3} md={3} lg={3}>
-			<IndeterminateCheckboxDemo />
-		</Col>
-	</Row>
+	<StoryWrapper>
+		<IndeterminateCheckboxDemo />
+	</StoryWrapper>
 ));
 stories.add("Disabled", () => (
-	<Row
-		style={{
-			padding: "0 30px"
-		}}
-	>
-		<Col sm={3} md={3} lg={3}>
-			<Checkbox checked={false} disabled />
-		</Col>
-	</Row>
+	<StoryWrapper>
+		<Checkbox checked={false} disabled />
+	</StoryWrapper>
 ));
