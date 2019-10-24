@@ -44,3 +44,21 @@ stories.add("number", () => (
 		/>
 	</StoryWrapper>
 ));
+
+const InputDemo = () => {
+	const [value, setValue] = React.useState("");
+	const handleChange = (val: string) => {
+		setValue(val);
+	}
+	return (
+		<>
+			<Input value={value} onChange={handleChange} placeholder="Enter something..." />
+			<div style={{ margin: "10px" }}>{value}</div>
+		</>
+	)
+}
+stories.add("functional demo", () => (
+	<StoryWrapper>
+		<InputDemo />
+	</StoryWrapper>
+));

@@ -40,6 +40,7 @@ export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 const BaseButtonStyles = css<ButtonProps>`
 	font-weight: 500;
+	font-size: 16px;
 	cursor: pointer;
 	text-align: center;
 	line-height: 1.25;

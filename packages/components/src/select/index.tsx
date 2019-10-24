@@ -12,13 +12,14 @@ export const SelectWrapper = styled.div`
 export const StyledSelectCTA = styled.div`
 	outline: none;
 	border: 0;
-	padding: 8px 16px;
-	border: 1px solid ${COLORS.DISABLED};
+	padding: 12px 16px 12px 16px;
+	border: 1px solid ${COLORS.GREY4};
 	border-radius: 4px;
 	color: ${COLORS.GREY1};
 	max-width: 300px;
+	font-size: 16px;
 	&:hover {
-		border: 1px solid ${COLORS.PERSIAN_GREEN};
+		border-color: ${COLORS.PERSIAN_GREEN};
 		cursor: pointer;
 	}
 	display: flex;

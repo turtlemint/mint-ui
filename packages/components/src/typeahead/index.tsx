@@ -1,14 +1,8 @@
 import * as React from "react";
-import styled from "styled-components";
 import Input from "../input";
 import useDebounce from "../hooks/use-debounce";
 import Dropdown, { Option, SelectedOption } from "../select/dropdown";
 import { SelectCTA, SelectWrapper } from "../select";
-import COLORS from "../__utils/colors";
-
-const TypeAheadCTA = styled(SelectCTA)`
-	border: 2px solid ${COLORS.BACKGROUND_GREY};
-`;
 
 export interface LabeledValue {
 	key: string;
@@ -103,7 +97,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 					placeholder={newPlaceholder}
 				/>
 			) : (
-				<TypeAheadCTA
+				<SelectCTA
 					value={labelValue}
 					showArrow={false}
 					onClick={handleSelectedValueClick}

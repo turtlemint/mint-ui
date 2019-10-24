@@ -26,14 +26,15 @@ export const InputStyles = css<
 	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
 >`
 	border: 0;
-	border: 1px solid ${COLORS.GREY3};
+	border: 1px solid ${COLORS.GREY4};
 	outline: none;
 	padding: 12px 48px 12px 16px;
 	border-radius: 4px;
 	color: ${COLORS.GREY1};
 	width: 100%;
+	font-size: 16px;
 	&:focus {
-		border: 1px solid ${COLORS.PRIMARY};
+		border-color: ${COLORS.PRIMARY};
 	}
 	::-webkit-input-placeholder {
 		/* Chrome/Opera/Safari */
@@ -57,9 +58,9 @@ export const InputStyles = css<
 	${props =>
 		props.error &&
 		css`
-			border: 1px solid ${COLORS.DANGER};
+			border-color: ${COLORS.DANGER};
 			&:focus {
-				border: 1px solid ${COLORS.DANGER};
+				border-color: ${COLORS.DANGER};
 			}
 		`};
 	${props =>
