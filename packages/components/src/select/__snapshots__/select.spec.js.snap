@@ -3,20 +3,20 @@
 exports[`Dropdown test suite Dropdown snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown__DropdownWrapper-graemb-0 hprthl"
+    class="dropdown__DropdownWrapper-graemb-0 eKUTRl"
     data-testid="dropdown"
   >
     <ul
-      class="dropdown__List-graemb-1 iCvTJn"
+      class="dropdown__List-graemb-1 ducVEX"
     >
       <li
-        class="dropdown__StyledOption-graemb-2 LjGJC"
+        class="dropdown__StyledOption-graemb-2 fnhiyk"
         value="1"
       >
         Item 1
       </li>
       <li
-        class="dropdown__StyledOption-graemb-2 LjGJC"
+        class="dropdown__StyledOption-graemb-2 fnhiyk"
         value="2"
       >
         Item 2
@@ -29,11 +29,11 @@ exports[`Dropdown test suite Dropdown snapshot 1`] = `
 exports[`Select test suites Select snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="select__SelectWrapper-sc-17jckrb-0 fuExSj"
+    class="select__SelectWrapper-sc-17jckrb-0 ghkoVW"
     data-testid="select-wrapper"
   >
     <div
-      class="select__StyledSelectCTA-sc-17jckrb-1 eesZUx"
+      class="select__StyledSelectCTA-sc-17jckrb-1 iBHmAZ"
     >
       <span />
       <span
@@ -47,6 +47,7 @@ exports[`Select test suites Select snapshot 1`] = `
         >
           <path
             d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            fill="#a1a6a7"
           />
           <path
             d="M0 0h24v24H0z"

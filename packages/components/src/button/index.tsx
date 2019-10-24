@@ -1,9 +1,9 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { Colors } from "@turtlemint/core";
 import { tuple } from "../__utils/type";
 // import { ICONS } from "../utils/icons";
 import "../app.css";
+import COLORS from "../__utils/colors";
 
 const ButtonTypes = tuple("outlined", "primary", "danger", "link");
 export type ButtonType = (typeof ButtonTypes)[number];
@@ -55,21 +55,21 @@ const BaseButtonStyles = css<ButtonProps>`
 
 export const ButtonStyles = css<ButtonProps>`
 	${BaseButtonStyles};
-	background: ${Colors.PRIMARY};
+	background: ${COLORS.PRIMARY};
 	border-radius: 4px;
 	border: 1px solid transparent;
-	color: ${Colors.WHITE};
+	color: ${COLORS.WHITE};
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	touch-action: manipulation;
 	&:hover {
-		background: ${Colors.PRIMARY_LIGHT};
+		background: ${COLORS.PRIMARY_LIGHT};
 	}
 	&:active {
-		color: ${Colors.WHITE};
-		background: ${Colors.PRIMARY_DARK};
+		color: ${COLORS.WHITE};
+		background: ${COLORS.PRIMARY_DARK};
 	}
 	&:focus {
 		outline: 0;
@@ -83,13 +83,13 @@ export const ButtonStyles = css<ButtonProps>`
 	${props =>
 		props.btnType === "danger" &&
 		css`
-			background: ${Colors.DANGER};
-			color: ${Colors.WHITE};
+			background: ${COLORS.DANGER};
+			color: ${COLORS.WHITE};
 			&:hover {
-				background: ${Colors.DANGER_LIGHT};
+				background: ${COLORS.DANGER_LIGHT};
 			}
 			&:active {
-				background: ${Colors.DANGER_DARK};
+				background: ${COLORS.DANGER_DARK};
 			}
 		`};
 
@@ -97,16 +97,16 @@ export const ButtonStyles = css<ButtonProps>`
 		props.btnType === "outlined" &&
 		css`
 			background: none;
-			color: ${Colors.PRIMARY};
-			border: 1px solid ${Colors.PRIMARY};
+			color: ${COLORS.PRIMARY};
+			border: 1px solid ${COLORS.PRIMARY};
 			&:hover {
-				border: 1px solid ${Colors.PRIMARY_LIGHT};
-				background: ${Colors.BACKGROUND_GREEN};
+				border: 1px solid ${COLORS.PRIMARY_LIGHT};
+				background: ${COLORS.BACKGROUND_GREEN};
 			}
 			&:active {
 				background: none;
-				border: 1px solid ${Colors.PRIMARY_DARK};
-				color: ${Colors.PRIMARY_DARK};
+				border: 1px solid ${COLORS.PRIMARY_DARK};
+				color: ${COLORS.PRIMARY_DARK};
 			}
 		`};
 
@@ -114,26 +114,26 @@ export const ButtonStyles = css<ButtonProps>`
 		props.disabled &&
 		css`
 			color: ${props.btnType === "outlined"
-				? Colors.DISABLED
-				: Colors.WHITE};
+				? COLORS.DISABLED
+				: COLORS.WHITE};
 			background: ${props.btnType === "outlined"
 				? "none"
-				: Colors.DISABLED};
+				: COLORS.DISABLED};
 			cursor: no-drop;
 			${props.btnType === "outlined" &&
 				css`
-					border: 1px solid ${Colors.DISABLED};
+					border: 1px solid ${COLORS.DISABLED};
 				`}
 			&:hover {
 				color: ${props.btnType === "outlined"
-					? Colors.DISABLED
-					: Colors.WHITE};
+					? COLORS.DISABLED
+					: COLORS.WHITE};
 				background: ${props.btnType === "outlined"
 					? "none"
-					: Colors.DISABLED};
+					: COLORS.DISABLED};
 				border: 1px solid
 					${props.btnType === "outlined"
-						? Colors.DISABLED
+						? COLORS.DISABLED
 						: "transparent"};
 			}
 		`};
@@ -144,25 +144,25 @@ export const LinkStyles = css<ButtonProps>`
 	text-decoration: none;
 	background: none;
 	border: 0;
-	color: ${Colors.PRIMARY};
+	color: ${COLORS.PRIMARY};
 	&:hover {
-		background: ${Colors.BACKGROUND_GREEN};
+		background: ${COLORS.BACKGROUND_GREEN};
 	}
 	&:active {
-		color: ${Colors.PRIMARY_DARK};
-		background: ${Colors.BACKGROUND_GREEN_DARK};
+		color: ${COLORS.PRIMARY_DARK};
+		background: ${COLORS.BACKGROUND_GREEN_DARK};
 	}
 	${props =>
 		props.disabled &&
 		css`
-			color: ${Colors.DISABLED};
+			color: ${COLORS.DISABLED};
 			cursor: no-drop;
 			&:hover {
 				background: none;
 			}
 			&:active {
 				background: none;
-				color: ${Colors.DISABLED};
+				color: ${COLORS.DISABLED};
 			}
 		`};
 `;

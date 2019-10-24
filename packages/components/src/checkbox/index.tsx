@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import { CheckboxIcon } from "./icon";
-import { Colors } from "@turtlemint/core";
 import "../app.css";
+import COLORS from "../__utils/colors";
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 	// Hide checkbox visually but remain accessible to screen readers.
@@ -46,8 +46,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
 	children,
 	style,
 	indeterminate = false,
-	color = Colors.PRIMARY,
-	outlineColor = Colors.BLACK,
+	color = COLORS.PRIMARY,
+	outlineColor = COLORS.BLACK,
 	size = 24
 }: CheckboxProps) => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

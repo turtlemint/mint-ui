@@ -1,13 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Colors } from "@turtlemint/core";
 import Input from "../input";
 import useDebounce from "../hooks/use-debounce";
 import Dropdown, { Option, SelectedOption } from "../select/dropdown";
 import { SelectCTA, SelectWrapper } from "../select";
+import COLORS from "../__utils/colors";
 
 const TypeAheadCTA = styled(SelectCTA)`
-	border: 2px solid ${Colors.BACKGROUND_GREY};
+	border: 2px solid ${COLORS.BACKGROUND_GREY};
 `;
 
 export interface LabeledValue {

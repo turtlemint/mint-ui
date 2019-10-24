@@ -1,13 +1,13 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { Colors } from "@turtlemint/core";
 import "../app.css";
+import COLORS from "../__utils/colors";
 
 export const DropdownWrapper = styled.div`
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	background-color: ${Colors.WHITE};
+	background-color: ${COLORS.WHITE};
 	border-radius: 4px;
 	outline: none;
 	-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -15,7 +15,7 @@ export const DropdownWrapper = styled.div`
 `;
 
 export const List = styled.ul`
-	border: 1px solid ${Colors.BACKGROUND_GREY};
+	border: 1px solid ${COLORS.BACKGROUND_GREY};
 	border-radius: 4px;
 	list-style: none;
 	margin: 0;
@@ -42,7 +42,7 @@ export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
 	display: block;
 	padding: 5px 12px;
 	overflow: hidden;
-	color: ${Colors.GREY1};
+	color: ${COLORS.GREY1};
 	font-weight: normal;
 	line-height: 22px;
 	white-space: nowrap;

@@ -2,9 +2,9 @@ import * as React from "react";
 import DefaultEmptyImg from "./empty";
 import SimpleEmptyImg from "./simple";
 import styled, { css } from "styled-components";
-import { Colors } from "@turtlemint/core";
 import SIZE from "../__utils/size";
 import "../app.css";
+import COLORS from "../__utils/colors";
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
@@ -35,7 +35,7 @@ const StyledContainer = styled.div<{ image: React.ReactNode }>`
 		props.image === simpleEmptyImg &&
 		css`
 			margin: 32px 0;
-			color: ${Colors.DISABLED};
+			color: ${COLORS.DISABLED};
 		`}
 `;
 

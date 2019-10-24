@@ -13,5 +13,8 @@ module.exports = {
 		}
 	},
 	setupFilesAfterEnv: ['./jest.setup.js'],
+	moduleNameMapper: {
+ 		"\\.(css|less)$": "identity-obj-proxy"
+	},
 	testPathIgnorePatterns: ["<rootDir>/packages/(?:.+?)/dist/", "<rootDir>/packages/(?:.+?)/dist/package.json"]
 };

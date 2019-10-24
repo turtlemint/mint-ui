@@ -1,9 +1,8 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { Colors } from "@turtlemint/core";
 import { Omit, CommonTypeTuple } from "../__utils/type";
-// import { SIZE } from "../__utils/size";
 import "../app.css";
+import COLORS from "../__utils/colors";
 
 export interface InputProps {
 	type?: string;
@@ -27,40 +26,40 @@ export const InputStyles = css<
 	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
 >`
 	border: 0;
-	border: 1px solid ${Colors.GREY3};
+	border: 1px solid ${COLORS.GREY3};
 	outline: none;
 	padding: 12px 48px 12px 16px;
 	border-radius: 4px;
-	color: ${Colors.GREY1};
+	color: ${COLORS.GREY1};
 	width: 100%;
 	&:focus {
-		border: 1px solid ${Colors.PRIMARY};
+		border: 1px solid ${COLORS.PRIMARY};
 	}
 	::-webkit-input-placeholder {
 		/* Chrome/Opera/Safari */
-		color: ${Colors.DISABLED};
+		color: ${COLORS.DISABLED};
 	}
 	::-moz-placeholder {
 		/* Firefox 19+ */
-		color: ${Colors.DISABLED};
+		color: ${COLORS.DISABLED};
 	}
 	:-ms-input-placeholder {
 		/* IE 10+ */
-		color: ${Colors.DISABLED};
+		color: ${COLORS.DISABLED};
 	}
 	:-moz-placeholder {
 		/* Firefox 18- */
-		color: ${Colors.DISABLED};
+		color: ${COLORS.DISABLED};
 	}
 	::placeholder: {
-		color: ${Colors.DISABLED};
+		color: ${COLORS.DISABLED};
 	}
 	${props =>
 		props.error &&
 		css`
-			border: 1px solid ${Colors.DANGER};
+			border: 1px solid ${COLORS.DANGER};
 			&:focus {
-				border: 1px solid ${Colors.DANGER};
+				border: 1px solid ${COLORS.DANGER};
 			}
 		`};
 	${props =>
@@ -68,32 +67,32 @@ export const InputStyles = css<
 		css`
 			opacity: 0.64;
 			cursor: no-drop;
-			background-color: ${Colors.DISABLED};
-			color: ${Colors.GREY3};
+			background-color: ${COLORS.DISABLED};
+			color: ${COLORS.GREY3};
 			::-webkit-input-placeholder {
 				/* Chrome/Opera/Safari */
-				color: ${Colors.GREY3};
+				color: ${COLORS.GREY3};
 			}
 			::-moz-placeholder {
 				/* Firefox 19+ */
-				color: ${Colors.GREY3};
+				color: ${COLORS.GREY3};
 			}
 			:-ms-input-placeholder {
 				/* IE 10+ */
-				color: ${Colors.GREY3};
+				color: ${COLORS.GREY3};
 			}
 			:-moz-placeholder {
 				/* Firefox 18- */
-				color: ${Colors.GREY3};
+				color: ${COLORS.GREY3};
 			}
 			::placeholder: {
-				color: ${Colors.GREY3};
+				color: ${COLORS.GREY3};
 			}
 		`};
 `;
 
 const SharedStyles = css`
-	color: ${Colors.GREY1};
+	color: ${COLORS.GREY1};
 `;
 
 export const LabelStyles = css<Pick<InputProps, "error">>`
@@ -103,7 +102,7 @@ export const LabelStyles = css<Pick<InputProps, "error">>`
 		${props =>
 			props.error &&
 			css`
-				color: ${Colors.DANGER};
+				color: ${COLORS.DANGER};
 			`};
 	}
 `;
@@ -113,13 +112,13 @@ export const Error = css`
 	margin-top: 4px;
 	word-wrap: break-word;
 	label {
-		color: ${Colors.DANGER};
+		color: ${COLORS.DANGER};
 	}
 `;
 
 export const HelpText = css`
 	${SharedStyles};
-	color: ${Colors.GREY2};
+	color: ${COLORS.GREY2};
 `;
 
 const StyledWrapper = styled.div`

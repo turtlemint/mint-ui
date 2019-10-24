@@ -1,10 +1,10 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Colors } from "@turtlemint/core";
 import ExpandMore from "../icons/expand-more";
 import ExpandLess from "../icons/expand-less";
 import Dropdown, { SelectedOption } from "./dropdown";
 import "../app.css";
+import COLORS from "../__utils/colors";
 
 export const SelectWrapper = styled.div`
 	width: 300px;
@@ -13,12 +13,12 @@ export const StyledSelectCTA = styled.div`
 	outline: none;
 	border: 0;
 	padding: 8px 16px;
-	border: 1px solid ${Colors.DISABLED};
+	border: 1px solid ${COLORS.DISABLED};
 	border-radius: 4px;
-	color: ${Colors.GREY1};
+	color: ${COLORS.GREY1};
 	max-width: 300px;
 	&:hover {
-		border: 1px solid ${Colors.PERSIAN_GREEN};
+		border: 1px solid ${COLORS.PERSIAN_GREEN};
 		cursor: pointer;
 	}
 	display: flex;
@@ -27,7 +27,7 @@ export const StyledSelectCTA = styled.div`
 `;
 
 const ArrowWrapper = styled.span`
-	color: ${Colors.GREY1};
+	color: ${COLORS.GREY1};
 `;
 
 const ArrowToggle = ({ open }: { open: boolean }) => (

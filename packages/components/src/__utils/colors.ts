@@ -13,8 +13,9 @@ export enum COLORS {
 	GREY1 = "#4d5556",
 	GREY2 = "#6c7375",
 	GREY3 = "#a1a6a7",
+	GREY4 = "#e8e8e8",
 	PERSIAN_GREEN = "#009ca4",
-	BACKGROUND_GREY = "#f5f5f5",
+	BACKGROUND_GREY = "#fafafa",
 	BACKGROUND_BLUE = "#f0f8fe",
 	YELLOW = "#f5ae0a",
 	PICTON_BLUE = "#23b2eb"

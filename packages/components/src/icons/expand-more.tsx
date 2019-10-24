@@ -1,8 +1,8 @@
 import * as React from "react";
 import { IconProps } from ".";
-import { Colors } from "@turtlemint/core";
+import COLORS from "../__utils/colors";
 
-const ExpandMore = ({ size = "24", color = Colors.GREY3 }: IconProps) => {
+const ExpandMore = ({ size = "24", color = COLORS.GREY3 }: IconProps) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
