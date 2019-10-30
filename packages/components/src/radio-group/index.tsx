@@ -59,8 +59,8 @@ const Label = styled.label<Partial<LabelProps>>`
 		border-top-right-radius: 4px;
 		border-bottom-right-radius: 4px;
 	}
-	:focus {
-		box-shadow: -1px 0 0 0 ${COLORS.PRIMARY};
+	:focus-within {
+		outline: 3px solid rgba(24, 144, 255, 0.06);
 	}
 	${({ isActive }) =>
 		isActive &&
@@ -73,6 +73,9 @@ const Label = styled.label<Partial<LabelProps>>`
 			color: ${COLORS.PRIMARY};
 			:last-child {
 				border-color: ${COLORS.PRIMARY};
+			}
+			:hover {
+				color: ${COLORS.PRIMARY_LIGHT};
 			}
 		`};
 
@@ -87,12 +90,17 @@ const Label = styled.label<Partial<LabelProps>>`
 			font-size: 18px;
 		`};
 
-	${props =>
-		props.buttonStyle === "solid" &&
+	${({ isActive, buttonStyle }) =>
+		isActive &&
+		buttonStyle === "solid" &&
 		css`
-			border: none;
+			border-color: transparent;
 			background: ${COLORS.PRIMARY};
 			color: ${COLORS.WHITE};
+			&:hover {
+				color: ${COLORS.WHITE};
+				background: ${COLORS.PRIMARY_LIGHT};
+			}
 		`}
 `;
 
