@@ -8,11 +8,13 @@ type ButtonSize = (typeof Size)[number];
 const BtnType = tuple("outline", "solid");
 type ButtonType = (typeof BtnType)[number];
 
+type ValueType = string | number;
+
 interface RadioGroupProps {
 	disabled?: boolean;
 	size?: ButtonSize;
-	value?: string | number;
-	onChange: (val: string | number) => void;
+	value: ValueType;
+	onChange: (val: ValueType) => void;
 	buttonStyle?: ButtonType;
 	children:
 		| React.ComponentElement<any, any>
@@ -37,7 +39,7 @@ interface LabelProps {
 	onClick: (val: string) => void;
 }
 
-const Label = styled.div<Partial<LabelProps>>`
+const Label = styled.label<Partial<LabelProps>>`
 	padding: 8px 15px;
 	font-size: 16px;
 	border: 1px solid ${COLORS.GREY4};
@@ -47,7 +49,7 @@ const Label = styled.div<Partial<LabelProps>>`
 	&:hover {
 		color: ${COLORS.PRIMARY};
 	}
-	transition: color 0.4s 0s ease-out;
+	transition: color 0.3s 0s ease-in;
 	:first-child {
 		border-top-left-radius: 4px;
 		border-bottom-left-radius: 4px;
@@ -57,6 +59,9 @@ const Label = styled.div<Partial<LabelProps>>`
 		border-top-right-radius: 4px;
 		border-bottom-right-radius: 4px;
 	}
+	:focus {
+		box-shadow: -1px 0 0 0 ${COLORS.PRIMARY};
+	}
 	${({ isActive }) =>
 		isActive &&
 		css`
@@ -65,6 +70,7 @@ const Label = styled.div<Partial<LabelProps>>`
 			}
 			border-right: 1px solid;
 			border-color: ${COLORS.PRIMARY};
+			color: ${COLORS.PRIMARY};
 			:last-child {
 				border-color: ${COLORS.PRIMARY};
 			}
@@ -91,25 +97,24 @@ const Label = styled.div<Partial<LabelProps>>`
 `;
 
 interface ButtonProps {
-	value: string | number;
-	activeValue?: string | number;
+	value: ValueType;
+	activeValue?: ValueType;
 	size?: ButtonSize;
 	buttonStyle?: ButtonType;
 	children: string;
-	onChange?: (val: string | number) => void;
+	onClick?: (val: ValueType) => void;
 }
 
 const Button = ({
 	value,
-	activeValue,
+	activeValue = "",
 	size,
 	buttonStyle,
-	onChange,
+	onClick,
 	children
 }: ButtonProps) => {
-	// const [activeValue, setActiveValue] = React.useState<Pick<RadioGroupProps, "value">>(value);
-	const handleClick = (e: any) => {
-		onChange ? onChange(value) : null;
+	const handleClick = () => {
+		onClick ? onClick(value) : null;
 	};
 	return (
 		<>
@@ -138,15 +143,20 @@ const RadioGroup = ({
 	buttonStyle,
 	children
 }: RadioGroupProps) => {
+	const [selectedValue, setSelectedValue] = React.useState<ValueType>(value);
+	const handleClick = (val: ValueType) => {
+		setSelectedValue(val);
+		onChange ? onChange(val) : null;
+	};
 	return (
 		<Wrapper>
 			{React.Children.map(children, (child: React.CElement<any, any>) =>
 				React.cloneElement(child, {
-					onClick: onChange,
+					onClick: handleClick,
 					buttonStyle,
 					disabled,
 					size,
-					activeValue: value
+					activeValue: selectedValue
 				})
 			)}
 		</Wrapper>

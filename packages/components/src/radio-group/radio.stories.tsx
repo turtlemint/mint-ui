@@ -9,7 +9,7 @@ stories.add("default", () => {
     return (
         <StoryWrapper>
             <RadioGroup value="item-4" onChange={(val) => {
-                alert(val);
+                // alert(val);
             }}>
                 <RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
                 <RadioGroup.Button value="item-2">Item 2</RadioGroup.Button>
