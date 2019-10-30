@@ -1,25 +1,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import COLORS from "../__utils/colors";
-import { tuple } from "../__utils/type";
-
-const Size = tuple("large", "small", "default");
-type ButtonSize = (typeof Size)[number];
-const BtnType = tuple("outline", "solid");
-type ButtonType = (typeof BtnType)[number];
-
-type ValueType = string | number;
-
-interface RadioGroupProps {
-	disabled?: boolean;
-	size?: ButtonSize;
-	value: ValueType;
-	onChange: (val: ValueType) => void;
-	buttonStyle?: ButtonType;
-	children:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
-}
+import { tuple, Omit } from "../__utils/type";
 
 const Wrapper = styled.div`
 	display: flex;
@@ -36,10 +18,11 @@ interface LabelProps {
 	isActive?: boolean;
 	size?: ButtonSize;
 	buttonStyle?: ButtonType;
+	disabled: boolean;
 	onClick: (val: string) => void;
 }
 
-const Label = styled.label<Partial<LabelProps>>`
+const Label = styled.label<Omit<LabelProps, "onClick">>`
 	padding: 8px 15px;
 	font-size: 16px;
 	border: 1px solid ${COLORS.GREY4};
@@ -82,11 +65,13 @@ const Label = styled.label<Partial<LabelProps>>`
 	${({ size }) =>
 		size === "small" &&
 		css`
+			padding: 4px 8px;
 			font-size: 14px;
 		`};
 	${({ size }) =>
 		size === "large" &&
 		css`
+			padding: 12px 17px;
 			font-size: 18px;
 		`};
 
@@ -102,6 +87,14 @@ const Label = styled.label<Partial<LabelProps>>`
 				background: ${COLORS.PRIMARY_LIGHT};
 			}
 		`}
+
+	${({ disabled }) =>
+		disabled &&
+		css`
+			pointer-events: none;
+			background: ${COLORS.BACKGROUND_GREY};
+			color: ${COLORS.DISABLED};
+		`}
 `;
 
 interface ButtonProps {
@@ -110,6 +103,7 @@ interface ButtonProps {
 	size?: ButtonSize;
 	buttonStyle?: ButtonType;
 	children: string;
+	disabled?: boolean;
 	onClick?: (val: ValueType) => void;
 }
 
@@ -119,6 +113,7 @@ const Button = ({
 	size,
 	buttonStyle,
 	onClick,
+	disabled = false,
 	children
 }: ButtonProps) => {
 	const handleClick = () => {
@@ -136,6 +131,7 @@ const Button = ({
 				isActive={activeValue === value}
 				buttonStyle={buttonStyle}
 				onClick={handleClick}
+				disabled={disabled}
 			>
 				{children}
 			</Label>
@@ -143,8 +139,24 @@ const Button = ({
 	);
 };
 
+const Size = tuple("large", "small", "default");
+type ButtonSize = (typeof Size)[number];
+const BtnType = tuple("outline", "solid");
+type ButtonType = (typeof BtnType)[number];
+
+type ValueType = string | number;
+
+interface RadioGroupProps {
+	disabled?: boolean;
+	size?: ButtonSize;
+	value: ValueType;
+	onChange: (val: ValueType) => void;
+	buttonStyle?: ButtonType;
+	children:
+		| React.ComponentElement<any, any>
+		| React.ComponentElement<any, any>[];
+}
 const RadioGroup = ({
-	disabled = false,
 	size,
 	value,
 	onChange,
@@ -162,7 +174,6 @@ const RadioGroup = ({
 				React.cloneElement(child, {
 					onClick: handleClick,
 					buttonStyle,
-					disabled,
 					size,
 					activeValue: selectedValue
 				})
