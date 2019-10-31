@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio group renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="radio-group__Wrapper-sc-1b6b90p-0 imaJgO"
+    data-testid="radio-group"
+  >
+    <label
+      class="radio-group__Label-sc-1b6b90p-1 hUbBPC radio-button"
+    >
+      Item 1
+    </label>
+    <label
+      class="radio-group__Label-sc-1b6b90p-1 hUbBPC radio-button"
+    >
+      Item 2
+    </label>
+    <label
+      class="radio-group__Label-sc-1b6b90p-1 hUbBPC radio-button"
+    >
+      Item 3
+    </label>
+    <label
+      class="radio-group__Label-sc-1b6b90p-1 biwquY radio-button"
+    >
+      Item 4
+    </label>
+  </div>
+</DocumentFragment>
+`;

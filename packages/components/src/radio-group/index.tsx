@@ -8,11 +8,6 @@ const Wrapper = styled.div`
 	justify-content: flex-start;
 	align-items: center;
 `;
-// const HiddenRadio = styled.span`
-//     display: block;
-//     width: 0;
-//     height:0;
-// `;
 
 interface LabelProps {
 	isActive?: boolean;
@@ -121,10 +116,6 @@ const Button = ({
 	};
 	return (
 		<>
-			{/* <HiddenRadio>
-                <label htmlFor="radio-button"> </label>
-                <input type="radio" id="radio-button" />
-            </HiddenRadio> */}
 			<Label
 				className="radio-button"
 				size={size}
@@ -161,7 +152,8 @@ const RadioGroup = ({
 	value,
 	onChange,
 	buttonStyle,
-	children
+	children,
+	...rest
 }: RadioGroupProps) => {
 	const [selectedValue, setSelectedValue] = React.useState<ValueType>(value);
 	const handleClick = (val: ValueType) => {
@@ -169,7 +161,7 @@ const RadioGroup = ({
 		onChange ? onChange(val) : null;
 	};
 	return (
-		<Wrapper>
+		<Wrapper {...rest}>
 			{React.Children.map(children, (child: React.CElement<any, any>) =>
 				React.cloneElement(child, {
 					onClick: handleClick,
