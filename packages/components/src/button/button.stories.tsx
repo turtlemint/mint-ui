@@ -136,10 +136,13 @@ stories.add("link", () => (
 				<Button btnType="link" size="lg">Default link</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="link" disabled size="lg">Primary link</Button>
+				<Button btnType="link" disabled size="lg">Disabled link</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button btnType="link" btnStyle="primary" size="lg">Primary link</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" btnStyle="danger" size="lg">Danger link</Button>
 			</Col>
 		</Row>
 		<Row>
@@ -147,10 +150,13 @@ stories.add("link", () => (
 				<Button btnType="link">Default link</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="link" disabled>Primary link</Button>
+				<Button btnType="link" disabled>Disabled link</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button btnType="link" btnStyle="primary">Primary link</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" btnStyle="danger">Danger link</Button>
 			</Col>
 		</Row>
 		<Row>
@@ -158,10 +164,25 @@ stories.add("link", () => (
 				<Button btnType="link" size="sm">Default link</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="link" disabled size="sm">Primary link</Button>
+				<Button btnType="link" disabled size="sm">Disabled link</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button btnType="link" btnStyle="primary" size="sm">Primary link</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" btnStyle="danger" size="sm">Danger link</Button>
+			</Col>
+		</Row>
+		<Row>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" btnStyle="default" icon={Close} />
+			</Col>
+			<Col sm={3} md={3} lg={3}></Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" btnStyle="primary" icon={Close} />
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" btnStyle="danger" icon={Close} />
 			</Col>
 		</Row>
 	</StoryWrapper>
@@ -214,7 +235,7 @@ stories.add("icons/outlined", () => (
 	</StoryWrapper>
 ));
 
-stories.add("icon/solid", () => (
+stories.add("icons/solid", () => (
 	<StoryWrapper>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>

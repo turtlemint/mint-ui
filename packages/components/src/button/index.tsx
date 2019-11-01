@@ -175,6 +175,7 @@ const ButtonSolid = styled.button<ButtonProps>`
 
 export const Link = styled.a<ButtonProps>`
 	${BaseButton};
+	display: inline-flex;
 	text-decoration: none;
 	background: none;
 	border: 0;
@@ -196,10 +197,23 @@ export const Link = styled.a<ButtonProps>`
 		css`
 			color: ${COLORS.PRIMARY};
 			&:hover {
-				color: ${transparentize(0.3, COLORS.PRIMARY)};
+				color: ${COLORS.PRIMARY_LIGHT};
+				background: ${transparentize(0.9, COLORS.PRIMARY)};
 			}
 			&:active {
-				color: ${transparentize(0.2, COLORS.PRIMARY)};
+				color: ${COLORS.PRIMARY_LIGHT};
+			}
+		`}
+	${({ btnStyle }) =>
+		btnStyle === "danger" &&
+		css`
+			color: ${COLORS.DANGER};
+			&:hover {
+				color: ${COLORS.DANGER_LIGHT};
+				background: ${transparentize(0.9, COLORS.DANGER)};
+			}
+			&:active {
+				color: ${COLORS.DANGER_DARK};
 			}
 		`}
 `;
@@ -256,7 +270,13 @@ export const Button: React.FC<ButtonProps> = ({
 				);
 			case "link":
 				return (
-					<Link href={href} target={target} {...rest}>
+					<Link
+						href={href}
+						target={target}
+						btnStyle={btnStyle}
+						{...rest}
+					>
+						{icon ? getIcon(btnStyle, btnType) : null}
 						{children}
 					</Link>
 				);
