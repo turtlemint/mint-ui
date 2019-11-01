@@ -1,34 +1,76 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
+// import { action } from "@storybook/addon-actions";
 import { Button } from "./index";
 import Row from "../grid/row";
 import Col from "../grid/col";
 import { StoryWrapper } from "../storybook.setup";
+import Close from "../icons/close";
 // Storybook Markdown support - https://github.com/storybookjs/storybook/issues/6434
 // import ButtonReadme from "./button.README.md";
 
-export const actions = {
-	onOutlineClick: action("onOutlineClick"),
-	onPrimaryClick: action("onPrimaryClick")
-};
 const stories = storiesOf("Buttons", module);
 stories.add(
-	"Primary",
+	"outlined",
 	() => (
 		<StoryWrapper>
 			<Row>
 				<Col sm={3} md={3} lg={3}>
-					<Button>Primary Button</Button>
+					<Button size="lg">Default outlined</Button>
 				</Col>
 				<Col sm={3} md={3} lg={3}>
-					<Button btnType="primary" disabled>
-						Primary Disabled
+					<Button disabled size="lg">
+						Disabled outlined
 					</Button>
 				</Col>
 				<Col sm={3} md={3} lg={3}>
-					<Button btnType="primary" size="md">
-						Primary Large
+					<Button btnStyle="primary" size="lg">
+						Primary outlined
+					</Button>
+				</Col>
+				<Col sm={3} md={3} lg={3}>
+					<Button btnStyle="danger" size="lg">
+						Danger outlined
+					</Button>
+				</Col>
+			</Row>
+			<Row style={{ marginTop: "30px" }}>
+				<Col sm={3} md={3} lg={3}>
+					<Button>Default outlined</Button>
+				</Col>
+				<Col sm={3} md={3} lg={3}>
+					<Button disabled>
+						Disabled outlined
+					</Button>
+				</Col>
+				<Col sm={3} md={3} lg={3}>
+					<Button btnStyle="primary">
+						Primary outlined
+					</Button>
+				</Col>
+				<Col sm={3} md={3} lg={3}>
+					<Button btnStyle="danger">
+						Danger outlined
+					</Button>
+				</Col>
+			</Row>
+			<Row style={{ marginTop: "30px" }}>
+				<Col sm={3} md={3} lg={3}>
+					<Button size="sm">Default outlined</Button>
+				</Col>
+				<Col sm={3} md={3} lg={3}>
+					<Button disabled size="sm">
+						Disabled outlined
+					</Button>
+				</Col>
+				<Col sm={3} md={3} lg={3}>
+					<Button btnStyle="primary" size="sm">
+						Primary outlined
+					</Button>
+				</Col>
+				<Col sm={3} md={3} lg={3}>
+					<Button btnStyle="danger" size="sm">
+						Danger outlined
 					</Button>
 				</Col>
 			</Row>
@@ -38,118 +80,184 @@ stories.add(
 		notes: { Introduction: "Notes", "Design notes": "Lorem ipsum" }
 	}
 );
-stories.add("Outlined", () => (
+
+stories.add("solid", () => (
 	<StoryWrapper>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button
-					btnType="outlined"
-					{...actions}
-					onClick={() => {
-						console.log("fired");
-					}}
-				>
-					Outlined button
-				</Button>
+				<Button btnType="solid" size="lg">Default solid</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button
-					btnType="outlined"
-					disabled
-					onClick={() => {
-						console.log("fired");
-					}}
-				>
-					Outlined disabled
-				</Button>
+				<Button btnType="solid" disabled size="lg">Disabled solid</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button
-					btnType="outlined"
-					size="md"
-					onClick={() => {
-						console.log("fired");
-					}}
-				>
-					Outlined large
-				</Button>
+				<Button btnType="solid" btnStyle="primary" size="lg">Primary solid</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" btnStyle="danger" size="lg">Danger solid</Button>
+			</Col>
+		</Row>
+		<Row style={{ marginTop: "30px" }}>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid">Default solid</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" disabled>Disabled solid</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" btnStyle="primary">Primary solid</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" btnStyle="danger">Danger solid</Button>
+			</Col>
+		</Row>
+		<Row style={{ marginTop: "30px" }}>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" size="sm">Default solid</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" disabled size="sm">Disabled solid</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" btnStyle="primary" size="sm">Primary solid</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" btnStyle="danger" size="sm">Danger solid</Button>
+			</Col>
+		</Row>
+
+	</StoryWrapper>
+));
+
+stories.add("link", () => (
+	<StoryWrapper>
+		<Row>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" size="lg">Default link</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" disabled size="lg">Primary link</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" btnStyle="primary" size="lg">Primary link</Button>
+			</Col>
+		</Row>
+		<Row>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link">Default link</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" disabled>Primary link</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" btnStyle="primary">Primary link</Button>
+			</Col>
+		</Row>
+		<Row>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" size="sm">Default link</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" disabled size="sm">Primary link</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="link" btnStyle="primary" size="sm">Primary link</Button>
 			</Col>
 		</Row>
 	</StoryWrapper>
 ));
-stories.add("Danger", () => (
+
+stories.add("icons/outlined", () => (
 	<StoryWrapper>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button
-					btnType="danger"
-					onClick={() => {
-						console.log("fired");
-					}}
-				>
-					Danger button
-				</Button>
+				<Button size="lg" icon={Close}>Text with icon</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button
-					btnType="danger"
-					disabled
-					onClick={() => {
-						console.log("fired");
-					}}
-				>
-					Danger disabled
-				</Button>
+				<Button size="lg" icon={Close} />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button
-					btnType="danger"
-					size="md"
-					onClick={() => {
-						console.log("fired");
-					}}
-				>
-					Danger large
-				</Button>
+				<Button size="lg" btnStyle="primary" icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="lg" btnStyle="primary" icon={Close} />
+			</Col>
+		</Row>
+		<Row style={{ marginTop: "30px" }}>
+			<Col sm={3} md={3} lg={3}>
+				<Button icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button icon={Close} />
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnStyle="primary" icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnStyle="primary" icon={Close} />
+			</Col>
+		</Row>
+		<Row style={{ marginTop: "30px" }}>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="sm" icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="sm" icon={Close} />
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="sm" btnStyle="primary" icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="sm" btnStyle="primary" icon={Close} />
 			</Col>
 		</Row>
 	</StoryWrapper>
 ));
-stories.add("Link", () => (
+
+stories.add("icon/solid", () => (
 	<StoryWrapper>
-		<Row>
+		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
-				<Button
-					btnType="link"
-					onClick={() => {
-						console.log("fired");
-					}}
-				>
-					Link button
-				</Button>
+				<Button size="lg" btnType="solid" icon={Close}>Text with icon</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button
-					btnType="link"
-					disabled
-					onClick={() => {
-						console.log("fired");
-					}}
-				>
-					Link disabled
-				</Button>
+				<Button size="lg" btnType="solid" icon={Close} />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button
-					btnType="link"
-					size="md"
-					onClick={() => {
-						console.log("fired");
-					}}
-				>
-					Link large
-				</Button>
+				<Button size="lg" btnType="solid" btnStyle="primary" icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="lg" btnType="solid" btnStyle="primary" icon={Close} />
+			</Col>
+		</Row>
+		<Row style={{ marginTop: "30px" }}>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" icon={Close} />
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" btnStyle="primary" icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button btnType="solid" btnStyle="primary" icon={Close} />
+			</Col>
+		</Row>
+		<Row style={{ marginTop: "30px" }}>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="sm" btnType="solid" icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="sm" btnType="solid" icon={Close} />
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="sm" btnType="solid" btnStyle="primary" icon={Close}>Text with icon</Button>
+			</Col>
+			<Col sm={3} md={3} lg={3}>
+				<Button size="sm" btnType="solid" btnStyle="primary" icon={Close} />
 			</Col>
 		</Row>
 	</StoryWrapper>
 ));
+

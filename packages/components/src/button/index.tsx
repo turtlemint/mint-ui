@@ -4,21 +4,24 @@ import { tuple } from "../__utils/type";
 // import { ICONS } from "../utils/icons";
 import "../app.css";
 import COLORS from "../__utils/colors";
+import { transparentize } from "polished";
 
-const ButtonTypes = tuple("outlined", "primary", "danger", "link");
-export type ButtonType = (typeof ButtonTypes)[number];
-const ButtonSizes = tuple("sm", "md");
-export type ButtonSize = (typeof ButtonSizes)[number];
+const ButtonTypeTuple = tuple("outlined", "solid", "link");
+export type ButtonType = (typeof ButtonTypeTuple)[number];
+const ButtonStyleTuple = tuple("default", "primary", "danger");
+export type ButtonStyle = (typeof ButtonStyleTuple)[number];
+const ButtonSizeTuple = tuple("sm", "default", "lg");
+export type ButtonSize = (typeof ButtonSizeTuple)[number];
 const ButtonHTMLTypes = tuple("submit", "button", "reset");
 export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
 
 export interface BaseButtonProps {
 	btnType?: ButtonType;
+	btnStyle?: ButtonStyle;
 	disabled?: boolean;
 	size?: ButtonSize;
-	block?: boolean;
 	loading?: boolean | { delay?: number };
-	icon?: string;
+	icon?: any;
 	className?: string;
 	prefixCls?: string;
 	children?: React.ReactNode;
@@ -38,153 +41,175 @@ export type NativeButtonProps = {
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
-const BaseButtonStyles = css<ButtonProps>`
-	font-weight: 500;
-	font-size: 16px;
+const BaseButton = css<ButtonProps>`
+	box-sizing: border-box;
 	cursor: pointer;
-	text-align: center;
-	line-height: 1.25;
-	padding: 14px 24px;
-	display: inline-block;
-	${props =>
-		props.block &&
-		css`
-			width: 100%;
-			display: block;
-		`}
-`;
-
-export const ButtonStyles = css<ButtonProps>`
-	${BaseButtonStyles};
-	background: ${COLORS.PRIMARY};
+	padding: 8px 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	border-radius: 4px;
-	border: 1px solid transparent;
-	color: ${COLORS.WHITE};
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	touch-action: manipulation;
-	&:hover {
-		background: ${COLORS.PRIMARY_LIGHT};
-	}
-	&:active {
-		color: ${COLORS.WHITE};
-		background: ${COLORS.PRIMARY_DARK};
-	}
+	font-size: 16px;
+	min-height: 42px;
+	transition: color 0.3s ease-in;
 	&:focus {
 		outline: 0;
 	}
-	${props =>
-		props.size === "sm" &&
+	${({ disabled }) =>
+		disabled &&
 		css`
-			padding: 10px 16px;
+			pointer-events: none;
+		`}
+	${({ size }) =>
+		size === "sm" &&
+		css`
+			font-size: 14px;
+			min-height: 38px;
+			padding: 6px 15px;
 		`};
-
-	${props =>
-		props.btnType === "danger" &&
+	${({ size }) =>
+		size === "lg" &&
 		css`
-			background: ${COLORS.DANGER};
-			color: ${COLORS.WHITE};
-			&:hover {
-				background: ${COLORS.DANGER_LIGHT};
-			}
-			&:active {
-				background: ${COLORS.DANGER_DARK};
-			}
-		`};
+			font-size: 18px;
+			min-height: 49px;
+			padding: 10px 15px;
+		`}
+`;
 
-	${props =>
-		props.btnType === "outlined" &&
+export const ButtonDefault = styled.button<ButtonProps>`
+	${BaseButton};
+	color: ${COLORS.GREY1};
+	border: 1px solid ${COLORS.GREY4};
+	background-color: transparent;
+	&:hover {
+		background-color: ${COLORS.BACKGROUND_GREY};
+	}
+	&:active {
+		color: ${COLORS.BLACK};
+		border-color: ${COLORS.GREY3};
+	}
+	${({ btnStyle }) =>
+		btnStyle === "primary" &&
 		css`
-			background: none;
 			color: ${COLORS.PRIMARY};
-			border: 1px solid ${COLORS.PRIMARY};
+			border-color: ${COLORS.PRIMARY};
 			&:hover {
-				border: 1px solid ${COLORS.PRIMARY_LIGHT};
-				background: ${COLORS.BACKGROUND_GREEN};
+				color: ${COLORS.PRIMARY_LIGHT};
+				border-color: ${COLORS.PRIMARY_LIGHT};
+				background-color: ${transparentize(0.9, COLORS.PRIMARY_LIGHT)};
 			}
 			&:active {
-				background: none;
-				border: 1px solid ${COLORS.PRIMARY_DARK};
 				color: ${COLORS.PRIMARY_DARK};
+				border-color: ${COLORS.PRIMARY_DARK};
+			}
+		`};
+	${({ btnStyle }) =>
+		btnStyle === "danger" &&
+		css`
+			border-color: ${COLORS.DANGER};
+			color: ${COLORS.DANGER};
+			&:hover {
+				color: ${COLORS.DANGER_LIGHT};
+				border-color: ${COLORS.DANGER_LIGHT};
+				background-color: ${transparentize(0.9, COLORS.DANGER_LIGHT)};
+			}
+			&:active {
+				color: ${COLORS.DANGER_DARK};
+				border-color: ${COLORS.DANGER_DARK};
 			}
 		`};
 
-	${props =>
-		props.disabled &&
+	${({ disabled }) =>
+		disabled &&
 		css`
-			color: ${props.btnType === "outlined"
-				? COLORS.DISABLED
-				: COLORS.WHITE};
-			background: ${props.btnType === "outlined"
-				? "none"
-				: COLORS.DISABLED};
-			cursor: no-drop;
-			${props.btnType === "outlined" &&
-				css`
-					border: 1px solid ${COLORS.DISABLED};
-				`}
-			&:hover {
-				color: ${props.btnType === "outlined"
-					? COLORS.DISABLED
-					: COLORS.WHITE};
-				background: ${props.btnType === "outlined"
-					? "none"
-					: COLORS.DISABLED};
-				border: 1px solid
-					${props.btnType === "outlined"
-						? COLORS.DISABLED
-						: "transparent"};
-			}
+			color: ${COLORS.DISABLED};
+			border-color: ${COLORS.DISABLED};
 		`};
 `;
 
-export const LinkStyles = css<ButtonProps>`
-	${BaseButtonStyles};
+const ButtonSolid = styled.button<ButtonProps>`
+	${BaseButton};
+	color: ${COLORS.WHITE};
+	border: 1px solid transparent;
+	background-color: ${COLORS.GREY3};
+	&:hover {
+		background-color: ${transparentize(0.3, COLORS.GREY3)};
+	}
+	&:active {
+		background-color: ${COLORS.GREY2};
+	}
+	${({ btnStyle }) =>
+		btnStyle === "primary" &&
+		css`
+			background-color: ${COLORS.PRIMARY};
+			&:hover {
+				background-color: ${transparentize(0.2, COLORS.PRIMARY)};
+			}
+			&:active {
+				background-color: ${COLORS.PRIMARY_DARK};
+			}
+		`};
+	${({ btnStyle }) =>
+		btnStyle === "danger" &&
+		css`
+			background-color: ${COLORS.DANGER};
+			&:hover {
+				background-color: ${transparentize(0.2, COLORS.DANGER)};
+			}
+			&:active {
+				background-color: ${COLORS.DANGER_DARK};
+			}
+		`};
+
+	${({ disabled }) =>
+		disabled &&
+		css`
+			background-color: ${COLORS.DISABLED};
+		`};
+`;
+
+export const Link = styled.a<ButtonProps>`
+	${BaseButton};
 	text-decoration: none;
 	background: none;
 	border: 0;
-	color: ${COLORS.PRIMARY};
+	color: ${COLORS.GREY1};
 	&:hover {
-		background: ${COLORS.BACKGROUND_GREEN};
+		background: ${COLORS.BACKGROUND_GREY};
 	}
 	&:active {
-		color: ${COLORS.PRIMARY_DARK};
-		background: ${COLORS.BACKGROUND_GREEN_DARK};
+		color: ${COLORS.BLACK};
 	}
-	${props =>
-		props.disabled &&
+	${({ disabled }) =>
+		disabled &&
 		css`
 			color: ${COLORS.DISABLED};
-			cursor: no-drop;
+		`};
+
+	${({ btnStyle }) =>
+		btnStyle === "primary" &&
+		css`
+			color: ${COLORS.PRIMARY};
 			&:hover {
-				background: none;
+				color: ${transparentize(0.3, COLORS.PRIMARY)};
 			}
 			&:active {
-				background: none;
-				color: ${COLORS.DISABLED};
+				color: ${transparentize(0.2, COLORS.PRIMARY)};
 			}
-		`};
-`;
-
-const StyledButton = styled.button<ButtonProps>`
-	${ButtonStyles};
-`;
-const StyledLink = styled.a<ButtonProps>`
-	${LinkStyles};
+		`}
 `;
 
 export const Button: React.FC<ButtonProps> = ({
-	btnType = "primary",
-	size = "sm",
-	disabled = false,
-	block = false,
-	icon = "",
+	btnType = "outlined",
+	btnStyle = "default",
+	icon,
 	loading = false,
-	className = "",
-	prefixCls = "tm-button",
-	onClick = function() {},
+	onClick = function () { },
 	href = "#",
 	target = "blank",
 	htmlType = "button",
@@ -199,60 +224,64 @@ export const Button: React.FC<ButtonProps> = ({
 		}
 		onClick(e);
 	};
-	// const IconComponent = undefined;
-	return (
-		<>
-			{loading ? (
-				<StyledButton
-					btnType={btnType}
-					size={size}
-					block={block}
-					disabled={disabled}
-				>
-					Loading...
-				</StyledButton>
-			) : (
-				<>
-					{btnType === "link" ? (
-						<StyledLink
-							href={href}
-							target={target}
-							disabled={disabled}
-							{...rest}
-						>
-							{children}
-						</StyledLink>
-					) : (
-						<StyledButton
-							onClick={handleClick}
-							btnType={btnType}
-							size={size}
-							block={block}
-							disabled={disabled}
-							type={htmlType}
-							className={`${prefixCls}-${className} `}
-							{...rest}
-						>
-							{/* {IconComponent ? (
-								<IconComponent
-									outlineColor={PALETTE.WHITE}
-									size={16}
-								/>
-							) : null} */}
-							<span
-								style={{
-									verticalAlign: "middle",
-									marginLeft: icon ? "8px" : "0px"
-								}}
-							>
-								{children}
-							</span>
-						</StyledButton>
-					)}
-				</>
-			)}
-		</>
-	);
+	const Icon = icon;
+	const getIcon = (style: string, btnType: string) => {
+		if (btnType === "outlined" || btnType === "link") {
+			switch (style) {
+				case "primary":
+					return <Icon color={COLORS.PRIMARY} />;
+				case "danger":
+					return <Icon color={COLORS.DANGER} />;
+				default:
+					return <Icon color={COLORS.GREY1} />;
+			}
+		}
+		return <Icon color={COLORS.WHITE} />;
+	};
+
+	const getButtonType = (type: string | undefined) => {
+		switch (type) {
+			case "solid":
+				return (
+					<ButtonSolid
+						onClick={handleClick}
+						btnType={btnType}
+						btnStyle={btnStyle}
+						type={htmlType}
+						{...rest}
+					>
+						{icon ? getIcon(btnStyle, btnType) : null}
+						{children}
+					</ButtonSolid>
+				);
+			case "link":
+				return (
+					<Link href={href} target={target} {...rest}>
+						{children}
+					</Link>
+				);
+			default:
+				return (
+					<ButtonDefault
+						onClick={handleClick}
+						btnType={btnType}
+						btnStyle={btnStyle}
+						type={htmlType}
+						{...rest}
+					>
+						{icon ? getIcon(btnStyle, btnType) : null}
+						{children}
+					</ButtonDefault>
+				);
+		}
+	};
+	return loading ? (
+		<ButtonDefault btnType={btnType} disabled>
+			Loading...
+		</ButtonDefault>
+	) : btnType ? (
+		getButtonType(btnType)
+	) : null;
 };
 
 export default Button;
