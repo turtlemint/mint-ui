@@ -282,3 +282,11 @@ stories.add("icons/solid", () => (
 	</StoryWrapper>
 ));
 
+stories.add("submit button", () => (
+	<form style={{ marginLeft: "40px" }} onSubmit={(e) => {
+		e.preventDefault();
+		alert("submit event called");
+	}}>
+		<Button htmlType="submit" btnType="solid">Submit</Button>
+	</form>
+))

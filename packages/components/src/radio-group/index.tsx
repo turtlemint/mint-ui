@@ -2,6 +2,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import COLORS from "../__utils/colors";
 import { tuple, Omit } from "../__utils/type";
+import "../app.css";
 
 const Wrapper = styled.div`
 	display: flex;

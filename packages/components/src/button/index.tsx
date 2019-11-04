@@ -55,6 +55,7 @@ const BaseButton = css<ButtonProps>`
 	user-select: none;
 	touch-action: manipulation;
 	font-size: 16px;
+	line-height: 15px;
 	min-height: 42px;
 	transition: color 0.3s ease-in;
 	&:focus {
@@ -69,13 +70,15 @@ const BaseButton = css<ButtonProps>`
 		size === "sm" &&
 		css`
 			font-size: 14px;
-			min-height: 38px;
+			line-height: 15px;
+			min-height: 36px;
 			padding: 6px 15px;
 		`};
 	${({ size }) =>
 		size === "lg" &&
 		css`
 			font-size: 18px;
+			line-height: 14px;
 			min-height: 49px;
 			padding: 10px 15px;
 		`}
@@ -223,7 +226,7 @@ export const Button: React.FC<ButtonProps> = ({
 	btnStyle = "default",
 	icon,
 	loading = false,
-	onClick = function () { },
+	onClick = function() {},
 	href = "#",
 	target = "blank",
 	htmlType = "button",
@@ -247,7 +250,7 @@ export const Button: React.FC<ButtonProps> = ({
 				case "danger":
 					return <Icon color={COLORS.DANGER} />;
 				default:
-					return <Icon color={COLORS.GREY1} />;
+					return <Icon color={COLORS.GREY2} />;
 			}
 		}
 		return <Icon color={COLORS.WHITE} />;
@@ -274,6 +277,7 @@ export const Button: React.FC<ButtonProps> = ({
 						href={href}
 						target={target}
 						btnStyle={btnStyle}
+						onClick={handleClick}
 						{...rest}
 					>
 						{icon ? getIcon(btnStyle, btnType) : null}

@@ -2,7 +2,7 @@ import * as React from "react";
 import COLORS from "../__utils/colors";
 import { IconProps } from ".";
 
-const Close = ({ size = "18", color = COLORS.GREY3 }: IconProps) => {
+const Close = ({ size = 18, color = COLORS.GREY3 }: IconProps) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
