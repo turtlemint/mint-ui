@@ -44,7 +44,8 @@ const Modal = ({
 	okButtonProps,
 	onOk,
 	onClose,
-	children
+	children,
+	...rest
 }: ModalProps) => {
 	return visible ? (
 		<Dialog
@@ -52,6 +53,7 @@ const Modal = ({
 			width={width}
 			container={container}
 			style={style}
+			{...rest}
 		>
 			<Header
 				title={title}

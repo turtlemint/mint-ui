@@ -17,7 +17,8 @@ const Dialog = ({
 	width,
 	style,
 	container,
-	children
+	children,
+	...rest
 }: DialogProps) => {
 	const renderModal = () => {
 		return visible ? (
@@ -28,6 +29,7 @@ const Dialog = ({
 					width={width}
 					className="tm-modal-wrapper"
 					role="dialog"
+					{...rest}
 				>
 					<Document
 						role="document"

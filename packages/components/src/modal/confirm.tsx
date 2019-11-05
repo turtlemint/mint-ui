@@ -29,7 +29,8 @@ const Confirm = ({
 	okText,
 	type,
 	icon,
-	children
+	children,
+	...rest
 }: ConfirmProps) => {
 	return visible ? (
 		<Dialog
@@ -37,6 +38,7 @@ const Confirm = ({
 			width={width}
 			container={container}
 			style={style}
+			{...rest}
 		>
 			<Body
 				style={{

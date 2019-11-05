@@ -3,14 +3,10 @@
 exports[`Button renders button 1`] = `
 <DocumentFragment>
   <button
-    class="button__StyledButton-sc-1o82sov-0 cdVpkY tm-button- "
+    class="button__ButtonDefault-sc-1o82sov-0 jxiuNq"
     type="button"
   >
-    <span
-      style="vertical-align: middle; margin-left: 0px;"
-    >
-      Test
-    </span>
+    Test
   </button>
 </DocumentFragment>
 `;

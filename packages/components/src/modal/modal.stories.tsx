@@ -1,9 +1,9 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { default as ModalBase, ModalProps } from "./modal";
+import { default as ConfirmBase, ConfirmProps } from "./confirm";
 import Button from "../button";
 import { StoryWrapper } from "../storybook.setup";
-import { default as ConfirmBase, ConfirmProps } from "./confirm";
 import Announcement from "../icons/announcement";
 import CheckOutline from "../icons/check-outline";
 import ErrorOutline from "../icons/error-outline";

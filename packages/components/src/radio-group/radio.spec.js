@@ -19,7 +19,7 @@ describe("Radio group", () => {
     });
 
     test("click works", (done) => {
-        const handleClick = ((val)) => {
+        const handleClick = (val) => {
             expect(val).toBe("item-2");
             done();
         }
