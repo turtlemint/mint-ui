@@ -56,7 +56,7 @@ const BaseButton = css<ButtonProps>`
 	touch-action: manipulation;
 	font-size: 16px;
 	line-height: 15px;
-	min-height: 42px;
+	min-height: 40px;
 	transition: color 0.3s ease-in;
 	&:focus {
 		outline: 0;
@@ -69,7 +69,7 @@ const BaseButton = css<ButtonProps>`
 	${({ size }) =>
 		size === "sm" &&
 		css`
-			font-size: 14px;
+			font-size: 16px;
 			line-height: 15px;
 			min-height: 36px;
 			padding: 6px 15px;
