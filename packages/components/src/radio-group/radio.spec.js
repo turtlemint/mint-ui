@@ -34,4 +34,4 @@ describe("Radio group", () => {
         const component = getByTestId("radio-test");
         fireEvent.click(component.getElementsByTagName("label")[1]);
     });
-})
+});

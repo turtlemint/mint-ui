@@ -37,6 +37,7 @@ stories.add("accordion", () => (
         </Collapse>
     </StoryWrapper>
 ));
+
 stories.add("custom panel", () => (
     <StoryWrapper>
         <Collapse accordion={true} expandIconPosition="right" activeKey={2} onChange={(key: string | number) => { console.log(key) }}>

@@ -33,7 +33,8 @@ export const Collapse = ({
 	accordion,
 	onChange,
 	expandIconPosition,
-	children
+	children,
+	...rest
 }: CollapseProps) => {
 	const [key, setKey] = React.useState(activeKey);
 
@@ -51,7 +52,7 @@ export const Collapse = ({
 				expandIconPosition
 			}}
 		>
-			<CollapseWrap>{children}</CollapseWrap>
+			<CollapseWrap {...rest}>{children}</CollapseWrap>
 		</CollapseContext.Provider>
 	);
 };
@@ -140,7 +141,7 @@ export const Panel = ({
 					{expandIconPosition !== "left" ? getIcon() : null}
 				</div>
 			</Header>
-			{open ? <Body>{children}</Body> : null}
+			{open ? <Body className="tm-collapse-body">{children}</Body> : null}
 		</div>
 	);
 };

@@ -29,7 +29,7 @@ describe("Dialog", () => {
         const el = document.createElement("div");
         el.setAttribute("id", "modal-root");
         document.body.append(el);
-        const { rerender, getByTestId } = render(
+        const { rerender, getByTestId, queryByTestId} = render(
             <Dialog
                 data-testid="dialog"
                 visible={true}
@@ -42,17 +42,17 @@ describe("Dialog", () => {
 
         expect(getByTestId("dialog")).toBeInTheDocument();
         
-        // rerender(
-        //     <Dialog
-        //         data-testid="dialog"
-        //         visible={false}
-        //         width={720}
-        //         container={el}
-        //     >
-        //         Some content
-        //     </Dialog>
-        // );
-        // expect(getByTestId("dialog")).not.toBeInTheDocument();
+        rerender(
+            <Dialog
+                data-testid="dialog"
+                visible={false}
+                width={720}
+                container={el}
+            >
+                Some content
+            </Dialog>
+        );
+        expect(queryByTestId("dialog")).not.toBeInTheDocument();
        
     });  
 });
