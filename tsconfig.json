@@ -3,40 +3,27 @@
         "target": "es5",
         "module": "commonjs",
         "lib": [
-            "es5",
-            "es6",
-            "es7",
-            "es2017",
-            "dom"
+            "dom",
+            "dom.iterable",
+            "esnext"
         ],
-        "sourceMap": true,
-        "allowJs": false,
-        "jsx": "react",
-        "moduleResolution": "node",
         "rootDirs": [
-            "packages",
-            "stories"
+            "packages/web/src/components",
+            "packages/shared/src/components",
+            "packages/shared/src/utils"
         ],
         "baseUrl": ".",
+        "strict": true,
+        "esModuleInterop": true,
+        "jsx": "react",
+        "types": [],
         "forceConsistentCasingInFileNames": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noImplicitAny": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
         "strictNullChecks": true,
-        "suppressImplicitAnyIndexErrors": true,
         "noUnusedLocals": true,
-        "declaration": true,
-        "allowSyntheticDefaultImports": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
+        "noImplicitReturns": true,
+        "sourceMap": true,
         "skipLibCheck": true
-    },
-    "include": [
-        "packages"
-    ],
-    "exclude": [
-        "node_modules",
-        "lib",
-        "scripts"
-    ]
+    }
 }

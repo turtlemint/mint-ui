@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typeahead tests renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="select__SelectWrapper-sc-17jckrb-0 ghkoVW"
+  >
+    <div
+      class="input__StyledWrapper-j6wzrl-0 fRxPkI"
+    >
+      <div
+        class="input__StyledLabel-j6wzrl-1 gCPtS"
+      >
+        <label />
+      </div>
+      <input
+        aria-label="tm-input"
+        class="input__StyledInput-j6wzrl-2 iKDDmM"
+        data-testid="typeahead-input"
+        placeholder="Select user..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="dropdown__DropdownWrapper-graemb-0 eKUTRl"
+      data-testid="dropdown"
+    >
+      <ul
+        class="dropdown__List-graemb-1 ducVEX"
+      >
+        <li
+          class="dropdown__StyledOption-graemb-2 fnhiyk"
+          value="1"
+        >
+          Item 1
+        </li>
+        <li
+          class="dropdown__StyledOption-graemb-2 fnhiyk"
+          value="2"
+        >
+          Item 2
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;

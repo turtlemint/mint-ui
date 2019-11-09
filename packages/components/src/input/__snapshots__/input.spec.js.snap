@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input tests renders correcty 1`] = `
+<DocumentFragment>
+  <div
+    class="input__StyledWrapper-j6wzrl-0 gICrqs"
+  >
+    <div
+      class="input__StyledLabel-j6wzrl-1 gCPtS"
+    >
+      <label />
+    </div>
+    <input
+      aria-label="tm-input"
+      class="input__StyledInput-j6wzrl-2 iKDDmM"
+      placeholder="Test input"
+      type="text"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;
