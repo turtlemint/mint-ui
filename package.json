@@ -10,7 +10,8 @@
     "coverage": "jest --coverage",
     "unit": "jest",
     "build": "lerna exec --parallel -- rm -rf dist && lerna exec --parallel -- tsc -p ./tsconfig.json",
-    "prepublishOnly": "yarn run lint:fix && yarn run build"
+    "prepublishOnly": "yarn run lint:fix && yarn run build",
+    "build-storybook": "build-storybook -c .storybook"
   },
   "husky": {
     "hooks": {
