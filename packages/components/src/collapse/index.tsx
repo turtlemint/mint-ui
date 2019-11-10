@@ -131,6 +131,7 @@ export const Panel = ({
 				disabled={disabled}
 				onClick={handleToggle}
 				className="tm-panel-header"
+				data-testid="tm-panel-header"
 			>
 				<div style={{ display: "inline-flex" }}>
 					{expandIconPosition === "left" ? getIcon() : null}
@@ -141,7 +142,14 @@ export const Panel = ({
 					{expandIconPosition !== "left" ? getIcon() : null}
 				</div>
 			</Header>
-			{open ? <Body className="tm-collapse-body">{children}</Body> : null}
+			{open ? (
+				<Body
+					data-testid="tm-collapse-body"
+					className="tm-collapse-body"
+				>
+					{children}
+				</Body>
+			) : null}
 		</div>
 	);
 };
