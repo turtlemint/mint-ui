@@ -1,10 +1,10 @@
-<p style="display: flex; justify-content: center;">
-  <a style="display: inline-flex" href="http://turtlemint-ui.netlify.com">
+<div align="center">
+  <a href="http://turtlemint-ui.netlify.com">
     <img width="200" src="https://d5ng0zjhhq362.cloudfront.net/images/turtlemint-logo-7df8cb52bc.svg">
   </a>
-</p>
+</div>
 
-<h3 style="display: flex; justify-content: center;">Turtlemint UI</h3>
+<div><h3 align="center">Turtlemint UI</h3></div>
 
 <div align="center">
 
