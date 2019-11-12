@@ -27,7 +27,7 @@ interface ColProps {
 	lgHidden: boolean;
 }
 
-const Col = styled.div<Partial<ColProps>>`
+export const Col = styled.div<Partial<ColProps>>`
 	padding-left: 15px;
 	padding-right: 15px;
 	min-height: 1px;

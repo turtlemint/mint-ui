@@ -1,19 +1,26 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-// import { action } from "@storybook/addon-actions";
 import { Button } from "./index";
 import Row from "../grid/row";
 import Col from "../grid/col";
-import { StoryWrapper } from "../storybook.setup";
 import Close from "../icons/close";
-// Storybook Markdown support - https://github.com/storybookjs/storybook/issues/6434
-// import ButtonReadme from "./button.README.md";
+import makeTable from "../table";
 
-const stories = storiesOf("Buttons", module);
+const ButtonProps = ["btnType", "btnStyle", "disabled", "size", "loading", "icon", "className"];
+
+const TableComponent = makeTable(ButtonProps);
+
+const stories = storiesOf("Buttons", module).addParameters({
+	info: {
+		TableComponent,
+		propTables: [Button]
+	}
+});
+
 stories.add(
 	"outlined",
 	() => (
-		<StoryWrapper>
+		<>
 			<Row>
 				<Col sm={3} md={3} lg={3}>
 					<Button size="lg">Default outlined</Button>
@@ -74,15 +81,11 @@ stories.add(
 					</Button>
 				</Col>
 			</Row>
-		</StoryWrapper>
-	),
-	{
-		notes: { Introduction: "Notes", "Design notes": "Lorem ipsum" }
-	}
-);
+		</>
+	));
 
 stories.add("solid", () => (
-	<StoryWrapper>
+	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
 				<Button btnType="solid" size="lg">Default solid</Button>
@@ -125,12 +128,11 @@ stories.add("solid", () => (
 				<Button btnType="solid" btnStyle="danger" size="sm">Danger solid</Button>
 			</Col>
 		</Row>
-
-	</StoryWrapper>
+	</>
 ));
 
 stories.add("link", () => (
-	<StoryWrapper>
+	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
 				<Button btnType="link" size="lg">Default link</Button>
@@ -185,11 +187,11 @@ stories.add("link", () => (
 				<Button btnType="link" btnStyle="danger" icon={Close} />
 			</Col>
 		</Row>
-	</StoryWrapper>
+	</>
 ));
 
 stories.add("icons/outlined", () => (
-	<StoryWrapper>
+	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
 				<Button size="lg" icon={Close}>Text with icon</Button>
@@ -232,11 +234,11 @@ stories.add("icons/outlined", () => (
 				<Button size="sm" btnStyle="primary" icon={Close} />
 			</Col>
 		</Row>
-	</StoryWrapper>
+	</>
 ));
 
 stories.add("icons/solid", () => (
-	<StoryWrapper>
+	<>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
 				<Button size="lg" btnType="solid" icon={Close}>Text with icon</Button>
@@ -279,7 +281,7 @@ stories.add("icons/solid", () => (
 				<Button size="sm" btnType="solid" btnStyle="primary" icon={Close} />
 			</Col>
 		</Row>
-	</StoryWrapper>
+	</>
 ));
 
 stories.add("submit button", () => (

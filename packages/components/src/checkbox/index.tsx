@@ -37,7 +37,7 @@ interface CheckboxProps {
 	size?: number;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({
 	checked = false,
 	disabled = false,
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars

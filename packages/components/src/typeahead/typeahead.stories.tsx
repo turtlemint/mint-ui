@@ -5,9 +5,10 @@ import TypeAhead from "./index";
 import { SelectCTA, SelectWrapper } from "../select";
 import Dropdown, { Option } from "../select/dropdown";
 import Input from "../input";
-import { StoryWrapper } from "../storybook.setup";
 
-const stories = storiesOf("Typeahead", module);
+const stories = storiesOf("Typeahead", module).addParameters({
+    propTables: [TypeAhead]
+});
 
 export const data = [
     {
@@ -20,7 +21,7 @@ export const data = [
     }
 ];
 
-stories.add("default", () => <StoryWrapper>
+stories.add("default", () => (
     <TypeAhead
         value="some value"
         loading={false}
@@ -35,70 +36,69 @@ stories.add("default", () => <StoryWrapper>
             ))
         }
     </TypeAhead>
-</StoryWrapper>
-);
+));
 
 stories.add("loading", () => (
-    <StoryWrapper>
-        <TypeAhead
-            loading={true}
-            fetchFunc={() => { }}
-            onSelect={() => { }}
-            open={false}
-            placeholder="Select user..."
-        >
-            {
-                data.map((d: any) => (
-                    <Option key={d.value} value={d.value}>{d.text}</Option>
-                ))
-            }
-        </TypeAhead>
-    </StoryWrapper>
+    <TypeAhead
+        loading={true}
+        fetchFunc={() => { }}
+        onSelect={() => { }}
+        open={false}
+        placeholder="Select user..."
+    >
+        {
+            data.map((d: any) => (
+                <Option key={d.value} value={d.value}>{d.text}</Option>
+            ))
+        }
+    </TypeAhead>
 ));
 
 stories.add("loaded", () => (
-    <StoryWrapper>
-        <TypeAhead
-            loading={false}
-            fetchFunc={() => { }}
-            onSelect={() => { }}
-            open={true}
-            placeholder="Select user..."
-        >
+    <TypeAhead
+        loading={false}
+        fetchFunc={() => { }}
+        onSelect={() => { }}
+        open={true}
+        placeholder="Select user..."
+    >
+        {
+            data.map((d: any) => (
+                <Option key={d.value} value={d.value}>{d.text}</Option>
+            ))
+        }
+    </TypeAhead>
+));
+
+stories.add("selected value label", () => (
+    <SelectWrapper>
+        <SelectCTA value="Item 1" />
+    </SelectWrapper>
+), {
+    info: {
+        propTables: [SelectCTA]
+    }
+});
+stories.add("clicked label", () => (
+    <SelectWrapper>
+        <Input
+            block={true}
+            value=""
+            placeholder="Item 1"
+        />
+        <Dropdown data-testid="typeahead-dropdown">
             {
                 data.map((d: any) => (
                     <Option key={d.value} value={d.value}>{d.text}</Option>
                 ))
             }
-        </TypeAhead>
-    </StoryWrapper>
-));
-
-stories.add("selected value label", () => (
-    <StoryWrapper>
-        <SelectWrapper>
-            <SelectCTA value="Item 1" />
-        </SelectWrapper>
-    </StoryWrapper>
-));
-stories.add("clicked label", () => (
-    <StoryWrapper>
-        <SelectWrapper>
-            <Input
-                block={true}
-                value=""
-                placeholder="Item 1"
-            />
-            <Dropdown data-testid="typeahead-dropdown">
-                {
-                    data.map((d: any) => (
-                        <Option key={d.value} value={d.value}>{d.text}</Option>
-                    ))
-                }
-            </Dropdown>
-        </SelectWrapper>
-    </StoryWrapper>
-));
+        </Dropdown>
+    </SelectWrapper>
+), {
+    info: {
+        propTables: [Dropdown]
+    }
+});
 
 export const TypeAheadDemo = () => {
     const [data, setData] = React.useState([]);
@@ -119,27 +119,24 @@ export const TypeAheadDemo = () => {
     }
 
     const handleSelect = (value: unknown) => {
-        console.log(value);
         setOpen(false);
     }
 
     return (
-        <StoryWrapper>
-            <TypeAhead
-                value="some value"
-                loading={fetching}
-                fetchFunc={fetchUser}
-                onSelect={handleSelect}
-                open={open}
-                placeholder="Select user..."
-            >
-                {data.map((d: any) => (
-                    <Option key={d.value} value={d.value}>{d.text}</Option>
-                ))}
-            </TypeAhead>
-        </StoryWrapper>
+        <TypeAhead
+            value="some value"
+            loading={fetching}
+            fetchFunc={fetchUser}
+            onSelect={handleSelect}
+            open={open}
+            placeholder="Select user..."
+        >
+            {data.map((d: any) => (
+                <Option key={d.value} value={d.value}>{d.text}</Option>
+            ))}
+        </TypeAhead>
     )
 }
 stories.add("functional demo", () => (
     <TypeAheadDemo />
-))
+));

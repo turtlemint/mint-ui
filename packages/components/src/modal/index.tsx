@@ -27,7 +27,7 @@ export interface ModalProps {
 	children: React.ReactNode;
 }
 
-const Modal = ({
+export const Modal = ({
 	title,
 	visible,
 	width,

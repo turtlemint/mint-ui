@@ -148,7 +148,7 @@ interface RadioGroupProps {
 		| React.ComponentElement<any, any>
 		| React.ComponentElement<any, any>[];
 }
-const RadioGroup = ({
+export const RadioGroup = ({
 	size,
 	value,
 	onChange,

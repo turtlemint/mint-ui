@@ -1,6 +1,6 @@
 import * as React from "react";
 import Dialog from "./dialog";
-import { ModalProps, Header, Body, Footer } from "./modal";
+import { ModalProps, Header, Body, Footer } from "./index";
 import Button from "../button";
 import { tuple } from "../__utils/type";
 
@@ -13,7 +13,7 @@ export type ConfirmProps = ModalProps & {
 	icon?: React.ReactNode;
 };
 
-const Confirm = ({
+export const Confirm = ({
 	container,
 	visible,
 	title,

@@ -1,10 +1,9 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { tuple } from "../__utils/type";
-// import { ICONS } from "../utils/icons";
-import "../app.css";
 import COLORS from "../__utils/colors";
 import { transparentize } from "polished";
+import "../app.css";
 
 const ButtonTypeTuple = tuple("outlined", "solid", "link");
 export type ButtonType = (typeof ButtonTypeTuple)[number];

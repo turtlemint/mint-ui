@@ -65,7 +65,7 @@ export const Footer = styled.div`
 	margin-top: 16px;
 `;
 
-const Empty: EmptyType = ({
+export const Empty: EmptyType = ({
 	className,
 	image = defaultEmptyImg,
 	description,

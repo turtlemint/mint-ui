@@ -1,14 +1,17 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import RadioGroup from "./index";
-import { StoryWrapper } from "../storybook.setup";
 import Row from "../grid/row";
 import Col from "../grid/col";
 
-const stories = storiesOf("RadioGroup", module);
+const stories = storiesOf("RadioGroup", module).addParameters({
+    info: {
+        propTables: [RadioGroup]
+    }
+});
 
 stories.add("outlined", () => (
-    <StoryWrapper>
+    <>
         <Row>
             <Col>
                 <RadioGroup value="item-4" onChange={(val) => {
@@ -33,11 +36,11 @@ stories.add("outlined", () => (
                 </RadioGroup>
             </Col>
         </Row>
-    </StoryWrapper>
+    </>
 ));
 
 stories.add("solid", () => (
-    <StoryWrapper>
+    <>
         <Row>
             <Col>
                 <RadioGroup buttonStyle="solid" value="item-4" onChange={(val) => {
@@ -63,11 +66,11 @@ stories.add("solid", () => (
             </Col>
         </Row>
 
-    </StoryWrapper>
+    </>
 ));
 
 stories.add("size", () => (
-    <StoryWrapper>
+    <>
         <Row>
             <Col>
                 <RadioGroup size="large" value="item-4" onChange={(val) => {
@@ -104,5 +107,5 @@ stories.add("size", () => (
                 </RadioGroup>
             </Col>
         </Row>
-    </StoryWrapper>
+    </>
 ));

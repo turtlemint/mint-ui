@@ -1,48 +1,49 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Input } from "./index";
+import makeTable from "../table";
 
-import { StoryWrapper } from "../storybook.setup";
+const InputProps = ["type", "placeholder", "label", "error", "helpText", "block", "disabled", "onChange", "onBlur", "value", "className"];
 
-const stories = storiesOf("Input", module);
+const TableComponent = makeTable(InputProps);
+
+const stories = storiesOf("Input", module)
+	.addParameters({
+		info: {
+			TableComponent,
+			propTables: [Input]
+		}
+	});
 
 stories.add("empty input", () => (
-	<StoryWrapper>
-		<Input
-			type="text"
-			placeholder="Enter text"
-			value=""
-		/>
-	</StoryWrapper>
+	<Input
+		type="text"
+		placeholder="Enter text"
+		value=""
+	/>
 ));
 
 stories.add("text", () => (
-	<StoryWrapper>
-		<Input
-			type="text"
-			placeholder="Enter text"
-			value="some value"
-		/>
-	</StoryWrapper>
+	<Input
+		type="text"
+		placeholder="Enter text"
+		value="some value"
+	/>
 ));
 
 stories.add("password", () => (
-	<StoryWrapper>
-		<Input
-			type="password"
-			placeholder="Enter password"
-			value="Test value"
-		/>
-	</StoryWrapper>
+	<Input
+		type="password"
+		placeholder="Enter password"
+		value="Test value"
+	/>
 ));
 
 stories.add("number", () => (
-	<StoryWrapper>
-		<Input
-			type="number"
-			value={10}
-		/>
-	</StoryWrapper>
+	<Input
+		type="number"
+		value={10}
+	/>
 ));
 
 const InputDemo = () => {
@@ -58,7 +59,5 @@ const InputDemo = () => {
 	)
 }
 stories.add("functional demo", () => (
-	<StoryWrapper>
-		<InputDemo />
-	</StoryWrapper>
+	<InputDemo />
 ));

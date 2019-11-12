@@ -1,44 +1,30 @@
-import { addParameters, configure } from '@storybook/react';
 import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { addParameters, configure } from '@storybook/react';
 // Can't use knobs in Typescript due to issue - https://github.com/storybookjs/storybook/issues/2964
 // import { withKnobs } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
-// import '@storybook/addon-console';
+import '@storybook/addon-console';
 import { withConsole } from '@storybook/addon-console';
 import requireContext from 'require-context.macro';
+import StoryBookWrapper from "../src/storybook.setup";
 
-const newViewports = {
-  kindleFire2: {
-    name: 'Kindle Fire 2',
-    styles: {
-      width: '600px',
-      height: '963px',
-    },
-  },
-  kindleFireHD: {
-    name: 'Kindle Fire HD',
-    styles: {
-      width: '533px',
-      height: '801px',
-    },
-  },
-};
-addParameters({
-    viewport: {
-        viewports: newViewports, // newViewports would be an ViewportMap. (see below for examples)
-        defaultViewport: 'someDefault',
-    },
-    options: {
-       panelPosition: 'right',
-    }
-})
+
 addDecorator(withInfo({
-    infoBody: {
-        padding: '0px 15px',
-    },
-    inline: true
+  	inline: true,
+    styles: {
+      infoStory: {
+        padding: 40
+      }
+    }
 }));
+
+addParameters({
+  options: {
+    panelPosition: 'bottom',
+  }
+})
+
 // addDecorator(withKnobs);
 addDecorator(withA11y);
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
