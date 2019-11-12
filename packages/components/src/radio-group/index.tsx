@@ -133,9 +133,9 @@ const Button = ({
 };
 
 const Size = tuple("large", "small", "default");
-type ButtonSize = (typeof Size)[number];
+type ButtonSize = typeof Size[number];
 const BtnType = tuple("outline", "solid");
-type ButtonType = (typeof BtnType)[number];
+type ButtonType = typeof BtnType[number];
 
 type ValueType = string | number;
 

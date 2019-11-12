@@ -6,7 +6,7 @@ import { tuple } from "../__utils/type";
 
 const ConfirmValues = ["info", "success", "error", "warning"];
 const ConfirmTuple = tuple(...ConfirmValues);
-type ConfirmType = (typeof ConfirmTuple)[number];
+type ConfirmType = typeof ConfirmTuple[number];
 
 export type ConfirmProps = ModalProps & {
 	type?: ConfirmType;

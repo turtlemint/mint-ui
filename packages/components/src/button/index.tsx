@@ -6,13 +6,13 @@ import { transparentize } from "polished";
 import { GlobalStyles } from "../app";
 
 const ButtonTypeTuple = tuple("outlined", "solid", "link");
-export type ButtonType = (typeof ButtonTypeTuple)[number];
+export type ButtonType = typeof ButtonTypeTuple[number];
 const ButtonStyleTuple = tuple("default", "primary", "danger");
-export type ButtonStyle = (typeof ButtonStyleTuple)[number];
+export type ButtonStyle = typeof ButtonStyleTuple[number];
 const ButtonSizeTuple = tuple("sm", "default", "lg");
-export type ButtonSize = (typeof ButtonSizeTuple)[number];
+export type ButtonSize = typeof ButtonSizeTuple[number];
 const ButtonHTMLTypes = tuple("submit", "button", "reset");
-export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export interface BaseButtonProps {
 	btnType?: ButtonType;
