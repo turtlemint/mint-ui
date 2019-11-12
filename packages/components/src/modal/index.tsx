@@ -4,8 +4,8 @@ import { ButtonProps, ButtonType } from "../button";
 import COLORS from "../__utils/colors";
 import Button from "../button";
 import Close from "../icons/close";
-import "../app.css";
 import Dialog from "./dialog";
+import { GlobalStyles } from "../app";
 
 export interface ModalProps {
 	container?: Element;
@@ -104,6 +104,7 @@ export const HeaderTitle = styled.div`
 	word-wrap: break-word;
 `;
 const Wrapper = styled.div<{ isConfirm?: boolean }>`
+	${GlobalStyles};
 	display: flex;
 	align-items: center;
 	justify-content: ${({ isConfirm }) =>

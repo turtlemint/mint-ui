@@ -4,6 +4,7 @@ import { transparentize } from "polished";
 import COLORS from "../__utils/colors";
 import ExpandLess from "../icons/expand-less";
 import ExpandMore from "../icons/expand-more";
+import { GlobalStyles } from "../app";
 
 interface CollapseProps {
 	activeKey?: string | number;
@@ -20,6 +21,7 @@ const CollapseContext = React.createContext<any>({});
 // const CollapseContext = React.createContext<CollapseContextProps>({ key});
 
 const CollapseWrap = styled.div`
+	${GlobalStyles};
 	border-left: 1px solid ${COLORS.BORDER};
 	border-right: 1px solid ${COLORS.BORDER};
 	border-radius: 4px;
@@ -119,10 +121,10 @@ export const Panel = ({
 				<ExpandLess />
 			</Icon>
 		) : (
-			<Icon position={expandIconPosition}>
-				<ExpandMore />
-			</Icon>
-		);
+				<Icon position={expandIconPosition}>
+					<ExpandMore />
+				</Icon>
+			);
 	};
 
 	return (

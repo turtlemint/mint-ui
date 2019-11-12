@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import COLORS from "../__utils/colors";
-import "../app.css";
+import { GlobalStyles } from "../app";
 
 export interface CardProps {
 	title?: string;
@@ -15,6 +15,7 @@ export interface CardProps {
 }
 
 const Wrapper = styled.div<Pick<CardProps, "hoverable" | "bordered">>`
+	${GlobalStyles};
 	border-radius: 4px;
 	animation: 500ms ease 0ms;
 	border: 1px solid ${COLORS.GREY4};
@@ -26,8 +27,8 @@ const Wrapper = styled.div<Pick<CardProps, "hoverable" | "bordered">>`
 		`};
 	&:hover {
 		${({ hoverable }) =>
-			hoverable &&
-			css`
+		hoverable &&
+		css`
 				box-shadow: rgba(102, 143, 211, 0.33) 0px 1px 10px 0px;
 			`};
 	}
@@ -81,17 +82,17 @@ export const Card = ({
 	children,
 	...rest
 }: CardProps) => (
-	<Wrapper hoverable={hoverable} bordered={bordered} style={style} {...rest}>
-		{title ? (
-			<Header size={size} headerBackground={headerBackground}>
-				<HeadWrapper size={size}>
-					<Title size={size}>{title}</Title>
-					<Extra size={size}>{extra}</Extra>
-				</HeadWrapper>
-			</Header>
-		) : null}
-		<Body size={size}>{children}</Body>
-	</Wrapper>
-);
+		<Wrapper hoverable={hoverable} bordered={bordered} style={style} {...rest}>
+			{title ? (
+				<Header size={size} headerBackground={headerBackground}>
+					<HeadWrapper size={size}>
+						<Title size={size}>{title}</Title>
+						<Extra size={size}>{extra}</Extra>
+					</HeadWrapper>
+				</Header>
+			) : null}
+			<Body size={size}>{children}</Body>
+		</Wrapper>
+	);
 
 export default Card;

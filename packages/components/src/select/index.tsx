@@ -3,10 +3,11 @@ import styled from "styled-components";
 import ExpandMore from "../icons/expand-more";
 import ExpandLess from "../icons/expand-less";
 import Dropdown, { SelectedOption } from "./dropdown";
-import "../app.css";
 import COLORS from "../__utils/colors";
+import { GlobalStyles } from "../app";
 
 export const SelectWrapper = styled.div`
+	${GlobalStyles};
 	width: 300px;
 `;
 export const StyledSelectCTA = styled.div`
@@ -63,8 +64,8 @@ interface SelectProps {
 	value: string;
 	onSelect?: (option: SelectedOption) => void;
 	children:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
+	| React.ComponentElement<any, any>
+	| React.ComponentElement<any, any>[];
 }
 
 export const Select = ({ value, onSelect, children }: SelectProps) => {

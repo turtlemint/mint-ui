@@ -3,7 +3,7 @@ import DefaultEmptyImg from "./empty";
 import SimpleEmptyImg from "./simple";
 import styled, { css } from "styled-components";
 import SIZE from "../__utils/size";
-import "../app.css";
+import { GlobalStyles } from "../app";
 import COLORS from "../__utils/colors";
 
 const defaultEmptyImg = <DefaultEmptyImg />;
@@ -27,6 +27,7 @@ interface EmptyType extends React.FC<EmptyProps> {
 }
 
 const StyledContainer = styled.div<{ image: React.ReactNode }>`
+	${GlobalStyles};
 	margin: 0 8px;
 	font-size: ${SIZE.EMPTY_FONT_SIZE};
 	line-height: 22px;

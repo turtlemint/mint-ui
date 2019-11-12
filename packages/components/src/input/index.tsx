@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { Omit, CommonTypeTuple } from "../__utils/type";
-import "../app.css";
 import COLORS from "../__utils/colors";
+import { GlobalStyles } from "../app";
 
 export interface InputProps {
 	type?: string;
@@ -18,13 +18,14 @@ export interface InputProps {
 }
 
 export const WrapperStyles = css<Pick<InputProps, "block">>`
+	${GlobalStyles};
 	width: ${props => (props.block ? "100%" : "328px")};
 	text-align: left;
 `;
 
 export const InputStyles = css<
 	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
->`
+	>`
 	border: 0;
 	border: 1px solid ${COLORS.GREY4};
 	outline: none;
@@ -101,8 +102,8 @@ export const LabelStyles = css<Pick<InputProps, "error">>`
 	label {
 		${SharedStyles};
 		${props =>
-			props.error &&
-			css`
+		props.error &&
+		css`
 				color: ${COLORS.DANGER};
 			`};
 	}
@@ -134,7 +135,7 @@ const StyledLabel = styled.div<LabelProps>`
 `;
 export const StyledInput = styled.input<
 	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
->`
+	>`
 	${InputStyles};
 `;
 const StyledError = styled.div<{ children: React.ReactNode }>`
@@ -160,36 +161,36 @@ export const Input: React.FC<
 	className = "",
 	...rest
 }: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (onChange) {
-			onChange(e.target.value);
-		}
+		const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+			if (onChange) {
+				onChange(e.target.value);
+			}
+		};
+		return (
+			<StyledWrapper block={block}>
+				<StyledLabel error={error}>
+					<label>{label}</label>
+				</StyledLabel>
+				<StyledInput
+					type={type}
+					placeholder={placeholder}
+					error={error}
+					disabled={disabled}
+					onBlur={onBlur}
+					onChange={handleChange}
+					value={value}
+					className={className}
+					aria-label="tm-input"
+					{...rest}
+				/>
+				{error ? (
+					<StyledError>
+						<label>{error}</label>
+					</StyledError>
+				) : null}
+				{helpText ? <StyledHelpText>{helpText}</StyledHelpText> : null}
+			</StyledWrapper>
+		);
 	};
-	return (
-		<StyledWrapper block={block}>
-			<StyledLabel error={error}>
-				<label>{label}</label>
-			</StyledLabel>
-			<StyledInput
-				type={type}
-				placeholder={placeholder}
-				error={error}
-				disabled={disabled}
-				onBlur={onBlur}
-				onChange={handleChange}
-				value={value}
-				className={className}
-				aria-label="tm-input"
-				{...rest}
-			/>
-			{error ? (
-				<StyledError>
-					<label>{error}</label>
-				</StyledError>
-			) : null}
-			{helpText ? <StyledHelpText>{helpText}</StyledHelpText> : null}
-		</StyledWrapper>
-	);
-};
 
 export default Input;

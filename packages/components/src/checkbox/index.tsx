@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { CheckboxIcon } from "./icon";
-import "../app.css";
+import { GlobalStyles } from "../app";
 import COLORS from "../__utils/colors";
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
@@ -20,6 +20,7 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 `;
 
 const CheckboxContainer = styled.div`
+	${GlobalStyles};
 	display: inline-block;
 	vertical-align: middle;
 `;
@@ -41,7 +42,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 	checked = false,
 	disabled = false,
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	onChange = (val: boolean): void => {},
+	onChange = (val: boolean): void => { },
 	className = "",
 	children,
 	style,

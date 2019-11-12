@@ -1,9 +1,10 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import "../app.css";
 import COLORS from "../__utils/colors";
+import { GlobalStyles } from "../app";
 
 export const DropdownWrapper = styled.div`
+	${GlobalStyles};
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -91,8 +92,8 @@ export const Option = ({
 interface DropdownProps {
 	onSelect?: (option: SelectedOption) => void;
 	children:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
+	| React.ComponentElement<any, any>
+	| React.ComponentElement<any, any>[];
 }
 
 export const Dropdown = ({ onSelect, children }: DropdownProps) => {

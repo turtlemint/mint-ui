@@ -285,7 +285,7 @@ stories.add("icons/solid", () => (
 ));
 
 stories.add("submit button", () => (
-	<form style={{ marginLeft: "40px" }} onSubmit={(e) => {
+	<form onSubmit={(e) => {
 		e.preventDefault();
 		alert("submit event called");
 	}}>

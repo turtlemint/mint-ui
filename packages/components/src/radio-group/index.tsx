@@ -2,7 +2,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import COLORS from "../__utils/colors";
 import { tuple, Omit } from "../__utils/type";
-import "../app.css";
+import { GlobalStyles } from "../app";
 
 const Wrapper = styled.div`
 	display: flex;
@@ -19,6 +19,7 @@ interface LabelProps {
 }
 
 const Label = styled.label<Omit<LabelProps, "onClick">>`
+	${GlobalStyles};
 	padding: 8px 15px;
 	font-size: 16px;
 	border: 1px solid ${COLORS.GREY4};
@@ -145,8 +146,8 @@ interface RadioGroupProps {
 	onChange: (val: ValueType) => void;
 	buttonStyle?: ButtonType;
 	children:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
+	| React.ComponentElement<any, any>
+	| React.ComponentElement<any, any>[];
 }
 export const RadioGroup = ({
 	size,

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { tuple } from "../__utils/type";
 import COLORS from "../__utils/colors";
 import { transparentize } from "polished";
-import "../app.css";
+import { GlobalStyles } from "../app";
 
 const ButtonTypeTuple = tuple("outlined", "solid", "link");
 export type ButtonType = (typeof ButtonTypeTuple)[number];
@@ -41,7 +41,7 @@ export type NativeButtonProps = {
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 const BaseButton = css<ButtonProps>`
-	box-sizing: border-box;
+	${GlobalStyles};
 	cursor: pointer;
 	padding: 8px 15px;
 	display: flex;
@@ -68,7 +68,7 @@ const BaseButton = css<ButtonProps>`
 	${({ size }) =>
 		size === "sm" &&
 		css`
-			font-size: 16px;
+			font-size: 14px;
 			line-height: 15px;
 			min-height: 36px;
 			padding: 6px 15px;
@@ -225,7 +225,7 @@ export const Button: React.FC<ButtonProps> = ({
 	btnStyle = "default",
 	icon,
 	loading = false,
-	onClick = function() {},
+	onClick = function () { },
 	href = "#",
 	target = "blank",
 	htmlType = "button",

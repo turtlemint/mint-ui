@@ -20,7 +20,8 @@
         "noUnusedLocals": true,
         "noImplicitReturns": true,
         "sourceMap": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "includes": []
     },
     "exclude": [
         "**/*.spec.js",

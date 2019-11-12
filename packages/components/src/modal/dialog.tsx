@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import COLORS from "../__utils/colors";
-import "../app.css";
+import { GlobalStyles } from "../app";
 
 export interface DialogProps {
 	container?: Element;
@@ -70,6 +70,7 @@ interface WrapperProps {
 	children: React.ReactNode;
 }
 export const Wrapper = styled.div<WrapperProps>`
+	${GlobalStyles};
 	position: fixed;
 	top: 0;
 	right: 0;
