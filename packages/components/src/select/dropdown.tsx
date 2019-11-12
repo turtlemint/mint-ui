@@ -92,8 +92,8 @@ export const Option = ({
 interface DropdownProps {
 	onSelect?: (option: SelectedOption) => void;
 	children:
-	| React.ComponentElement<any, any>
-	| React.ComponentElement<any, any>[];
+		| React.ComponentElement<any, any>
+		| React.ComponentElement<any, any>[];
 }
 
 export const Dropdown = ({ onSelect, children }: DropdownProps) => {

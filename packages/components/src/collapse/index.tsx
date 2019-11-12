@@ -121,10 +121,10 @@ export const Panel = ({
 				<ExpandLess />
 			</Icon>
 		) : (
-				<Icon position={expandIconPosition}>
-					<ExpandMore />
-				</Icon>
-			);
+			<Icon position={expandIconPosition}>
+				<ExpandMore />
+			</Icon>
+		);
 	};
 
 	return (

@@ -225,7 +225,7 @@ export const Button: React.FC<ButtonProps> = ({
 	btnStyle = "default",
 	icon,
 	loading = false,
-	onClick = function () { },
+	onClick = function() {},
 	href = "#",
 	target = "blank",
 	htmlType = "button",

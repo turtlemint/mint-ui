@@ -146,8 +146,8 @@ interface RadioGroupProps {
 	onChange: (val: ValueType) => void;
 	buttonStyle?: ButtonType;
 	children:
-	| React.ComponentElement<any, any>
-	| React.ComponentElement<any, any>[];
+		| React.ComponentElement<any, any>
+		| React.ComponentElement<any, any>[];
 }
 export const RadioGroup = ({
 	size,

@@ -64,8 +64,8 @@ interface SelectProps {
 	value: string;
 	onSelect?: (option: SelectedOption) => void;
 	children:
-	| React.ComponentElement<any, any>
-	| React.ComponentElement<any, any>[];
+		| React.ComponentElement<any, any>
+		| React.ComponentElement<any, any>[];
 }
 
 export const Select = ({ value, onSelect, children }: SelectProps) => {

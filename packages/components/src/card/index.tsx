@@ -27,8 +27,8 @@ const Wrapper = styled.div<Pick<CardProps, "hoverable" | "bordered">>`
 		`};
 	&:hover {
 		${({ hoverable }) =>
-		hoverable &&
-		css`
+			hoverable &&
+			css`
 				box-shadow: rgba(102, 143, 211, 0.33) 0px 1px 10px 0px;
 			`};
 	}
@@ -82,17 +82,17 @@ export const Card = ({
 	children,
 	...rest
 }: CardProps) => (
-		<Wrapper hoverable={hoverable} bordered={bordered} style={style} {...rest}>
-			{title ? (
-				<Header size={size} headerBackground={headerBackground}>
-					<HeadWrapper size={size}>
-						<Title size={size}>{title}</Title>
-						<Extra size={size}>{extra}</Extra>
-					</HeadWrapper>
-				</Header>
-			) : null}
-			<Body size={size}>{children}</Body>
-		</Wrapper>
-	);
+	<Wrapper hoverable={hoverable} bordered={bordered} style={style} {...rest}>
+		{title ? (
+			<Header size={size} headerBackground={headerBackground}>
+				<HeadWrapper size={size}>
+					<Title size={size}>{title}</Title>
+					<Extra size={size}>{extra}</Extra>
+				</HeadWrapper>
+			</Header>
+		) : null}
+		<Body size={size}>{children}</Body>
+	</Wrapper>
+);
 
 export default Card;
