@@ -26,7 +26,6 @@ const Dialog = ({
 				<Mask className="tm-modal-mask"></Mask>
 				<Wrapper
 					tabIndex={-1}
-					width={width}
 					className="tm-modal-wrapper"
 					role="dialog"
 					{...rest}
@@ -34,6 +33,7 @@ const Dialog = ({
 					<Document
 						role="document"
 						style={style}
+						width={width}
 						className="tm-modal-document"
 					>
 						<Content className="tm-modal-content">
@@ -67,7 +67,6 @@ const shadow = "0 4px 12px rgba(0, 0, 0, 0.15)";
 interface WrapperProps {
 	tabIndex: number;
 	role: string;
-	width?: string | number;
 	children: React.ReactNode;
 }
 export const Wrapper = styled.div<WrapperProps>`
