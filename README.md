@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="http://turtlemint-ui.netlify.com">
+  <a  align="center" href="http://turtlemint-ui.netlify.com">
     <img width="200" src="https://d5ng0zjhhq362.cloudfront.net/images/turtlemint-logo-7df8cb52bc.svg">
   </a>
 </p>
 
-<h1 align="center">Turtlemint UI</h1>
+<h3 align="center">Turtlemint UI</h3>
 
 <div align="center">
 
