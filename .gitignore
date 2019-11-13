@@ -6,3 +6,4 @@ node_modules
 .history/
 tasks.md
 detailed-issues.md
+/coverage
