@@ -43,7 +43,7 @@ const Test = () => <div style={{ color: COLORS.PRIMARY }}></div>
 
 Use Gitpod, a free online dev environment for GitHub.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/turtlemint/turtlemint-core/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/turtlemint/turtlemint-ui/)
 
 Or clone locally:
 
