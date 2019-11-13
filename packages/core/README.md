@@ -1,30 +1,21 @@
 <div align="center">
-  <a href="http://turtlemint-ui.netlify.com">
-    <img width="200" src="https://d5ng0zjhhq362.cloudfront.net/images/turtlemint-logo-7df8cb52bc.svg">
-  </a>
+   <img width="200" src="https://d5ng0zjhhq362.cloudfront.net/images/turtlemint-logo-7df8cb52bc.svg">
 </div>
 
-<div><h3 align="center">Turtlemint UI</h3></div>
+<div><h3 align="center">Turtlemint Core</h3></div>
 
 <div align="center">
 
-UI components for web - A React implementation
+Turtlemint Design system branding, color, spacing and sizes - Used by @turtlemint/turtlemint-ui
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f808dfbe-b589-4cca-8149-3a169f9f44bb/deploy-status)](https://app.netlify.com/sites/turtlemint-ui/deploys)
+![npm](https://img.shields.io/npm/v/@turtlemint/ui-core.svg) ![NPM](https://img.shields.io/npm/l/@turtlemint/ui-core.svg) 
+![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/ui-core.svg) 
 
 </div>
 
 ## ✨ Features
 
-- An enterprise-class UI design system for web applications.
-- A set of high-quality React components out of the box.
-- Written in TypeScript with predictable static types.
-- The whole package of development and design resources and tools.
-
-## 🖥 Environment Support
-
-- Modern browsers and Internet Explorer 9+ (with [polyfills]
-
+- Support system containing spacing, colors and sizing specifics for turtlemint web projects.
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
 | --- | --- | --- | --- | --- | --- |
@@ -33,25 +24,26 @@ UI components for web - A React implementation
 ## 📦 Install
 
 ```bash
-npm install @turtlemint/turtlemint-ui
+npm install @turtlemint/ui-core
 ```
 
 ```bash
-yarn add @turtlemint/turtlemint-ui
+yarn add @turtlemint/ui-core
 ```
 
 ## 🔨 Usage
 
 ```jsx
-import { TypeAhead } from '@turtlemint/ui-components';
-ReactDOM.render(<TypeAhead />, mountNode);
+import { COLORS } from '@turtlemint/ui-core';
+
+const Test = () => <div style={{ color: COLORS.PRIMARY }}></div>  
 ```
 
 ## ⌨️ Development
 
 Use Gitpod, a free online dev environment for GitHub.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/turtlemint/turtlemint-ui/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/turtlemint/turtlemint-core/)
 
 Or clone locally:
 

@@ -11,6 +11,8 @@
 UI components for web - A React implementation
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f808dfbe-b589-4cca-8149-3a169f9f44bb/deploy-status)](https://app.netlify.com/sites/turtlemint-ui/deploys)
+![npm](https://img.shields.io/npm/v/@turtlemint/turtlemint.svg) ![NPM](https://img.shields.io/npm/l/@turtlemint/turtlemint.svg) 
+![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/turtlemint.svg) 
 
 </div>
 
@@ -43,7 +45,7 @@ yarn add @turtlemint/turtlemint-ui
 ## 🔨 Usage
 
 ```jsx
-import { TypeAhead } from '@turtlemint/ui-components';
+import { TypeAhead } from '@turtlemint/turtlemint-ui';
 ReactDOM.render(<TypeAhead />, mountNode);
 ```
 
