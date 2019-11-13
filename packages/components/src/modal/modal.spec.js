@@ -2,7 +2,7 @@ import * as React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import Dialog from "./dialog";
 import Confirm from "./confirm";
-import Modal from "./modal";
+import Modal from "./index";
 import ErrorOutline from "../icons/error-outline";
 import COLORS from "../__utils/colors";
 

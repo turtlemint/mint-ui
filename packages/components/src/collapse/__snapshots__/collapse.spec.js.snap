@@ -3,13 +3,13 @@
 exports[`collapse renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="collapse__CollapseWrap-jjx89t-0 dxpnxe"
+    class="collapse__CollapseWrap-sc-1gbzbz3-0 jScgZA"
   >
     <div
       class="tm-panel"
     >
       <div
-        class="collapse__Header-jjx89t-2 kxbxJw tm-panel-header"
+        class="collapse__Header-sc-1gbzbz3-2 bIOJjx tm-panel-header"
         data-testid="tm-panel-header"
       >
         <div
@@ -23,7 +23,7 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <i
-            class="collapse__StyledEL-jjx89t-1 kWDrVl"
+            class="collapse__StyledEL-sc-1gbzbz3-1 gWQSeT"
           >
             <svg
               height="24"
@@ -48,7 +48,7 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__Header-jjx89t-2 kxbxJw tm-panel-header"
+        class="collapse__Header-sc-1gbzbz3-2 bIOJjx tm-panel-header"
         data-testid="tm-panel-header"
       >
         <div
@@ -62,7 +62,7 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <i
-            class="collapse__StyledEL-jjx89t-1 kWDrVl"
+            class="collapse__StyledEL-sc-1gbzbz3-1 gWQSeT"
           >
             <svg
               height="24"
@@ -83,7 +83,7 @@ exports[`collapse renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="collapse__Body-jjx89t-3 hlLEDg tm-collapse-body"
+        class="collapse__Body-sc-1gbzbz3-3 diwbzO tm-collapse-body"
         data-testid="tm-collapse-body"
       >
         Some content
@@ -93,7 +93,7 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__Header-jjx89t-2 exTNbP tm-panel-header"
+        class="collapse__Header-sc-1gbzbz3-2 fbesdd tm-panel-header"
         data-testid="tm-panel-header"
         disabled=""
       >
@@ -108,7 +108,7 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <i
-            class="collapse__StyledEL-jjx89t-1 kWDrVl"
+            class="collapse__StyledEL-sc-1gbzbz3-1 gWQSeT"
           >
             <svg
               height="24"

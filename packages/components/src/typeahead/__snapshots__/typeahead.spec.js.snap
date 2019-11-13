@@ -3,19 +3,19 @@
 exports[`Typeahead tests renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="select__SelectWrapper-sc-17jckrb-0 ghkoVW"
+    class="select__SelectWrapper-xwzcqv-0 gbfhWE"
   >
     <div
-      class="input__StyledWrapper-j6wzrl-0 fRxPkI"
+      class="input__StyledWrapper-sc-1afloio-0 fDBfKY"
     >
       <div
-        class="input__StyledLabel-j6wzrl-1 gCPtS"
+        class="input__StyledLabel-sc-1afloio-1 kZzwwB"
       >
         <label />
       </div>
       <input
         aria-label="tm-input"
-        class="input__StyledInput-j6wzrl-2 iKDDmM"
+        class="input__StyledInput-sc-1afloio-2 jEqpru"
         data-testid="typeahead-input"
         placeholder="Select user..."
         type="text"
@@ -23,20 +23,20 @@ exports[`Typeahead tests renders correctly 1`] = `
       />
     </div>
     <div
-      class="dropdown__DropdownWrapper-graemb-0 eKUTRl"
+      class="dropdown__DropdownWrapper-sc-1isqhlv-0 kvPoIE"
       data-testid="dropdown"
     >
       <ul
-        class="dropdown__List-graemb-1 ducVEX"
+        class="dropdown__List-sc-1isqhlv-1 bkNTcT"
       >
         <li
-          class="dropdown__StyledOption-graemb-2 fnhiyk"
+          class="dropdown__StyledOption-sc-1isqhlv-2 hDaRBq"
           value="1"
         >
           Item 1
         </li>
         <li
-          class="dropdown__StyledOption-graemb-2 fnhiyk"
+          class="dropdown__StyledOption-sc-1isqhlv-2 hDaRBq"
           value="2"
         >
           Item 2
