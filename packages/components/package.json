@@ -15,7 +15,8 @@
         "styled-components": "4.3.2"
     },
     "scripts": {
-        "dev": "start-storybook -p 5555"
+        "dev": "start-storybook -p 5555 -s ./public",
+        "build-storybook": "build-storybook -c .storybook -s ./public"
     },
     "peerDependencies": {
         "react": "^15.0.0 || ^16.0.0",

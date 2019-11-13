@@ -21,7 +21,10 @@ addDecorator(withInfo({
 
 addParameters({
   options: {
-    panelPosition: 'bottom',
+    name: "Turtlemint UI",
+    url: "https://turtlemint-ui.netlify.com",
+    showAddonPanel:false,
+    panelPosition: "bottom",
   }
 })
 

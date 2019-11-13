@@ -3,7 +3,7 @@
     "version": "0.1.0-alpha.0",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "repository": "https://gitlab.com/turtlemint/tm-components.git",
+    "repository": "https://gitlab.com/turtlemint/turtlemint-ui.git",
     "dependencies": {
         "react": "16.8.6",
         "react-dom": "16.8.6",
