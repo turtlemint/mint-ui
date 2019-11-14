@@ -70,6 +70,6 @@ It should spin up a browser automatically. If not, open your browser and visit h
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/turtlemint/turtlemint-ui/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/turtlemint/turtlemint-ui/pulls) or as [GitHub issues](https://github.com/turtlemint/turtlemint-ui/issues).
+We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/turtlemint/turtlemint-ui/blob/master/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/turtlemint/turtlemint-ui/pulls) or as [GitHub issues](https://github.com/turtlemint/turtlemint-ui/issues).
 
 
