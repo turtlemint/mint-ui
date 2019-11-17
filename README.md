@@ -20,9 +20,9 @@ UI components for web - A React implementation
 
 ## ✨ Features
 
-- An enterprise-class UI design system for web applications.
+- A modern and fitting UI design system for startup web applications.
 - A set of high-quality React components out of the box.
-- Written in TypeScript with predictable static types.
+- Written in TypeScript with predictable static types. 
 - The whole package of development and design resources and tools.
 
 ## 🖥 Environment Support
