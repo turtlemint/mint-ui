@@ -16,7 +16,7 @@
     ],
     "dependencies": {
         "@ant-design/icons-react": "^2.0.1",
-        "@turtlemint/core": "^1.0.17",
+        "@turtlemint/ui-core": "^0.1.1-alpha.0",
         "@types/marked": "^0.7.0",
         "axios": "^0.19.0",
         "marked": "^0.7.0",
