@@ -2,10 +2,7 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "sourceType": "module",
-        "project": [
-            "./packages/components/tsconfig.json",
-            "./packages/core/tsconfig.json"
-        ]
+        "project": "./tsconfig.json"
     },
     "plugins": [
         "react",
@@ -22,7 +19,8 @@
     "env": {
         "browser": true,
         "jasmine": true,
-        "jest": true
+        "jest": true,
+        "node": true
     },
     "rules": {
         "prettier/prettier": [

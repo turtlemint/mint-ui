@@ -1,8 +1,10 @@
-
 module.exports = {
 	cacheDirectory: ".jest-cache",
 	coverageDirectory: ".jest-coverage",
-	coveragePathIgnorePatterns: ["<rootDir>/packages/(?:.+?)/dist/", "<rootDir>/packages/(?:.+?)/dist/package.json"],
+	coveragePathIgnorePatterns: [
+		"<rootDir>/packages/(?:.+?)/dist/",
+		"<rootDir>/packages/(?:.+?)/dist/package.json"
+	],
 	coverageReporters: ["html", "text"],
 	coverageThreshold: {
 		global: {
@@ -12,9 +14,12 @@ module.exports = {
 			statements: 100
 		}
 	},
-	setupFilesAfterEnv: ['./jest.setup.js'],
+	setupFilesAfterEnv: ["./jest.setup.js"],
 	moduleNameMapper: {
- 		"\\.(css|less)$": "identity-obj-proxy"
+		"\\.(css|less)$": "identity-obj-proxy"
 	},
-	testPathIgnorePatterns: ["<rootDir>/packages/(?:.+?)/dist/", "<rootDir>/packages/(?:.+?)/dist/package.json"]
+	testPathIgnorePatterns: [
+		"<rootDir>/packages/(?:.+?)/dist/",
+		"<rootDir>/packages/(?:.+?)/dist/package.json"
+	]
 };
