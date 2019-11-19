@@ -14,7 +14,6 @@ UI components for web - A React implementation
 ![npm version](https://img.shields.io/npm/v/@turtlemint/turtlemint-ui)
 ![NPM license](https://img.shields.io/npm/l/@turtlemint/turtlemint-ui)
 ![npm downloads](https://img.shields.io/npm/dw/@turtlemint/turtlemint-ui)
-![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/turtlemint-ui)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fturtlemint-ui.netlify.com)
 </div>
 
