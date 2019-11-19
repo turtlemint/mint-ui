@@ -1,18 +1,18 @@
 import * as React from "react";
-import { render, cleanup, fireEvent} from "@testing-library/react";
+import { render } from "@testing-library/react";
 // import axiosMock from "axios";
 import TypeAhead from "./index";
 import { Option } from "../select/dropdown";
 
 export const data = [
-    {
-        value: 1,
-        text: "Item 1"
-    },
-    {
-        value: 2,
-        text: "Item 2"
-    }
+	{
+		value: 1,
+		text: "Item 1"
+	},
+	{
+		value: 2,
+		text: "Item 2"
+	}
 ];
 
 // export const TestTypeAhead = () => {
@@ -32,7 +32,7 @@ export const data = [
 //         setOpen(true);
 //         setFetching(false);
 //     }
-    
+
 //     const handleSelect = (value: unknown) => {
 //         console.log(value);
 //         setOpen(false);
@@ -60,17 +60,21 @@ export const data = [
 //     )
 // }
 describe("Typeahead tests", () => {
-    test("renders correctly", () => {
-        const { asFragment } = render(<TypeAhead
-                    value="some value"
-                    loading={false}
-                    open={true}
-                    placeholder="Select user..."
-                >
-                    {data.map((d) => (
-                        <Option key={d.value} value={d.value}>{d.text}</Option>
-                    ))}
-                </TypeAhead>);
-        expect(asFragment()).toMatchSnapshot();
-    });
+	test("renders correctly", () => {
+		const { asFragment } = render(
+			<TypeAhead
+				value="some value"
+				loading={false}
+				open={true}
+				placeholder="Select user..."
+			>
+				{data.map(d => (
+					<Option key={d.value} value={d.value}>
+						{d.text}
+					</Option>
+				))}
+			</TypeAhead>
+		);
+		expect(asFragment()).toMatchSnapshot();
+	});
 });
