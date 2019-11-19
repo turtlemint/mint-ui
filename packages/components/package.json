@@ -1,6 +1,6 @@
 {
     "name": "@turtlemint/turtlemint-ui",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": "https://github.com/turtlemint/turtlemint-ui.git",
@@ -22,7 +22,7 @@
         "front-end"
     ],
     "dependencies": {
-        "@turtlemint/ui-core": "^0.1.1",
+        "@turtlemint/ui-core": "^0.1.2",
         "@types/marked": "^0.7.0",
         "marked": "^0.7.0",
         "polished": "^3.4.2",
