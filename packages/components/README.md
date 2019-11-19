@@ -47,8 +47,8 @@ yarn add @turtlemint/turtlemint-ui
 ## 🔨 Usage
 
 ```jsx
-import { TypeAhead } from '@turtlemint/turtlemint-ui';
-ReactDOM.render(<TypeAhead />, mountNode);
+import { Button } from '@turtlemint/turtlemint-ui';
+ReactDOM.render(<Button />, mountNode);
 ```
 
 ## ⌨️ Development
