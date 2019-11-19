@@ -19,7 +19,7 @@
         "strictNullChecks": true,
         "noUnusedLocals": true,
         "noImplicitReturns": true,
-        "inlineSourceMap": true,
+        "sourceMap": true,
         "skipLibCheck": true
     }
 }

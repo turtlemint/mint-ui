@@ -1,5 +1,4 @@
 packages/**/src/**/__tests__/**
 packages/**/src/**/__snapshots__/**
 packages/**/dist/
-packages/**/src/**/*.stories.tsx
 node_modules

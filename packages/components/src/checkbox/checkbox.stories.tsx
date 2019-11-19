@@ -4,16 +4,9 @@ import Checkbox from "./index";
 
 const stories = storiesOf("Checkbox", module);
 
-stories.add("Default", () => (
-	<Checkbox checked={true} />
-));
+stories.add("Default", () => <Checkbox checked={true} />);
 
 stories.add("Indeterminate", () => (
-	<Checkbox
-		checked={true}
-		indeterminate={true}
-	/>
+	<Checkbox checked={true} indeterminate={true} />
 ));
-stories.add("Disabled", () => (
-	<Checkbox checked={false} disabled />
-));
+stories.add("Disabled", () => <Checkbox checked={false} disabled />);
