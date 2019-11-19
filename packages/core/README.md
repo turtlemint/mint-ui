@@ -48,7 +48,7 @@ Use Gitpod, a free online dev environment for GitHub.
 Or clone locally:
 
 ```bash
-$ git clone git@gitlab.com:turtlemint/turtlemint-ui.git
+$ git clone git@github.com:turtlemint/turtlemint-ui.git
 $ cd turtlemint-ui
 $ yarn install
 $ yarn workspace @turtlemint/turtlemint-ui run dev
