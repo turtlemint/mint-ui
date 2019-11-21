@@ -10,19 +10,19 @@
 
 UI components for web - A React implementation
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f808dfbe-b589-4cca-8149-3a169f9f44bb/deploy-status)](https://app.netlify.com/sites/turtlemint-ui/deploys)
 ![npm version](https://img.shields.io/npm/v/@turtlemint/turtlemint-ui)
-![NPM license](https://img.shields.io/npm/l/@turtlemint/turtlemint-ui)
+![NPM size](https://badgen.net/bundlephobia/minzip/@turtlemint/turtlemint-ui)
 ![npm downloads](https://img.shields.io/npm/dw/@turtlemint/turtlemint-ui)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fturtlemint-ui.netlify.com)
-
+![Netlify Status](https://img.shields.io/netlify/f808dfbe-b589-4cca-8149-3a169f9f44bb)
+![NPM license](https://img.shields.io/npm/l/@turtlemint/turtlemint-ui)
 </div>
 
 ## ✨ Features
 
 - A modern and fitting UI design system for startup web applications.
 - A set of high-quality React components out of the box.
-- Written in TypeScript with predictable static types.
+- Written in TypeScript with predictable static types. 
 - The whole package of development and design resources and tools.
 
 ## 🖥 Environment Support
@@ -37,7 +37,7 @@ UI components for web - A React implementation
 ## 📦 Install
 
 ```bash
-npm install @turtlemint/turtlemint-ui
+npm i @turtlemint/turtlemint-ui --save
 ```
 
 ```bash
@@ -70,6 +70,6 @@ It should spin up a browser automatically. If not, open your browser and visit h
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/turtlemint/turtlemint-ui/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/turtlemint/turtlemint-ui/pulls) or as [GitHub issues](https://github.com/turtlemint/turtlemint-ui/issues).
+We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/turtlemint/turtlemint-ui/blob/master/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/turtlemint/turtlemint-ui/pulls) or as [GitHub issues](https://github.com/turtlemint/turtlemint-ui/issues).
 
 
