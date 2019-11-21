@@ -10,11 +10,12 @@
 
 UI components for web - A React implementation
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f808dfbe-b589-4cca-8149-3a169f9f44bb/deploy-status)](https://app.netlify.com/sites/turtlemint-ui/deploys)
 ![npm version](https://img.shields.io/npm/v/@turtlemint/turtlemint-ui)
-![NPM license](https://img.shields.io/npm/l/@turtlemint/turtlemint-ui)
+![NPM size](https://badgen.net/bundlephobia/minzip/@turtlemint/turtlemint-ui)
 ![npm downloads](https://img.shields.io/npm/dw/@turtlemint/turtlemint-ui)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fturtlemint-ui.netlify.com)
+![Netlify Status](https://img.shields.io/netlify/f808dfbe-b589-4cca-8149-3a169f9f44bb)
+![NPM license](https://img.shields.io/npm/l/@turtlemint/turtlemint-ui)
 </div>
 
 ## ✨ Features
