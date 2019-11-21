@@ -36,7 +36,7 @@ UI components for web - A React implementation
 ## 📦 Install
 
 ```bash
-npm install @turtlemint/turtlemint-ui
+npm i @turtlemint/turtlemint-ui --save
 ```
 
 ```bash
