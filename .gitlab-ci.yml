@@ -1,5 +1,13 @@
 image: node:10.17.0
 
+before_script:
+  - yarn install
+
+cache:
+  paths:
+  - node_modules/
+  - .yarn
+  
 stages:
   - install
   - lint
@@ -7,7 +15,8 @@ stages:
   - test
   - build
   - deploy
-  
+ 
+ 
 lint:
  stage: lint
  script:
@@ -25,19 +34,11 @@ test:
 
 build:
   stage: build
-  before_script:
-  - yarn install
   script:
    - yarn run build
-  cache:
-    paths:
-    - node_modules/
-    - .yarn
     
 deploy:
   stage: deploy
-  before_script:
-  - yarn install
   script:
     - git push
   
