@@ -24,7 +24,7 @@ lint:
 lint-fix:
  stage: lint-fix
  script:
-  - yarn run lint-fix
+  - yarn run lint:fix
 
 test:
   stage: test
