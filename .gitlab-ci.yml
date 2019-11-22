@@ -1,4 +1,4 @@
-image: node:9.4.0
+image: node:10.17.0
 
 stages:
   - install
