@@ -21,6 +21,6 @@ deploy:
     - git config --global user.email "${GITLAB_USER_EMAIL}"
     - git add --all
     - git commit -m "GitLab Runner Push"
-    - git push http://${GITLAB_USER_NAME}:${PERSONAL_ACCESS_TOKEN}@gitlab.com/turtlemint/turtlemint-ui.git HEAD:master
+    - git push http://${GITLAB_USER_NAME}:HVe-4wrsQ2HCak5zu8Hv@gitlab.com/turtlemint/turtlemint-ui.git HEAD:master
     - cd ..
   
