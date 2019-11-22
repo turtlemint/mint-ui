@@ -5,27 +5,27 @@ stages:
   - build
   - deploy
 
-lint
+lint:
  stage: lint
  scripts:
   - yarn run lint
 
-lint-fix
+lint-fix:
  stage: lint-fix
  scripts:
   - yarn run lint-fix
 
-test
+test:
   stage: test
   scripts:
   - yarn run unit
 
-build
+build:
   stage: build
   scripts:
    - yarn run build
 
-deploy
+deploy:
   stage: deploy
   scripts:
     - git push
