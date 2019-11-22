@@ -9,34 +9,8 @@ cache:
   - .yarn
   
 stages:
-  - install
-  - lint
-  - lint-fix
-  - test
-  - build
   - deploy
- 
- 
-lint:
- stage: lint
- script:
-  - yarn run lint
-
-lint-fix:
- stage: lint-fix
- script:
-  - yarn run lint:fix
-
-test:
-  stage: test
-  script:
-  - yarn run unit
-
-build:
-  stage: build
-  script:
-   - yarn run build
-    
+  
 deploy:
   stage: deploy
   script:
