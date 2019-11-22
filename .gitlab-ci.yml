@@ -13,14 +13,10 @@ stages:
   
 deploy:
   stage: deploy
-  script:
-    - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/turtlemint/turtlemint-ui.git &> /dev/null
-    - cd turtlemint-ui
-    - echo "This is a test" > test.dat
+  before_script:
     - git config --global user.name "${GITLAB_USER_NAME}"
     - git config --global user.email "${GITLAB_USER_EMAIL}"
-    - git add --all
-    - git commit -m "GitLab Runner Push"
-    - git push http://${GITLAB_USER_NAME}:HVe-4wrsQ2HCak5zu8Hv@gitlab.com/turtlemint/turtlemint-ui.git HEAD:master
-    - cd ..
+  script:
+    - git push "https://${GITLAB_USER_NAME}:${CI_GIT_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_TAG}"
+   
   
