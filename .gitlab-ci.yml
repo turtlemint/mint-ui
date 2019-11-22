@@ -7,15 +7,7 @@ stages:
   - test
   - build
   - deploy
-
-before_script:
-  - yarn install
   
-cache:
-  paths:
-    - node_modules/
-    - .yarn
-    
 lint:
  stage: lint
  script:
@@ -33,11 +25,19 @@ test:
 
 build:
   stage: build
+  before_script:
+  - yarn install
   script:
    - yarn run build
-
+  cache:
+    paths:
+    - node_modules/
+    - .yarn
+    
 deploy:
   stage: deploy
+  before_script:
+  - yarn install
   script:
     - git push
   
