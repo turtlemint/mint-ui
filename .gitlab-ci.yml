@@ -9,10 +9,9 @@ cache:
   - .yarn
   
 stages:
-  - create:push:pdf
   - deploy
   
-create:push:pdf:
+deploy:
   before_script:
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
@@ -31,13 +30,4 @@ create:push:pdf:
     - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
     - git remote set-url --push origin "${url_host}"
     - git push origin master
-    
-deploy:
-  stage: deploy
-  before_script:
-    - git config --global user.name "${GITLAB_USER_NAME}"
-    - git config --global user.email "${GITLAB_USER_EMAIL}"
-  script:
-    - git push "https://${GITLAB_USER_NAME}:${CI_JOB_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_TAG}"
-   
   
