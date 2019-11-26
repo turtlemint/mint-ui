@@ -13,14 +13,9 @@ stages:
   
 deploy:
   stage: deploy
+  before_script:
+    - git config --global user.name "${GITLAB_USER_NAME}"
+    - git config --global user.email "${GITLAB_USER_EMAIL}"
   script:
-    - git checkout master
-    - git config --global user.email "kushal.m@turtlemint.com"
-    - git config --global user.name "Kushal V. Mahajan"
-    - git add --all
-    - git commit -m "Gitlab runner push"
-    - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|git@|g')
-    - git remote set-url --push origin "${url_host}"
-    - git push origin HEAD:master
- 
+    - git push "https://${GITLAB_USER_NAME}:${CI_GIT_TOKEN}@gitlab.com/${CI_PROJECT_PATH}.git" "HEAD:${CI_COMMIT_TAG}"
   
