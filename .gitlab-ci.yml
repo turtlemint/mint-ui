@@ -13,21 +13,7 @@ stages:
   
 deploy:
   stage: deploy
-  before_script:
-    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-    - eval $(ssh-agent -s)
-    - echo "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAH4KAWcpsvwW//AUWQF+zzucT/YjP0vcFvRano8TpUGL4j3BpdAys++6C12MgMxPTsVm8BasqaFzu1OXaaTJGp63wGYWEzdySdGaR8MPY1mjZ59TUdnSOEj6apId2DoikkOeY9Tx9gvkXX4J72ThK41NuilzZGFC9AsItypPFTgR7AixA== kvmhjn@gmail.com" | tr -d '\r' | ssh-add - > /dev/null
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - git config --global user.email "kushal.m@turtlemint.com"
-    - git config --global user.name "Kushal V. Mahajan"
-    - gitlab_hostname=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@||g' | sed -e 's|/.*||g')
-    - ssh-keyscan "${gitlab_hostname}" >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
   script:
-    - git checkout master
-    - git add myfile.pdf
-    - git commit -m "Generated PDF file"
     - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
     - git remote set-url --push origin "${url_host}"
     - git push origin master
