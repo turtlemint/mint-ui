@@ -16,6 +16,8 @@ deploy:
   script:
     - git checkout master
     - echo "This is a test" > test.dat
+    - git config --global user.email "kushal.m@turtlemint.com"
+    - git config --global user.name "Kushal V. Mahajan"
     - git add test.dat
     - git commit -m "Gitlab Runner push"
     - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
