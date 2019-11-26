@@ -20,7 +20,7 @@ deploy:
     - git config --global user.name "Kushal V. Mahajan"
     - git add test.dat
     - git commit -m "Gitlab Runner push"
-    - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
+    - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|git@|g')
     - git remote set-url --push origin "${url_host}"
     - git push origin master
   
