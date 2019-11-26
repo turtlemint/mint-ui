@@ -22,7 +22,7 @@ lint:
 lint-fix:
  stage: lint-fix
  scripts:
-  - yarn run lint-fix
+  - yarn run lint:fix
 
 test:
   stage: test
