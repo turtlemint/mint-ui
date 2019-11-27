@@ -2,7 +2,7 @@ import * as React from "react";
 import COLORS from "../__utils/colors";
 import Icon, { CustomIconProps } from ".";
 
-const CheckCircle = ({ size = 24, color = COLORS.GREY3 }: CustomIconProps) => {
+const Notification = ({ size = 24, color = COLORS.GREY3 }: CustomIconProps) => {
 	return (
 		<Icon size={size}>
 			<path
@@ -13,4 +13,4 @@ const CheckCircle = ({ size = 24, color = COLORS.GREY3 }: CustomIconProps) => {
 	);
 };
 
-export default CheckCircle;
+export default Notification;
