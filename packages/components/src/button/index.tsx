@@ -235,10 +235,9 @@ export const Button: React.FC<ButtonProps> = ({
 	const handleClick: React.MouseEventHandler<
 		HTMLButtonElement | HTMLAnchorElement
 	> = e => {
-		if (btnType === "link") {
-			e.preventDefault();
+		if (btnType !== "link") {
+			onClick(e);
 		}
-		onClick(e);
 	};
 	const Icon = icon;
 	const getIcon = (style: string, btnType: string) => {
