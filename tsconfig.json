@@ -7,11 +7,6 @@
             "dom.iterable",
             "esnext"
         ],
-        "rootDirs": [
-            "packages/web/src/components",
-            "packages/shared/src/components",
-            "packages/shared/src/utils"
-        ],
         "baseUrl": ".",
         "strict": true,
         "esModuleInterop": true,
@@ -24,6 +19,7 @@
         "noUnusedLocals": true,
         "noImplicitReturns": true,
         "sourceMap": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "resolveJsonModule": true
     }
 }

@@ -20,11 +20,11 @@
         "noUnusedLocals": true,
         "noImplicitReturns": true,
         "sourceMap": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "resolveJsonModule": true
     },
     "exclude": [
         "**/*.spec.js",
-        "**/*.stories.tsx",
         "**/*.README.md",
         "__snapshots__"
     ]
