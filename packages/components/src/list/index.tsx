@@ -10,14 +10,12 @@ const Wrapper = styled.ul`
 	}
 `;
 
-interface ListProps { children: any }
+interface ListProps {
+	children: any;
+}
 
 export const List = ({ children }: ListProps) => {
-	return (
-		<Wrapper>
-			{children}
-		</Wrapper>
-	);
+	return <Wrapper>{children}</Wrapper>;
 };
 
 export default List;

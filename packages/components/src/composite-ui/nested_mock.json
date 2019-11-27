@@ -1,0 +1,59 @@
+{
+    "type": "help_center",
+    "children": [
+        {
+            "type": "header"
+        },
+        {
+            "type": "section_title"
+        },
+        {
+            "type": "form",
+            "grid": {},
+            "children": [
+                {
+                    "type": "formgroup",
+                    "grid": {},
+                    "children": [
+                        {
+                            "type": "input_text",
+                            "grid": {},
+                            "props": {
+                                "name": "registration_location",
+                                "label": "Registration Location",
+                                "placeholder": ""
+                            }
+                        },
+                        {
+                            "type": "radio_button",
+                            "grid": {},
+                            "props": {
+                                "name": "is_renewal",
+                                "label": "Renewal Location"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "formgroup",
+                    "grid": {},
+                    "children": [
+                        {
+                            "type": "field",
+                            "grid": {},
+                            "props": {
+                                "type": "radio",
+                                "name": "is_renewal",
+                                "label": "Renewal Location"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "right_slide_image",
+            "grid": {}
+        }
+    ]
+}
