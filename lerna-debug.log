@@ -1,0 +1,5 @@
+38 error Error: Command failed: git tag @turtlemint/turtlemint-ui@0.0.4 -m @turtlemint/turtlemint-ui@0.0.4
+38 error fatal: tag '@turtlemint/turtlemint-ui@0.0.4' already exists
+38 error
+38 error     at makeError (/Users/vedant/Projects/turtlemint-ui/node_modules/execa/index.js:174:9)
+38 error     at /Users/vedant/Projects/turtlemint-ui/node_modules/execa/index.js:278:16
