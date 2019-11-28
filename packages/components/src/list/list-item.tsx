@@ -6,7 +6,7 @@ import ExpandRight from "../icons/expand-right";
 
 export interface ListItemProps {
 	icon?: React.CElement<any, any>;
-	title: string;
+	title?: string;
 	subtitle?: string;
 	expandRight?: boolean;
 	url?: string;
@@ -24,6 +24,7 @@ const Title = styled.span`
 	font-size: 18px;
 	line-height: 18px;
 `;
+
 const Subtitle = styled.div`
 	font-size: 16px;
 	color: ${COLORS.GREY3};

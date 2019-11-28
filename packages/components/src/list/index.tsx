@@ -10,7 +10,7 @@ const Wrapper = styled.ul`
 	}
 `;
 
-interface ListProps {
+export interface ListProps {
 	children: any;
 }
 

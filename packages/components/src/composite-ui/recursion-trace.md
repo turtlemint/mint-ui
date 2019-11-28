@@ -36,6 +36,5 @@ Output
             </FormGroup>
         ]
     </Form>,
-    []
     <RightSlideImage />
 ]

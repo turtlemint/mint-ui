@@ -1,61 +1,43 @@
 import * as React from "react";
-import { ListItem, ListItemProps } from "../list/list-item";
-import List from "../list";
+import { IDict } from "../__utils/type";
 
-const Wrapper = ({ children }: any) => {
-	return <div>{children}</div>;
-};
+export const renderComponent = (Component: any) => (props: any) => (
+	<Component {...props}>{props.children}</Component>
+);
 
-interface RenderComponentProps {
-	type: string;
-	children: React.ReactNode;
-}
-const renderComponent = ({ type, children, ...rest }: RenderComponentProps) => {
-	switch (type) {
-		case "list":
-			return <List>{children}</List>;
-		case "list_item":
-			const {
-				icon,
-				title,
-				subtitle,
-				expandRight,
-				url
-			} = rest as ListItemProps;
+const configureUI = (TypeMap: IDict<(Component: any) => any>) => {
+	return function buildUI(buildConfig: any) {
+		const { type, children, ...props } = buildConfig;
+		if (children && children.length) {
+			let len = children.length;
+			const results = [];
+			for (let i = 0; i < len; i++) {
+				const result = buildUI(children[i]);
+				results.push(result);
+			}
+			const MappedComponentWrapper = TypeMap[type]
+				? TypeMap[type]
+				: TypeMap["wrapper"];
 			return (
-				<ListItem
-					icon={icon}
-					title={title}
-					subtitle={subtitle}
-					expandRight={expandRight}
-					url={url}
-				/>
+				<MappedComponentWrapper {...props}>
+					{results}
+				</MappedComponentWrapper>
 			);
-		default:
-			return <Wrapper>{children}</Wrapper>;
-	}
-};
-
-const buildUI = (config: any) => {
-	const { type, children } = config;
-	if (children && children.length) {
-		let len = children.length;
-		const results = [];
-		for (let i = 0; i < len; i++) {
-			const result = buildUI(children[i]);
-			results.push(result);
+		} else {
+			const MappedComponent = TypeMap[type]
+				? TypeMap[type]
+				: TypeMap["wrapper"];
+			return <MappedComponent {...props} />;
 		}
-		const Wrapper = renderComponent({ type, children: results });
-		return Wrapper;
-	} else {
-		return renderComponent(config);
-	}
+	};
 };
 
 interface CompositeUIProps {
 	config: any;
+	typeMap: IDict<(Component: any) => any>;
 }
-export const CompositeUI = ({ config }: CompositeUIProps) => {
+export const CompositeUI = ({ config, typeMap }: CompositeUIProps) => {
+	const buildUI = configureUI(typeMap);
 	return <div>{buildUI(config)}</div>;
 };
 
