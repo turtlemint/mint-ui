@@ -25,6 +25,7 @@
     },
     "exclude": [
         "**/*.spec.js",
+        "**/*.stories.tsx",
         "**/*.README.md",
         "__snapshots__"
     ]
