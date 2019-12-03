@@ -5,8 +5,8 @@ import COLORS from "../__utils/colors";
 import ExpandRight from "../icons/expand-right";
 
 export interface ListItemProps {
-	icon?: React.CElement<any, any>;
-	title?: string;
+	icon?: React.FC<any>;
+	title: string;
 	subtitle?: string;
 	expandRight?: boolean;
 	url?: string;
