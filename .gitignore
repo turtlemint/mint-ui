@@ -7,3 +7,5 @@ node_modules
 tasks.md
 detailed-issues.md
 /coverage
+.gitlab-ci.yml
+.internal/
