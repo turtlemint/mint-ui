@@ -1,10 +1,9 @@
 <div align="center">
   <a href="http://turtlemint-ui.netlify.com">
-    <img width="200" src="https://d5ng0zjhhq362.cloudfront.net/images/turtlemint-logo-7df8cb52bc.svg">
+    <img width="200" src="packages/components/public/mintui-logo.svg">
   </a>
 </div>
 
-<div><h3 align="center">Mint UI</h3></div>
 
 
 <div align="center">
