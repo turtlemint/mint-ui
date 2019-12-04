@@ -1,9 +1,9 @@
 {
-    "name": "@turtlemint/turtlemint-ui",
-    "version": "0.0.6",
+    "name": "@turtlemint/mint-ui",
+    "version": "0.0.0",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "repository": "https://github.com/turtlemint/turtlemint-ui.git",
+    "repository": "https://github.com/turtlemint/mint-ui.git",
     "keywords": [
         "monorepo",
         "storybook",
