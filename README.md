@@ -4,7 +4,7 @@
   </a>
 </div>
 
-<div><h3 align="center">Turtlemint UI</h3></div>
+<div><h3 align="center">Mint UI</h3></div>
 
 
 <div align="center">
