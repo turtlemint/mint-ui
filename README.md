@@ -6,7 +6,8 @@
 
 <div align="center">
 
-![Netlify Status](https://img.shields.io/netlify/f808dfbe-b589-4cca-8149-3a169f9f44bb) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+![Netlify Status](https://img.shields.io/netlify/f808dfbe-b589-4cca-8149-3a169f9f44bb) 
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 </div>
 
