@@ -9,3 +9,5 @@ detailed-issues.md
 /coverage
 .gitlab-ci.yml
 .internal/
+commit-msg
+commit-msg.sh
