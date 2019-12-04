@@ -15,7 +15,7 @@
 
 - [@turtlemint/mint-ui](https://github.com/turtlemint/mint-ui/tree/master/packages/components) ![npm version](https://img.shields.io/npm/v/@turtlemint/turtlemint-ui) ![npm downloads](https://img.shields.io/npm/dw/@turtlemint/turtlemint-ui)
 
-- [@turtlemint/ui-core](https://github.com/turtlemint/mint-ui/tree/master/packages/ui-core) ![npm](https://img.shields.io/npm/v/@turtlemint/ui-core.svg) ![NPM](https://img.shields.io/npm/l/@turtlemint/ui-core.svg) ![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/ui-core.svg) 
+- [@turtlemint/ui-core](https://github.com/turtlemint/mint-ui/tree/master/packages/core) ![npm](https://img.shields.io/npm/v/@turtlemint/ui-core.svg) ![NPM](https://img.shields.io/npm/l/@turtlemint/ui-core.svg) ![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/ui-core.svg) 
 
 ## Install
 
