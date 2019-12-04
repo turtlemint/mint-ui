@@ -9,16 +9,15 @@
 
 <div align="center">
 
-![Netlify Status](https://img.shields.io/netlify/f808dfbe-b589-4cca-8149-3a169f9f44bb)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+![Netlify Status](https://img.shields.io/netlify/f808dfbe-b589-4cca-8149-3a169f9f44bb) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 </div>
 
 ## Packages
 
-- [@turtlemint/mint-ui](./packages/icons-svg) ![npm version](https://img.shields.io/npm/v/@turtlemint/turtlemint-ui) ![npm downloads](https://img.shields.io/npm/dw/@turtlemint/turtlemint-ui)
+- [@turtlemint/mint-ui] ![npm version](https://img.shields.io/npm/v/@turtlemint/turtlemint-ui) ![npm downloads](https://img.shields.io/npm/dw/@turtlemint/turtlemint-ui)
 
-- [@turtlemint/ui-core](./packages/icons) [![NPM version](https://img.shields.io/npm/v/@ant-design/icons.svg?style=flat)](https://npmjs.org/package/@ant-design/icons) [![NPM downloads](http://img.shields.io/npm/dm/@ant-design/icons.svg?style=flat)](https://npmjs.org/package/@ant-design/icons)
+- [@turtlemint/ui-core] ![npm](https://img.shields.io/npm/v/@turtlemint/ui-core.svg) ![NPM](https://img.shields.io/npm/l/@turtlemint/ui-core.svg) ![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/ui-core.svg) 
 
 ## Install
 
