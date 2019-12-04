@@ -45,7 +45,7 @@ yarn add @turtlemint/mint-ui
 
 ```jsx
 import { Button } from '@turtlemint/mint-ui';
-ReactDOM.render(<Button type="primary">Sample Button</Button>, mountNode);
+ReactDOM.render(<Button btnStyle="primary">Sample Button</Button>, mountNode);
 ```
 
 ## ⌨️ Development
