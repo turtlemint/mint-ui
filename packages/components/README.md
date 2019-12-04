@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="http://turtlemint-ui.netlify.com">
+  <a href="http://mint-ui.netlify.com">
     <img width="200" src="public/mintui-logo.svg">
   </a>
 </div>
@@ -8,12 +8,12 @@
 
 UI components for web - A React implementation
 
-![npm version](https://img.shields.io/npm/v/@turtlemint/turtlemint-ui)
-![NPM size](https://badgen.net/bundlephobia/minzip/@turtlemint/turtlemint-ui)
-![npm downloads](https://img.shields.io/npm/dw/@turtlemint/turtlemint-ui)
-![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fturtlemint-ui.netlify.com)
+![npm version](https://img.shields.io/npm/v/@turtlemint/mint-ui)
+![NPM size](https://badgen.net/bundlephobia/minzip/@turtlemint/mint-ui)
+![npm downloads](https://img.shields.io/npm/dw/@turtlemint/mint-ui)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fmint-ui.netlify.com)
 ![Netlify Status](https://img.shields.io/netlify/f808dfbe-b589-4cca-8149-3a169f9f44bb)
-![NPM license](https://img.shields.io/npm/l/@turtlemint/turtlemint-ui)
+![NPM license](https://img.shields.io/npm/l/@turtlemint/mint-ui)
 </div>
 
 ## ✨ Features
@@ -35,39 +35,39 @@ UI components for web - A React implementation
 ## 📦 Install
 
 ```bash
-npm i @turtlemint/turtlemint-ui --save
+npm i @turtlemint/mint-ui --save
 ```
 
 ```bash
-yarn add @turtlemint/turtlemint-ui
+yarn add @turtlemint/mint-ui
 ```
 
 ## 🔨 Usage
 
 ```jsx
-import { Button } from '@turtlemint/turtlemint-ui';
-ReactDOM.render(<Button />, mountNode);
+import { Button } from '@turtlemint/mint-ui';
+ReactDOM.render(<Button type="primary">Sample Button</Button>, mountNode);
 ```
 
 ## ⌨️ Development
 
 Use Gitpod, a free online dev environment for GitHub.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/turtlemint/turtlemint-ui/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/turtlemint/mint-ui/)
 
 Or clone locally:
 
 ```bash
-$ git clone git@github.com:turtlemint/turtlemint-ui.git
-$ cd turtlemint-ui
+$ git clone git@github.com:turtlemint/mint-ui.git
+$ cd mint-ui
 $ yarn install
-$ yarn workspace @turtlemint/turtlemint-ui run dev
+$ yarn workspace @turtlemint/mint-ui run dev
 ```
 
 It should spin up a browser automatically. If not, open your browser and visit http://127.0.0.1:5555
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/turtlemint/turtlemint-ui/blob/master/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/turtlemint/turtlemint-ui/pulls) or as [GitHub issues](https://github.com/turtlemint/turtlemint-ui/issues).
+We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/turtlemint/mint-ui/blob/master/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/turtlemint/mint-ui/pulls) or as [GitHub issues](https://github.com/turtlemint/mint-ui/issues).
 
 

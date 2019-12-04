@@ -145,9 +145,8 @@ const StyledHelpText = styled.p<{ children: React.ReactNode }>`
 	${HelpText};
 `;
 
-export const Input: React.FC<
-	InputProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">
-> = ({
+export const Input: React.FC<InputProps &
+	Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">> = ({
 	type = "text",
 	placeholder,
 	label,

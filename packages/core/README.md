@@ -2,11 +2,11 @@
    <img width="200" src="https://d5ng0zjhhq362.cloudfront.net/images/turtlemint-logo-7df8cb52bc.svg">
 </div>
 
-<div><h3 align="center">Turtlemint Core</h3></div>
+<div><h3 align="center">Mint UI Core</h3></div>
 
 <div align="center">
 
-Turtlemint Design system branding, color, spacing and sizes - Used by @turtlemint/turtlemint-ui
+Turtlemint Design system branding, color, spacing and sizes
 
 ![npm](https://img.shields.io/npm/v/@turtlemint/ui-core.svg) ![NPM](https://img.shields.io/npm/l/@turtlemint/ui-core.svg) 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/ui-core.svg) 
@@ -43,21 +43,21 @@ const Test = () => <div style={{ color: COLORS.PRIMARY }}></div>
 
 Use Gitpod, a free online dev environment for GitHub.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/turtlemint/turtlemint-ui/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/turtlemint/mint-ui/)
 
 Or clone locally:
 
 ```bash
-$ git clone git@github.com:turtlemint/turtlemint-ui.git
-$ cd turtlemint-ui
+$ git clone git@github.com:turtlemint/mint-ui.git
+$ cd mint-ui
 $ yarn install
-$ yarn workspace @turtlemint/turtlemint-ui run dev
+$ yarn workspace @turtlemint/mint-ui run dev
 ```
 
 It should spin up a browser automatically. If not, open your browser and visit http://127.0.0.1:5555
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/turtlemint/turtlemint-ui/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/turtlemint/turtlemint-ui/pulls) or as [GitHub issues](https://github.com/turtlemint/turtlemint-ui/issues).
+We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/turtlemint/mint-ui/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/turtlemint/mint-ui/pulls) or as [GitHub issues](https://github.com/turtlemint/mint-ui/issues).
 
 
