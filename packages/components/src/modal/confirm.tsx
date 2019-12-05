@@ -2,7 +2,7 @@ import * as React from "react";
 import Dialog from "./dialog";
 import { ModalProps, Header, Body, Footer } from "./index";
 import Button from "../button";
-import { tuple } from "../__utils/type";
+import { tuple } from "../__utils/Type";
 
 const ConfirmValues = ["info", "success", "error", "warning"];
 const ConfirmTuple = tuple(...ConfirmValues);

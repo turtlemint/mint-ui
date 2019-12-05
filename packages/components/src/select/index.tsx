@@ -1,9 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
-import ExpandMore from "../icons/expand-more";
-import ExpandLess from "../icons/expand-less";
+import KeyboardArrowRight from "../icons/KeyboardArrowRight";
+import KeyboardArrowDown from "../icons/KeyboardArrowDown";
 import Dropdown, { SelectedOption } from "./dropdown";
-import COLORS from "../__utils/colors";
+import COLORS from "../__utils/Colors";
 import { GlobalStyles } from "../app";
 
 export const SelectWrapper = styled.div`
@@ -33,7 +33,9 @@ const ArrowWrapper = styled.span`
 `;
 
 const ArrowToggle = ({ open }: { open: boolean }) => (
-	<ArrowWrapper>{!open ? <ExpandMore /> : <ExpandLess />}</ArrowWrapper>
+	<ArrowWrapper>
+		{!open ? <KeyboardArrowRight /> : <KeyboardArrowDown />}
+	</ArrowWrapper>
 );
 
 interface SelectCTAProps {

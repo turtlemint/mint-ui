@@ -1,9 +1,9 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { transparentize } from "polished";
-import COLORS from "../__utils/colors";
-import ExpandLess from "../icons/expand-less";
-import ExpandMore from "../icons/expand-more";
+import COLORS from "../__utils/Colors";
+import KeyboardArrowDown from "../icons/KeyboardArrowDown";
+import KeyboardArrowRight from "../icons/KeyboardArrowRight";
 import { GlobalStyles } from "../app";
 
 interface CollapseProps {
@@ -118,11 +118,11 @@ export const Panel = ({
 	const getIcon = () => {
 		return !showArrow ? null : open ? (
 			<Icon position={expandIconPosition}>
-				<ExpandLess />
+				<KeyboardArrowDown />
 			</Icon>
 		) : (
 			<Icon position={expandIconPosition}>
-				<ExpandMore />
+				<KeyboardArrowRight />
 			</Icon>
 		);
 	};

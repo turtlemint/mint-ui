@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import Collapse, { Panel } from "./index";
-import Settings from "../icons/settings";
+import Settings from "../icons/Settings";
 
 const stories = storiesOf("Collapse", module);
 

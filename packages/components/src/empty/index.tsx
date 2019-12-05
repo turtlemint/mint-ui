@@ -2,9 +2,9 @@ import * as React from "react";
 import DefaultEmptyImg from "./empty";
 import SimpleEmptyImg from "./simple";
 import styled, { css } from "styled-components";
-import SIZE from "../__utils/size";
+import SIZE from "../__utils/Size";
 import { GlobalStyles } from "../app";
-import COLORS from "../__utils/colors";
+import COLORS from "../__utils/Colors";
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;

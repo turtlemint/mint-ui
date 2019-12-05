@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import Card from "./index";
 import styled from "styled-components";
-import COLORS from "../__utils/colors";
+import COLORS from "../__utils/Colors";
 
 const stories = storiesOf("Card", module).addParameters({
 	info: {

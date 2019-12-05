@@ -4,7 +4,7 @@ import Dialog from "./dialog";
 import Confirm from "./confirm";
 import Modal from "./index";
 import ErrorOutline from "../icons/error-outline";
-import COLORS from "../__utils/colors";
+import COLORS from "../__utils/Colors";
 
 afterEach(cleanup);
 

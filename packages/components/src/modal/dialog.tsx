@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import COLORS from "../__utils/colors";
+import COLORS from "../__utils/Colors";
 import { GlobalStyles } from "../app";
 
 export interface DialogProps {

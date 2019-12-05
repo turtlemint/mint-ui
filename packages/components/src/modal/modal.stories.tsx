@@ -3,11 +3,11 @@ import { storiesOf } from "@storybook/react";
 import { default as ModalBase, ModalProps } from "./";
 import { default as ConfirmBase, ConfirmProps } from "./confirm";
 import Button from "../button";
-import Announcement from "../icons/announcement";
-import CheckOutline from "../icons/check-outline";
-import ErrorOutline from "../icons/error-outline";
-import Info from "../icons/info";
-import COLORS from "../__utils/colors";
+import Announcement from "../icons/Announcement";
+import CheckOutline from "../icons/CheckCircleOutline";
+import ErrorOutline from "../icons/ErrorOutline";
+import Info from "../icons/Info";
+import COLORS from "../__utils/Colors";
 import makeTable from "../table";
 
 const el = document.createElement("div");

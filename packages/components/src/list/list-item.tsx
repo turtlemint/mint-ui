@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import Button from "../button";
-import COLORS from "../__utils/colors";
-import ExpandRight from "../icons/expand-right";
+import COLORS from "../__utils/Colors";
+import KeyboardArrowRight from "../icons/KeyboardArrowRight";
 
 export interface ListItemProps {
 	icon?: React.FC<any>;
@@ -47,7 +47,7 @@ export const ListItem = ({
 				{subtitle ? <Subtitle>{subtitle}</Subtitle> : null}
 			</div>
 			<Button btnType="link" href={url}>
-				{expandRight ? <ExpandRight /> : null}
+				{expandRight ? <KeyboardArrowRight /> : null}
 			</Button>
 		</Wrapper>
 	);

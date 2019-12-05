@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IDict } from "../__utils/type";
+import { IDict } from "../__utils/Type";
 
 export const renderComponent = (Component: any) => (props: any) => (
 	<Component {...props}>{props.children}</Component>

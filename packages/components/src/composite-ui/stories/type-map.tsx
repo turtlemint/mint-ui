@@ -1,7 +1,7 @@
 import { ListTypeWrapper } from "./type-wrappers/list";
 import { Wrapper } from "./type-wrappers/wrapper";
 import { renderComponent } from "..";
-import { IDict } from "../../__utils/type";
+import { IDict } from "../../__utils/Type";
 import { ListItem } from "../../list/list-item";
 
 // Search on how to type any part of it fully since it return an exact signature
