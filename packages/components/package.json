@@ -35,9 +35,11 @@
     "scripts": {
         "dev": "start-storybook -p 5555 -s ./public",
         "build-storybook": "build-storybook -c .storybook -s ./public",
-        "build-icon": "npx @svgr/cli -d src/icons src/icons --ext tsx & npx create-index src/icons --extensions tsx",
-        "rename-svgs": "",
-        "clean-svgs": "sh clean-svgs"
+        "build-icons": "rm -rf src/icons && npx @svgr/cli -d src/icons svg-icons --ext tsx",
+        "create-index": "npx create-index src/icons --extensions tsx",
+        "recreate-index": "node scripts/regenerate-icon-index.js",
+        "lint:icons": "eslint './src/icons/*.{ts,tsx}' --fix",
+        "generate-icons": "yarn run build-icons && yarn run create-index && yarn run recreate-index && yarn run lint:icons"
     },
     "peerDependencies": {
         "react": "^15.0.0 || ^16.0.0",
