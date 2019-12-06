@@ -8,6 +8,6 @@ tasks.md
 detailed-issues.md
 /coverage
 .gitlab-ci.yml
-.internal/
+.dev/
 commit-msg
 commit-msg.sh
