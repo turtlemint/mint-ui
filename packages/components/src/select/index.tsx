@@ -1,8 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import KeyboardArrowRight from "../icons/KeyboardArrowRight";
-import KeyboardArrowDown from "../icons/KeyboardArrowDown";
 import Dropdown, { SelectedOption } from "./dropdown";
+import Icon from "../icon";
 import COLORS from "../__utils/Colors";
 import { GlobalStyles } from "../app";
 
@@ -34,7 +33,11 @@ const ArrowWrapper = styled.span`
 
 const ArrowToggle = ({ open }: { open: boolean }) => (
 	<ArrowWrapper>
-		{!open ? <KeyboardArrowRight /> : <KeyboardArrowDown />}
+		{open ? (
+			<Icon name="keyboard-arrow-up" />
+		) : (
+			<Icon name="keyboard-arrow-down" />
+		)}
 	</ArrowWrapper>
 );
 

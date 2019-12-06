@@ -8,6 +8,7 @@ export { default as ErrorOutline } from "./ErrorOutline";
 export { default as Info } from "./Info";
 export { default as KeyboardArrowDown } from "./KeyboardArrowDown";
 export { default as KeyboardArrowRight } from "./KeyboardArrowRight";
+export { default as KeyboardArrowUp } from "./KeyboardArrowUp";
 export { default as NotificationImportant } from "./NotificationImportant";
 export { default as OutlineDone } from "./OutlineDone";
 export { default as OutlineSort } from "./OutlineSort";
