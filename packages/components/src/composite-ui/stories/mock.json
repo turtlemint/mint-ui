@@ -12,30 +12,38 @@
             "children": [
                 {
                     "type": "list_item",
+                    "icon": "warning",
+                    "iconColor": "blue",
                     "title": "Insurance",
                     "expandRight": true,
                     "url": "/help-center/insurance"
                 },
                 {
                     "type": "list_item",
+                    "icon": "close",
                     "title": "Mutual Funds",
                     "expandRight": true,
                     "url": "/help-center/mutual-funds"
                 },
                 {
                     "type": "list_item",
+                    "icon": "settings",
+                    "iconColor": "grey",
                     "title": "Gold",
                     "expandRight": true,
                     "url": "/help-center/gold"
                 },
                 {
                     "type": "list_item",
+                    "icon": "notificationimportant",
+                    "iconColor": "red",
                     "title": "Loans",
                     "expandRight": true,
                     "url": "/help-center/loans"
                 },
                 {
                     "type": "list_item",
+                    "icon": "info",
                     "title": "Something Else",
                     "expandRight": true,
                     "url": "/help-center/something-else"
