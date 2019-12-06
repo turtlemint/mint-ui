@@ -4,8 +4,8 @@ import { IDict } from "../__utils/Type";
 export const renderComponent = (Component: any) => (props: any) => (
 	<Component {...props}>{props.children}</Component>
 );
-
 const configureUI = (TypeMap: IDict<(Component: any) => any>) => {
+	let key: number = 0;
 	return function buildUI(buildConfig: any) {
 		const { type, children, ...props } = buildConfig;
 		if (children && children.length) {
@@ -19,7 +19,7 @@ const configureUI = (TypeMap: IDict<(Component: any) => any>) => {
 				? TypeMap[type]
 				: TypeMap["wrapper"];
 			return (
-				<MappedComponentWrapper {...props}>
+				<MappedComponentWrapper key={++key} {...props}>
 					{results}
 				</MappedComponentWrapper>
 			);
@@ -27,7 +27,7 @@ const configureUI = (TypeMap: IDict<(Component: any) => any>) => {
 			const MappedComponent = TypeMap[type]
 				? TypeMap[type]
 				: TypeMap["wrapper"];
-			return <MappedComponent {...props} />;
+			return <MappedComponent key={++key} {...props} />;
 		}
 	};
 };
