@@ -1,5 +1,5 @@
 import * as React from "react";
-import COLORS from "../__utils/Colors";
+import COLORS from "../__utils/colors";
 
 interface CheckboxProps {
 	size?: number;

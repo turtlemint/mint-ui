@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { ButtonProps, ButtonType } from "../button";
-import COLORS from "../__utils/Colors";
+import COLORS from "../__utils/colors";
 import Button from "../button";
 import Close from "../icons/Close";
 import Dialog from "./dialog";

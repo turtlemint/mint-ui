@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Button from "../button";
-import COLORS from "../__utils/Colors";
+import COLORS from "../__utils/colors";
 import Icon from "../icon";
 
 export interface ListItemProps {

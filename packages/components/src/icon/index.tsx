@@ -12,7 +12,7 @@ import OutlineDone from "../icons/OutlineDone";
 import OutlineSort from "../icons/OutlineSort";
 import Settings from "../icons/Settings";
 import Warning from "../icons/Warning";
-import { IDict } from "../__utils/Type";
+import { IDict } from "../__utils/type";
 
 const IconDict: IDict<any> = {
 	announcement: Announcement,

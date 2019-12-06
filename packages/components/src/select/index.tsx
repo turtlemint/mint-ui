@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import Dropdown, { SelectedOption } from "./dropdown";
 import Icon from "../icon";
-import COLORS from "../__utils/Colors";
+import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
 export const SelectWrapper = styled.div`

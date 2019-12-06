@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import COLORS from "../__utils/Colors";
+import COLORS from "../__utils/colors";
 
 const styles = css`
 	border-collapse: collapse;

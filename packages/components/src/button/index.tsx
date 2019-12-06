@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { tuple } from "../__utils/Type";
-import COLORS from "../__utils/Colors";
+import { tuple } from "../__utils/type";
+import COLORS from "../__utils/colors";
 import { transparentize } from "polished";
 import { GlobalStyles } from "../app";
 
