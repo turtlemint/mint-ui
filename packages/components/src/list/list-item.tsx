@@ -2,11 +2,12 @@ import * as React from "react";
 import styled from "styled-components";
 import Button from "../button";
 import COLORS from "../__utils/Colors";
-import KeyboardArrowRight from "../icons/KeyboardArrowRight";
+import Icon from "../icon";
 
 export interface ListItemProps {
-	icon?: React.FC<any>;
-	title: string;
+	icon?: string;
+	iconColor?: string;
+	title?: string;
 	subtitle?: string;
 	expandRight?: boolean;
 	url?: string;
@@ -29,9 +30,13 @@ const Subtitle = styled.div`
 	font-size: 16px;
 	color: ${COLORS.GREY3};
 `;
+const LeftWrapper = styled.div`
+	display: flex;
+`;
 
 export const ListItem = ({
 	icon,
+	iconColor,
 	title,
 	subtitle,
 	expandRight,
@@ -39,16 +44,22 @@ export const ListItem = ({
 }: ListItemProps) => {
 	return (
 		<Wrapper>
-			<div>
+			<LeftWrapper>
 				{icon ? (
-					<span style={{ marginRight: "10px" }}>{icon}</span>
+					<Icon
+						name={icon}
+						color={iconColor}
+						style={{ marginRight: "10px" }}
+					/>
 				) : null}
-				<Title>{title}</Title>
+				{title ? <Title>{title}</Title> : null}
 				{subtitle ? <Subtitle>{subtitle}</Subtitle> : null}
-			</div>
+			</LeftWrapper>
 			<Button btnType="link" href={url}>
-				{expandRight ? <KeyboardArrowRight /> : null}
+				{expandRight ? <Icon name="keyboardarrowright" /> : null}
 			</Button>
 		</Wrapper>
 	);
 };
+
+export default ListItem;

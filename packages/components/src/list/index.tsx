@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import ListItem from "./list-item";
 
 const Wrapper = styled.ul`
 	list-style: none;
@@ -18,4 +19,5 @@ export const List = ({ children }: ListProps) => {
 	return <Wrapper>{children}</Wrapper>;
 };
 
+List.Item = ListItem;
 export default List;
