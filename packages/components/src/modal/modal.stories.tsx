@@ -7,7 +7,7 @@ import Announcement from "../icons/Announcement";
 import CheckOutline from "../icons/CheckCircleOutline";
 import ErrorOutline from "../icons/ErrorOutline";
 import Info from "../icons/Info";
-import COLORS from "../__utils/Colors";
+import COLORS from "../__utils/colors";
 import makeTable from "../table";
 
 const el = document.createElement("div");

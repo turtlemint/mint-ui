@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import Icon from "./";
 import styled from "styled-components";
-import COLORS from "../__utils/Colors";
+import COLORS from "../__utils/colors";
 
 const stories = storiesOf("Icon", module);
 

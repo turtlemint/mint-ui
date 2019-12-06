@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { Omit, CommonTypeTuple } from "../__utils/Type";
+import { Omit, CommonTypeTuple } from "../__utils/type";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
