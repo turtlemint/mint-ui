@@ -36,6 +36,7 @@ interface IconProps {
 	style?: React.CSSProperties;
 	width?: number;
 	height?: number;
+	viewBox?: string;
 }
 
 export const Icon = ({
@@ -43,12 +44,13 @@ export const Icon = ({
 	color,
 	width = 18,
 	height = 18,
+	viewBox = "0 0 18 18",
 	style
 }: IconProps) => {
 	const SVGIcon = IconDict[name] ? IconDict[name] : null;
 	return SVGIcon ? (
 		<SVGIcon
-			viewBox={`0 0 24 24`}
+			viewBox={viewBox}
 			fill={color}
 			width={width}
 			height={height}

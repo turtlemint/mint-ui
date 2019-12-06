@@ -28,7 +28,8 @@ stories.add(
 		const props = {
 			width: 48,
 			height: 48,
-			color: COLORS.GREY2
+			color: COLORS.GREY1,
+			viewBox: "0 0 24 24"
 		};
 		return (
 			<>
