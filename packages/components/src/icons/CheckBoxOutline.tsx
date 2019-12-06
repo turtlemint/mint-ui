@@ -1,7 +1,7 @@
 import React, { SVGProps } from "react";
 
 const SvgCheckBoxOutline = (props: SVGProps<SVGSVGElement>) => (
-	<svg width={24} height={24} {...props}>
+	<svg width={18} height={18} {...props}>
 		<path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
 		<path d="M0 0h24v24H0z" fill="none" />
 	</svg>

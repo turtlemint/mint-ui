@@ -1,3 +1,5 @@
+// @create-index
+
 export { default as Announcement } from "./Announcement";
 export { default as CheckBoxOutline } from "./CheckBoxOutline";
 export { default as CheckCircleOutline } from "./CheckCircleOutline";
