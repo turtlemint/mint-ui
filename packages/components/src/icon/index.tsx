@@ -44,7 +44,7 @@ export const Icon = ({
 	color,
 	width = 18,
 	height = 18,
-	viewBox = "0 0 18 18",
+	viewBox = "0 0 24 24",
 	style
 }: IconProps) => {
 	const SVGIcon = IconDict[name] ? IconDict[name] : null;

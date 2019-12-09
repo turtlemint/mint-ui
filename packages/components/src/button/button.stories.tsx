@@ -3,7 +3,6 @@ import { storiesOf } from "@storybook/react";
 import { Button } from "./index";
 import Row from "../grid/row";
 import Col from "../grid/col";
-import Close from "../icons/Close";
 import makeTable from "../table";
 
 const ButtonProps = [
@@ -221,14 +220,14 @@ stories.add("link", () => (
 		</Row>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="link" btnStyle="default" icon={Close} />
+				<Button btnType="link" btnStyle="default" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}></Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="link" btnStyle="primary" icon={Close} />
+				<Button btnType="link" btnStyle="primary" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="link" btnStyle="danger" icon={Close} />
+				<Button btnType="link" btnStyle="danger" icon="warning" />
 			</Col>
 		</Row>
 	</>
@@ -238,54 +237,54 @@ stories.add("icons/outlined", () => (
 	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="lg" icon={Close}>
+				<Button size="lg" icon="warning">
 					Text with icon
 				</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="lg" icon={Close} />
+				<Button size="lg" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="lg" btnStyle="primary" icon={Close}>
+				<Button size="lg" btnStyle="primary" icon="warning">
 					Text with icon
 				</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="lg" btnStyle="primary" icon={Close} />
+				<Button size="lg" btnStyle="primary" icon="warning" />
 			</Col>
 		</Row>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
-				<Button icon={Close}>Text with icon</Button>
+				<Button icon="warning">Text with icon</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button icon={Close} />
+				<Button icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnStyle="primary" icon={Close}>
+				<Button btnStyle="primary" icon="warning">
 					Text with icon
 				</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnStyle="primary" icon={Close} />
+				<Button btnStyle="primary" icon="warning" />
 			</Col>
 		</Row>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" icon={Close}>
+				<Button size="sm" icon="warning">
 					Text with icon
 				</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" icon={Close} />
+				<Button size="sm" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" btnStyle="primary" icon={Close}>
+				<Button size="sm" btnStyle="primary" icon="warning">
 					Text with icon
 				</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" btnStyle="primary" icon={Close} />
+				<Button size="sm" btnStyle="primary" icon="warning" />
 			</Col>
 		</Row>
 	</>
@@ -295,19 +294,19 @@ stories.add("icons/solid", () => (
 	<>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="lg" btnType="solid" icon={Close}>
+				<Button size="lg" btnType="solid" icon="warning">
 					Text with icon
 				</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="lg" btnType="solid" icon={Close} />
+				<Button size="lg" btnType="solid" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
 					size="lg"
 					btnType="solid"
 					btnStyle="primary"
-					icon={Close}
+					icon="warning"
 				>
 					Text with icon
 				</Button>
@@ -317,43 +316,43 @@ stories.add("icons/solid", () => (
 					size="lg"
 					btnType="solid"
 					btnStyle="primary"
-					icon={Close}
+					icon="warning"
 				/>
 			</Col>
 		</Row>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="solid" icon={Close}>
+				<Button btnType="solid" icon="warning">
 					Text with icon
 				</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="solid" icon={Close} />
+				<Button btnType="solid" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="solid" btnStyle="primary" icon={Close}>
+				<Button btnType="solid" btnStyle="primary" icon="warning">
 					Text with icon
 				</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="solid" btnStyle="primary" icon={Close} />
+				<Button btnType="solid" btnStyle="primary" icon="warning" />
 			</Col>
 		</Row>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" btnType="solid" icon={Close}>
+				<Button size="sm" btnType="solid" icon="warning">
 					Text with icon
 				</Button>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" btnType="solid" icon={Close} />
+				<Button size="sm" btnType="solid" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
 					size="sm"
 					btnType="solid"
 					btnStyle="primary"
-					icon={Close}
+					icon="warning"
 				>
 					Text with icon
 				</Button>
@@ -363,7 +362,7 @@ stories.add("icons/solid", () => (
 					size="sm"
 					btnType="solid"
 					btnStyle="primary"
-					icon={Close}
+					icon="warning"
 				/>
 			</Col>
 		</Row>

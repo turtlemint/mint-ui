@@ -4,6 +4,7 @@ import { tuple } from "../__utils/type";
 import COLORS from "../__utils/colors";
 import { transparentize } from "polished";
 import { GlobalStyles } from "../app";
+import Icon from "../icon";
 
 const ButtonTypeTuple = tuple("outlined", "solid", "link");
 export type ButtonType = typeof ButtonTypeTuple[number];
@@ -45,7 +46,7 @@ const BaseButton = css<ButtonProps>`
 	cursor: pointer;
 	padding: 8px 15px;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	justify-content: space-between;
 	border-radius: 4px;
 	-webkit-user-select: none;
@@ -77,8 +78,8 @@ const BaseButton = css<ButtonProps>`
 		size === "lg" &&
 		css`
 			font-size: 18px;
-			line-height: 14px;
-			min-height: 49px;
+			line-height: 16px;
+			min-height: 48px;
 			padding: 10px 15px;
 		`}
 `;
@@ -239,19 +240,63 @@ export const Button: React.FC<ButtonProps> = ({
 			onClick(e);
 		}
 	};
-	const Icon = icon;
 	const getIcon = (style: string, btnType: string) => {
+		const { size } = rest;
+		let dimensions = {
+			width: 16,
+			height: 16
+		};
+		if (size === "lg") {
+			dimensions = {
+				width: 18,
+				height: 18
+			};
+		} else if (size === "sm") {
+			dimensions = {
+				width: 14,
+				height: 14
+			};
+		}
+
 		if (btnType === "outlined" || btnType === "link") {
 			switch (style) {
 				case "primary":
-					return <Icon color={COLORS.PRIMARY} />;
+					return (
+						<Icon
+							name={icon}
+							color={COLORS.PRIMARY}
+							width={dimensions.width}
+							height={dimensions.height}
+						/>
+					);
 				case "danger":
-					return <Icon color={COLORS.DANGER} />;
+					return (
+						<Icon
+							name={icon}
+							color={COLORS.DANGER}
+							width={dimensions.width}
+							height={dimensions.height}
+						/>
+					);
 				default:
-					return <Icon color={COLORS.GREY2} />;
+					return (
+						<Icon
+							name={icon}
+							color={COLORS.GREY2}
+							width={dimensions.width}
+							height={dimensions.height}
+						/>
+					);
 			}
 		}
-		return <Icon color={COLORS.WHITE} />;
+		return (
+			<Icon
+				name={icon}
+				color={COLORS.WHITE}
+				width={dimensions.width}
+				height={dimensions.height}
+			/>
+		);
 	};
 
 	const getButtonType = (type: string | undefined) => {
@@ -266,7 +311,7 @@ export const Button: React.FC<ButtonProps> = ({
 						{...rest}
 					>
 						{icon ? getIcon(btnStyle, btnType) : null}
-						{children}
+						<span>{children}</span>
 					</ButtonSolid>
 				);
 			case "link":
@@ -279,7 +324,7 @@ export const Button: React.FC<ButtonProps> = ({
 						{...rest}
 					>
 						{icon ? getIcon(btnStyle, btnType) : null}
-						{children}
+						<span>{children}</span>
 					</Link>
 				);
 			default:
@@ -292,7 +337,7 @@ export const Button: React.FC<ButtonProps> = ({
 						{...rest}
 					>
 						{icon ? getIcon(btnStyle, btnType) : null}
-						{children}
+						<span>{children}</span>
 					</ButtonDefault>
 				);
 		}
