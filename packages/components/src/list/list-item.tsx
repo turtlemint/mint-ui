@@ -56,7 +56,7 @@ export const ListItem = ({
 				{subtitle ? <Subtitle>{subtitle}</Subtitle> : null}
 			</LeftWrapper>
 			<Button btnType="link" href={url}>
-				{expandRight ? <Icon name="keyboardarrowright" /> : null}
+				{expandRight ? <Icon name="keyboard-arrow-right" /> : null}
 			</Button>
 		</Wrapper>
 	);
