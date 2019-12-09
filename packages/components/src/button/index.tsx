@@ -242,20 +242,11 @@ export const Button: React.FC<ButtonProps> = ({
 	};
 	const getIcon = (style: string, btnType: string) => {
 		const { size } = rest;
-		let dimensions = {
-			width: 16,
-			height: 16
-		};
+		let dimensions = 16;
 		if (size === "lg") {
-			dimensions = {
-				width: 18,
-				height: 18
-			};
+			dimensions = 18;
 		} else if (size === "sm") {
-			dimensions = {
-				width: 14,
-				height: 14
-			};
+			dimensions = 14;
 		}
 
 		if (btnType === "outlined" || btnType === "link") {
@@ -265,8 +256,7 @@ export const Button: React.FC<ButtonProps> = ({
 						<Icon
 							name={icon}
 							color={COLORS.PRIMARY}
-							width={dimensions.width}
-							height={dimensions.height}
+							size={dimensions}
 						/>
 					);
 				case "danger":
@@ -274,8 +264,7 @@ export const Button: React.FC<ButtonProps> = ({
 						<Icon
 							name={icon}
 							color={COLORS.DANGER}
-							width={dimensions.width}
-							height={dimensions.height}
+							size={dimensions}
 						/>
 					);
 				default:
@@ -283,20 +272,12 @@ export const Button: React.FC<ButtonProps> = ({
 						<Icon
 							name={icon}
 							color={COLORS.GREY2}
-							width={dimensions.width}
-							height={dimensions.height}
+							size={dimensions}
 						/>
 					);
 			}
 		}
-		return (
-			<Icon
-				name={icon}
-				color={COLORS.WHITE}
-				width={dimensions.width}
-				height={dimensions.height}
-			/>
-		);
+		return <Icon name={icon} color={COLORS.WHITE} size={dimensions} />;
 	};
 
 	const getButtonType = (type: string | undefined) => {

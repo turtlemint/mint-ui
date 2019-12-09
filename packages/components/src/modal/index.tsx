@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { ButtonProps, ButtonType } from "../button";
 import COLORS from "../__utils/colors";
 import Button from "../button";
-import Close from "../icons/Close";
 import Dialog from "./dialog";
 import { GlobalStyles } from "../app";
+import Icon from "../icon";
 
 export interface ModalProps {
 	container?: Element;
@@ -88,12 +88,12 @@ export const Modal = ({
 
 export interface HeaderProps {
 	title: string | React.ReactNode;
-	icon?: React.ReactNode;
+	icon?: string;
+	iconColor?: string;
 	closable?: boolean;
 	closeIcon?: React.ReactNode;
 	onClose?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 	className?: string;
-	isConfirm?: boolean;
 }
 export const HeaderTitle = styled.div`
 	margin: 0;
@@ -103,36 +103,36 @@ export const HeaderTitle = styled.div`
 	line-height: 12px;
 	word-wrap: break-word;
 `;
-const Wrapper = styled.div<{ isConfirm?: boolean }>`
+const Wrapper = styled.div<{ icon?: string }>`
 	${GlobalStyles};
 	display: flex;
 	align-items: center;
-	justify-content: ${({ isConfirm }) =>
-		!isConfirm ? "space-between" : "flex-start"};
-	padding: ${({ isConfirm }) => (!isConfirm ? `8px 0 8px 24px` : 0)};
-	border-bottom: ${({ isConfirm }) =>
-		!isConfirm ? `1px solid ${COLORS.GREY4}` : 0};
+	justify-content: ${({ icon }) => (!icon ? "space-between" : "flex-start")};
+	padding: ${({ icon }) => (!icon ? `8px 0 8px 24px` : 0)};
+	border-bottom: ${({ icon }) => (!icon ? `1px solid ${COLORS.GREY4}` : 0)};
 `;
 
 export const Header = ({
 	title,
 	icon,
+	iconColor,
 	closable,
 	closeIcon,
 	onClose,
-	className,
-	isConfirm
+	className
 }: HeaderProps) => {
 	return (
-		<Wrapper isConfirm={isConfirm} className={className}>
-			{isConfirm ? (
-				<i style={{ margin: "7px 15px 0 0" }}>{icon}</i>
+		<Wrapper icon={icon} className={className}>
+			{icon ? (
+				<i style={{ margin: "7px 15px 0 0" }}>
+					<Icon name={icon} color={iconColor} />
+				</i>
 			) : null}
 			<HeaderTitle>{title}</HeaderTitle>
 			{closable ? (
 				<Button
 					btnType="link"
-					icon={closeIcon ? closeIcon : Close}
+					icon={closeIcon ? closeIcon : <Icon name="close" />}
 					aria-label="Close"
 					className="tm-modal-close"
 					onClick={onClose}

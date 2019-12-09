@@ -34,9 +34,9 @@ const ArrowWrapper = styled.span`
 const ArrowToggle = ({ open }: { open: boolean }) => (
 	<ArrowWrapper>
 		{open ? (
-			<Icon name="keyboard-arrow-up" />
+			<Icon name="keyboard-arrow-up" size={24} />
 		) : (
-			<Icon name="keyboard-arrow-down" />
+			<Icon name="keyboard-arrow-down" size={24} />
 		)}
 	</ArrowWrapper>
 );

@@ -10,7 +10,8 @@ type ConfirmType = typeof ConfirmTuple[number];
 
 export type ConfirmProps = ModalProps & {
 	type?: ConfirmType;
-	icon?: React.ReactNode;
+	icon?: string;
+	iconColor?: string;
 };
 
 export const Confirm = ({
@@ -29,6 +30,7 @@ export const Confirm = ({
 	okText,
 	type,
 	icon,
+	iconColor,
 	children,
 	...rest
 }: ConfirmProps) => {
@@ -48,8 +50,8 @@ export const Confirm = ({
 				className="tm-modal-confirm-body"
 			>
 				<Header
-					isConfirm={true}
 					icon={icon}
+					iconColor={iconColor}
 					title={title}
 					className="tm-modal-confirm-header"
 				/>

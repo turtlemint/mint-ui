@@ -3,10 +3,6 @@ import { storiesOf } from "@storybook/react";
 import { default as ModalBase, ModalProps } from "./";
 import { default as ConfirmBase, ConfirmProps } from "./confirm";
 import Button from "../button";
-import Announcement from "../icons/Announcement";
-import CheckOutline from "../icons/CheckCircleOutline";
-import ErrorOutline from "../icons/ErrorOutline";
-import Info from "../icons/Info";
 import COLORS from "../__utils/colors";
 import makeTable from "../table";
 
@@ -120,6 +116,7 @@ const Confirm = ({
 	width,
 	title,
 	icon,
+	iconColor,
 	cancelText,
 	cancelButtonProps,
 	okText,
@@ -141,6 +138,7 @@ const Confirm = ({
 					visible={open}
 					title={title}
 					icon={icon}
+					iconColor={iconColor}
 					cancelText={cancelText}
 					onCancel={() => setOpen(false)}
 					cancelButtonProps={cancelButtonProps}
@@ -161,7 +159,8 @@ stories.add(
 	"confirm",
 	() => (
 		<Confirm
-			icon={<Announcement color={COLORS.YELLOW} />}
+			icon="announcement"
+			iconColor={COLORS.YELLOW}
 			title="Do you want to delete these items?"
 			okText="Confirm"
 			cancelText="Close"
@@ -181,7 +180,8 @@ stories.add(
 	"delete",
 	() => (
 		<Confirm
-			icon={<Announcement color={COLORS.YELLOW} />}
+			icon="announcement"
+			iconColor={COLORS.DANGER}
 			title="Are you sure you want to delete this?"
 			okText="Yes"
 			okButtonProps={{
@@ -204,7 +204,8 @@ stories.add(
 	() => (
 		<Confirm
 			type="info"
-			icon={<Info color={COLORS.PICTON_BLUE} />}
+			icon="info"
+			iconColor={COLORS.PICTON_BLUE}
 			title="This is a notification  message"
 		>
 			<p>Lorem ipsum dolor sit amet.</p>
@@ -222,7 +223,8 @@ stories.add(
 	() => (
 		<Confirm
 			type="success"
-			icon={<CheckOutline color={COLORS.PRIMARY} />}
+			icon="check-circle-outline"
+			iconColor={COLORS.PRIMARY}
 			title="Success title"
 		>
 			<p>Lorem ipsum dolor sit amet.</p>
@@ -240,7 +242,8 @@ stories.add(
 	() => (
 		<Confirm
 			type="error"
-			icon={<ErrorOutline color={COLORS.DANGER} />}
+			icon="error-outline"
+			iconColor={COLORS.DANGER}
 			title="Error title"
 		>
 			<p>Lorem ipsum dolor sit amet.</p>
