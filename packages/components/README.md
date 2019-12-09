@@ -15,9 +15,10 @@ UI components for web - A React implementation
 ![NPM license](https://img.shields.io/npm/l/@turtlemint/mint-ui)
 </div>
 
-## ✨ Features
+## ✨ Features :atom_symbol:
 
 - A modern and fitting UI design system for startup web applications.
+- Boasts of **Composite UI** - A rendering engine that lays out any Nth level deep nested hierarchical structure.
 - A set of high-quality React components out of the box.
 - Written in TypeScript with predictable static types. 
 - The whole package of development and design resources and tools.
