@@ -11,3 +11,4 @@ detailed-issues.md
 .dev/
 commit-msg
 commit-msg.sh
+storybook-static
