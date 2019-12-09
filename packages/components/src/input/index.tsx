@@ -26,6 +26,7 @@ export const WrapperStyles = css<Pick<InputProps, "block">>`
 export const InputStyles = css<
 	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
 >`
+	box-sizing: border-box;
 	border: 0;
 	border: 1px solid ${COLORS.GREY4};
 	outline: none;
