@@ -10,6 +10,7 @@ import { default as Collapse } from "./src/collapse";
 import { default as Modal } from "./src/modal";
 import { default as RadioGroup } from "./src/radio-group";
 import { default as Select } from "./src/select";
+import { Option } from "./src/select/dropdown";
 import { default as TypeAhead } from "./src/typeahead";
 import { default as CompositeUI, renderComponent } from "./src/composite-ui";
 
@@ -26,6 +27,7 @@ export {
 	Modal,
 	RadioGroup,
 	Select,
+	Option,
 	TypeAhead,
 	CompositeUI,
 	renderComponent
