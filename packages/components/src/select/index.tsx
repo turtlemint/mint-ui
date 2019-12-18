@@ -42,7 +42,7 @@ const ArrowToggle = ({ open }: { open: boolean }) => (
 );
 
 interface SelectCTAProps {
-	value: string;
+	value: any;
 	showArrow?: boolean;
 	open?: boolean;
 	onClick?: () => void;
@@ -54,19 +54,30 @@ export const SelectCTA = ({
 	open,
 	onClick
 }: SelectCTAProps) => {
+	let displayValue;
 	const handleSelectCTAClick = () => {
 		onClick ? onClick() : null;
 	};
+	if (
+		typeof value === "object" &&
+		value instanceof Object &&
+		!(value instanceof Array)
+	) {
+		displayValue = value.text;
+	} else {
+		displayValue = value;
+	}
+
 	return (
 		<StyledSelectCTA onClick={handleSelectCTAClick}>
-			<span>{value}</span>
+			<span>{displayValue}</span>
 			{showArrow ? <ArrowToggle open={open as boolean} /> : null}
 		</StyledSelectCTA>
 	);
 };
 
 interface SelectProps {
-	value: string;
+	value: any;
 	onSelect?: (option: SelectedOption) => void;
 	children:
 		| React.ComponentElement<any, any>

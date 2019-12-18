@@ -7,6 +7,10 @@ const stories = storiesOf("Select", module);
 
 export const data = [
 	{
+		text: "Select Value",
+		value: ""
+	},
+	{
 		value: 1,
 		text: "Item 1"
 	},
@@ -19,12 +23,12 @@ interface DemoSelectProps {
 	onSelect?: (value: string) => void;
 }
 export const DemoSelect = ({ onSelect }: DemoSelectProps) => {
-	const [value, setValue] = React.useState("Select Value");
+	const [value, setValue] = React.useState(data[0]);
 
 	const handleSelect = (option: any) => {
-		setValue(option.text);
+		setValue(option);
 		//for test case
-		onSelect ? onSelect(option.text) : null;
+		onSelect ? onSelect(option) : null;
 	};
 	return (
 		<Select value={value} onSelect={handleSelect}>
