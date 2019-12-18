@@ -17,7 +17,7 @@ export const StyledSelectCTA = styled.div`
 	border: 1px solid ${COLORS.GREY4};
 	border-radius: 4px;
 	color: ${COLORS.GREY1};
-	max-width: 300px;
+	max-width: 328px;
 	font-size: 16px;
 	&:hover {
 		border-color: ${COLORS.PERSIAN_GREEN};
