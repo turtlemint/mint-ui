@@ -76,7 +76,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	const handleSelect = (option: SelectedOption) => {
 		onSelect ? onSelect(option) : null;
 		setInputValue("");
-		setLabelValue(option.title);
+		setLabelValue(option.text);
 		setShowLabelInput(true);
 		setDropdownOpen(false);
 	};

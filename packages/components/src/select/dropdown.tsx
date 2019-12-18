@@ -68,7 +68,7 @@ export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
 
 export interface SelectedOption {
 	value: string | number;
-	title: string;
+	text: string;
 }
 export const Option = ({
 	key,
@@ -98,10 +98,10 @@ interface DropdownProps {
 
 export const Dropdown = ({ onSelect, children }: DropdownProps) => {
 	const handleSelect = (event: React.ChangeEvent<HTMLDivElement>) => {
-		const title = event.target.innerText || event.target.textContent || "";
+		const text = event.target.innerText || event.target.textContent || "";
 		const value = event.target.getAttribute("value") || "";
 		if (event.target) {
-			onSelect ? onSelect({ value, title }) : null;
+			onSelect ? onSelect({ value, text }) : null;
 		}
 	};
 	return (

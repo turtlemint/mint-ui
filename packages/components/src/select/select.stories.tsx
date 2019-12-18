@@ -22,9 +22,9 @@ export const DemoSelect = ({ onSelect }: DemoSelectProps) => {
 	const [value, setValue] = React.useState("Select Value");
 
 	const handleSelect = (option: any) => {
-		setValue(option.title);
+		setValue(option.text);
 		//for test case
-		onSelect ? onSelect(option.title) : null;
+		onSelect ? onSelect(option.text) : null;
 	};
 	return (
 		<Select value={value} onSelect={handleSelect}>
