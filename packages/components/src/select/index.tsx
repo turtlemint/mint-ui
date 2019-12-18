@@ -8,11 +8,12 @@ import { GlobalStyles } from "../app";
 export const SelectWrapper = styled.div`
 	${GlobalStyles};
 	width: 300px;
+	position: relative;
 `;
 export const StyledSelectCTA = styled.div`
 	outline: none;
 	border: 0;
-	padding: 12px 16px 12px 16px;
+	padding: 8px 15px;
 	border: 1px solid ${COLORS.GREY4};
 	border-radius: 4px;
 	color: ${COLORS.GREY1};

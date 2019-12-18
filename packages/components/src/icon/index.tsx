@@ -5,6 +5,7 @@ import CheckboxCircleOutline from "../icons/CheckCircleOutline";
 import Close from "../icons/Close";
 import ErrorOutline from "../icons/ErrorOutline";
 import Info from "../icons/Info";
+import KeyboardArrowUp from "../icons/KeyboardArrowUp";
 import KeyboardArrowDown from "../icons/KeyboardArrowDown";
 import KeyboardArrowRight from "../icons/KeyboardArrowRight";
 import NotificationImportant from "../icons/NotificationImportant";
@@ -21,6 +22,7 @@ const IconDict: IDict<any> = {
 	close: Close,
 	"error-outline": ErrorOutline,
 	info: Info,
+	"keyboard-arrow-up": KeyboardArrowUp,
 	"keyboard-arrow-down": KeyboardArrowDown,
 	"keyboard-arrow-right": KeyboardArrowRight,
 	"notification-important": NotificationImportant,
