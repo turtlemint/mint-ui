@@ -87,7 +87,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	};
 
 	return (
-		<SelectWrapper className={className}>
+		<SelectWrapper block={false} className={className}>
 			{!showLabelInput ? (
 				<Input
 					data-testid="typeahead-input"

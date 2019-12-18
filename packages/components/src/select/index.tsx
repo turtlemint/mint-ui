@@ -5,9 +5,9 @@ import Icon from "../icon";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
-export const SelectWrapper = styled.div`
+export const SelectWrapper = styled.div<{ block: boolean }>`
 	${GlobalStyles};
-	width: 300px;
+	width: ${props => (props.block ? "100%" : "328px")};
 	position: relative;
 `;
 export const StyledSelectCTA = styled.div`
@@ -80,19 +80,25 @@ export const SelectCTA = ({
 interface SelectProps {
 	value: any;
 	onSelect?: (option: SelectedOption) => void;
+	block?: boolean;
 	children:
 		| React.ComponentElement<any, any>
 		| React.ComponentElement<any, any>[];
 }
 
-export const Select = ({ value, onSelect, children }: SelectProps) => {
+export const Select = ({
+	value,
+	onSelect,
+	block = false,
+	children
+}: SelectProps) => {
 	const [open, setOpen] = React.useState(false);
 	const handleSelect = (option: SelectedOption) => {
 		setOpen(!open);
 		onSelect ? onSelect(option) : null;
 	};
 	return (
-		<SelectWrapper data-testid="select-wrapper">
+		<SelectWrapper data-testid="select-wrapper" block={block}>
 			<SelectCTA
 				open={open}
 				value={value}

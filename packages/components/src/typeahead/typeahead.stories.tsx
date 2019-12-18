@@ -73,7 +73,7 @@ stories.add("loaded", () => (
 stories.add(
 	"selected value label",
 	() => (
-		<SelectWrapper>
+		<SelectWrapper block={false}>
 			<SelectCTA value="Item 1" />
 		</SelectWrapper>
 	),
@@ -86,7 +86,7 @@ stories.add(
 stories.add(
 	"clicked label",
 	() => (
-		<SelectWrapper>
+		<SelectWrapper block={false}>
 			<Input block={true} value="" placeholder="Item 1" />
 			<Dropdown data-testid="typeahead-dropdown">
 				{data.map((d: any) => (
