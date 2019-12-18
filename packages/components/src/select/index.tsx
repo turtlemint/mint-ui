@@ -9,6 +9,7 @@ export const SelectWrapper = styled.div<{ block: boolean }>`
 	${GlobalStyles};
 	width: ${props => (props.block ? "100%" : "328px")};
 	position: relative;
+	background-color: ${COLORS.WHITE};
 `;
 export const StyledSelectCTA = styled.div`
 	outline: none;
