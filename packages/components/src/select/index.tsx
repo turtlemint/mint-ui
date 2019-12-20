@@ -30,18 +30,14 @@ export const StyledSelectCTA = styled.div`
 	background-color: ${COLORS.WHITE};
 `;
 
-const ArrowWrapper = styled.span`
-	color: ${COLORS.GREY1};
-`;
-
 const ArrowToggle = ({ open }: { open: boolean }) => (
-	<ArrowWrapper>
+	<>
 		{open ? (
 			<Icon name="keyboard-arrow-up" size={24} />
 		) : (
 			<Icon name="keyboard-arrow-down" size={24} />
 		)}
-	</ArrowWrapper>
+	</>
 );
 
 interface SelectCTAProps {
