@@ -7,7 +7,7 @@ export const renderComponent = (Component: any) => (props: any) => (
 const configureUI = (TypeMap: IDict<(Component: any) => any>) => {
 	let key: number = 0;
 	return function buildUI(buildConfig: any) {
-		const { type, children, ...props } = buildConfig;
+		const { type, children, props } = buildConfig;
 		if (children && children.length) {
 			let len = children.length;
 			const results = [];
