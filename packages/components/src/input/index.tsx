@@ -17,12 +17,6 @@ export interface InputProps {
 	onBlur?: React.FocusEventHandler;
 }
 
-export const WrapperStyles = css<Pick<InputProps, "block">>`
-	${GlobalStyles};
-	width: ${props => (props.block ? "100%" : "328px")};
-	text-align: left;
-`;
-
 export const InputStyles = css<
 	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
 >`
@@ -98,12 +92,12 @@ const SharedStyles = css`
 	color: ${COLORS.GREY1};
 `;
 
-export const LabelStyles = css<Pick<InputProps, "error">>`
+export const LabelStyles = css<{ error: string | undefined }>`
 	margin-bottom: 4px;
 	label {
 		${SharedStyles};
-		${props =>
-			props.error &&
+		${({ error }) =>
+			error &&
 			css`
 				color: ${COLORS.DANGER};
 			`};
@@ -124,15 +118,16 @@ export const HelpText = css`
 	color: ${COLORS.GREY2};
 `;
 
-const StyledWrapper = styled.div`
-	${WrapperStyles};
+const StyledWrapper = styled.div<{ block: boolean }>`
+	${GlobalStyles};
+	width: ${({ block }) => (block ? "100%" : "328px")};
+	text-align: left;
 `;
-type LabelProps = Pick<InputProps, "error"> & {
-	children: React.ReactNode;
-};
 
-const StyledLabel = styled.div<LabelProps>`
+const StyledLabel = styled.div<{ error: undefined | string }>`
 	${LabelStyles};
+	font-weight: 500;
+	color: ${({ error }) => (error ? COLORS.DANGER : "initial")};
 `;
 export const StyledInput = styled.input<
 	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
@@ -168,9 +163,11 @@ export const Input: React.FC<InputProps &
 	};
 	return (
 		<StyledWrapper block={block}>
-			<StyledLabel error={error}>
-				<label>{label}</label>
-			</StyledLabel>
+			{label ? (
+				<StyledLabel error={error}>
+					<label>{label}</label>
+				</StyledLabel>
+			) : null}
 			<StyledInput
 				type={type}
 				placeholder={placeholder}
