@@ -40,6 +40,17 @@ stories.add("password", () => (
 
 stories.add("number", () => <Input type="number" value={10} />);
 
+stories.add("label", () => <Input value="" type="text" label="Normal label" />);
+
+stories.add("input with error", () => (
+	<Input
+		value=""
+		type="text"
+		label="Error label"
+		error="Oops! something went wrong"
+	/>
+));
+
 const InputDemo = () => {
 	const [value, setValue] = React.useState("");
 	const handleChange = (val: string) => {
