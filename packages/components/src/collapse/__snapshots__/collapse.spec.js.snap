@@ -3,13 +3,13 @@
 exports[`collapse renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="collapse__CollapseWrap-sc-1gbzbz3-0 jScgZA"
+    class="collapse__CollapseWrap-t8cnoc-0 eclXSB"
   >
     <div
       class="tm-panel"
     >
       <div
-        class="collapse__Header-sc-1gbzbz3-2 bIOJjx tm-panel-header"
+        class="collapse__Header-t8cnoc-2 kmmYTd tm-panel-header"
         data-testid="tm-panel-header"
       >
         <div
@@ -23,21 +23,14 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <i
-            class="collapse__StyledEL-sc-1gbzbz3-1 gWQSeT"
+            class="collapse__StyledEL-t8cnoc-1 eCKQYe"
           >
             <svg
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+              height="18"
+              width="18"
             >
               <path
-                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                fill="#a1a6a7"
-              />
-              <path
-                d="M0 0h24v24H0z"
-                fill="none"
+                d="M9.29 15.88L13.17 12 9.29 8.12a.996.996 0 111.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3a.996.996 0 01-1.41 0c-.38-.39-.39-1.03 0-1.42z"
               />
             </svg>
           </i>
@@ -48,7 +41,7 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__Header-sc-1gbzbz3-2 bIOJjx tm-panel-header"
+        class="collapse__Header-t8cnoc-2 kmmYTd tm-panel-header"
         data-testid="tm-panel-header"
       >
         <div
@@ -62,20 +55,17 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <i
-            class="collapse__StyledEL-sc-1gbzbz3-1 gWQSeT"
+            class="collapse__StyledEL-t8cnoc-1 eCKQYe"
           >
             <svg
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+              height="18"
+              width="18"
             >
               <path
-                d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
-                fill="#a1a6a7"
+                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
               />
               <path
-                d="M0 0h24v24H0z"
+                d="M0 0h24v24H0V0z"
                 fill="none"
               />
             </svg>
@@ -83,7 +73,7 @@ exports[`collapse renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="collapse__Body-sc-1gbzbz3-3 diwbzO tm-collapse-body"
+        class="collapse__Body-t8cnoc-3 jbmdAh tm-collapse-body"
         data-testid="tm-collapse-body"
       >
         Some content
@@ -93,7 +83,7 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__Header-sc-1gbzbz3-2 fbesdd tm-panel-header"
+        class="collapse__Header-t8cnoc-2 bjMhuH tm-panel-header"
         data-testid="tm-panel-header"
         disabled=""
       >
@@ -108,21 +98,14 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <i
-            class="collapse__StyledEL-sc-1gbzbz3-1 gWQSeT"
+            class="collapse__StyledEL-t8cnoc-1 eCKQYe"
           >
             <svg
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+              height="18"
+              width="18"
             >
               <path
-                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                fill="#a1a6a7"
-              />
-              <path
-                d="M0 0h24v24H0z"
-                fill="none"
+                d="M9.29 15.88L13.17 12 9.29 8.12a.996.996 0 111.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3a.996.996 0 01-1.41 0c-.38-.39-.39-1.03 0-1.42z"
               />
             </svg>
           </i>

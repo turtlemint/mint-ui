@@ -3,26 +3,26 @@
 exports[`Radio group renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="radio-group__Wrapper-gb2o2l-0 dsNlIt"
+    class="radio-group__Wrapper-sc-15twc87-0 bgTDsX"
     data-testid="radio-group"
   >
     <label
-      class="radio-group__Label-gb2o2l-1 czBaZA radio-button"
+      class="radio-group__Label-sc-15twc87-1 ffbqMF radio-button"
     >
       Item 1
     </label>
     <label
-      class="radio-group__Label-gb2o2l-1 czBaZA radio-button"
+      class="radio-group__Label-sc-15twc87-1 ffbqMF radio-button"
     >
       Item 2
     </label>
     <label
-      class="radio-group__Label-gb2o2l-1 czBaZA radio-button"
+      class="radio-group__Label-sc-15twc87-1 ffbqMF radio-button"
     >
       Item 3
     </label>
     <label
-      class="radio-group__Label-gb2o2l-1 fjSsvK radio-button"
+      class="radio-group__Label-sc-15twc87-1 gRoMwf radio-button"
     >
       Item 4
     </label>

@@ -1,10 +1,9 @@
 import * as React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import Dialog from "./dialog";
 import Confirm from "./confirm";
-import Modal from "./index";
-import ErrorOutline from "../icons/error-outline";
 import COLORS from "../__utils/colors";
+import Icon from "../icon";
 
 afterEach(cleanup);
 
@@ -57,7 +56,7 @@ describe("Confirm Modal", () => {
 		const { asFragment } = render(
 			<Confirm
 				type="error"
-				icon={<ErrorOutline color={COLORS.DANGER} />}
+				icon={<Icon name="error-outline" color={COLORS.DANGER} />}
 				title="Error title"
 			>
 				<p>Lorem ipsum dolor sit amet.</p>
@@ -66,15 +65,3 @@ describe("Confirm Modal", () => {
 		expect(asFragment()).toMatchSnapshot();
 	});
 });
-
-// describe("Modal", () => {
-//     test("Snapshot", () => {
-//         const { asFragment } = render(
-//             <Modal
-//                 title="Error title">
-//                 <p>Lorem ipsum dolor sit amet.</p>
-//             </Modal>
-//         );
-//         expect(asFragment()).toMatchSnapshot();
-//     });
-// })

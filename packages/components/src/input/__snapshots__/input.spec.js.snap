@@ -3,16 +3,11 @@
 exports[`Input tests renders correcty 1`] = `
 <DocumentFragment>
   <div
-    class="input__StyledWrapper-sc-1afloio-0 bQextU"
+    class="input__StyledWrapper-sc-1pvgcfx-0 jlkeAB"
   >
-    <div
-      class="input__StyledLabel-sc-1afloio-1 kZzwwB"
-    >
-      <label />
-    </div>
     <input
       aria-label="tm-input"
-      class="input__StyledInput-sc-1afloio-2 jEqpru"
+      class="input__StyledInput-sc-1pvgcfx-2 gIzckX"
       placeholder="Test input"
       type="text"
       value=""

@@ -3,20 +3,20 @@
 exports[`Dropdown test suite Dropdown snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown__DropdownWrapper-sc-1isqhlv-0 kvPoIE"
+    class="dropdown__DropdownWrapper-sc-4mjgs1-0 cZIOVV"
     data-testid="dropdown"
   >
     <ul
-      class="dropdown__List-sc-1isqhlv-1 bkNTcT"
+      class="dropdown__List-sc-4mjgs1-1 dWFdKM"
     >
       <li
-        class="dropdown__StyledOption-sc-1isqhlv-2 hDaRBq"
+        class="dropdown__StyledOption-sc-4mjgs1-2 hDbYdW"
         value="1"
       >
         Item 1
       </li>
       <li
-        class="dropdown__StyledOption-sc-1isqhlv-2 hDaRBq"
+        class="dropdown__StyledOption-sc-4mjgs1-2 hDbYdW"
         value="2"
       >
         Item 2
@@ -29,32 +29,26 @@ exports[`Dropdown test suite Dropdown snapshot 1`] = `
 exports[`Select test suites Select snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="select__SelectWrapper-xwzcqv-0 gbfhWE"
+    class="select__SelectWrapper-sc-1trodvu-0 iXSZsk"
     data-testid="select-wrapper"
   >
     <div
-      class="select__StyledSelectCTA-xwzcqv-1 bOVYUd"
+      class="select__StyledSelectCTA-sc-1trodvu-1 hgrTvX"
     >
       <span />
-      <span
-        class="select__ArrowWrapper-xwzcqv-2 iMCzxd"
+      <svg
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
       >
-        <svg
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            fill="#a1a6a7"
-          />
-          <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-        </svg>
-      </span>
+        <path
+          d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+        />
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+        />
+      </svg>
     </div>
   </div>
 </DocumentFragment>

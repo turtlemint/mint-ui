@@ -1,11 +1,5 @@
 import React from "react";
-import {
-	render,
-	fireEvent,
-	cleanup,
-	getByTestId,
-	queryAllByTestId
-} from "@testing-library/react";
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import Collapse, { Panel } from "./index";
 
 afterEach(cleanup);
@@ -28,7 +22,7 @@ describe("collapse", () => {
 		expect(asFragment()).toMatchSnapshot();
 	});
 	test("toggles", () => {
-		const { queryAllByTestId, queryByTestId, getByTestId } = render(
+		const { queryAllByTestId } = render(
 			<Collapse
 				data-testid="collapse"
 				activeKey={2}

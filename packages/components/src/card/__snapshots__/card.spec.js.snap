@@ -3,22 +3,22 @@
 exports[`Card renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="card__Wrapper-z7910v-0 kXFbBD"
+    class="card__Wrapper-sc-1au9sup-0 byptil"
     style="width: 300px;"
   >
     <div
-      class="card__Header-z7910v-1 eLmVeT"
+      class="card__Header-sc-1au9sup-1 kziSce"
     >
       <div
-        class="card__HeadWrapper-z7910v-2 cseuCt"
+        class="card__HeadWrapper-sc-1au9sup-2 fYAPjq"
       >
         <div
-          class="card__Title-z7910v-3 enPNAN"
+          class="card__Title-sc-1au9sup-3 Tfnop"
         >
           Default size card
         </div>
         <div
-          class="card__Extra-z7910v-4 gWtppL"
+          class="card__Extra-sc-1au9sup-4 jvzqZz"
         >
           <a
             href="#"
@@ -29,7 +29,7 @@ exports[`Card renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="card__Body-z7910v-5 ljQAzk"
+      class="card__Body-sc-1au9sup-5 fueqQ"
     >
       <p>
         Card content
