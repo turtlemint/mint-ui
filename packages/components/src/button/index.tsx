@@ -179,6 +179,7 @@ const ButtonSolid = styled.button<ButtonProps>`
 export const Link = styled.a<ButtonProps>`
 	${BaseButton};
 	display: inline-flex;
+	align-items: center;
 	text-decoration: none;
 	background: none;
 	border: 0;
