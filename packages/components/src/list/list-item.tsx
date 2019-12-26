@@ -1,65 +1,100 @@
 import * as React from "react";
-import styled from "styled-components";
-import Button from "../button";
+import styled, { css } from "styled-components";
+// import Button from "../button";
 import COLORS from "../__utils/colors";
-import Icon from "../icon";
+// import Icon from "../icon";
+import { ListContext, SizeType } from ".";
+import Row from "../grid/row";
+import Col from "../grid/col";
+import Avatar from "../avatar";
 
 export interface ListItemProps {
-	icon?: string;
-	iconColor?: string;
-	title?: string;
-	subtitle?: string;
-	expandRight?: boolean;
-	url?: string;
+	avatar?: any;
+	title?: string | React.ReactNode;
+	text?: string | React.ReactNode;
+	actions?: any[];
 }
 
-const Wrapper = styled.li`
-	padding: 10px 15px;
+const Wrapper = styled.li<{ bordered: boolean; size: SizeType }>`
+	padding: 12px 15px;
+	${({ size }) =>
+		size === "small" &&
+		css`
+			padding: 8px 15px;
+		`};
+	${({ size }) =>
+		size === "large" &&
+		css`
+			padding: 15px;
+		`};
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 1px solid ${COLORS.GREY4};
+	&:last-child {
+		border-bottom: 0;
+	}
 `;
 
-const Title = styled.span`
+const LeftWrapper = styled.div`
+	display: flex;
+	align-items: center;
+`;
+
+const Title = styled.div`
 	font-size: 18px;
 	line-height: 18px;
 `;
 
-const Subtitle = styled.div`
-	font-size: 16px;
-	color: ${COLORS.GREY3};
+const Text = styled.div`
+	color: ${COLORS.GREY2};
 `;
-const LeftWrapper = styled.div`
-	display: flex;
-`;
-
-export const ListItem = ({
-	icon,
-	iconColor,
-	title,
-	subtitle,
-	expandRight,
-	url
-}: ListItemProps) => {
+export const ListItem = ({ avatar, title, text, actions }: ListItemProps) => {
+	const { bordered, size } = React.useContext(ListContext);
 	return (
-		<Wrapper>
+		<Wrapper bordered={bordered} size={size}>
 			<LeftWrapper>
-				{icon ? (
-					<Icon
-						name={icon}
-						color={iconColor}
-						style={{ marginRight: "10px" }}
+				{avatar ? (
+					<Avatar
+						icon={avatar.icon}
+						size={avatar.size}
+						shape={avatar.shape}
+						color={avatar.color}
+						style={{ marginTop: 0, ...avatar.style }}
 					/>
 				) : null}
-				{title ? <Title>{title}</Title> : null}
-				{subtitle ? <Subtitle>{subtitle}</Subtitle> : null}
+				<Row>
+					<Col sm={12} md={12}>
+						<Title>{title}</Title>
+					</Col>
+					{text ? (
+						<Col sm={12} md={12}>
+							<Text>{text}</Text>
+						</Col>
+					) : null}
+				</Row>
 			</LeftWrapper>
-			<Button btnType="link" href={url}>
-				{expandRight ? <Icon name="keyboard-arrow-right" /> : null}
-			</Button>
+
+			{actions ? <Actions actions={actions} /> : null}
 		</Wrapper>
 	);
 };
 
+const Actions = ({ actions }: { actions: any[] }) => {
+	return (
+		<div
+			style={{
+				display: "flex",
+				justifyContent: "flex-end",
+				alignItems: "center"
+			}}
+		>
+			{actions.map((action: any, index: any) => (
+				<span key={index} style={{ marginLeft: "15px" }}>
+					{action}
+				</span>
+			))}
+		</div>
+	);
+};
 export default ListItem;

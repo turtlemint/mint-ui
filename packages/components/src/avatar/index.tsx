@@ -11,14 +11,21 @@ interface AvatarProps {
 	icon?: string | React.ReactNode;
 	shape?: ShapeType;
 	size?: number;
+	color?: string;
 	style?: React.CSSProperties;
 }
 
-export const Avatar = ({ icon, shape, size = 24, style }: AvatarProps) => {
+export const Avatar = ({
+	icon,
+	shape,
+	size = 24,
+	color,
+	style
+}: AvatarProps) => {
 	return (
 		<Wrapper size={size} shape={shape} style={style}>
 			{typeof icon === "string" ? (
-				<Icon name={icon} size={size - 14} color={COLORS.GREY1} />
+				<Icon name={icon} size={size - 10} color={color} />
 			) : (
 				icon
 			)}
