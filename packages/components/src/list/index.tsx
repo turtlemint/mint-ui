@@ -41,7 +41,7 @@ export const List = ({
 					return renderItem ? (
 						renderItem(source, index)
 					) : typeof source === "string" ? (
-						<ListItem title={source} />
+						<ListItem key={index} title={source} />
 					) : (
 						<ListItem {...source} />
 					);
