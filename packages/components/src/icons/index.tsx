@@ -1,9 +1,8 @@
-// @create-index
-
 export { default as Announcement } from "./Announcement";
 export { default as CheckBoxOutline } from "./CheckBoxOutline";
 export { default as CheckCircleOutline } from "./CheckCircleOutline";
 export { default as Close } from "./Close";
+export { default as Done } from "./Done";
 export { default as ErrorOutline } from "./ErrorOutline";
 export { default as Info } from "./Info";
 export { default as KeyboardArrowDown } from "./KeyboardArrowDown";

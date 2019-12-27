@@ -14,6 +14,7 @@ import OutlineSort from "../icons/OutlineSort";
 import Settings from "../icons/Settings";
 import Warning from "../icons/Warning";
 import { IDict } from "../__utils/type";
+import Done from "../icons/Done";
 
 const IconDict: IDict<any> = {
 	announcement: Announcement,
@@ -29,7 +30,8 @@ const IconDict: IDict<any> = {
 	"outline-done": OutlineDone,
 	"outline-sort": OutlineSort,
 	settings: Settings,
-	warning: Warning
+	warning: Warning,
+	done: Done
 };
 
 interface IconProps {
