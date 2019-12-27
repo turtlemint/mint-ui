@@ -1,0 +1,34 @@
+import * as React from "react";
+import styled from "styled-components";
+import Icon from "../icon";
+import COLORS from "../__utils/colors";
+
+interface ChipProps {
+	text: string;
+	done?: boolean;
+	style?: React.CSSProperties;
+}
+
+export const Chip = ({ text, done, style }: ChipProps) => {
+	return (
+		<Wrapper style={style}>
+			<Text done={done}>{text}</Text>yarn r
+			{done ? <Icon name="done" style={{ marginLeft: "10px" }} /> : null}
+		</Wrapper>
+	);
+};
+
+const Wrapper = styled.span`
+	display: inline-flex;
+	align-items: center;
+	border: 1px solid ${COLORS.GREY4};
+	border-radius: 40px;
+	padding: 8px 12px;
+`;
+const Text = styled.span<{ done?: boolean }>`
+	line-height: 1.43;
+	letter-spacing: normal;
+	color: ${COLORS.BLACK};
+	font-weight: ${({ done }) => (done ? 600 : 400)};
+`;
+export default Chip;
