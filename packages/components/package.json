@@ -36,10 +36,10 @@
         "dev": "start-storybook -p 5555 -s ./public",
         "build-storybook": "build-storybook -c .storybook -s ./public",
         "build-icons": "rm -rf src/icons && npx @svgr/cli -d src/icons svg-icons --ext tsx",
-        "create-index": "npx create-index src/icons --extensions tsx",
+        "create-index": "npx create-index src/icons",
         "recreate-index": "node scripts/regenerate-icon-index.js",
         "lint:icons": "eslint './src/icons/*.{ts,tsx}' --fix",
-        "generate-icons": "yarn run build-icons && yarn run create-index && yarn run recreate-index && yarn run lint:icons"
+        "generate-icons": "yarn run build-icons && yarn run create-index && yarn run lint:icons"
     },
     "peerDependencies": {
         "react": "^15.0.0 || ^16.0.0",
