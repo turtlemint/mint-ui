@@ -12,7 +12,7 @@ interface ChipProps {
 export const Chip = ({ text, done, style }: ChipProps) => {
 	return (
 		<Wrapper style={style}>
-			<Text done={done}>{text}</Text>yarn r
+			<Text done={done}>{text}</Text>
 			{done ? <Icon name="done" style={{ marginLeft: "10px" }} /> : null}
 		</Wrapper>
 	);

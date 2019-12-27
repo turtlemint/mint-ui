@@ -10,7 +10,6 @@ exports[`chip renders correctly 1`] = `
     >
       November
     </span>
-    yarn r
   </span>
 </DocumentFragment>
 `;
