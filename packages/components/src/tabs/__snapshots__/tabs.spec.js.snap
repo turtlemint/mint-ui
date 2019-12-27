@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs renders correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <ul
+      class="tabs__TabsList-sc-1wwz877-0 hJQZOp"
+      role="tablist"
+      style="border-bottom: 1px solid #e8e8e8;"
+      tabindex="0"
+    >
+      <li
+        class="tabs__ItemTab-sc-1wwz877-1 lpoSFR"
+      >
+        Tab A
+      </li>
+      <li
+        class="tabs__ItemTab-sc-1wwz877-1 cJPmTG"
+        disabled=""
+      >
+        Tab B
+      </li>
+      <li
+        class="tabs__ItemTab-sc-1wwz877-1 hNLdOi"
+      >
+        Tab C
+      </li>
+    </ul>
+    <div
+      class="active-tab-content"
+    >
+      <div>
+        Content of Tab A
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
