@@ -120,22 +120,34 @@ const objectList: any = [
 	}
 ];
 
-stories.add("default", () => <List dataSource={stringData} bordered={true} />);
+stories.add("default", () => <List dataSource={stringData} bordered={true} />, {
+	info: {
+		propTables: [List, ListItem]
+	}
+});
 
 stories.add("avatar & single action", () => {
 	return <List dataSource={objectList} bordered={true} />;
 });
 
-stories.add("custom list element", () => {
-	return (
-		<List
-			dataSource={textList}
-			renderItem={item => {
-				return <ListItem key={item.key} {...item} />;
-			}}
-		/>
-	);
-});
+stories.add(
+	"custom list element",
+	() => {
+		return (
+			<List
+				dataSource={textList}
+				renderItem={item => {
+					return <ListItem key={item.key} {...item} />;
+				}}
+			/>
+		);
+	},
+	{
+		info: {
+			propTables: [List, ListItem]
+		}
+	}
+);
 
 stories.add("size", () => {
 	return (
@@ -149,9 +161,11 @@ stories.add("size", () => {
 		</>
 	);
 });
+
 stories.add("loading...", () => {
 	return <List dataSource={stringData} loading={true} />;
 });
+
 stories.add("mutiple actions", () => {
 	const actionsList: any = [
 		{
