@@ -13,6 +13,10 @@ import { default as Select } from "./src/select";
 import { Option } from "./src/select/dropdown";
 import { default as TypeAhead } from "./src/typeahead";
 import { default as CompositeUI, renderComponent } from "./src/composite-ui";
+import { default as Icon } from "./src/icon";
+import { default as Avatar } from "./src/avatar";
+import { default as List } from "./src/list";
+import { default as Chip } from "./src/chip";
 
 export {
 	Button,
@@ -30,5 +34,9 @@ export {
 	Option,
 	TypeAhead,
 	CompositeUI,
-	renderComponent
+	renderComponent,
+	Icon,
+	Avatar,
+	List,
+	Chip
 };
