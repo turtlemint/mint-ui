@@ -28,11 +28,16 @@
             {
                 "jsx-max-props-per-line": 1,
                 "useTabs": true,
-                "tabWidth": 4
+                "tabWidth": 4,
+                "quoteProps": "consistent"
             }
         ],
         "no-case-declarations": "off",
         "no-unused-vars": "off",
+        "quote-props": [
+            "error",
+            "consistent"
+        ],
         "@typescript-eslint/no-unused-vars": [
             "error",
             {
