@@ -1,4 +1,5 @@
 import { css } from "styled-components";
+import COLORS from "./__utils/colors";
 
 export const GlobalStyles = css`
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -12,4 +13,6 @@ export const GlobalStyles = css`
 	line-height: 1.5;
 	-webkit-font-feature-settings: "tnum";
 	font-feature-settings: "tnum";
+	color: ${COLORS.BLACK};
+	font-size: 14px;
 `;
