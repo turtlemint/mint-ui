@@ -54,7 +54,7 @@ const BaseButton = css<ButtonProps>`
 	-ms-user-select: none;
 	user-select: none;
 	touch-action: manipulation;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 15px;
 	min-height: 40px;
 	transition: color 0.3s ease-in;
@@ -69,15 +69,15 @@ const BaseButton = css<ButtonProps>`
 	${({ size }) =>
 		size === "sm" &&
 		css`
-			font-size: 14px;
-			line-height: 15px;
+			font-size: 12px;
+			line-height: 13px;
 			min-height: 36px;
 			padding: 6px 15px;
 		`};
 	${({ size }) =>
 		size === "lg" &&
 		css`
-			font-size: 18px;
+			font-size: 16px;
 			line-height: 16px;
 			min-height: 48px;
 			padding: 10px 15px;

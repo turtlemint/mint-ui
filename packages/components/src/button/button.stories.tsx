@@ -376,7 +376,7 @@ stories.add("submit button", () => (
 			alert("submit event called");
 		}}
 	>
-		<Button htmlType="submit" btnType="solid">
+		<Button htmlType="submit" btnType="solid" btnStyle="primary">
 			Submit
 		</Button>
 	</form>

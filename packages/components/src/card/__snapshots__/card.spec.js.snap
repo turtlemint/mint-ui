@@ -3,7 +3,7 @@
 exports[`Card renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="card__Wrapper-sc-1au9sup-0 byptil"
+    class="card__Wrapper-sc-1au9sup-0 jCyHY"
     style="width: 300px;"
   >
     <div
@@ -13,12 +13,12 @@ exports[`Card renders correctly 1`] = `
         class="card__HeadWrapper-sc-1au9sup-2 fYAPjq"
       >
         <div
-          class="card__Title-sc-1au9sup-3 Tfnop"
+          class="card__Title-sc-1au9sup-3 hyrFKT"
         >
           Default size card
         </div>
         <div
-          class="card__Extra-sc-1au9sup-4 jvzqZz"
+          class="card__Extra-sc-1au9sup-4 szDyR"
         >
           <a
             href="#"

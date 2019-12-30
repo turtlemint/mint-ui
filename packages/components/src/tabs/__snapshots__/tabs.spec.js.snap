@@ -2,26 +2,28 @@
 
 exports[`Tabs renders correctly 1`] = `
 <DocumentFragment>
-  <div>
+  <div
+    class="tabs__Wrapper-sc-1wwz877-0 jeLJYD"
+  >
     <ul
-      class="tabs__TabsList-sc-1wwz877-0 hJQZOp"
+      class="tabs__TabsList-sc-1wwz877-1 iziYNA"
       role="tablist"
       style="border-bottom: 1px solid #e8e8e8;"
       tabindex="0"
     >
       <li
-        class="tabs__ItemTab-sc-1wwz877-1 lpoSFR"
+        class="tabs__ItemTab-sc-1wwz877-2 gJOhrG"
       >
         Tab A
       </li>
       <li
-        class="tabs__ItemTab-sc-1wwz877-1 cJPmTG"
+        class="tabs__ItemTab-sc-1wwz877-2 dniHWo"
         disabled=""
       >
         Tab B
       </li>
       <li
-        class="tabs__ItemTab-sc-1wwz877-1 hNLdOi"
+        class="tabs__ItemTab-sc-1wwz877-2 jxtSMj"
       >
         Tab C
       </li>

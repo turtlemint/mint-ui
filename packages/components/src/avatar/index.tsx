@@ -3,6 +3,7 @@ import { tuple } from "../__utils/type";
 import styled, { css } from "styled-components";
 import Icon from "../icon";
 import COLORS from "../__utils/colors";
+import { GlobalStyles } from "../app";
 
 const ShapeTuple = tuple("circle", "square");
 type ShapeType = typeof ShapeTuple[number];
@@ -34,6 +35,7 @@ export const Avatar = ({
 };
 
 const Wrapper = styled.div<{ size: number; shape: ShapeType | undefined }>`
+	${GlobalStyles};
 	width: ${({ size }) => (size ? `${size}px` : "24px")};
 	height: ${({ size }) => (size ? `${size}px` : "24px")};
 	line-height: ${({ size }) => (size ? `${size}px` : "1.5")};

@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import Icon from "../icon";
 import COLORS from "../__utils/colors";
+import { GlobalStyles } from "../app";
 
 interface ChipProps {
 	text: string;
@@ -19,6 +20,7 @@ export const Chip = ({ text, done, style }: ChipProps) => {
 };
 
 const Wrapper = styled.span`
+	${GlobalStyles};
 	display: inline-flex;
 	align-items: center;
 	border: 1px solid ${COLORS.GREY4};
@@ -29,6 +31,6 @@ const Text = styled.span<{ done?: boolean }>`
 	line-height: 1.43;
 	letter-spacing: normal;
 	color: ${COLORS.BLACK};
-	font-weight: ${({ done }) => (done ? 600 : 400)};
+	font-weight: ${({ done }) => (done ? 500 : 400)};
 `;
 export default Chip;

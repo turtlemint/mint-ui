@@ -50,7 +50,7 @@ const HeadWrapper = styled.div<Pick<CardProps, "size">>`
 `;
 const Title = styled.div<Pick<CardProps, "size">>`
 	padding: ${({ size }) => (size === "small" ? `8px 0` : `16px 0`)};
-	font-size: ${({ size }) => (size === "small" ? `16px` : `18px`)};
+	font-size: ${({ size }) => (size === "small" ? `14px` : `16px`)};
 	font-weight: 500;
 	overflow: hidden;
 	white-space: nowrap;
@@ -60,7 +60,7 @@ const Extra = styled.div<Pick<CardProps, "size">>`
 	padding: ${({ size }) => (size === "small" ? `8px 0` : `16px 0`)};
 	a {
 		color: ${COLORS.PERSIAN_GREEN};
-		font-size: ${({ size }) => (size === "small" ? `14px` : `16px`)};
+		font-size: ${({ size }) => (size === "small" ? `12px` : `14px`)};
 		font-weight: 400;
 		text-decoration: none;
 	}

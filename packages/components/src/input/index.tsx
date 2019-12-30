@@ -28,7 +28,7 @@ export const InputStyles = css<
 	border-radius: 4px;
 	color: ${COLORS.GREY1};
 	width: 100%;
-	font-size: 16px;
+	font-size: 14px;
 	&:focus {
 		border-color: ${COLORS.PRIMARY};
 	}

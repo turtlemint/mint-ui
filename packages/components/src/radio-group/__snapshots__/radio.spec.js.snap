@@ -7,22 +7,22 @@ exports[`Radio group renders correctly 1`] = `
     data-testid="radio-group"
   >
     <label
-      class="radio-group__Label-sc-15twc87-1 ffbqMF radio-button"
+      class="radio-group__Label-sc-15twc87-1 cZnlzg radio-button"
     >
       Item 1
     </label>
     <label
-      class="radio-group__Label-sc-15twc87-1 ffbqMF radio-button"
+      class="radio-group__Label-sc-15twc87-1 cZnlzg radio-button"
     >
       Item 2
     </label>
     <label
-      class="radio-group__Label-sc-15twc87-1 ffbqMF radio-button"
+      class="radio-group__Label-sc-15twc87-1 cZnlzg radio-button"
     >
       Item 3
     </label>
     <label
-      class="radio-group__Label-sc-15twc87-1 gRoMwf radio-button"
+      class="radio-group__Label-sc-15twc87-1 cfZFEP radio-button"
     >
       Item 4
     </label>

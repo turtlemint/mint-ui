@@ -3,7 +3,7 @@
 exports[`avatar renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="avatar__Wrapper-m71sy-0 eZxzNs"
+    class="avatar__Wrapper-m71sy-0 lffqth"
     size="24"
   >
     <svg

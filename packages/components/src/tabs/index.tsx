@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import COLORS from "../__utils/colors";
+import { GlobalStyles } from "../app";
 
 type SizeValues = "large" | "default" | "small";
 
@@ -52,7 +53,7 @@ export const Tabs = ({
 				onClick: handleChange
 			}}
 		>
-			<div>
+			<Wrapper>
 				<TabsList
 					role="tablist"
 					tabIndex={0}
@@ -63,10 +64,14 @@ export const Tabs = ({
 				<div className="active-tab-content">
 					{renderActiveTabContent()}
 				</div>
-			</div>
+			</Wrapper>
 		</TabsContext.Provider>
 	);
 };
+const Wrapper = styled.div`
+	${GlobalStyles};
+`;
+
 const TabsList = styled.ul`
 	padding: 0;
 	outline: 0;
@@ -103,7 +108,7 @@ const ItemTab = styled.li<{
 	padding: 12px 16px;
 	border-bottom: ${({ active }) =>
 		active ? `2px solid ${COLORS.PRIMARY}` : 0};
-	font-weight: ${({ active }) => (active ? 600 : 400)};
+	font-weight: ${({ active }) => (active ? 500 : 400)};
 	display: inline-flex;
 	justify-content: center;
 	list-style: none;

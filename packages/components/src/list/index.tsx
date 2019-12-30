@@ -5,8 +5,10 @@ import ListItem from "./list-item";
 import { tuple } from "../__utils/type";
 import Empty from "../empty";
 import Simple from "../empty/simple";
+import { GlobalStyles } from "../app";
 
 const Wrapper = styled.ul<{ bordered?: boolean }>`
+	${GlobalStyles};
 	list-style: none;
 	margin: 0;
 	padding: 0;

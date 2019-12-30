@@ -61,7 +61,7 @@ export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
 		`}
 	&:first-child {
 		color: rgba(0, 0, 0, 0.65);
-		font-weight: 600;
+		font-weight: 500;
 		background-color: #fafafa;
 	}
 	&:hover {

@@ -21,7 +21,7 @@ interface LabelProps {
 const Label = styled.label<Omit<LabelProps, "onClick">>`
 	${GlobalStyles};
 	padding: 8px 15px;
-	font-size: 16px;
+	font-size: 14px;
 	border: 1px solid ${COLORS.GREY4};
 	border-right: 0;
 	color: ${COLORS.GREY1};
@@ -63,13 +63,13 @@ const Label = styled.label<Omit<LabelProps, "onClick">>`
 		size === "small" &&
 		css`
 			padding: 4px 8px;
-			font-size: 14px;
+			font-size: 12px;
 		`};
 	${({ size }) =>
 		size === "large" &&
 		css`
 			padding: 12px 17px;
-			font-size: 18px;
+			font-size: 16px;
 		`};
 
 	${({ isActive, buttonStyle }) =>
