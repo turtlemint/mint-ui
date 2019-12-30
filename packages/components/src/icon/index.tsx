@@ -15,23 +15,26 @@ import Settings from "../icons/Settings";
 import Warning from "../icons/Warning";
 import { IDict } from "../__utils/type";
 import Done from "../icons/Done";
+import { Sort, SortDown } from "../icons";
 
 const IconDict: IDict<any> = {
-	announcement: Announcement,
+	"announcement": Announcement,
 	"checkbox-outline": CheckboxOutline,
 	"check-circle-outline": CheckboxCircleOutline,
-	close: Close,
+	"close": Close,
 	"error-outline": ErrorOutline,
-	info: Info,
+	"info": Info,
 	"keyboard-arrow-up": KeyboardArrowUp,
 	"keyboard-arrow-down": KeyboardArrowDown,
 	"keyboard-arrow-right": KeyboardArrowRight,
 	"notification-important": NotificationImportant,
 	"outline-done": OutlineDone,
 	"outline-sort": OutlineSort,
-	settings: Settings,
-	warning: Warning,
-	done: Done
+	"settings": Settings,
+	"warning": Warning,
+	"done": Done,
+	"sort": Sort,
+	"sort-down": SortDown
 };
 
 interface IconProps {

@@ -12,4 +12,6 @@ export { default as NotificationImportant } from "./NotificationImportant";
 export { default as OutlineDone } from "./OutlineDone";
 export { default as OutlineSort } from "./OutlineSort";
 export { default as Settings } from "./Settings";
+export { default as SortDown } from "./SortDown";
+export { default as Sort } from "./Sort";
 export { default as Warning } from "./Warning";
