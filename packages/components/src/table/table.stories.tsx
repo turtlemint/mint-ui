@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import Table from "./table";
+import Table, { sortOrderType, ColumnType } from "./table";
 
 const stories = storiesOf("Table", module);
 
@@ -19,13 +19,14 @@ const dataSource = [
 	}
 ];
 
-const columns = [
+const columns: ColumnType[] = [
 	{
 		title: "Name",
 		dataIndex: "name",
 		key: "name",
 		sortDirections: ["ascends", "descends"],
-		sorter: (a: any, b: any, sortOrder: "ascends" | "descends") => {
+		defaultSortOrder: "descends",
+		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => {
 			var nameA = a.name.toUpperCase(); // ignore upper and lowercase
 			var nameB = b.name.toUpperCase(); // ignore upper and lowercase
 			if (sortOrder === "ascends") {
@@ -50,7 +51,7 @@ const columns = [
 		title: "Age",
 		dataIndex: "age",
 		key: "age",
-		sorter: (a: any, b: any, sortOrder: "ascends" | "descends") => {
+		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => {
 			if (sortOrder === "ascends") {
 				return a.age - b.age;
 			}
@@ -61,7 +62,7 @@ const columns = [
 		title: "Address",
 		dataIndex: "address",
 		key: "address",
-		sorter: (a: any, b: any, sortOrder: "ascends" | "descends") => {
+		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => {
 			var nameA = a.address.toUpperCase(); // ignore upper and lowercase
 			var nameB = b.address.toUpperCase(); // ignore upper and lowercase
 			if (sortOrder === "ascends") {

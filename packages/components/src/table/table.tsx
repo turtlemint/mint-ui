@@ -3,18 +3,17 @@ import styled from "styled-components";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 import Icon from "../icon";
-// import { tuple } from "../__utils/type";
 
-// const sortDirectionsTuple = tuple("ascends", "descends");
-// type sortDirections = typeof sortDirectionsTuple[number];
+export type sortOrderType = "ascends" | "descends";
 
-type ColumnType = {
+export type ColumnType = {
 	title: string;
 	dataIndex: string;
 	key: string;
 	render?: (data?: any) => React.ReactNode;
-	sorter?: (a: any, b: any, sortOrder: "ascends" | "descends") => any;
-	sortDirections?: any;
+	sorter?: (a: any, b: any, sortOrder: sortOrderType | undefined) => any;
+	sortDirections?: sortOrderType[] | undefined;
+	defaultSortOrder?: sortOrderType;
 };
 interface TableProps {
 	dataSource: any;
@@ -24,8 +23,8 @@ interface TableProps {
 export const Table = ({ dataSource, columns }: TableProps) => {
 	const [data, setData] = React.useState(dataSource);
 	const handleSort = (
-		sorter: (a: any, b: any, sortOrder: "ascends" | "descends") => any,
-		sortOrder: "ascends" | "descends"
+		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => any,
+		sortOrder: sortOrderType | undefined
 	) => {
 		const sortedData = data.sort((a: any, b: any) =>
 			sorter(a, b, sortOrder)
@@ -38,10 +37,12 @@ export const Table = ({ dataSource, columns }: TableProps) => {
 			<thead>
 				<tr>
 					{columns.map(column => {
-						const [sortOrder, setSortOrder] = React.useState<any>(
-							column.sortDirections
-								? column.sortDirections[0]
-								: "ascends"
+						const [sortOrder, setSortOrder] = React.useState<
+							sortOrderType | undefined
+						>(
+							column.defaultSortOrder
+								? column.defaultSortOrder
+								: undefined
 						);
 						return (
 							<Th
