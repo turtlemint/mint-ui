@@ -3,6 +3,7 @@ import styled from "styled-components";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 import Icon from "../icon";
+import useDeepCompare from "../hooks/use-deep-compare";
 
 export type sortOrderType = "ascends" | "descends";
 
@@ -12,7 +13,6 @@ export type ColumnType = {
 	key: string;
 	render?: (data?: any) => React.ReactNode;
 	sorter?: (a: any, b: any, sortOrder: sortOrderType | undefined) => any;
-	sortDirections?: sortOrderType[] | undefined;
 	defaultSortOrder?: sortOrderType;
 };
 interface TableProps {
@@ -21,7 +21,16 @@ interface TableProps {
 }
 
 export const Table = ({ dataSource, columns }: TableProps) => {
+	const defaultCol = columns.filter(column => column.defaultSortOrder)[0];
+
+	React.useEffect(() => {
+		handleSort(
+			defaultCol.sorter ? defaultCol.sorter : function() {},
+			defaultCol.defaultSortOrder
+		);
+	}, useDeepCompare([]));
 	const [data, setData] = React.useState(dataSource);
+
 	const handleSort = (
 		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => any,
 		sortOrder: sortOrderType | undefined
@@ -40,6 +49,7 @@ export const Table = ({ dataSource, columns }: TableProps) => {
 						const [sortOrder, setSortOrder] = React.useState<
 							sortOrderType | undefined
 						>(column.defaultSortOrder);
+
 						const getSortIcon = (
 							sorter: boolean,
 							sortOrder: sortOrderType | undefined
@@ -75,21 +85,25 @@ export const Table = ({ dataSource, columns }: TableProps) => {
 							}
 							return null;
 						};
+						React.useEffect(() => {
+							handleSort(
+								column.sorter ? column.sorter : function() {},
+								sortOrder
+							);
+						}, [sortOrder]);
+
 						return (
 							<Th
 								key={column.key}
 								sorter={column.sorter ? true : false}
 								onClick={() => {
-									handleSort(
-										column.sorter
-											? column.sorter
-											: function() {},
-										sortOrder
-									);
-									if (sortOrder === "ascends") {
-										setSortOrder("descends");
-									} else {
+									if (
+										!sortOrder ||
+										sortOrder === "descends"
+									) {
 										setSortOrder("ascends");
+									} else {
+										setSortOrder("descends");
 									}
 								}}
 							>
