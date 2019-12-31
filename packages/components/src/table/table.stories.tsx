@@ -15,7 +15,7 @@ const dataSource = [
 		key: "2",
 		name: "John",
 		age: 42,
-		address: "10 Downing Street"
+		address: "20 D Wall street"
 	}
 ];
 
@@ -31,18 +31,18 @@ const columns: ColumnType[] = [
 			var nameB = b.name.toUpperCase(); // ignore upper and lowercase
 			if (sortOrder === "ascends") {
 				if (nameA < nameB) {
-					return -1;
+					return 1;
 				}
 				if (nameA > nameB) {
-					return 1;
+					return -1;
 				}
 				return 0;
 			}
 			if (nameA < nameB) {
-				return 1;
+				return -1;
 			}
 			if (nameA > nameB) {
-				return -1;
+				return 1;
 			}
 			return 0;
 		}
@@ -53,9 +53,9 @@ const columns: ColumnType[] = [
 		key: "age",
 		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => {
 			if (sortOrder === "ascends") {
-				return a.age - b.age;
+				return b.age - a.age;
 			}
-			return b.age - a.age;
+			return a.age - b.age;
 		}
 	},
 	{
@@ -67,18 +67,18 @@ const columns: ColumnType[] = [
 			var nameB = b.address.toUpperCase(); // ignore upper and lowercase
 			if (sortOrder === "ascends") {
 				if (nameA < nameB) {
-					return -1;
+					return 1;
 				}
 				if (nameA > nameB) {
-					return 1;
+					return -1;
 				}
 				return 0;
 			}
 			if (nameA < nameB) {
-				return 1;
+				return -1;
 			}
 			if (nameA > nameB) {
-				return -1;
+				return 1;
 			}
 			return 0;
 		}

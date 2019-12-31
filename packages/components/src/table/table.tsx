@@ -39,11 +39,42 @@ export const Table = ({ dataSource, columns }: TableProps) => {
 					{columns.map(column => {
 						const [sortOrder, setSortOrder] = React.useState<
 							sortOrderType | undefined
-						>(
-							column.defaultSortOrder
-								? column.defaultSortOrder
-								: undefined
-						);
+						>(column.defaultSortOrder);
+						const getSortIcon = (
+							sorter: boolean,
+							sortOrder: sortOrderType | undefined
+						) => {
+							if (sorter) {
+								switch (sortOrder) {
+									case "ascends":
+										return (
+											<span
+												style={{ marginRight: "15px" }}
+											>
+												A
+											</span>
+										);
+
+									case "descends":
+										return (
+											<span
+												style={{ marginRight: "15px" }}
+											>
+												D
+											</span>
+										);
+									default:
+										return (
+											<Icon
+												name="sort"
+												size={18}
+												style={{ marginRight: "15px" }}
+											/>
+										);
+								}
+							}
+							return null;
+						};
 						return (
 							<Th
 								key={column.key}
@@ -63,13 +94,10 @@ export const Table = ({ dataSource, columns }: TableProps) => {
 								}}
 							>
 								<FlexWrap>
-									{column.sorter ? (
-										<Icon
-											name="sort"
-											size={18}
-											style={{ marginRight: "15px" }}
-										/>
-									) : null}
+									{getSortIcon(
+										column.sorter ? true : false,
+										sortOrder
+									)}
 									<span>{column.title}</span>
 								</FlexWrap>
 							</Th>
