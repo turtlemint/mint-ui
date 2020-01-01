@@ -13,49 +13,49 @@
                 {
                     "type": "list_item",
                     "props": {
-                        "icon": "warning",
-                        "iconColor": "blue",
-                        "title": "Insurance",
-                        "expandRight": true,
-                        "url": "/help-center/insurance"
+                        "avatar": {
+                            "icon": "warning",
+                            "color": "blue"
+                        },
+                        "title": "Insurance"
                     }
                 },
                 {
                     "type": "list_item",
                     "props": {
-                        "icon": "close",
-                        "title": "Mutual Funds",
-                        "expandRight": true,
-                        "url": "/help-center/mutual-funds"
+                        "avatar": {
+                            "icon": "close"
+                        },
+                        "title": "Mutual Funds"
                     }
                 },
                 {
                     "type": "list_item",
                     "props": {
-                        "icon": "settings",
-                        "iconColor": "grey",
-                        "title": "Gold",
-                        "expandRight": true,
-                        "url": "/help-center/gold"
+                        "avatar": {
+                            "icon": "settings",
+                            "color": "grey"
+                        },
+                        "title": "Gold"
                     }
                 },
                 {
                     "type": "list_item",
                     "props": {
-                        "icon": "notification-important",
-                        "iconColor": "red",
-                        "title": "Loans",
-                        "expandRight": true,
-                        "url": "/help-center/loans"
+                        "avatar": {
+                            "icon": "notification-important",
+                            "color": "red"
+                        },
+                        "title": "Loans"
                     }
                 },
                 {
                     "type": "list_item",
                     "props": {
-                        "icon": "info",
-                        "title": "Something Else",
-                        "expandRight": true,
-                        "url": "/help-center/something-else"
+                        "avatar": {
+                            "icon": "info"
+                        },
+                        "title": "Something Else"
                     }
                 }
             ]
