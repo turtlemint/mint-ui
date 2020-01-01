@@ -7,7 +7,10 @@ import Icon from "../icon";
 interface TheadProps {
 	columns: ColumnType[];
 	activeCol: ColumnType;
-	handleSort: (column: ColumnType, sortOrder: sortOrderType | undefined) => void;
+	handleSort: (
+		column: ColumnType,
+		sortOrder: sortOrderType | undefined
+	) => void;
 }
 
 const Thead = ({ columns, activeCol, handleSort }: TheadProps) => {
@@ -28,9 +31,10 @@ const Thead = ({ columns, activeCol, handleSort }: TheadProps) => {
 									name="arrow-dropdown"
 									size={21}
 									color={
+										// eslint-disable-next-line react/prop-types
 										column.key === activeCol.key &&
-											sortOrder &&
-											sortOrder === "descends"
+										sortOrder &&
+										sortOrder === "descends"
 											? COLORS.PRIMARY_LIGHT
 											: COLORS.GREY4
 									}
@@ -39,9 +43,10 @@ const Thead = ({ columns, activeCol, handleSort }: TheadProps) => {
 									name="arrow-dropup"
 									size={21}
 									color={
+										// eslint-disable-next-line react/prop-types
 										column.key === activeCol.key &&
-											sortOrder &&
-											sortOrder === "ascends"
+										sortOrder &&
+										sortOrder === "ascends"
 											? COLORS.PRIMARY_LIGHT
 											: COLORS.GREY4
 									}
