@@ -15,7 +15,7 @@ import Settings from "../icons/Settings";
 import Warning from "../icons/Warning";
 import { IDict } from "../__utils/type";
 import Done from "../icons/Done";
-import { Sort, SortDown } from "../icons";
+import { Sort, SortDown, ArrowDropDown, ArrowDropUp } from "../icons";
 
 const IconDict: IDict<any> = {
 	"announcement": Announcement,
@@ -34,7 +34,9 @@ const IconDict: IDict<any> = {
 	"warning": Warning,
 	"done": Done,
 	"sort": Sort,
-	"sort-down": SortDown
+	"sort-down": SortDown,
+	"arrow-dropdown": ArrowDropDown,
+	"arrow-dropup": ArrowDropUp
 };
 
 interface IconProps {

@@ -1,4 +1,6 @@
 export { default as Announcement } from "./Announcement";
+export { default as ArrowDropDown } from "./ArrowDropDown";
+export { default as ArrowDropUp } from "./ArrowDropUp";
 export { default as CheckBoxOutline } from "./CheckBoxOutline";
 export { default as CheckCircleOutline } from "./CheckCircleOutline";
 export { default as Close } from "./Close";
