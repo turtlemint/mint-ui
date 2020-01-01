@@ -21,28 +21,34 @@ interface TableProps {
 
 export const Table = ({ dataSource, columns }: TableProps) => {
 	const defaultCol = columns.filter(column => column.defaultSortOrder)[0];
+	const [activeCol, setActiveCol] = React.useState<ColumnType>(defaultCol);
 
 	React.useEffect(() => {
-		handleSort(
-			defaultCol.sorter ? defaultCol.sorter : function() {},
-			defaultCol.defaultSortOrder
-		);
+		handleSort(activeCol, activeCol.defaultSortOrder);
 	}, []);
 	const [data, setData] = React.useState(dataSource);
 
 	const handleSort = (
-		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => any,
+		column: ColumnType,
 		sortOrder: sortOrderType | undefined
 	) => {
-		const sortedData = data.sort((a: any, b: any) =>
-			sorter(a, b, sortOrder)
-		);
+		const sortedData = data.sort((a: any, b: any) => {
+			if (column && column.sorter) {
+				return column.sorter(a, b, sortOrder);
+			}
+			return column;
+		});
 		setData([...sortedData]);
+		setActiveCol(column);
 	};
 
 	return (
 		<TableEl>
-			<Thead columns={columns} handleSort={handleSort} />
+			<Thead
+				columns={columns}
+				activeCol={activeCol}
+				handleSort={handleSort}
+			/>
 			<TableBody data={data} />
 		</TableEl>
 	);

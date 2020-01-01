@@ -28,7 +28,7 @@ const columns: ColumnType[] = [
 		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => {
 			var nameA = a.name.toUpperCase(); // ignore upper and lowercase
 			var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-			if (!sortOrder || sortOrder === "ascends") {
+			if (sortOrder === "ascends") {
 				if (nameA < nameB) {
 					return -1;
 				}
@@ -51,7 +51,7 @@ const columns: ColumnType[] = [
 		dataIndex: "age",
 		key: "age",
 		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => {
-			if (!sortOrder || sortOrder === "ascends") {
+			if (sortOrder === "ascends") {
 				return a.age - b.age;
 			}
 			return b.age - a.age;
@@ -64,7 +64,7 @@ const columns: ColumnType[] = [
 		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => {
 			var nameA = a.address.toUpperCase(); // ignore upper and lowercase
 			var nameB = b.address.toUpperCase(); // ignore upper and lowercase
-			if (!sortOrder || sortOrder === "ascends") {
+			if (sortOrder === "ascends") {
 				if (nameA < nameB) {
 					return -1;
 				}
