@@ -1,9 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
-import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
-import Icon from "../icon";
-import useDeepCompare from "../hooks/use-deep-compare";
+import Thead from "./table-head";
+import TableBody from "./table-body";
 
 export type sortOrderType = "ascends" | "descends";
 
@@ -28,7 +27,7 @@ export const Table = ({ dataSource, columns }: TableProps) => {
 			defaultCol.sorter ? defaultCol.sorter : function() {},
 			defaultCol.defaultSortOrder
 		);
-	}, useDeepCompare([]));
+	}, []);
 	const [data, setData] = React.useState(dataSource);
 
 	const handleSort = (
@@ -43,93 +42,8 @@ export const Table = ({ dataSource, columns }: TableProps) => {
 
 	return (
 		<TableEl>
-			<thead>
-				<tr>
-					{columns.map(column => {
-						const [sortOrder, setSortOrder] = React.useState<
-							sortOrderType | undefined
-						>(column.defaultSortOrder);
-
-						const getSortIcon = (
-							sorter: boolean,
-							sortOrder: sortOrderType | undefined
-						) => {
-							if (sorter) {
-								switch (sortOrder) {
-									case "ascends":
-										return (
-											<span
-												style={{ marginRight: "15px" }}
-											>
-												A
-											</span>
-										);
-
-									case "descends":
-										return (
-											<span
-												style={{ marginRight: "15px" }}
-											>
-												D
-											</span>
-										);
-									default:
-										return (
-											<Icon
-												name="sort"
-												size={18}
-												style={{ marginRight: "15px" }}
-											/>
-										);
-								}
-							}
-							return null;
-						};
-						React.useEffect(() => {
-							handleSort(
-								column.sorter ? column.sorter : function() {},
-								sortOrder
-							);
-						}, [sortOrder]);
-
-						return (
-							<Th
-								key={column.key}
-								sorter={column.sorter ? true : false}
-								onClick={() => {
-									if (
-										!sortOrder ||
-										sortOrder === "descends"
-									) {
-										setSortOrder("ascends");
-									} else {
-										setSortOrder("descends");
-									}
-								}}
-							>
-								<FlexWrap>
-									{getSortIcon(
-										column.sorter ? true : false,
-										sortOrder
-									)}
-									<span>{column.title}</span>
-								</FlexWrap>
-							</Th>
-						);
-					})}
-				</tr>
-			</thead>
-			<tbody>
-				{data.map((item: any) => (
-					<tr key={item.key}>
-						{Object.keys(item)
-							.filter(item => item !== "key")
-							.map(columnName => (
-								<Td key={columnName}>{item[columnName]}</Td>
-							))}
-					</tr>
-				))}
-			</tbody>
+			<Thead columns={columns} handleSort={handleSort} />
+			<TableBody data={data} />
 		</TableEl>
 	);
 };
@@ -138,33 +52,6 @@ const TableEl = styled.table`
 	${GlobalStyles};
 	border-collapse: separate;
 	border-spacing: 0;
-`;
-const FlexWrap = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-`;
-
-const Th = styled.th<{ sorter: boolean }>`
-	text-align: left;
-	padding: 16px 16px;
-	overflow-wrap: break-word;
-	font-weight: 500;
-	background: ${COLORS.BACKGROUND_GREY};
-	border-bottom: 1px solid ${COLORS.GREY4};
-	transition: background 0.3s ease;
-	&:first-child {
-		border-top-left-radius: 4px;
-	}
-	cursor: ${({ sorter }) => (sorter ? "pointer" : "none")};
-`;
-
-const Td = styled.td`
-	padding: 16px 16px;
-	overflow-wrap: break-word;
-	border: 0;
-	text-align: left;
-	border-bottom: 1px solid ${COLORS.GREY4};
 `;
 
 export default Table;
