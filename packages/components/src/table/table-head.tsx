@@ -6,13 +6,14 @@ import Icon from "../icon";
 
 interface TheadProps {
 	columns: ColumnType[];
+	activeCol: ColumnType;
 	handleSort: (
-		sorter: (a: any, b: any, sortOrder: sortOrderType | undefined) => any,
+		column: ColumnType,
 		sortOrder: sortOrderType | undefined
 	) => void;
 }
 
-const Thead = ({ columns, handleSort }: TheadProps) => {
+const Thead = ({ columns, activeCol, handleSort }: TheadProps) => {
 	return (
 		<thead>
 			<tr>
@@ -30,7 +31,10 @@ const Thead = ({ columns, handleSort }: TheadProps) => {
 									name="arrow-dropdown"
 									size={21}
 									color={
-										sortOrder && sortOrder === "descends"
+										// eslint-disable-next-line react/prop-types
+										column.key === activeCol.key &&
+										sortOrder &&
+										sortOrder === "descends"
 											? COLORS.PRIMARY_LIGHT
 											: COLORS.GREY4
 									}
@@ -39,7 +43,10 @@ const Thead = ({ columns, handleSort }: TheadProps) => {
 									name="arrow-dropup"
 									size={21}
 									color={
-										sortOrder && sortOrder === "ascends"
+										// eslint-disable-next-line react/prop-types
+										column.key === activeCol.key &&
+										sortOrder &&
+										sortOrder === "ascends"
 											? COLORS.PRIMARY_LIGHT
 											: COLORS.GREY4
 									}
@@ -55,20 +62,10 @@ const Thead = ({ columns, handleSort }: TheadProps) => {
 							onClick={() => {
 								if (!sortOrder || sortOrder === "descends") {
 									setSortOrder("ascends");
-									handleSort(
-										column.sorter
-											? column.sorter
-											: function() {},
-										"ascends"
-									);
+									handleSort(column, "ascends");
 								} else {
 									setSortOrder("descends");
-									handleSort(
-										column.sorter
-											? column.sorter
-											: function() {},
-										"descends"
-									);
+									handleSort(column, "descends");
 								}
 							}}
 						>
