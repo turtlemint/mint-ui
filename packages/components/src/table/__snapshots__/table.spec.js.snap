@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`table renders correctly 1`] = `
+<DocumentFragment>
+  <table
+    class="table__TableEl-sc-1929wyb-0 dFPJDU"
+  >
+    <thead>
+      <tr>
+        <th
+          class="table-head__Th-sc-19pnxcl-1 gutFPX"
+        >
+          <div
+            class="table-head__FlexWrap-sc-19pnxcl-2 kYrMUr"
+          >
+            <span>
+              Name
+            </span>
+            <span
+              class="table-head__IconWrapper-sc-19pnxcl-0 lkKcxF"
+            >
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 10l5 5 5-5H7z"
+                />
+              </svg>
+              <svg
+                fill="#0fb877"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 14l5-5 5 5H7z"
+                />
+              </svg>
+            </span>
+          </div>
+        </th>
+        <th
+          class="table-head__Th-sc-19pnxcl-1 gutFPX"
+        >
+          <div
+            class="table-head__FlexWrap-sc-19pnxcl-2 kYrMUr"
+          >
+            <span>
+              Age
+            </span>
+            <span
+              class="table-head__IconWrapper-sc-19pnxcl-0 lkKcxF"
+            >
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 10l5 5 5-5H7z"
+                />
+              </svg>
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 14l5-5 5 5H7z"
+                />
+              </svg>
+            </span>
+          </div>
+        </th>
+        <th
+          class="table-head__Th-sc-19pnxcl-1 gutFPX"
+        >
+          <div
+            class="table-head__FlexWrap-sc-19pnxcl-2 kYrMUr"
+          >
+            <span>
+              Address
+            </span>
+            <span
+              class="table-head__IconWrapper-sc-19pnxcl-0 lkKcxF"
+            >
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 10l5 5 5-5H7z"
+                />
+              </svg>
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 14l5-5 5 5H7z"
+                />
+              </svg>
+            </span>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          class="table-body__Td-sc-1sw4qbt-0 clHVNp"
+        >
+          John
+        </td>
+        <td
+          class="table-body__Td-sc-1sw4qbt-0 clHVNp"
+        >
+          42
+        </td>
+        <td
+          class="table-body__Td-sc-1sw4qbt-0 clHVNp"
+        >
+          20 D Wall street
+        </td>
+      </tr>
+      <tr>
+        <td
+          class="table-body__Td-sc-1sw4qbt-0 clHVNp"
+        >
+          Mike
+        </td>
+        <td
+          class="table-body__Td-sc-1sw4qbt-0 clHVNp"
+        >
+          32
+        </td>
+        <td
+          class="table-body__Td-sc-1sw4qbt-0 clHVNp"
+        >
+          10 Downing Street
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
