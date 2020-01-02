@@ -17,6 +17,8 @@ import { default as Icon } from "./src/icon";
 import { default as Avatar } from "./src/avatar";
 import { default as List } from "./src/list";
 import { default as Chip } from "./src/chip";
+import { default as Tabs } from "./src/tabs";
+import { default as Table } from "./src/table";
 
 export {
 	Button,
@@ -38,5 +40,7 @@ export {
 	Icon,
 	Avatar,
 	List,
-	Chip
+	Chip,
+	Tabs,
+	Table
 };
