@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { Button } from "./index";
 import Row from "../grid/row";
 import Col from "../grid/col";
-import makeTable from "../table";
+import makeTable from "../table/prop-table";
 
 const ButtonProps = [
 	"btnType",

@@ -4,7 +4,7 @@ import { default as ModalBase, ModalProps } from "./";
 import { default as ConfirmBase, ConfirmProps } from "./confirm";
 import Button from "../button";
 import COLORS from "../__utils/colors";
-import makeTable from "../table";
+import makeTable from "../table/prop-table";
 
 const el = document.createElement("div");
 el.setAttribute("id", "modal-root");

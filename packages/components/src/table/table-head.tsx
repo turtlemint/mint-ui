@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { ColumnType, sortOrderType } from "./table";
+import { ColumnType, sortOrderType } from "./index";
 import COLORS from "../__utils/colors";
 import Icon from "../icon";
 

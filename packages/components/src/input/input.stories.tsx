@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Input } from "./index";
-import makeTable from "../table";
+import makeTable from "../table/prop-table";
 
 const InputProps = [
 	"type",

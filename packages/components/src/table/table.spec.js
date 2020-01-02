@@ -1,6 +1,6 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
-import Table from "./table";
+import Table from "./index";
 
 test("table renders correctly", () => {
   const dataSource = [
@@ -89,7 +89,7 @@ test("table renders correctly", () => {
   expect(asFragment()).toMatchInlineSnapshot(`
     <DocumentFragment>
       <table
-        class="table__TableEl-ep86xw-0 gXXjSc"
+        class="table__TableEl-sc-1929wyb-0 dFPJDU"
       >
         <thead>
           <tr>

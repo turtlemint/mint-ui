@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import Table, { sortOrderType, ColumnType } from "./table";
+import Table, { sortOrderType, ColumnType } from "./index";
 
 const stories = storiesOf("Table", module);
 
