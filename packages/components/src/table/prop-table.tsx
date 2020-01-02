@@ -26,7 +26,6 @@ const Red = (props: any) => (
 
 export default function makeTable(componentProps: string[]) {
 	const Table = ({ propDefinitions }: any) => {
-		console.log("componentProps", componentProps);
 		const props = propDefinitions.map(
 			({
 				property,
@@ -35,7 +34,6 @@ export default function makeTable(componentProps: string[]) {
 				description,
 				defaultValue
 			}: any) => {
-				console.log("property", property);
 				return componentProps.includes(property) ? (
 					<tr key={property}>
 						<td>
