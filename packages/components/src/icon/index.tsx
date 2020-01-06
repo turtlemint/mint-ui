@@ -13,6 +13,7 @@ import OutlineDone from "../icons/OutlineDone";
 import OutlineSort from "../icons/OutlineSort";
 import Settings from "../icons/Settings";
 import Warning from "../icons/Warning";
+import Sales from "../icons/Sales";
 import { IDict } from "../__utils/type";
 import Done from "../icons/Done";
 import { Sort, SortDown, ArrowDropDown, ArrowDropUp } from "../icons";
@@ -36,7 +37,8 @@ const IconDict: IDict<any> = {
 	"sort": Sort,
 	"sort-down": SortDown,
 	"arrow-dropdown": ArrowDropDown,
-	"arrow-dropup": ArrowDropUp
+	"arrow-dropup": ArrowDropUp,
+	"sales":Sales,
 };
 
 interface IconProps {
