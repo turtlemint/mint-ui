@@ -1,21 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import COLORS from "../__utils/colors";
+import { OnRowReturn } from "./index";
 
-interface OnRowReturn {
-	onClick?: (
-		event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-	) => void;
-	onContextMenu?: (
-		event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-	) => void;
-	onMouseEnter?: (
-		event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-	) => void;
-	onMouseLeave?: (
-		event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-	) => void;
-}
 interface TableBodyProps {
 	data: any;
 	onRow?: (record: any, rowIndex: string) => OnRowReturn;
