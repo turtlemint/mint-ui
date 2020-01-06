@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react';
+import React, { SVGProps } from "react";
 
 const SvgCar = (props: SVGProps<SVGSVGElement>) => (
 	<svg width={24} height={24} {...props}>
