@@ -16,6 +16,12 @@ import Warning from "../icons/Warning";
 import { IDict } from "../__utils/type";
 import Done from "../icons/Done";
 import { Sort, SortDown, ArrowDropDown, ArrowDropUp } from "../icons";
+import ArrowBack from "../icons/ArrowBack";
+import Bike from "../icons/Bike";
+import Car from "../icons/Car";
+import Health from "../icons/Health";
+import Life from "../icons/Life";
+import Truck from "../icons/Truck";
 
 const IconDict: IDict<any> = {
 	"announcement": Announcement,
@@ -36,7 +42,13 @@ const IconDict: IDict<any> = {
 	"sort": Sort,
 	"sort-down": SortDown,
 	"arrow-dropdown": ArrowDropDown,
-	"arrow-dropup": ArrowDropUp
+	"arrow-dropup": ArrowDropUp,
+	"arrow-back": ArrowBack,
+	"bike": Bike,
+	"car": Car,
+	"health": Health,
+	"life": Life,
+	"truck": Truck
 };
 
 interface IconProps {
