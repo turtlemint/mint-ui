@@ -139,6 +139,12 @@ stories.add(
 					</IconWrapper>
 					<Caption>truck</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="sales" {...props} />
+					</IconWrapper>
+					<Caption>sales</Caption>
+				</Wrapper>
 			</>
 		);
 	},
