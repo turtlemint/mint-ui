@@ -14,12 +14,14 @@ export type ColumnType = {
 	sorter?: (a: any, b: any, sortOrder: sortOrderType | undefined) => any;
 	defaultSortOrder?: sortOrderType;
 };
+
 interface TableProps {
 	dataSource: any;
 	columns: any[];
+	onRow?: any;
 }
 
-export const Table = ({ dataSource, columns }: TableProps) => {
+export const Table = ({ dataSource, columns, onRow }: TableProps) => {
 	const defaultCol = columns.filter(column => column.defaultSortOrder)[0];
 	const [activeCol, setActiveCol] = React.useState<ColumnType>(defaultCol);
 
@@ -49,7 +51,7 @@ export const Table = ({ dataSource, columns }: TableProps) => {
 				activeCol={activeCol}
 				handleSort={handleSort}
 			/>
-			<TableBody data={data} />
+			<TableBody data={data} onRow={onRow} />
 		</TableEl>
 	);
 };
