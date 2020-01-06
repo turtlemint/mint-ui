@@ -103,6 +103,48 @@ stories.add(
 					</IconWrapper>
 					<Caption>warning</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="arrow-back" {...props} />
+					</IconWrapper>
+					<Caption>arrow-back</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="bike" {...props} />
+					</IconWrapper>
+					<Caption>bike</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="car" {...props} />
+					</IconWrapper>
+					<Caption>car</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="health" {...props} />
+					</IconWrapper>
+					<Caption>health</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="life" {...props} />
+					</IconWrapper>
+					<Caption>life</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="truck" {...props} />
+					</IconWrapper>
+					<Caption>truck</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="sales" {...props} />
+					</IconWrapper>
+					<Caption>sales</Caption>
+				</Wrapper>
 			</>
 		);
 	},
