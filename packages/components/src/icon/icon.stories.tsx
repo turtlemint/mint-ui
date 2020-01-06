@@ -103,6 +103,12 @@ stories.add(
 					</IconWrapper>
 					<Caption>warning</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="sales" {...props} />
+					</IconWrapper>
+					<Caption>sales</Caption>
+				</Wrapper>
 			</>
 		);
 	},
