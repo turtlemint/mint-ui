@@ -16,7 +16,13 @@ import Warning from "../icons/Warning";
 import Sales from "../icons/Sales";
 import { IDict } from "../__utils/type";
 import Done from "../icons/Done";
-import { Sort, SortDown, ArrowDropDown, ArrowDropUp } from "../icons";
+import {
+	Sort,
+	SortDown,
+	ArrowDropDown,
+	ArrowDropUp,
+	KeyboardArrowLeft
+} from "../icons";
 import ArrowBack from "../icons/ArrowBack";
 import Bike from "../icons/Bike";
 import Car from "../icons/Car";
@@ -34,6 +40,7 @@ const IconDict: IDict<any> = {
 	"keyboard-arrow-up": KeyboardArrowUp,
 	"keyboard-arrow-down": KeyboardArrowDown,
 	"keyboard-arrow-right": KeyboardArrowRight,
+	"keyboard-arrow-left": KeyboardArrowLeft,
 	"notification-important": NotificationImportant,
 	"outline-done": OutlineDone,
 	"outline-sort": OutlineSort,
