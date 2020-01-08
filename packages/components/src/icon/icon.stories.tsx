@@ -157,6 +157,12 @@ stories.add(
 					</IconWrapper>
 					<Caption>sales</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="more-horiz" {...props} />
+					</IconWrapper>
+					<Caption>more-horiz</Caption>
+				</Wrapper>
 			</>
 		);
 	},

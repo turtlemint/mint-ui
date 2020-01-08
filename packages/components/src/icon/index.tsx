@@ -29,6 +29,7 @@ import Car from "../icons/Car";
 import Health from "../icons/Health";
 import Life from "../icons/Life";
 import Truck from "../icons/Truck";
+import MoreHoriz from "../icons/MoreHoriz";
 
 const IconDict: IDict<any> = {
 	"announcement": Announcement,
@@ -57,7 +58,8 @@ const IconDict: IDict<any> = {
 	"health": Health,
 	"life": Life,
 	"truck": Truck,
-	"sales": Sales
+	"sales": Sales,
+	"more-horiz": MoreHoriz
 };
 
 interface IconProps {

@@ -16,6 +16,7 @@ export { default as KeyboardArrowLeft } from "./KeyboardArrowLeft";
 export { default as KeyboardArrowRight } from "./KeyboardArrowRight";
 export { default as KeyboardArrowUp } from "./KeyboardArrowUp";
 export { default as Life } from "./Life";
+export { default as MoreHoriz } from "./MoreHoriz";
 export { default as NotificationImportant } from "./NotificationImportant";
 export { default as OutlineDone } from "./OutlineDone";
 export { default as OutlineSort } from "./OutlineSort";
