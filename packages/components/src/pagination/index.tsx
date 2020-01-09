@@ -11,7 +11,7 @@ interface PaginationProps {
 	defaultCurrent?: number;
 }
 
-const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
+export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 	const [pageSize] = React.useState<number>(10);
 	const lastPage: number = total / pageSize;
 	const [activePage, setActivePage] = React.useState<number>(
