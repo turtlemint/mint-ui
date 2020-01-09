@@ -10,3 +10,6 @@ stories.add("basic", () => {
 stories.add("more pages", () => {
 	return <Pagination defaultCurrent={6} total={500} />;
 });
+stories.add("disabled", () => {
+	return <Pagination defaultCurrent={6} total={500} disabled={true} />;
+});

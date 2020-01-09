@@ -9,9 +9,10 @@ interface PaginationProps {
 	current?: number;
 	onChange?: () => React.ReactHTMLElement<HTMLDListElement>[];
 	defaultCurrent?: number;
+	disabled?: boolean;
 }
 
-export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
+export const Pagination = ({ total, defaultCurrent, disabled }: PaginationProps) => {
 	const [pageSize] = React.useState<number>(10);
 	const lastPage: number = total / pageSize;
 	const [activePage, setActivePage] = React.useState<number>(
@@ -53,6 +54,7 @@ export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 					setActivePage(page);
 					resetEllipsis();
 				}}
+				disabled={disabled}
 			>
 				<a>{page}</a>
 			</Item>
@@ -66,7 +68,7 @@ export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 					setActivePage(activePage - 1);
 					resetEllipsis();
 				}}
-				disabled={activePage === 1}
+				disabled={activePage === 1 || disabled}
 			>
 				<Icon size={18} name="keyboard-arrow-left" />
 			</Item>
@@ -77,6 +79,7 @@ export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 					setActivePage(1);
 					resetEllipsis();
 				}}
+				disabled={disabled}
 			>
 				<a>{1}</a>
 			</Item>
@@ -90,12 +93,13 @@ export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 					}}
 					onMouseEnter={() => setLeftEllipsis(false)}
 					onMouseLeave={() => setLeftEllipsis(true)}
+					disabled={disabled}
 				>
 					{showLeftEllipsis ? (
 						<Icon name="more-horiz" />
 					) : (
-						<Icon name="fast-forward" />
-					)}
+							<Icon name="fast-forward" />
+						)}
 				</Item>
 			) : null}
 			{renderList()}
@@ -109,12 +113,13 @@ export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 					}}
 					onMouseEnter={() => setRightEllipsis(false)}
 					onMouseLeave={() => setRightEllipsis(true)}
+					disabled={disabled}
 				>
 					{showRightEllipsis ? (
 						<Icon name="more-horiz" />
 					) : (
-						<Icon name="fast-forward" />
-					)}
+							<Icon name="fast-forward" />
+						)}
 				</Item>
 			) : null}
 			<Item
@@ -124,6 +129,7 @@ export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 					setActivePage(lastPage);
 					resetEllipsis();
 				}}
+				disabled={disabled}
 			>
 				<a>{lastPage}</a>
 			</Item>
@@ -133,7 +139,7 @@ export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 					setActivePage(activePage + 1);
 					resetEllipsis();
 				}}
-				disabled={activePage === lastPage}
+				disabled={activePage === lastPage || disabled}
 			>
 				<Icon size={18} name="keyboard-arrow-right" />
 			</Item>
@@ -175,14 +181,14 @@ const Item = styled.li<{
 	user-select: none;
 	a {
 		color: ${({ active }) =>
-			active ? COLORS.PRIMARY_LIGHT : COLORS.GREY1};
+		active ? COLORS.PRIMARY_LIGHT : COLORS.GREY1};
 	}
 	svg {
 		fill: ${COLORS.GREY3};
 	}
 	&:hover {
 		border: ${({ border = true }) =>
-			border ? `1px solid ${COLORS.PRIMARY_LIGHT}` : 0};
+		border ? `1px solid ${COLORS.PRIMARY_LIGHT}` : 0};
 		a {
 			color: ${COLORS.PRIMARY_LIGHT};
 		}
@@ -193,7 +199,11 @@ const Item = styled.li<{
 	${({ disabled }) =>
 		disabled &&
 		css`
-			cursor: not-allowed;
+			background-color: ${COLORS.BACKGROUND_GREY};
+			a {
+				color: ${COLORS.DISABLED}; 
+			}
+			border-color: ${COLORS.DISABLED};
 			pointer-events: none;
 			svg {
 				fill: ${COLORS.DISABLED};
