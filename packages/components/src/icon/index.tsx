@@ -31,6 +31,10 @@ import Health from "../icons/Health";
 import Life from "../icons/Life";
 import Truck from "../icons/Truck";
 import MoreHoriz from "../icons/MoreHoriz";
+import EmailOutline from "../icons/EmailOutline";
+import Phone from "../icons/Phone";
+import Search from "../icons/Search";
+import Whatsapp from "../icons/Whatsapp";
 
 const IconDict: IDict<any> = {
 	"announcement": Announcement,
@@ -61,7 +65,11 @@ const IconDict: IDict<any> = {
 	"truck": Truck,
 	"sales": Sales,
 	"more-horiz": MoreHoriz,
-	"fast-forward": FastForward
+	"fast-forward": FastForward,
+	"email-outline": EmailOutline,
+	"phone": Phone,
+	"search": Search,
+	"whatsapp": Whatsapp
 };
 
 interface IconProps {

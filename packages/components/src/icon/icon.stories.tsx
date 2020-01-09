@@ -169,6 +169,30 @@ stories.add(
 					</IconWrapper>
 					<Caption>fast-forward</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="email-outline" {...props} />
+					</IconWrapper>
+					<Caption>email-outline</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="phone" {...props} />
+					</IconWrapper>
+					<Caption>phone</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="search" {...props} />
+					</IconWrapper>
+					<Caption>search</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="whatsapp" {...props} />
+					</IconWrapper>
+					<Caption>whatsapp</Caption>
+				</Wrapper>
 			</>
 		);
 	},
