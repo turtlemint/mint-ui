@@ -11,7 +11,7 @@ interface PaginationProps {
 	defaultCurrent?: number;
 }
 
-const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
+export const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 	const [state, dispatch] = React.useReducer(
 		(state, action) => {
 			switch (action.type) {
