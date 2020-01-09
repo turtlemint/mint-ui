@@ -12,7 +12,11 @@ interface PaginationProps {
 	disabled?: boolean;
 }
 
-export const Pagination = ({ total, defaultCurrent, disabled }: PaginationProps) => {
+export const Pagination = ({
+	total,
+	defaultCurrent,
+	disabled
+}: PaginationProps) => {
 	const [pageSize] = React.useState<number>(10);
 	const lastPage: number = total / pageSize;
 	const [activePage, setActivePage] = React.useState<number>(
@@ -98,8 +102,8 @@ export const Pagination = ({ total, defaultCurrent, disabled }: PaginationProps)
 					{showLeftEllipsis ? (
 						<Icon name="more-horiz" />
 					) : (
-							<Icon name="fast-forward" />
-						)}
+						<Icon name="fast-forward" />
+					)}
 				</Item>
 			) : null}
 			{renderList()}
@@ -118,8 +122,8 @@ export const Pagination = ({ total, defaultCurrent, disabled }: PaginationProps)
 					{showRightEllipsis ? (
 						<Icon name="more-horiz" />
 					) : (
-							<Icon name="fast-forward" />
-						)}
+						<Icon name="fast-forward" />
+					)}
 				</Item>
 			) : null}
 			<Item
@@ -181,14 +185,14 @@ const Item = styled.li<{
 	user-select: none;
 	a {
 		color: ${({ active }) =>
-		active ? COLORS.PRIMARY_LIGHT : COLORS.GREY1};
+			active ? COLORS.PRIMARY_LIGHT : COLORS.GREY1};
 	}
 	svg {
 		fill: ${COLORS.GREY3};
 	}
 	&:hover {
 		border: ${({ border = true }) =>
-		border ? `1px solid ${COLORS.PRIMARY_LIGHT}` : 0};
+			border ? `1px solid ${COLORS.PRIMARY_LIGHT}` : 0};
 		a {
 			color: ${COLORS.PRIMARY_LIGHT};
 		}
@@ -201,7 +205,7 @@ const Item = styled.li<{
 		css`
 			background-color: ${COLORS.BACKGROUND_GREY};
 			a {
-				color: ${COLORS.DISABLED}; 
+				color: ${COLORS.DISABLED};
 			}
 			border-color: ${COLORS.DISABLED};
 			pointer-events: none;
