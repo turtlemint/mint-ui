@@ -17,11 +17,13 @@ const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 	const [activePage, setActivePage] = React.useState<number>(
 		defaultCurrent ? defaultCurrent : 1
 	);
+	const [showLeftEllipsis, setLeftEllipsis] = React.useState<boolean>(true);
+	const [showRightEllipsis, setRightEllipsis] = React.useState<boolean>(true);
 
-	// React.useEffect(() => {
-	//     renderList();
-	// }, [activePage]);
-
+	const resetEllipsis = () => {
+		setLeftEllipsis(true);
+		setRightEllipsis(true);
+	};
 	const renderList = () => {
 		let pages: number[] = [];
 		if (lastPage > 6) {
@@ -47,7 +49,10 @@ const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 			<Item
 				key={page}
 				active={activePage === page}
-				onClick={() => setActivePage(page)}
+				onClick={() => {
+					setActivePage(page);
+					resetEllipsis();
+				}}
 			>
 				<a>{page}</a>
 			</Item>
@@ -57,7 +62,10 @@ const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 		<Wrapper>
 			<Item
 				key={0}
-				onClick={() => setActivePage(activePage - 1)}
+				onClick={() => {
+					setActivePage(activePage - 1);
+					resetEllipsis();
+				}}
 				disabled={activePage === 1}
 			>
 				<Icon size={18} name="keyboard-arrow-left" />
@@ -65,31 +73,66 @@ const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 			<Item
 				key={1}
 				active={activePage === 1}
-				onClick={() => setActivePage(1)}
+				onClick={() => {
+					setActivePage(1);
+					resetEllipsis();
+				}}
 			>
 				<a>{1}</a>
 			</Item>
 			{lastPage > 6 && activePage > 4 ? (
-				<Item key={-1} border={false} onClick={() => setActivePage(1)}>
-					<Icon name="more-horiz" />
+				<Item
+					key={-1}
+					border={false}
+					onClick={() => {
+						setActivePage(1);
+						resetEllipsis();
+					}}
+					onMouseEnter={() => setLeftEllipsis(false)}
+					onMouseLeave={() => setLeftEllipsis(true)}
+				>
+					{showLeftEllipsis ? (
+						<Icon name="more-horiz" />
+					) : (
+						<Icon name="fast-forward" />
+					)}
 				</Item>
 			) : null}
 			{renderList()}
 			{lastPage > 6 && activePage <= lastPage - 4 ? (
-				<Item key={-2} border={false} onClick={() => setActivePage(50)}>
-					<Icon name="more-horiz" />
+				<Item
+					key={-2}
+					border={false}
+					onClick={() => {
+						setActivePage(50);
+						resetEllipsis();
+					}}
+					onMouseEnter={() => setRightEllipsis(false)}
+					onMouseLeave={() => setRightEllipsis(true)}
+				>
+					{showRightEllipsis ? (
+						<Icon name="more-horiz" />
+					) : (
+						<Icon name="fast-forward" />
+					)}
 				</Item>
 			) : null}
 			<Item
 				key={lastPage}
 				active={activePage === lastPage}
-				onClick={() => setActivePage(lastPage)}
+				onClick={() => {
+					setActivePage(lastPage);
+					resetEllipsis();
+				}}
 			>
 				<a>{lastPage}</a>
 			</Item>
 			<Item
 				key={-3}
-				onClick={() => setActivePage(activePage + 1)}
+				onClick={() => {
+					setActivePage(activePage + 1);
+					resetEllipsis();
+				}}
 				disabled={activePage === lastPage}
 			>
 				<Icon size={18} name="keyboard-arrow-right" />
