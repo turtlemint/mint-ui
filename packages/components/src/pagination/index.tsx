@@ -12,28 +12,44 @@ interface PaginationProps {
 }
 
 const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
-	const [pageSize] = React.useState<number>(10);
-	const lastPage: number = total / pageSize;
-	const [activePage, setActivePage] = React.useState<number>(
-		defaultCurrent ? defaultCurrent : 1
+	const [state, dispatch] = React.useReducer(
+		(state, action) => {
+			switch (action.type) {
+				case "setItemClickState":
+					return {
+						...state,
+						activePage: action.activePage,
+						showLeftEllipsis: action.showLeftEllipsis,
+						showRightEllipsis: action.showRightEllipsis
+					};
+				default:
+					return state;
+			}
+		},
+		{
+			pageSize: 10,
+			activePage: defaultCurrent ? defaultCurrent : 1,
+			showLeftEllipsis: true,
+			showRightEllipsis: true
+		}
 	);
-
-	// React.useEffect(() => {
-	//     renderList();
-	// }, [activePage]);
+	const lastPage: number = total / state.pageSize;
 
 	const renderList = () => {
 		let pages: number[] = [];
 		if (lastPage > 6) {
-			if (activePage <= 4) {
+			if (state.activePage <= 4) {
 				pages = [2, 3, 4, 5];
-			} else if (activePage > 4 && activePage <= lastPage - 4) {
+			} else if (
+				state.activePage > 4 &&
+				state.activePage <= lastPage - 4
+			) {
 				pages = [
-					activePage - 2,
-					activePage - 1,
-					activePage,
-					activePage + 1,
-					activePage + 2
+					state.activePage - 2,
+					state.activePage - 1,
+					state.activePage,
+					state.activePage + 1,
+					state.activePage + 2
 				];
 			} else {
 				pages = [46, 47, 48, 49];
@@ -46,51 +62,124 @@ const Pagination = ({ total, defaultCurrent }: PaginationProps) => {
 		return pages.map(page => (
 			<Item
 				key={page}
-				active={activePage === page}
-				onClick={() => setActivePage(page)}
+				active={state.activePage === page}
+				onClick={() => {
+					dispatch({
+						type: "setItemClickState",
+						activePage: page,
+						showLeftEllipsis: true,
+						showRightEllipsis: true
+					});
+				}}
 			>
 				<a>{page}</a>
 			</Item>
 		));
 	};
+	const [showLeftEllipsis, setLeftEllipsis] = React.useState<boolean>(true);
+	const [showRightEllipsis, setRightEllipsis] = React.useState<boolean>(true);
+
 	return (
 		<Wrapper>
 			<Item
 				key={0}
-				onClick={() => setActivePage(activePage - 1)}
-				disabled={activePage === 1}
+				onClick={() => {
+					dispatch({
+						type: "setItemClickState",
+						activePage: 1,
+						showLeftEllipsis: true,
+						showRightEllipsis: true
+					});
+				}}
+				disabled={state.activePage === 1}
 			>
 				<Icon size={18} name="keyboard-arrow-left" />
 			</Item>
 			<Item
 				key={1}
-				active={activePage === 1}
-				onClick={() => setActivePage(1)}
+				active={state.activePage === 1}
+				onClick={() => {
+					dispatch({
+						type: "setItemClickState",
+						activePage: 1,
+						showLeftEllipsis: true,
+						showRightEllipsis: true
+					});
+				}}
 			>
 				<a>{1}</a>
 			</Item>
-			{lastPage > 6 && activePage > 4 ? (
-				<Item key={-1} border={false} onClick={() => setActivePage(1)}>
-					<Icon name="more-horiz" />
+			{lastPage > 6 && state.activePage > 4 ? (
+				<Item
+					key={-1}
+					border={false}
+					onClick={() => {
+						dispatch({
+							type: "setItemClickState",
+							activePage: 1,
+							showLeftEllipsis: true,
+							showRightEllipsis: true
+						});
+					}}
+					onMouseEnter={() => setLeftEllipsis(false)}
+					onMouseLeave={() => setLeftEllipsis(true)}
+				>
+					{showLeftEllipsis ? (
+						<Icon name="more-horiz" />
+					) : (
+						<Icon name="fast-forward" />
+					)}
 				</Item>
 			) : null}
 			{renderList()}
-			{lastPage > 6 && activePage <= lastPage - 4 ? (
-				<Item key={-2} border={false} onClick={() => setActivePage(50)}>
-					<Icon name="more-horiz" />
+			{lastPage > 6 && state.activePage <= lastPage - 4 ? (
+				<Item
+					className="right-fast-forward"
+					key={-2}
+					border={false}
+					onClick={() => {
+						dispatch({
+							type: "setItemClickState",
+							activePage: 50,
+							showLeftEllipsis: true,
+							showRightEllipsis: true
+						});
+					}}
+					onMouseEnter={() => setRightEllipsis(false)}
+					onMouseLeave={() => setRightEllipsis(true)}
+				>
+					{showRightEllipsis ? (
+						<Icon name="more-horiz" />
+					) : (
+						<Icon name="fast-forward" />
+					)}
 				</Item>
 			) : null}
 			<Item
 				key={lastPage}
-				active={activePage === lastPage}
-				onClick={() => setActivePage(lastPage)}
+				active={state.activePage === lastPage}
+				onClick={() => {
+					dispatch({
+						type: "setItemClickState",
+						activePage: lastPage,
+						showLeftEllipsis: true,
+						showRightEllipsis: true
+					});
+				}}
 			>
 				<a>{lastPage}</a>
 			</Item>
 			<Item
 				key={-3}
-				onClick={() => setActivePage(activePage + 1)}
-				disabled={activePage === lastPage}
+				onClick={() => {
+					dispatch({
+						type: "setItemClickState",
+						activePage: state.activePage + 1,
+						showLeftEllipsis: true,
+						showRightEllipsis: true
+					});
+				}}
+				disabled={state.activePage === lastPage}
 			>
 				<Icon size={18} name="keyboard-arrow-right" />
 			</Item>
