@@ -16,13 +16,21 @@ import Warning from "../icons/Warning";
 import Sales from "../icons/Sales";
 import { IDict } from "../__utils/type";
 import Done from "../icons/Done";
-import { Sort, SortDown, ArrowDropDown, ArrowDropUp } from "../icons";
+import {
+	Sort,
+	SortDown,
+	ArrowDropDown,
+	ArrowDropUp,
+	KeyboardArrowLeft,
+	FastForward
+} from "../icons";
 import ArrowBack from "../icons/ArrowBack";
 import Bike from "../icons/Bike";
 import Car from "../icons/Car";
 import Health from "../icons/Health";
 import Life from "../icons/Life";
 import Truck from "../icons/Truck";
+import MoreHoriz from "../icons/MoreHoriz";
 
 const IconDict: IDict<any> = {
 	"announcement": Announcement,
@@ -34,6 +42,7 @@ const IconDict: IDict<any> = {
 	"keyboard-arrow-up": KeyboardArrowUp,
 	"keyboard-arrow-down": KeyboardArrowDown,
 	"keyboard-arrow-right": KeyboardArrowRight,
+	"keyboard-arrow-left": KeyboardArrowLeft,
 	"notification-important": NotificationImportant,
 	"outline-done": OutlineDone,
 	"outline-sort": OutlineSort,
@@ -50,7 +59,9 @@ const IconDict: IDict<any> = {
 	"health": Health,
 	"life": Life,
 	"truck": Truck,
-	"sales": Sales
+	"sales": Sales,
+	"more-horiz": MoreHoriz,
+	"fast-forward": FastForward
 };
 
 interface IconProps {

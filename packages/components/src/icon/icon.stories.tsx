@@ -69,15 +69,27 @@ stories.add(
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="keyboard-arrow-down" {...props} />
+						<Icon name="keyboard-arrow-left" {...props} />
 					</IconWrapper>
-					<Caption>keyboard-arrow-down</Caption>
+					<Caption>keyboard-arrow-left</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="keyboard-arrow-up" {...props} />
+					</IconWrapper>
+					<Caption>keyboard-arrow-up</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
 						<Icon name="keyboard-arrow-right" {...props} />
 					</IconWrapper>
 					<Caption>keyboard-arrow-right</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="keyboard-arrow-down" {...props} />
+					</IconWrapper>
+					<Caption>keyboard-arrow-down</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
@@ -144,6 +156,18 @@ stories.add(
 						<Icon name="sales" {...props} />
 					</IconWrapper>
 					<Caption>sales</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="more-horiz" {...props} />
+					</IconWrapper>
+					<Caption>more-horiz</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="fast-forward" {...props} />
+					</IconWrapper>
+					<Caption>fast-forward</Caption>
 				</Wrapper>
 			</>
 		);
