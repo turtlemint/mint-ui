@@ -5,7 +5,20 @@ import Thead from "./table-head";
 import TableBody from "./table-body";
 
 export type sortOrderType = "ascends" | "descends";
-
+export interface OnRowReturn {
+	onClick?: (
+		event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
+	) => void;
+	onContextMenu?: (
+		event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
+	) => void;
+	onMouseEnter?: (
+		event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
+	) => void;
+	onMouseLeave?: (
+		event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
+	) => void;
+}
 export type ColumnType = {
 	title: string;
 	dataIndex: string;
@@ -14,12 +27,14 @@ export type ColumnType = {
 	sorter?: (a: any, b: any, sortOrder: sortOrderType | undefined) => any;
 	defaultSortOrder?: sortOrderType;
 };
+
 interface TableProps {
 	dataSource: any;
 	columns: any[];
+	onRow?: (record: any, rowIndex: string) => OnRowReturn;
 }
 
-export const Table = ({ dataSource, columns }: TableProps) => {
+export const Table = ({ dataSource, columns, onRow }: TableProps) => {
 	const defaultCol = columns.filter(column => column.defaultSortOrder)[0];
 	const [activeCol, setActiveCol] = React.useState<ColumnType>(defaultCol);
 
@@ -49,7 +64,7 @@ export const Table = ({ dataSource, columns }: TableProps) => {
 				activeCol={activeCol}
 				handleSort={handleSort}
 			/>
-			<TableBody data={data} />
+			<TableBody data={data} onRow={onRow} />
 		</TableEl>
 	);
 };

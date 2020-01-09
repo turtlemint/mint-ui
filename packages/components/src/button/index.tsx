@@ -45,7 +45,7 @@ const BaseButton = css<ButtonProps>`
 	${GlobalStyles};
 	cursor: pointer;
 	padding: 8px 15px;
-	display: flex;
+	display: inline-flex;
 	align-items: flex-end;
 	justify-content: space-between;
 	border-radius: 4px;

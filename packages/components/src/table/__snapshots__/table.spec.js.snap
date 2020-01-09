@@ -139,7 +139,9 @@ exports[`table renders correctly 1`] = `
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr
+        style="cursor: initial;"
+      >
         <td
           class="table-body__Td-sc-1sw4qbt-0 clHVNp"
         >
@@ -156,7 +158,9 @@ exports[`table renders correctly 1`] = `
           20 D Wall street
         </td>
       </tr>
-      <tr>
+      <tr
+        style="cursor: initial;"
+      >
         <td
           class="table-body__Td-sc-1sw4qbt-0 clHVNp"
         >
