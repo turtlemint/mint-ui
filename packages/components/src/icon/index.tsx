@@ -21,7 +21,8 @@ import {
 	SortDown,
 	ArrowDropDown,
 	ArrowDropUp,
-	KeyboardArrowLeft
+	KeyboardArrowLeft,
+	FastForward
 } from "../icons";
 import ArrowBack from "../icons/ArrowBack";
 import Bike from "../icons/Bike";
@@ -59,7 +60,8 @@ const IconDict: IDict<any> = {
 	"life": Life,
 	"truck": Truck,
 	"sales": Sales,
-	"more-horiz": MoreHoriz
+	"more-horiz": MoreHoriz,
+	"fast-forward": FastForward
 };
 
 interface IconProps {

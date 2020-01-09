@@ -9,6 +9,7 @@ export { default as CheckCircleOutline } from "./CheckCircleOutline";
 export { default as Close } from "./Close";
 export { default as Done } from "./Done";
 export { default as ErrorOutline } from "./ErrorOutline";
+export { default as FastForward } from "./FastForward";
 export { default as Health } from "./Health";
 export { default as Info } from "./Info";
 export { default as KeyboardArrowDown } from "./KeyboardArrowDown";

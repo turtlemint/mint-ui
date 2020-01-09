@@ -163,6 +163,12 @@ stories.add(
 					</IconWrapper>
 					<Caption>more-horiz</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="fast-forward" {...props} />
+					</IconWrapper>
+					<Caption>fast-forward</Caption>
+				</Wrapper>
 			</>
 		);
 	},
