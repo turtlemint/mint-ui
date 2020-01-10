@@ -223,7 +223,7 @@ stories.add(
 	() => (
 		<Confirm
 			type="success"
-			icon="check-circle-outline"
+			icon="check_circle_outline"
 			iconColor={COLORS.PRIMARY}
 			title="Success title"
 		>
@@ -242,7 +242,7 @@ stories.add(
 	() => (
 		<Confirm
 			type="error"
-			icon="error-outline"
+			icon="error_outline"
 			iconColor={COLORS.DANGER}
 			title="Error title"
 		>

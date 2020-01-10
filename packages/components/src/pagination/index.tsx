@@ -74,7 +74,7 @@ export const Pagination = ({
 				}}
 				disabled={activePage === 1 || disabled}
 			>
-				<Icon size={18} name="keyboard-arrow-left" />
+				<Icon size={18} name="keyboard_arrow_left" />
 			</Item>
 			<Item
 				key={1}
@@ -100,9 +100,9 @@ export const Pagination = ({
 					disabled={disabled}
 				>
 					{showLeftEllipsis ? (
-						<Icon name="more-horiz" />
+						<Icon name="more_horiz" />
 					) : (
-						<Icon name="fast-forward" />
+						<Icon name="fast_forward" />
 					)}
 				</Item>
 			) : null}
@@ -120,9 +120,9 @@ export const Pagination = ({
 					disabled={disabled}
 				>
 					{showRightEllipsis ? (
-						<Icon name="more-horiz" />
+						<Icon name="more_horiz" />
 					) : (
-						<Icon name="fast-forward" />
+						<Icon name="fast_forward" />
 					)}
 				</Item>
 			) : null}
@@ -145,7 +145,7 @@ export const Pagination = ({
 				}}
 				disabled={activePage === lastPage || disabled}
 			>
-				<Icon size={18} name="keyboard-arrow-right" />
+				<Icon size={18} name="keyboard_arrow_right" />
 			</Item>
 		</Wrapper>
 	);

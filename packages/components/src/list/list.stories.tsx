@@ -41,7 +41,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	},
@@ -62,7 +62,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	},
@@ -80,7 +80,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	},
@@ -97,7 +97,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	},
@@ -114,7 +114,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	}
