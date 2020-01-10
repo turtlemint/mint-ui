@@ -1,7 +1,7 @@
 import React, { SVGProps } from "react";
 
 const SvgPhone = (props: SVGProps<SVGSVGElement>) => (
-  <svg width={17} height={16} {...props}>
+  <svg width={24} height={24} {...props}>
     <defs>
       <path
         id="phone_svg__a"
