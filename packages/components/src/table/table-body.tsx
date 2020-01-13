@@ -8,13 +8,22 @@ interface TableBodyProps {
 	onRow?: (record: any, rowIndex: string) => OnRowReturn;
 	pageSize: number;
 	currentPage: number;
+	isAjax: boolean;
 }
 
-const TableBody = ({ data, onRow, pageSize, currentPage }: TableBodyProps) => {
-	const offset = (currentPage - 1) * pageSize;
-	const end = offset + pageSize;
-	const dataSlice = data.slice(offset, end);
-
+const TableBody = ({
+	data,
+	onRow,
+	pageSize,
+	currentPage,
+	isAjax
+}: TableBodyProps) => {
+	let dataSlice = data;
+	if (!isAjax) {
+		const offset = (currentPage - 1) * pageSize;
+		const end = offset + pageSize;
+		dataSlice = data.slice(offset, end);
+	}
 	return (
 		<tbody>
 			{dataSlice.map((item: any) => (
@@ -80,4 +89,5 @@ const Td = styled.td`
 	text-align: left;
 	border-bottom: 1px solid ${COLORS.GREY4};
 `;
+
 export default TableBody;

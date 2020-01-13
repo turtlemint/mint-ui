@@ -5,7 +5,7 @@ import Table, { sortOrderType, ColumnType } from "./index";
 const stories = storiesOf("Table", module);
 
 const dataSource: any = [];
-for (let i = 0; i < 51; i++) {
+for (let i = 0; i < 50; i++) {
 	dataSource.push({
 		key: i,
 		name: `Name: ${i}`,
@@ -82,6 +82,45 @@ const columns: ColumnType[] = [
 stories.add("default", () => (
 	<Table dataSource={dataSource} columns={columns} />
 ));
+
+interface PaginationProps {
+	currentPage: number;
+}
+
+stories.add("Ajax", () => {
+	const [tableData, setTableData] = React.useState([]);
+	const [loading, setLoading] = React.useState(false);
+	const [currentPage, setCurrentPage] = React.useState(1);
+	const pageSize: number = 10;
+
+	const getData = async (currentPage: number) => {
+		setLoading(true);
+		const result = (await fetch("https://swapi.co/api/people")).json();
+		console.log("currentPage", currentPage, result);
+		// Mock pagination
+		const offset = (currentPage - 1) * pageSize;
+		const end = offset + 10;
+		const dataSlice = dataSource.slice(offset, end);
+		setLoading(false);
+		setTableData(dataSlice);
+	};
+
+	const handleTableChange = (pagination: PaginationProps) => {
+		const { currentPage } = pagination;
+		getData(currentPage);
+		setCurrentPage(currentPage);
+	};
+
+	return (
+		<Table
+			dataSource={tableData}
+			columns={columns}
+			loading={loading}
+			pagination={{ total: 250, pageSize, currentPage }}
+			onChange={handleTableChange}
+		/>
+	);
+});
 stories.add("onRow", () => (
 	<Table
 		dataSource={dataSource}

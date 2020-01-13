@@ -4,6 +4,8 @@ import { GlobalStyles } from "../app";
 import Thead from "./table-head";
 import TableBody from "./table-body";
 import Pagination from "../pagination";
+import LoadingMask from "../loading/loading-mask";
+// import useDeepCompare from "../hooks/use-deep-compare";
 
 export type sortOrderType = "ascends" | "descends";
 export interface OnRowReturn {
@@ -29,21 +31,48 @@ export type ColumnType = {
 	defaultSortOrder?: sortOrderType;
 };
 
+interface Pagination {
+	total: number;
+	currentPage: number;
+	pageSize: number;
+}
 interface TableProps {
 	dataSource: any;
 	columns: any[];
 	onRow?: (record: any, rowIndex: string) => OnRowReturn;
+	pagination?: Pagination;
+	loading?: boolean;
+	onChange?: (pagination: any) => void;
 }
 
-export const Table = ({ dataSource, columns, onRow }: TableProps) => {
+export const Table = ({
+	dataSource,
+	columns,
+	onRow,
+	pagination,
+	loading,
+	onChange
+}: TableProps) => {
+	const [data, setData] = React.useState(dataSource);
 	const defaultCol = columns.filter(column => column.defaultSortOrder)[0];
 	const [activeCol, setActiveCol] = React.useState<ColumnType>(defaultCol);
+	const [currentPage, setCurrentPage] = React.useState<number>(
+		pagination ? pagination.currentPage : 1
+	);
+	const [pageSize] = React.useState<number>(
+		pagination ? pagination.pageSize : 10
+	);
+	React.useEffect(() => {
+		setData(dataSource);
+	}, [dataSource]);
 
+	React.useEffect(() => {
+		const pagination = { currentPage, pageSize };
+		onChange ? onChange(pagination) : null;
+	}, [currentPage, pageSize]);
 	React.useEffect(() => {
 		handleSort(activeCol, activeCol.defaultSortOrder);
 	}, []);
-
-	const [data, setData] = React.useState(dataSource);
 
 	const handleSort = (
 		column: ColumnType,
@@ -58,10 +87,10 @@ export const Table = ({ dataSource, columns, onRow }: TableProps) => {
 		setData([...sortedData]);
 		setActiveCol(column);
 	};
-	const [currentPage, setActivePage] = React.useState<number>(1);
-	const [pageSize] = React.useState<number>(10);
+
 	return (
 		<TableEl>
+			{loading ? <LoadingMask /> : null}
 			<Thead
 				columns={columns}
 				activeCol={activeCol}
@@ -72,11 +101,12 @@ export const Table = ({ dataSource, columns, onRow }: TableProps) => {
 				onRow={onRow}
 				pageSize={pageSize}
 				currentPage={currentPage}
+				isAjax={pagination ? true : false}
 			/>
 			<Pagination
-				total={dataSource.length}
-				current={currentPage}
-				onChange={(page: number) => setActivePage(page)}
+				total={pagination ? pagination.total : dataSource.length}
+				current={pagination ? pagination.currentPage : currentPage}
+				onChange={(page: number) => setCurrentPage(page)}
 			/>
 		</TableEl>
 	);
@@ -86,6 +116,7 @@ const TableEl = styled.table`
 	${GlobalStyles};
 	border-collapse: separate;
 	border-spacing: 0;
+	position: relative;
 `;
 
 export default Table;
