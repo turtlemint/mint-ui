@@ -10,10 +10,10 @@ stories.add(
 	"size",
 	() => (
 		<>
-			<Avatar size={128} icon="outline-sort" />
-			<Avatar size={64} icon="outline-sort" />
-			<Avatar size={40} icon="outline-sort" />
-			<Avatar size={24} icon="outline-sort" />
+			<Avatar size={128} icon="sort" />
+			<Avatar size={64} icon="sort" />
+			<Avatar size={40} icon="sort" />
+			<Avatar size={24} icon="sort" />
 		</>
 	),
 	{
@@ -26,8 +26,8 @@ stories.add(
 	"shape",
 	() => (
 		<>
-			<Avatar shape="circle" size={48} icon="outline-sort" />
-			<Avatar shape="square" size={48} icon="outline-sort" />
+			<Avatar shape="circle" size={48} icon="sort" />
+			<Avatar shape="square" size={48} icon="sort" />
 		</>
 	),
 	{
@@ -46,25 +46,25 @@ stories.add("icon colors", () => (
 		/>
 		<Avatar
 			size={48}
-			icon="notification-important"
+			icon="notification_important"
 			color="lime"
 			style={{ background: "black" }}
 		/>
 		<Avatar
 			size={48}
-			icon="error-outline"
+			icon="error_outline"
 			color="lime"
 			style={{ background: "black" }}
 		/>
 		<Avatar
 			size={48}
-			icon="outline-done"
+			icon="outline_done"
 			color="lime"
 			style={{ background: "black" }}
 		/>
 		<Avatar
 			size={48}
-			icon="outline-sort"
+			icon="sort"
 			color="lime"
 			style={{ background: "black" }}
 		/>
@@ -82,13 +82,13 @@ stories.add("icon colors", () => (
 		/>
 		<Avatar
 			size={48}
-			icon="keyboard-arrow-down"
+			icon="keyboard_arrow_down"
 			color="lime"
 			style={{ background: "black" }}
 		/>
 		<Avatar
 			size={48}
-			icon="keyboard-arrow-up"
+			icon="keyboard_arrow_up"
 			color="lime"
 			style={{ background: "black" }}
 		/>

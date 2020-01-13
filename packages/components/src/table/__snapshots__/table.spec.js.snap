@@ -37,7 +37,36 @@ exports[`table renders correctly 1`] = `
             </span>
             <span
               class="table-head__IconWrapper-sc-19pnxcl-0 lkKcxF"
-            />
+            >
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 10l5 5 5-5H7z"
+                />
+              </svg>
+              <svg
+                fill="#0fb877"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 14l5-5 5 5H7z"
+                />
+              </svg>
+            </span>
           </div>
         </th>
         <th
@@ -51,7 +80,36 @@ exports[`table renders correctly 1`] = `
             </span>
             <span
               class="table-head__IconWrapper-sc-19pnxcl-0 lkKcxF"
-            />
+            >
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 10l5 5 5-5H7z"
+                />
+              </svg>
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 14l5-5 5 5H7z"
+                />
+              </svg>
+            </span>
           </div>
         </th>
         <th
@@ -65,7 +123,36 @@ exports[`table renders correctly 1`] = `
             </span>
             <span
               class="table-head__IconWrapper-sc-19pnxcl-0 lkKcxF"
-            />
+            >
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 10l5 5 5-5H7z"
+                />
+              </svg>
+              <svg
+                fill="#e8e8e8"
+                height="21"
+                viewBox="0 0 24 24"
+                width="21"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M7 14l5-5 5 5H7z"
+                />
+              </svg>
+            </span>
           </div>
         </th>
       </tr>
