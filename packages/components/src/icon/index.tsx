@@ -31,6 +31,8 @@ import Health from "../icons/Health";
 import Life from "../icons/Life";
 import Truck from "../icons/Truck";
 import MoreHoriz from "../icons/MoreHoriz";
+import FastRewind from "../icons/FastRewind";
+import Refresh from "../icons/Refresh";
 
 const IconDict: IDict<any> = {
 	"announcement": Announcement,
@@ -61,7 +63,9 @@ const IconDict: IDict<any> = {
 	"truck": Truck,
 	"sales": Sales,
 	"more-horiz": MoreHoriz,
-	"fast-forward": FastForward
+	"fast-forward": FastForward,
+	"fast-rewind": FastRewind,
+	"refresh": Refresh
 };
 
 interface IconProps {
