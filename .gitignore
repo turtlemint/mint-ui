@@ -12,3 +12,4 @@ detailed-issues.md
 commit-msg
 commit-msg.sh
 storybook-static
+.vscode
