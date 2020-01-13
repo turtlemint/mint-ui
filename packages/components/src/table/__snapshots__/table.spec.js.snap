@@ -2,8 +2,27 @@
 
 exports[`table renders correctly 1`] = `
 <DocumentFragment>
+  <div
+    class="pagination__Wrapper-sc-15e309c-0 iokumX"
+  >
+    <li
+      class="pagination__Item-sc-15e309c-1 fGYHZN"
+      disabled=""
+    />
+    <li
+      class="pagination__Item-sc-15e309c-1 lmCruD"
+    >
+      <a>
+        1
+      </a>
+    </li>
+    <li
+      class="pagination__Item-sc-15e309c-1 fGYHZN"
+      disabled=""
+    />
+  </div>
   <table
-    class="table__TableEl-sc-1929wyb-0 dFPJDU"
+    class="table__TableEl-sc-1929wyb-0 cthZKc"
   >
     <thead>
       <tr>

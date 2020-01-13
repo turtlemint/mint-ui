@@ -6,12 +6,27 @@ import { OnRowReturn } from "./index";
 interface TableBodyProps {
 	data: any;
 	onRow?: (record: any, rowIndex: string) => OnRowReturn;
+	pageSize: number;
+	currentPage: number;
+	isAjax: boolean;
 }
 
-const TableBody = ({ data, onRow }: TableBodyProps) => {
+const TableBody = ({
+	data,
+	onRow,
+	pageSize,
+	currentPage,
+	isAjax
+}: TableBodyProps) => {
+	let dataSlice = data;
+	if (!isAjax) {
+		const offset = (currentPage - 1) * pageSize;
+		const end = offset + pageSize;
+		dataSlice = data.slice(offset, end);
+	}
 	return (
 		<tbody>
-			{data.map((item: any) => (
+			{dataSlice.map((item: any) => (
 				<tr
 					key={item.key}
 					onClick={(
@@ -74,4 +89,5 @@ const Td = styled.td`
 	text-align: left;
 	border-bottom: 1px solid ${COLORS.GREY4};
 `;
+
 export default TableBody;

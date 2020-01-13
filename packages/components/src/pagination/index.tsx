@@ -7,7 +7,7 @@ import COLORS from "../__utils/colors";
 interface PaginationProps {
 	total: number;
 	current?: number;
-	onChange?: () => React.ReactHTMLElement<HTMLDListElement>[];
+	onChange?: (activePage: number) => void;
 	defaultCurrent?: number;
 	disabled?: boolean;
 }
@@ -15,12 +15,14 @@ interface PaginationProps {
 export const Pagination = ({
 	total,
 	defaultCurrent,
-	disabled
+	disabled,
+	current,
+	onChange
 }: PaginationProps) => {
 	const [pageSize] = React.useState<number>(10);
-	const lastPage: number = total / pageSize;
-	const [activePage, setActivePage] = React.useState<number>(
-		defaultCurrent ? defaultCurrent : 1
+	const lastPage: number = Math.ceil(total / pageSize);
+	const [currentPage, setCurrentPage] = React.useState<number>(
+		defaultCurrent ? defaultCurrent : current ? current : 1
 	);
 	const [showLeftEllipsis, setLeftEllipsis] = React.useState<boolean>(true);
 	const [showRightEllipsis, setRightEllipsis] = React.useState<boolean>(true);
@@ -31,31 +33,37 @@ export const Pagination = ({
 	};
 	const renderList = () => {
 		let pages: number[] = [];
+		// Lists above six shows ellipsis and makes their own render logic
+
 		if (lastPage > 6) {
-			if (activePage <= 4) {
+			// then based on the activePage pointer render the list of visible page items
+			if (currentPage <= 4) {
 				pages = [2, 3, 4, 5];
-			} else if (activePage > 4 && activePage <= lastPage - 4) {
+			} else if (currentPage > 4 && currentPage <= lastPage - 4) {
 				pages = [
-					activePage - 2,
-					activePage - 1,
-					activePage,
-					activePage + 1,
-					activePage + 2
+					currentPage - 2,
+					currentPage - 1,
+					currentPage,
+					currentPage + 1,
+					currentPage + 2
 				];
 			} else {
-				pages = [46, 47, 48, 49];
+				//  lastPage - 5 <  currentPage < lastPage
+				for (let i = lastPage - 1; i > lastPage - 5; i--) {
+					pages.unshift(i);
+				}
 			}
 		} else {
-			for (let i = 1; i <= lastPage; i++) {
+			for (let i = 2; i < lastPage; i++) {
 				pages.push(i);
 			}
 		}
 		return pages.map(page => (
 			<Item
 				key={page}
-				active={activePage === page}
+				active={currentPage === page}
 				onClick={() => {
-					setActivePage(page);
+					setCurrentPage(page);
 					resetEllipsis();
 				}}
 				disabled={disabled}
@@ -64,35 +72,38 @@ export const Pagination = ({
 			</Item>
 		));
 	};
+	React.useEffect(() => {
+		onChange ? onChange(currentPage) : null;
+	}, [currentPage]);
 	return (
 		<Wrapper>
 			<Item
 				key={0}
 				onClick={() => {
-					setActivePage(activePage - 1);
+					setCurrentPage(currentPage - 1);
 					resetEllipsis();
 				}}
-				disabled={activePage === 1 || disabled}
+				disabled={currentPage === 1 || disabled}
 			>
 				<Icon size={18} name="keyboard-arrow-left" />
 			</Item>
 			<Item
 				key={1}
-				active={activePage === 1}
+				active={currentPage === 1}
 				onClick={() => {
-					setActivePage(1);
+					setCurrentPage(1);
 					resetEllipsis();
 				}}
 				disabled={disabled}
 			>
 				<a>{1}</a>
 			</Item>
-			{lastPage > 6 && activePage > 4 ? (
+			{lastPage > 6 && currentPage > 4 ? (
 				<Item
 					key={-1}
 					border={false}
 					onClick={() => {
-						setActivePage(1);
+						setCurrentPage(1);
 						resetEllipsis();
 					}}
 					onMouseEnter={() => setLeftEllipsis(false)}
@@ -107,12 +118,12 @@ export const Pagination = ({
 				</Item>
 			) : null}
 			{renderList()}
-			{lastPage > 6 && activePage <= lastPage - 4 ? (
+			{lastPage > 6 && currentPage <= lastPage - 4 ? (
 				<Item
 					key={-2}
 					border={false}
 					onClick={() => {
-						setActivePage(50);
+						setCurrentPage(lastPage);
 						resetEllipsis();
 					}}
 					onMouseEnter={() => setRightEllipsis(false)}
@@ -126,24 +137,26 @@ export const Pagination = ({
 					)}
 				</Item>
 			) : null}
-			<Item
-				key={lastPage}
-				active={activePage === lastPage}
-				onClick={() => {
-					setActivePage(lastPage);
-					resetEllipsis();
-				}}
-				disabled={disabled}
-			>
-				<a>{lastPage}</a>
-			</Item>
+			{lastPage !== 1 ? (
+				<Item
+					key={lastPage}
+					active={currentPage === lastPage}
+					onClick={() => {
+						setCurrentPage(lastPage);
+						resetEllipsis();
+					}}
+					disabled={disabled}
+				>
+					<a>{lastPage}</a>
+				</Item>
+			) : null}
 			<Item
 				key={-3}
 				onClick={() => {
-					setActivePage(activePage + 1);
+					setCurrentPage(currentPage + 1);
 					resetEllipsis();
 				}}
-				disabled={activePage === lastPage || disabled}
+				disabled={currentPage === lastPage || disabled}
 			>
 				<Icon size={18} name="keyboard-arrow-right" />
 			</Item>

@@ -175,6 +175,18 @@ stories.add(
 					</IconWrapper>
 					<Caption>filled_done_circle</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="fast-rewind" {...props} />
+					</IconWrapper>
+					<Caption>fast-rewind</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="refresh" {...props} />
+					</IconWrapper>
+					<Caption>refresh</Caption>
+				</Wrapper>
 			</>
 		);
 	},
