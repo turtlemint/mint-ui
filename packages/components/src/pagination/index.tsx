@@ -16,12 +16,13 @@ export const Pagination = ({
 	total,
 	defaultCurrent,
 	disabled,
+	current,
 	onChange
 }: PaginationProps) => {
 	const [pageSize] = React.useState<number>(10);
 	const lastPage: number = Math.ceil(total / pageSize);
 	const [activePage, setActivePage] = React.useState<number>(
-		defaultCurrent ? defaultCurrent : 1
+		defaultCurrent ? defaultCurrent : current ? current : 1
 	);
 	const [showLeftEllipsis, setLeftEllipsis] = React.useState<boolean>(true);
 	const [showRightEllipsis, setRightEllipsis] = React.useState<boolean>(true);
