@@ -6,12 +6,18 @@ import { OnRowReturn } from "./index";
 interface TableBodyProps {
 	data: any;
 	onRow?: (record: any, rowIndex: string) => OnRowReturn;
+	pageSize: number;
+	currentPage: number;
 }
 
-const TableBody = ({ data, onRow }: TableBodyProps) => {
+const TableBody = ({ data, onRow, pageSize, currentPage }: TableBodyProps) => {
+	const offset = (currentPage - 1) * pageSize;
+	const end = offset + pageSize;
+	const dataSlice = data.slice(offset, end);
+
 	return (
 		<tbody>
-			{data.map((item: any) => (
+			{dataSlice.map((item: any) => (
 				<tr
 					key={item.key}
 					onClick={(

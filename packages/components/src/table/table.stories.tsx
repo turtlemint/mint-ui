@@ -4,20 +4,15 @@ import Table, { sortOrderType, ColumnType } from "./index";
 
 const stories = storiesOf("Table", module);
 
-const dataSource = [
-	{
-		key: "1",
-		name: "Mike",
-		age: 32,
-		address: "10 Downing Street"
-	},
-	{
-		key: "2",
-		name: "John",
-		age: 42,
-		address: "20 D Wall street"
-	}
-];
+const dataSource: any = [];
+for (let i = 0; i < 51; i++) {
+	dataSource.push({
+		key: i,
+		name: `Name: ${i}`,
+		age: i,
+		address: `Lane ${i}, Lokhandwala, Andheri West`
+	});
+}
 
 const columns: ColumnType[] = [
 	{

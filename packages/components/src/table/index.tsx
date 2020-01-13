@@ -58,7 +58,8 @@ export const Table = ({ dataSource, columns, onRow }: TableProps) => {
 		setData([...sortedData]);
 		setActiveCol(column);
 	};
-
+	const [currentPage, setActivePage] = React.useState<number>(1);
+	const [pageSize] = React.useState<number>(10);
 	return (
 		<TableEl>
 			<Thead
@@ -66,13 +67,16 @@ export const Table = ({ dataSource, columns, onRow }: TableProps) => {
 				activeCol={activeCol}
 				handleSort={handleSort}
 			/>
-			<TableBody data={data} onRow={onRow} />
+			<TableBody
+				data={data}
+				onRow={onRow}
+				pageSize={pageSize}
+				currentPage={currentPage}
+			/>
 			<Pagination
 				total={dataSource.length}
-				defaultCurrent={1}
-				onChange={(page: number) => {
-					console.log(page);
-				}}
+				current={currentPage}
+				onChange={(page: number) => setActivePage(page)}
 			/>
 		</TableEl>
 	);
