@@ -113,7 +113,7 @@ export const Pagination = ({
 					{showLeftEllipsis ? (
 						<Icon name="more_horiz" />
 					) : (
-						<Icon name="fast_forward" />
+						<Icon name="fast_rewind" />
 					)}
 				</Item>
 			) : null}
