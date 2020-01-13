@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { GlobalStyles } from "../app";
 import Thead from "./table-head";
 import TableBody from "./table-body";
+import Pagination from "../pagination";
 
 export type sortOrderType = "ascends" | "descends";
 export interface OnRowReturn {
@@ -41,6 +42,7 @@ export const Table = ({ dataSource, columns, onRow }: TableProps) => {
 	React.useEffect(() => {
 		handleSort(activeCol, activeCol.defaultSortOrder);
 	}, []);
+
 	const [data, setData] = React.useState(dataSource);
 
 	const handleSort = (
@@ -65,6 +67,13 @@ export const Table = ({ dataSource, columns, onRow }: TableProps) => {
 				handleSort={handleSort}
 			/>
 			<TableBody data={data} onRow={onRow} />
+			<Pagination
+				total={dataSource.length}
+				defaultCurrent={1}
+				onChange={(page: number) => {
+					console.log(page);
+				}}
+			/>
 		</TableEl>
 	);
 };

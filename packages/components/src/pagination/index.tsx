@@ -7,7 +7,7 @@ import COLORS from "../__utils/colors";
 interface PaginationProps {
 	total: number;
 	current?: number;
-	onChange?: () => React.ReactHTMLElement<HTMLDListElement>[];
+	onChange?: (activePage: number) => void;
 	defaultCurrent?: number;
 	disabled?: boolean;
 }
@@ -15,10 +15,11 @@ interface PaginationProps {
 export const Pagination = ({
 	total,
 	defaultCurrent,
-	disabled
+	disabled,
+	onChange
 }: PaginationProps) => {
 	const [pageSize] = React.useState<number>(10);
-	const lastPage: number = total / pageSize;
+	const lastPage: number = Math.ceil(total / pageSize);
 	const [activePage, setActivePage] = React.useState<number>(
 		defaultCurrent ? defaultCurrent : 1
 	);
@@ -31,7 +32,10 @@ export const Pagination = ({
 	};
 	const renderList = () => {
 		let pages: number[] = [];
+		// Lists above six shows ellipsis and makes their own render logic
+
 		if (lastPage > 6) {
+			// then based on the activePage pointer render the list of visible page items
 			if (activePage <= 4) {
 				pages = [2, 3, 4, 5];
 			} else if (activePage > 4 && activePage <= lastPage - 4) {
@@ -43,10 +47,13 @@ export const Pagination = ({
 					activePage + 2
 				];
 			} else {
-				pages = [46, 47, 48, 49];
+				//  lastPage - 5 <  activePage < lastPage
+				for (let i = lastPage - 1; i > lastPage - 5; i--) {
+					pages.unshift(i);
+				}
 			}
 		} else {
-			for (let i = 1; i <= lastPage; i++) {
+			for (let i = 2; i < lastPage; i++) {
 				pages.push(i);
 			}
 		}
@@ -64,6 +71,9 @@ export const Pagination = ({
 			</Item>
 		));
 	};
+	React.useEffect(() => {
+		onChange ? onChange(activePage) : null;
+	}, [activePage]);
 	return (
 		<Wrapper>
 			<Item
@@ -112,7 +122,7 @@ export const Pagination = ({
 					key={-2}
 					border={false}
 					onClick={() => {
-						setActivePage(50);
+						setActivePage(lastPage);
 						resetEllipsis();
 					}}
 					onMouseEnter={() => setRightEllipsis(false)}
@@ -126,17 +136,19 @@ export const Pagination = ({
 					)}
 				</Item>
 			) : null}
-			<Item
-				key={lastPage}
-				active={activePage === lastPage}
-				onClick={() => {
-					setActivePage(lastPage);
-					resetEllipsis();
-				}}
-				disabled={disabled}
-			>
-				<a>{lastPage}</a>
-			</Item>
+			{lastPage !== 1 ? (
+				<Item
+					key={lastPage}
+					active={activePage === lastPage}
+					onClick={() => {
+						setActivePage(lastPage);
+						resetEllipsis();
+					}}
+					disabled={disabled}
+				>
+					<a>{lastPage}</a>
+				</Item>
+			) : null}
 			<Item
 				key={-3}
 				onClick={() => {
