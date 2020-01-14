@@ -10,6 +10,7 @@ interface PaginationProps {
 	onChange?: (activePage: number) => void;
 	defaultCurrent?: number;
 	disabled?: boolean;
+	style?: React.CSSProperties;
 }
 
 export const Pagination = ({
@@ -17,7 +18,8 @@ export const Pagination = ({
 	defaultCurrent,
 	disabled,
 	current,
-	onChange
+	onChange,
+	style
 }: PaginationProps) => {
 	const [pageSize] = React.useState<number>(10);
 	const lastPage: number = Math.ceil(total / pageSize);
@@ -76,7 +78,7 @@ export const Pagination = ({
 		onChange ? onChange(currentPage) : null;
 	}, [currentPage]);
 	return (
-		<Wrapper>
+		<Wrapper style={style}>
 			<Item
 				key={0}
 				onClick={() => {
@@ -164,9 +166,11 @@ export const Pagination = ({
 	);
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.ul`
 	${GlobalStyles};
 	display: flex;
+	padding: 0;
+	margin: 0;
 `;
 
 const Item = styled.li<{

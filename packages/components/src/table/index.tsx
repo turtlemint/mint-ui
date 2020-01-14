@@ -5,6 +5,8 @@ import Thead from "./table-head";
 import TableBody from "./table-body";
 import Pagination from "../pagination";
 import LoadingMask from "../loading/loading-mask";
+import Col from "../grid/col";
+import Row from "../grid/row";
 // import useDeepCompare from "../hooks/use-deep-compare";
 
 export type sortOrderType = "ascends" | "descends";
@@ -89,26 +91,46 @@ export const Table = ({
 	};
 
 	return (
-		<TableEl>
-			{loading ? <LoadingMask /> : null}
-			<Thead
-				columns={columns}
-				activeCol={activeCol}
-				handleSort={handleSort}
-			/>
-			<TableBody
-				data={data}
-				onRow={onRow}
-				pageSize={pageSize}
-				currentPage={currentPage}
-				isAjax={pagination ? true : false}
-			/>
-			<Pagination
-				total={pagination ? pagination.total : dataSource.length}
-				current={pagination ? pagination.currentPage : currentPage}
-				onChange={(page: number) => setCurrentPage(page)}
-			/>
-		</TableEl>
+		<>
+			<TableEl>
+				{loading ? <LoadingMask /> : null}
+				<Thead
+					columns={columns}
+					activeCol={activeCol}
+					handleSort={handleSort}
+				/>
+				<TableBody
+					data={data}
+					onRow={onRow}
+					pageSize={pageSize}
+					currentPage={currentPage}
+					isAjax={pagination ? true : false}
+				/>
+			</TableEl>
+			{data.length ? (
+				<Row style={{ marginTop: "20px" }}>
+					<Col>
+						<Pagination
+							style={{
+								display: "flex",
+								justifyContent: "flex-end"
+							}}
+							total={
+								pagination
+									? pagination.total
+									: dataSource.length
+							}
+							current={
+								pagination
+									? pagination.currentPage
+									: currentPage
+							}
+							onChange={(page: number) => setCurrentPage(page)}
+						/>
+					</Col>
+				</Row>
+			) : null}
+		</>
 	);
 };
 
@@ -116,6 +138,7 @@ const TableEl = styled.table`
 	${GlobalStyles};
 	border-collapse: separate;
 	border-spacing: 0;
+	width: 100%;
 	position: relative;
 `;
 
