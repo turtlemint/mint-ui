@@ -5,7 +5,7 @@ import Table, { sortOrderType, ColumnType } from "./index";
 const stories = storiesOf("Table", module);
 
 const dataSource: any = [];
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 250; i++) {
 	dataSource.push({
 		key: i,
 		name: `Name: ${i}`,
@@ -116,7 +116,7 @@ stories.add("Ajax", () => {
 			dataSource={tableData}
 			columns={columns}
 			loading={loading}
-			pagination={{ total: 250, pageSize, currentPage }}
+			pagination={{ total: dataSource.length, pageSize, currentPage }}
 			onChange={handleTableChange}
 		/>
 	);

@@ -72,6 +72,7 @@ export const Table = ({
 		const pagination = { currentPage, pageSize };
 		onChange ? onChange(pagination) : null;
 	}, [currentPage, pageSize]);
+
 	React.useEffect(() => {
 		handleSort(activeCol, activeCol.defaultSortOrder);
 	}, []);
