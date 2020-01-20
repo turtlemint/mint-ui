@@ -179,7 +179,7 @@ stories.add(
 					<IconWrapper>
 						<Icon name="fast_rewind" {...props} />
 					</IconWrapper>
-					<Caption>fast-rewind</Caption>
+					<Caption>fast_rewind</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
