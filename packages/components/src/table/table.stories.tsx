@@ -131,28 +131,7 @@ stories.add("onRow", () => (
 					event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
 				) => {
 					console.log(rowIndex, event, record);
-				},
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				onDoubleClick: (event: unknown) => {}, // double click row
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				onContextMenu: (
-					event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-				) => {
-					alert(JSON.stringify(event));
-					console.log(event);
-				}, // right button click row
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				onMouseEnter: (
-					event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-				) => {
-					console.log(event, "mouse enter in action");
-				}, // mouse enter row
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				onMouseLeave: (
-					event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-				) => {
-					console.log(event, "mouse leave in action");
-				} // mouse leave row
+				}
 			};
 		}}
 	/>
