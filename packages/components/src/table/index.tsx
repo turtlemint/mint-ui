@@ -42,7 +42,7 @@ interface TableProps {
 	dataSource: any;
 	columns: any[];
 	onRow?: (record: any, rowIndex: string) => OnRowReturn;
-	pagination?: Pagination;
+	pagination?: Pagination | boolean;
 	loading?: boolean;
 	onChange?: (pagination: any) => void;
 }
@@ -59,10 +59,12 @@ export const Table = ({
 	const defaultCol = columns.filter(column => column.defaultSortOrder)[0];
 	const [activeCol, setActiveCol] = React.useState<ColumnType>(defaultCol);
 	const [currentPage, setCurrentPage] = React.useState<number>(
-		pagination ? pagination.currentPage : 1
+		pagination && typeof pagination !== "boolean"
+			? pagination.currentPage
+			: 1
 	);
 	const [pageSize] = React.useState<number>(
-		pagination ? pagination.pageSize : 10
+		pagination && typeof pagination !== "boolean" ? pagination.pageSize : 10
 	);
 	React.useEffect(() => {
 		setData(dataSource);
@@ -111,23 +113,30 @@ export const Table = ({
 			{data.length ? (
 				<Row style={{ marginTop: "20px" }}>
 					<Col>
-						<Pagination
-							style={{
-								display: "flex",
-								justifyContent: "flex-end"
-							}}
-							total={
-								pagination
-									? pagination.total
-									: dataSource.length
-							}
-							current={
-								pagination
-									? pagination.currentPage
-									: currentPage
-							}
-							onChange={(page: number) => setCurrentPage(page)}
-						/>
+						{typeof pagination === "boolean" &&
+						pagination === false ? null : (
+							<Pagination
+								style={{
+									display: "flex",
+									justifyContent: "flex-end"
+								}}
+								total={
+									pagination &&
+									typeof pagination !== "boolean"
+										? pagination.total
+										: dataSource.length
+								}
+								current={
+									pagination &&
+									typeof pagination !== "boolean"
+										? pagination.currentPage
+										: currentPage
+								}
+								onChange={(page: number) =>
+									setCurrentPage(page)
+								}
+							/>
+						)}
 					</Col>
 				</Row>
 			) : null}

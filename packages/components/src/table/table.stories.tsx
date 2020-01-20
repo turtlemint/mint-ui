@@ -87,7 +87,7 @@ interface PaginationProps {
 	currentPage: number;
 }
 
-stories.add("Ajax", () => {
+stories.add("ajax", () => {
 	const [tableData, setTableData] = React.useState([]);
 	const [loading, setLoading] = React.useState(false);
 	const [currentPage, setCurrentPage] = React.useState(1);
@@ -135,4 +135,8 @@ stories.add("onRow", () => (
 			};
 		}}
 	/>
+));
+
+stories.add("hide pagination", () => (
+	<Table dataSource={dataSource} columns={columns} pagination={false} />
 ));
