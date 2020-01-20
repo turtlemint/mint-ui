@@ -7,7 +7,6 @@ import Pagination from "../pagination";
 import LoadingMask from "../loading/loading-mask";
 import Col from "../grid/col";
 import Row from "../grid/row";
-// import useDeepCompare from "../hooks/use-deep-compare";
 
 export type sortOrderType = "ascends" | "descends";
 export interface OnRowReturn {
@@ -39,16 +38,24 @@ interface Pagination {
 	pageSize: number;
 }
 interface TableProps {
-	dataSource: any;
+	/**Data record array to be displayed */
+	dataSource: any[];
+	/** Columns of table */
 	columns: any[];
 	onRow?: (record: any, rowIndex: string) => OnRowReturn;
+	/** Config of pagination. You can ref pagination document
+	 * at https://mint-ui.netlify.com/?path=/story/pagination--basic
+	 * hide it by setting it to false
+	 */
 	pagination?: Pagination | boolean;
+	/**	Loading status of table */
 	loading?: boolean;
+	/** Callback executed when pagination is changed */
 	onChange?: (pagination: any) => void;
 }
 
 export const Table = ({
-	dataSource,
+	dataSource = [],
 	columns,
 	onRow,
 	pagination,
