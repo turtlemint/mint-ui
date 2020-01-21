@@ -33,9 +33,9 @@ export const StyledSelectCTA = styled.div`
 const ArrowToggle = ({ open }: { open: boolean }) => (
 	<>
 		{open ? (
-			<Icon name="keyboard-arrow-up" size={24} />
+			<Icon name="keyboard_arrow_up" size={24} />
 		) : (
-			<Icon name="keyboard-arrow-down" size={24} />
+			<Icon name="keyboard_arrow_down" size={24} />
 		)}
 	</>
 );

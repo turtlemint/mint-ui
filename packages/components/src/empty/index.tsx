@@ -32,6 +32,7 @@ const StyledContainer = styled.div<{ image: React.ReactNode }>`
 	font-size: ${SIZE.EMPTY_FONT_SIZE};
 	line-height: 22px;
 	text-align: center;
+	margin-top: 40px;
 	${props =>
 		props.image === simpleEmptyImg &&
 		css`
@@ -59,11 +60,13 @@ const StyledImageContainer = styled.div<{ image: React.ReactNode }>`
 `;
 
 export const Description = styled.p`
-	margin: 0;
+	margin-top: 20px;
+	font-size: 18px;
 `;
 
 export const Footer = styled.div`
-	margin-top: 16px;
+	margin-top: 20px;
+	font-size: 15px;
 `;
 
 export const Empty: EmptyType = ({

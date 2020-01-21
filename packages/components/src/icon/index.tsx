@@ -10,15 +10,13 @@ import KeyboardArrowDown from "../icons/KeyboardArrowDown";
 import KeyboardArrowRight from "../icons/KeyboardArrowRight";
 import NotificationImportant from "../icons/NotificationImportant";
 import OutlineDone from "../icons/OutlineDone";
-import OutlineSort from "../icons/OutlineSort";
 import Settings from "../icons/Settings";
 import Warning from "../icons/Warning";
 import Sales from "../icons/Sales";
 import { IDict } from "../__utils/type";
-import Done from "../icons/Done";
+import FilledDoneCircle from "../icons/FilledDoneCircle";
 import {
 	Sort,
-	SortDown,
 	ArrowDropDown,
 	ArrowDropUp,
 	KeyboardArrowLeft,
@@ -31,45 +29,39 @@ import Health from "../icons/Health";
 import Life from "../icons/Life";
 import Truck from "../icons/Truck";
 import MoreHoriz from "../icons/MoreHoriz";
-import EmailOutline from "../icons/EmailOutline";
-import Phone from "../icons/Phone";
-import Search from "../icons/Search";
-import Whatsapp from "../icons/Whatsapp";
+import FastRewind from "../icons/FastRewind";
+import Refresh from "../icons/Refresh";
 
 const IconDict: IDict<any> = {
-	"announcement": Announcement,
-	"checkbox-outline": CheckboxOutline,
-	"check-circle-outline": CheckboxCircleOutline,
-	"close": Close,
-	"error-outline": ErrorOutline,
-	"info": Info,
-	"keyboard-arrow-up": KeyboardArrowUp,
-	"keyboard-arrow-down": KeyboardArrowDown,
-	"keyboard-arrow-right": KeyboardArrowRight,
-	"keyboard-arrow-left": KeyboardArrowLeft,
-	"notification-important": NotificationImportant,
-	"outline-done": OutlineDone,
-	"outline-sort": OutlineSort,
-	"settings": Settings,
-	"warning": Warning,
-	"done": Done,
-	"sort": Sort,
-	"sort-down": SortDown,
-	"arrow-dropdown": ArrowDropDown,
-	"arrow-dropup": ArrowDropUp,
-	"arrow-back": ArrowBack,
-	"bike": Bike,
-	"car": Car,
-	"health": Health,
-	"life": Life,
-	"truck": Truck,
-	"sales": Sales,
-	"more-horiz": MoreHoriz,
-	"fast-forward": FastForward,
-	"email-outline": EmailOutline,
-	"phone": Phone,
-	"search": Search,
-	"whatsapp": Whatsapp
+	announcement: Announcement,
+	checkbox_outline: CheckboxOutline,
+	check_circle_outline: CheckboxCircleOutline,
+	close: Close,
+	error_outline: ErrorOutline,
+	info: Info,
+	keyboard_arrow_up: KeyboardArrowUp,
+	keyboard_arrow_down: KeyboardArrowDown,
+	keyboard_arrow_right: KeyboardArrowRight,
+	keyboard_arrow_left: KeyboardArrowLeft,
+	notification_important: NotificationImportant,
+	outline_done: OutlineDone,
+	settings: Settings,
+	warning: Warning,
+	filled_done_circle: FilledDoneCircle,
+	sort: Sort,
+	arrow_dropdown: ArrowDropDown,
+	arrow_dropup: ArrowDropUp,
+	arrow_back: ArrowBack,
+	bike: Bike,
+	car: Car,
+	health: Health,
+	life: Life,
+	truck: Truck,
+	sales: Sales,
+	more_horiz: MoreHoriz,
+	fast_forward: FastForward,
+	fast_rewind: FastRewind,
+	refresh: Refresh
 };
 
 interface IconProps {
