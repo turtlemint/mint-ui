@@ -35,7 +35,7 @@
     "scripts": {
         "dev": "start-storybook -p 5555 -s ./public",
         "build-storybook": "build-storybook -c .storybook -s ./public",
-        "build-icons": "rm -rf src/icons && npx @svgr/cli -d src/icons svg-icons --ext tsx",
+        "build-icons": "rm -rf src/icons && npx @svgr/cli --icon -d src/icons svg-icons --ext tsx",
         "create-index": "npx create-index src/icons",
         "recreate-index": "node scripts/regenerate-icon-index.js",
         "lint:icons": "eslint './src/icons/*.{ts,tsx}' --fix",
