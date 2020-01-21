@@ -171,15 +171,15 @@ stories.add(
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="email-outline" {...props} />
+						<Icon name="call" {...props} />
 					</IconWrapper>
-					<Caption>email-outline</Caption>
+					<Caption>call</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="phone" {...props} />
+						<Icon name="email" {...props} />
 					</IconWrapper>
-					<Caption>phone</Caption>
+					<Caption>email</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
@@ -189,9 +189,9 @@ stories.add(
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="whatsapp" {...props} />
+						<Icon name="report" {...props} />
 					</IconWrapper>
-					<Caption>whatsapp</Caption>
+					<Caption>report</Caption>
 				</Wrapper>
 			</>
 		);
