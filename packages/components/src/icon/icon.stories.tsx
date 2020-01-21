@@ -187,6 +187,108 @@ stories.add(
 					</IconWrapper>
 					<Caption>refresh</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="add_circle_outline" {...props} />
+					</IconWrapper>
+					<Caption>add_circle_outline</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="cancel" {...props} />
+					</IconWrapper>
+					<Caption>cancel</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="lock" {...props} />
+					</IconWrapper>
+					<Caption>lock</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="mint_pro" {...props} />
+					</IconWrapper>
+					<Caption>mint_pro</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_1" {...props} />
+					</IconWrapper>
+					<Caption>rating_1</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_2" {...props} />
+					</IconWrapper>
+					<Caption>rating_2</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_3" {...props} />
+					</IconWrapper>
+					<Caption>rating_3</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_4" {...props} />
+					</IconWrapper>
+					<Caption>rating_4</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_5" {...props} />
+					</IconWrapper>
+					<Caption>rating_5</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_filled_1" {...props} />
+					</IconWrapper>
+					<Caption>rating_filled_1</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_filled_2" {...props} />
+					</IconWrapper>
+					<Caption>rating_filled_2</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_filled_3" {...props} />
+					</IconWrapper>
+					<Caption>rating_filled_3</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_filled_4" {...props} />
+					</IconWrapper>
+					<Caption>rating_filled_4</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="rating_filled_5" {...props} />
+					</IconWrapper>
+					<Caption>rating_filled_5</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="send" {...props} />
+					</IconWrapper>
+					<Caption>send</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="sentiment_dissatisfied" {...props} />
+					</IconWrapper>
+					<Caption>sentiment_dissatisfied</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="sentiment_satisfied" {...props} />
+					</IconWrapper>
+					<Caption>sentiment_satisfied</Caption>
+				</Wrapper>
 			</>
 		);
 	},
