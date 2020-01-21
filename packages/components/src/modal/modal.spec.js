@@ -56,7 +56,7 @@ describe("Confirm Modal", () => {
 		const { asFragment } = render(
 			<Confirm
 				type="error"
-				icon={<Icon name="error-outline" color={COLORS.DANGER} />}
+				icon={<Icon name="error_outline" color={COLORS.DANGER} />}
 				title="Error title"
 			>
 				<p>Lorem ipsum dolor sit amet.</p>

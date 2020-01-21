@@ -4,20 +4,15 @@ import Table, { sortOrderType, ColumnType } from "./index";
 
 const stories = storiesOf("Table", module);
 
-const dataSource = [
-	{
-		key: "1",
-		name: "Mike",
-		age: 32,
-		address: "10 Downing Street"
-	},
-	{
-		key: "2",
-		name: "John",
-		age: 42,
-		address: "20 D Wall street"
-	}
-];
+const dataSource: any = [];
+for (let i = 0; i < 250; i++) {
+	dataSource.push({
+		key: i,
+		name: `Name: ${i}`,
+		age: i,
+		address: `Lane ${i}, Lokhandwala, Andheri West`
+	});
+}
 
 const columns: ColumnType[] = [
 	{
@@ -87,6 +82,45 @@ const columns: ColumnType[] = [
 stories.add("default", () => (
 	<Table dataSource={dataSource} columns={columns} />
 ));
+
+interface PaginationProps {
+	currentPage: number;
+}
+
+stories.add("ajax", () => {
+	const [tableData, setTableData] = React.useState([]);
+	const [loading, setLoading] = React.useState(false);
+	const [currentPage, setCurrentPage] = React.useState(1);
+	const pageSize: number = 10;
+
+	const getData = async (currentPage: number) => {
+		setLoading(true);
+		const result = (await fetch("https://swapi.co/api/people")).json();
+		console.log("currentPage", currentPage, result);
+		// Mock pagination
+		const offset = (currentPage - 1) * pageSize;
+		const end = offset + 10;
+		const dataSlice = dataSource.slice(offset, end);
+		setLoading(false);
+		setTableData(dataSlice);
+	};
+
+	const handleTableChange = (pagination: PaginationProps) => {
+		const { currentPage } = pagination;
+		getData(currentPage);
+		setCurrentPage(currentPage);
+	};
+
+	return (
+		<Table
+			dataSource={tableData}
+			columns={columns}
+			loading={loading}
+			pagination={{ total: dataSource.length, pageSize, currentPage }}
+			onChange={handleTableChange}
+		/>
+	);
+});
 stories.add("onRow", () => (
 	<Table
 		dataSource={dataSource}
@@ -97,29 +131,12 @@ stories.add("onRow", () => (
 					event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
 				) => {
 					console.log(rowIndex, event, record);
-				},
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				onDoubleClick: (event: unknown) => {}, // double click row
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				onContextMenu: (
-					event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-				) => {
-					alert(JSON.stringify(event));
-					console.log(event);
-				}, // right button click row
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				onMouseEnter: (
-					event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-				) => {
-					console.log(event, "mouse enter in action");
-				}, // mouse enter row
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				onMouseLeave: (
-					event: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-				) => {
-					console.log(event, "mouse leave in action");
-				} // mouse leave row
+				}
 			};
 		}}
 	/>
+));
+
+stories.add("hide pagination", () => (
+	<Table dataSource={dataSource} columns={columns} pagination={false} />
 ));

@@ -28,7 +28,7 @@ const Thead = ({ columns, activeCol, handleSort }: TheadProps) => {
 						return (
 							<IconWrapper>
 								<Icon
-									name="arrow-dropdown"
+									name="arrow_dropdown"
 									size={21}
 									color={
 										// eslint-disable-next-line react/prop-types
@@ -40,7 +40,7 @@ const Thead = ({ columns, activeCol, handleSort }: TheadProps) => {
 									}
 								/>
 								<Icon
-									name="arrow-dropup"
+									name="arrow_dropup"
 									size={21}
 									color={
 										// eslint-disable-next-line react/prop-types

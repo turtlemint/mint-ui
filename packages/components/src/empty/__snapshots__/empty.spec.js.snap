@@ -3,7 +3,7 @@
 exports[`Empty component tests default renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="empty__StyledContainer-mrl1vm-0 ivoWYP"
+    class="empty__StyledContainer-mrl1vm-0 fERDmV"
   >
     <div
       class="empty__StyledImageContainer-mrl1vm-1 eqpmbX"
@@ -69,7 +69,7 @@ exports[`Empty component tests default renders correctly 1`] = `
       </svg>
     </div>
     <p
-      class="empty__Description-mrl1vm-2 iSKqjX"
+      class="empty__Description-mrl1vm-2 dXaGKZ"
     >
       default image description
     </p>
@@ -80,7 +80,7 @@ exports[`Empty component tests default renders correctly 1`] = `
 exports[`Empty component tests simple image with prop image renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="empty__StyledContainer-mrl1vm-0 ivoWYP"
+    class="empty__StyledContainer-mrl1vm-0 fERDmV"
   >
     <div
       class="empty__StyledImageContainer-mrl1vm-1 eqpmbX"
@@ -119,7 +119,7 @@ exports[`Empty component tests simple image with prop image renders correctly 1`
       </svg>
     </div>
     <p
-      class="empty__Description-mrl1vm-2 iSKqjX"
+      class="empty__Description-mrl1vm-2 dXaGKZ"
     >
       simple image description
     </p>

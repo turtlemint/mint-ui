@@ -41,7 +41,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	},
@@ -49,7 +49,7 @@ const objectList: any = [
 		key: 2,
 		title: "Mutual funds",
 		avatar: {
-			icon: "error-outline",
+			icon: "error_outline",
 			color: "lime",
 			style: {
 				background: "black"
@@ -62,7 +62,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	},
@@ -80,7 +80,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	},
@@ -97,7 +97,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	},
@@ -105,7 +105,7 @@ const objectList: any = [
 		key: 5,
 		title: "Something else",
 		avatar: {
-			icon: "notification-important"
+			icon: "notification_important"
 		},
 		actions: [
 			<a
@@ -114,7 +114,7 @@ const objectList: any = [
 				rel="noopener noreferrer"
 				key="list-loadmore-edit"
 			>
-				<Icon name="keyboard-arrow-right" />
+				<Icon name="keyboard_arrow_right" />
 			</a>
 		]
 	}
@@ -187,7 +187,7 @@ stories.add("mutiple actions", () => {
 			key: 2,
 			title: "Mutual funds",
 			avatar: {
-				icon: "error-outline",
+				icon: "error_outline",
 				color: "lime",
 				style: {
 					background: "black"
@@ -237,7 +237,7 @@ stories.add("mutiple actions", () => {
 			key: 5,
 			title: "Something else",
 			avatar: {
-				icon: "notification-important"
+				icon: "notification_important"
 			},
 			actions: [
 				<a href="https://google.com" key="list-loadmore-edit">

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import Collapse, { Panel } from "./index";
-import Settings from "../icons/Settings";
+import Icon from "../icon";
 
 const stories = storiesOf("Collapse", module);
 
@@ -53,10 +53,18 @@ stories.add("custom panel", () => (
 			console.log(key);
 		}}
 	>
-		<Panel panelKey={1} header="Panel Header 1" extra={<Settings />}>
+		<Panel
+			panelKey={1}
+			header="Panel Header 1"
+			extra={<Icon name="settings" />}
+		>
 			Some content
 		</Panel>
-		<Panel panelKey={2} header="Panel Header 2" extra={<Settings />}>
+		<Panel
+			panelKey={2}
+			header="Panel Header 2"
+			extra={<Icon name="settings" />}
+		>
 			Some content
 		</Panel>
 		<Panel panelKey={3} header="Panel Header 3" disabled>
