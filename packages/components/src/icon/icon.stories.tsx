@@ -7,7 +7,7 @@ import COLORS from "../__utils/colors";
 const stories = storiesOf("Icon", module);
 
 const Wrapper = styled.div`
-	width: 150px;
+	width: 170px;
 	text-align: center;
 	list-style: none;
 	display: inline-block;
@@ -39,15 +39,15 @@ stories.add(
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="checkbox-outline" {...props} />
+						<Icon name="checkbox_outline" {...props} />
 					</IconWrapper>
-					<Caption>checkbox-outline</Caption>
+					<Caption>checkbox_outline</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="check-circle-outline" {...props} />
+						<Icon name="check_circle_outline" {...props} />
 					</IconWrapper>
-					<Caption>check-circle-outline</Caption>
+					<Caption>check_circle_outline</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
@@ -57,9 +57,9 @@ stories.add(
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="error-outline" {...props} />
+						<Icon name="error_outline" {...props} />
 					</IconWrapper>
-					<Caption>error-outline</Caption>
+					<Caption>error_outline</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
@@ -69,39 +69,39 @@ stories.add(
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="keyboard-arrow-left" {...props} />
+						<Icon name="keyboard_arrow_left" {...props} />
 					</IconWrapper>
-					<Caption>keyboard-arrow-left</Caption>
+					<Caption>keyboard_arrow_left</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="keyboard-arrow-up" {...props} />
+						<Icon name="keyboard_arrow_up" {...props} />
 					</IconWrapper>
-					<Caption>keyboard-arrow-up</Caption>
+					<Caption>keyboard_arrow_up</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="keyboard-arrow-right" {...props} />
+						<Icon name="keyboard_arrow_right" {...props} />
 					</IconWrapper>
-					<Caption>keyboard-arrow-right</Caption>
+					<Caption>keyboard_arrow_right</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="keyboard-arrow-down" {...props} />
+						<Icon name="keyboard_arrow_down" {...props} />
 					</IconWrapper>
-					<Caption>keyboard-arrow-down</Caption>
+					<Caption>keyboard_arrow_down</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="outline-done" {...props} />
+						<Icon name="notification_important" {...props} />
 					</IconWrapper>
-					<Caption>notification-important</Caption>
+					<Caption>notification_important</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="outline-sort" {...props} />
+						<Icon name="sort" {...props} />
 					</IconWrapper>
-					<Caption>outline-sort</Caption>
+					<Caption>sort</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
@@ -117,9 +117,9 @@ stories.add(
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="arrow-back" {...props} />
+						<Icon name="arrow_back" {...props} />
 					</IconWrapper>
-					<Caption>arrow-back</Caption>
+					<Caption>arrow_back</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
@@ -159,15 +159,33 @@ stories.add(
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="more-horiz" {...props} />
+						<Icon name="more_horiz" {...props} />
 					</IconWrapper>
-					<Caption>more-horiz</Caption>
+					<Caption>more_horiz</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>
-						<Icon name="fast-forward" {...props} />
+						<Icon name="fast_forward" {...props} />
 					</IconWrapper>
-					<Caption>fast-forward</Caption>
+					<Caption>fast_forward</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="filled_done_circle" {...props} />
+					</IconWrapper>
+					<Caption>filled_done_circle</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="fast_rewind" {...props} />
+					</IconWrapper>
+					<Caption>fast_rewind</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="refresh" {...props} />
+					</IconWrapper>
+					<Caption>refresh</Caption>
 				</Wrapper>
 				<Wrapper>
 					<IconWrapper>

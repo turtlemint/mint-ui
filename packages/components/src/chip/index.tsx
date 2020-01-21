@@ -14,7 +14,13 @@ export const Chip = ({ text, done, style }: ChipProps) => {
 	return (
 		<Wrapper style={style}>
 			<Text done={done}>{text}</Text>
-			{done ? <Icon name="done" style={{ marginLeft: "10px" }} /> : null}
+			{done ? (
+				<Icon
+					name="filled_done_circle"
+					color={COLORS.PRIMARY}
+					style={{ marginLeft: "10px" }}
+				/>
+			) : null}
 		</Wrapper>
 	);
 };

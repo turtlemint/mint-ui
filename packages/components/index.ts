@@ -19,6 +19,7 @@ import { default as List } from "./src/list";
 import { default as Chip } from "./src/chip";
 import { default as Tabs } from "./src/tabs";
 import { default as Table } from "./src/table";
+import { default as Pagination } from "./src/pagination";
 
 export {
 	Button,
@@ -42,5 +43,6 @@ export {
 	List,
 	Chip,
 	Tabs,
-	Table
+	Table,
+	Pagination
 };
