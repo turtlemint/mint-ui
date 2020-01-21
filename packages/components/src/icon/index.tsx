@@ -74,13 +74,7 @@ interface IconProps {
 export const Icon = ({ name, color, size = 24, style }: IconProps) => {
 	const SVGIcon = IconDict[name] ? IconDict[name] : null;
 	return SVGIcon ? (
-		<SVGIcon
-			viewBox="0 0 24 24"
-			fill={color}
-			width={size}
-			height={size}
-			style={style}
-		/>
+		<SVGIcon fill={color} width={size} height={size} style={style} />
 	) : null;
 };
 
