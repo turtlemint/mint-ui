@@ -136,7 +136,7 @@ stories.add(
 		return (
 			<List
 				dataSource={textList}
-				renderItem={item => {
+				renderItem={(item: any) => {
 					return <ListItem key={item.key} {...item} />;
 				}}
 			/>

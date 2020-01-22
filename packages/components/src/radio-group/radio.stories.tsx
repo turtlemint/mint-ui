@@ -16,7 +16,7 @@ stories.add("outlined", () => (
 			<Col>
 				<RadioGroup
 					value="item-4"
-					onChange={val => {
+					onChange={(val: any) => {
 						console.log(val);
 					}}
 				>
@@ -31,7 +31,7 @@ stories.add("outlined", () => (
 			<Col>
 				<RadioGroup
 					value="item-1"
-					onChange={val => {
+					onChange={(val: any) => {
 						console.log(val);
 					}}
 				>
@@ -54,7 +54,7 @@ stories.add("solid", () => (
 				<RadioGroup
 					buttonStyle="solid"
 					value="item-4"
-					onChange={val => {
+					onChange={(val: any) => {
 						console.log(val);
 					}}
 				>
@@ -70,7 +70,7 @@ stories.add("solid", () => (
 				<RadioGroup
 					buttonStyle="solid"
 					value="item-4"
-					onChange={val => {
+					onChange={(val: any) => {
 						console.log(val);
 					}}
 				>
@@ -93,7 +93,7 @@ stories.add("size", () => (
 				<RadioGroup
 					size="large"
 					value="item-4"
-					onChange={val => {
+					onChange={(val: any) => {
 						console.log(val);
 					}}
 				>
@@ -109,7 +109,7 @@ stories.add("size", () => (
 				<RadioGroup
 					size="default"
 					value="item-1"
-					onChange={val => {
+					onChange={(val: any) => {
 						console.log(val);
 					}}
 				>
@@ -127,7 +127,7 @@ stories.add("size", () => (
 				<RadioGroup
 					size="small"
 					value="item-1"
-					onChange={val => {
+					onChange={(val: any) => {
 						console.log(val);
 					}}
 				>
