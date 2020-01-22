@@ -103,7 +103,7 @@ const IconDict: IDict<any> = {
 	call: Call,
 	email: Email,
 	search: Search,
-	report: Report,
+	report: Report
 };
 
 interface IconProps {

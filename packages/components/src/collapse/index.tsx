@@ -118,11 +118,15 @@ export const Panel = ({
 	const getIcon = () => {
 		return !showArrow ? null : open ? (
 			<Icon position={expandIconPosition}>
-				<KeyboardArrowDown />
+				<KeyboardArrowDown width={24} height={24} fill={COLORS.GREY1} />
 			</Icon>
 		) : (
 			<Icon position={expandIconPosition}>
-				<KeyboardArrowRight />
+				<KeyboardArrowRight
+					width={24}
+					height={24}
+					fill={COLORS.GREY1}
+				/>
 			</Icon>
 		);
 	};
