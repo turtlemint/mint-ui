@@ -289,6 +289,30 @@ stories.add(
 					</IconWrapper>
 					<Caption>sentiment_satisfied</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="call" {...props} />
+					</IconWrapper>
+					<Caption>call</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="email" {...props} />
+					</IconWrapper>
+					<Caption>email</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="search" {...props} />
+					</IconWrapper>
+					<Caption>search</Caption>
+				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="report" {...props} />
+					</IconWrapper>
+					<Caption>report</Caption>
+				</Wrapper>
 			</>
 		);
 	},

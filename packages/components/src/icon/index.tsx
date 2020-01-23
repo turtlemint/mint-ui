@@ -48,6 +48,10 @@ import RatingFilled5 from "../icons/RatingFilled5";
 import Send from "../icons/Send";
 import SentimentDissatisfied from "../icons/SentimentDissatisfied";
 import SentimentSatisfied from "../icons/SentimentSatisfied";
+import Call from "../icons/Call";
+import Email from "../icons/Email";
+import Search from "../icons/Search";
+import Report from "../icons/Report";
 
 const IconDict: IDict<any> = {
 	announcement: Announcement,
@@ -95,7 +99,11 @@ const IconDict: IDict<any> = {
 	rating_filled_5: RatingFilled5,
 	send: Send,
 	sentiment_dissatisfied: SentimentDissatisfied,
-	sentiment_satisfied: SentimentSatisfied
+	sentiment_satisfied: SentimentSatisfied,
+	call: Call,
+	email: Email,
+	search: Search,
+	report: Report
 };
 
 interface IconProps {
