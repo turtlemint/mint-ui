@@ -3,7 +3,6 @@
 #### Added
 - Update Storybook to Storybook Docs
 - Changelog.md
-
 ### 1.0.5-alpha.4
 
 #### Added
