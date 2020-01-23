@@ -1,15 +1,15 @@
-### 1.0.5
+### 1.1.0
 
 #### Added
 - Update Storybook to Storybook Docs
 - Changelog.md
-
 ### 1.0.5-alpha.4
 
 #### Added
 - Icons of Call, Email, Report, Search
 
 ### 1.0.5-alpha.3
+
 
 #### Added 
 - Help center icons - rating_1, rating_2, rating_3, rating_4, rating_5, rating_filled_1, rating_filled_2, rating_filled_3, rating_filled_4, rating_filled_5, sentiment_satisfied, sentiment_dissatisfied, send, mintpro, lock, cancel, add_circle_outline
@@ -52,10 +52,3 @@
 #### Changed
 - icon name case changed to snake_case
 - button display from flex to inline-flex
-
-
-
-
-
-
-
