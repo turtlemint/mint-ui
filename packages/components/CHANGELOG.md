@@ -52,10 +52,3 @@
 #### Changed
 - icon name case changed to snake_case
 - button display from flex to inline-flex
-
-
-
-
-
-
-
