@@ -7,7 +7,7 @@
 
 ### Changed
 
-- Definition of handleChange is updated to handle option ({ text, value }) and name parameter.
+- Definition of handleChange is updated to handle option ({ text, value }) and name parameter in respective order
 - Changed color of Select ArrowToggle of Dropdown to GREY2
 
 ### 1.1.0
