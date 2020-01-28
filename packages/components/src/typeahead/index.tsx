@@ -1,8 +1,8 @@
 import * as React from "react";
 import Input from "../input";
 import useDebounce from "../hooks/use-debounce";
-import Dropdown, { Option, SelectedOption } from "../select/dropdown";
-import { SelectCTA, SelectWrapper } from "../select";
+import Dropdown, { SelectedOption } from "../select/dropdown";
+import Select, { SelectCTA, SelectWrapper } from "../select";
 
 export interface LabeledValue {
 	key: string;
@@ -19,6 +19,7 @@ export type SelectValue =
 
 export interface TypeAheadProps {
 	className?: string;
+	name: string;
 	notFoundContent?: React.ReactNode | null;
 	disabled?: boolean;
 	style?: React.CSSProperties;
@@ -27,7 +28,7 @@ export interface TypeAheadProps {
 	open?: boolean;
 	loading?: boolean;
 	value?: SelectValue;
-	onSelect: (option: SelectedOption) => void;
+	onChange: (value: string | number, name: string) => void;
 	onBlur?: () => void;
 	fetchFunc: (value: string) => any;
 	children:
@@ -37,8 +38,9 @@ export interface TypeAheadProps {
 
 export const TypeAhead: React.FC<TypeAheadProps> = ({
 	className = "",
+	name,
 	open = false,
-	onSelect,
+	onChange,
 	loading = false,
 	fetchFunc,
 	placeholder = "",
@@ -74,7 +76,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	}, [labelValue]);
 
 	const handleSelect = (option: SelectedOption) => {
-		onSelect ? onSelect(option) : null;
+		onChange ? onChange(option.value, name) : null;
 		setInputValue("");
 		setLabelValue(option.text);
 		setShowLabelInput(true);
@@ -85,7 +87,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 		setShowLabelInput(false);
 		setDropdownOpen(true);
 	};
-
+	const { Option } = Select;
 	return (
 		<SelectWrapper block={false} className={className}>
 			{!showLabelInput ? (

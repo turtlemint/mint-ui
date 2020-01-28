@@ -1,19 +1,36 @@
-import React from "react";
+import * as React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import Dropdown, { Option } from "./dropdown";
 import Select from "./index";
-import { DemoSelect } from "./select.stories";
 
 export const data = [
 	{
-		value: 1,
+		value: "item1",
 		text: "Item 1"
 	},
 	{
-		value: 2,
+		value: "item2",
 		text: "Item 2"
 	}
 ];
+const DemoSelect = ({ onChange }) => {
+	const [value, setValue] = React.useState(data[0]);
+
+	const handleSelect = option => {
+		const dataItem = data.filter(item => item.value === option.value)[0];
+		setValue(dataItem);
+		onChange ? onChange(dataItem) : null;
+	};
+	return (
+		<Select name="demo-select" value={value} onChange={handleSelect}>
+			{data.map(d => (
+				<Option key={d.value} value={d.value}>
+					{d.text}
+				</Option>
+			))}
+		</Select>
+	);
+};
 afterEach(cleanup);
 
 describe("Dropdown test suite", () => {
@@ -110,7 +127,7 @@ describe("Select test suites", () => {
 		const handleSelect = item => {
 			selectedItem = item;
 		};
-		const { getByTestId } = render(<DemoSelect onSelect={handleSelect} />);
+		const { getByTestId } = render(<DemoSelect onChange={handleSelect} />);
 		const selectLabel = getByTestId("select-wrapper").getElementsByTagName(
 			"div"
 		)[0];

@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import Dropdown, { SelectedOption } from "./dropdown";
+import Dropdown, { SelectedOption, Option } from "./dropdown";
 import Icon from "../icon";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
@@ -76,8 +76,9 @@ export const SelectCTA = ({
 };
 
 interface SelectProps {
-	value: any;
-	onSelect?: (option: SelectedOption) => void;
+	name: string;
+	value?: any;
+	onChange?: (option: SelectedOption, name: string) => void;
 	block?: boolean;
 	children:
 		| React.ComponentElement<any, any>
@@ -85,15 +86,16 @@ interface SelectProps {
 }
 
 export const Select = ({
+	name,
 	value,
-	onSelect,
+	onChange,
 	block = false,
 	children
 }: SelectProps) => {
 	const [open, setOpen] = React.useState(false);
 	const handleSelect = (option: SelectedOption) => {
 		setOpen(!open);
-		onSelect ? onSelect(option) : null;
+		onChange ? onChange(option, name) : null;
 	};
 	return (
 		<SelectWrapper data-testid="select-wrapper" block={block}>
@@ -110,4 +112,5 @@ export const Select = ({
 	);
 };
 
+Select.Option = Option;
 export default Select;

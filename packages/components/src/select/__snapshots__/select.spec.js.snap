@@ -11,13 +11,13 @@ exports[`Dropdown test suite Dropdown snapshot 1`] = `
     >
       <li
         class="dropdown__StyledOption-sc-4mjgs1-2 iFCPBi"
-        value="1"
+        value="item1"
       >
         Item 1
       </li>
       <li
         class="dropdown__StyledOption-sc-4mjgs1-2 iFCPBi"
-        value="2"
+        value="item2"
       >
         Item 2
       </li>

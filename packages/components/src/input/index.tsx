@@ -6,14 +6,14 @@ import { GlobalStyles } from "../app";
 
 export interface InputProps {
 	type?: string;
-	value: CommonTypeTuple;
+	value?: CommonTypeTuple;
 	placeholder?: string;
 	label?: string;
 	error?: string;
 	helpText?: string;
 	block?: boolean;
 	disabled?: boolean;
-	onChange?: (val: string) => void;
+	onChange?: (name: string, val: string) => void;
 	onBlur?: React.FocusEventHandler;
 }
 
@@ -158,7 +158,7 @@ export const Input: React.FC<InputProps &
 }: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (onChange) {
-			onChange(e.target.value);
+			onChange(e.target.value, e.target.name);
 		}
 	};
 	return (

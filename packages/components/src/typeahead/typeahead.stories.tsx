@@ -23,10 +23,11 @@ export const data = [
 
 stories.add("default", () => (
 	<TypeAhead
+		name="default-typeahead"
 		value="some value"
 		loading={false}
 		fetchFunc={() => {}}
-		onSelect={() => {}}
+		onChange={() => {}}
 		open={false}
 		placeholder="Select user..."
 	>
@@ -40,9 +41,10 @@ stories.add("default", () => (
 
 stories.add("loading", () => (
 	<TypeAhead
+		name="loading-typeahead"
 		loading={true}
 		fetchFunc={() => {}}
-		onSelect={() => {}}
+		onChange={() => {}}
 		open={false}
 		placeholder="Select user..."
 	>
@@ -56,9 +58,10 @@ stories.add("loading", () => (
 
 stories.add("loaded", () => (
 	<TypeAhead
+		name="loaded-typeahead"
 		loading={false}
 		fetchFunc={() => {}}
-		onSelect={() => {}}
+		onChange={() => {}}
 		open={true}
 		placeholder="Select user..."
 	>
@@ -104,7 +107,7 @@ stories.add(
 	}
 );
 
-export const TypeAheadDemo = () => {
+stories.add("functional demo", () => {
 	const [data, setData] = React.useState([]);
 	const [open, setOpen] = React.useState(false);
 	const [fetching, setFetching] = React.useState(false);
@@ -125,16 +128,18 @@ export const TypeAheadDemo = () => {
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const handleSelect = (value: unknown) => {
+	const handleSelect = (value: string | number, name: string) => {
+		console.log(value, name);
 		setOpen(false);
 	};
 
 	return (
 		<TypeAhead
+			name="some-typeahead"
 			value="some value"
 			loading={fetching}
 			fetchFunc={fetchUser}
-			onSelect={handleSelect}
+			onChange={handleSelect}
 			open={open}
 			placeholder="Select user..."
 		>
@@ -145,5 +150,4 @@ export const TypeAheadDemo = () => {
 			))}
 		</TypeAhead>
 	);
-};
-stories.add("functional demo", () => <TypeAheadDemo />);
+});
