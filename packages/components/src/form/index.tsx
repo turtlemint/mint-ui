@@ -13,6 +13,7 @@ export const Form = ({ name, initialState, onSubmit, children }: FormProps) => {
 	const [state, setState] = React.useState<any>(
 		initialState ? initialState : {}
 	);
+	const [errors, setErrors] = React.useState<any>({});
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -26,7 +27,9 @@ export const Form = ({ name, initialState, onSubmit, children }: FormProps) => {
 		<FormContext.Provider
 			value={{
 				state,
-				changeHandler
+				changeHandler,
+				errors,
+				setErrors
 			}}
 		>
 			<form name={name} onSubmit={handleSubmit}>

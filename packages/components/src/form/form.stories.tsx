@@ -52,7 +52,15 @@ stories.add(
 				onSubmit={handleSubmit}
 				initialState={initialState}
 			>
-				<Form.Item label="First name">
+				<Form.Item
+					label="First name"
+					rules={[
+						{
+							required: true,
+							message: "First name is required"
+						}
+					]}
+				>
 					<Input
 						type="text"
 						name="firstName"
@@ -66,7 +74,30 @@ stories.add(
 						placeholder="Last name"
 					/>
 				</Form.Item>
-				<Form.Item label="City">
+				<Form.Item
+					label="Email"
+					rules={[
+						{
+							required: true,
+							message: "Email is required"
+						},
+						{
+							type: "email",
+							message: "Email is not valid"
+						}
+					]}
+				>
+					<Input type="text" name="email" placeholder="Email" />
+				</Form.Item>
+				<Form.Item
+					label="City"
+					rules={[
+						{
+							required: true,
+							message: "City is required"
+						}
+					]}
+				>
 					<Select name="city">
 						{data.map((d: any) => (
 							<Option key={d.value} value={d.value}>
