@@ -13,7 +13,7 @@ export interface InputProps {
 	helpText?: string;
 	block?: boolean;
 	disabled?: boolean;
-	onChange?: (name: string, val: string) => void;
+	onChange?: (val: string, name: string) => void;
 	onBlur?: React.FocusEventHandler;
 }
 
