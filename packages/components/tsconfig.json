@@ -28,5 +28,10 @@
         "**/*.stories.tsx",
         "**/*.README.md",
         "__snapshots__"
-    ]
+    ],
+    "awesomeTypescriptLoaderOptions": {
+        "ignoreDiagnostics": [
+            7005
+        ]
+    }
 }

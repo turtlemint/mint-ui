@@ -7,7 +7,6 @@ import Pagination from "../pagination";
 import LoadingMask from "../loading/loading-mask";
 import Col from "../grid/col";
 import Row from "../grid/row";
-// import useDeepCompare from "../hooks/use-deep-compare";
 
 export type sortOrderType = "ascends" | "descends";
 export interface OnRowReturn {
@@ -39,16 +38,24 @@ interface Pagination {
 	pageSize: number;
 }
 interface TableProps {
-	dataSource: any;
+	/**Data record array to be displayed */
+	dataSource: any[];
+	/** Columns of table */
 	columns: any[];
 	onRow?: (record: any, rowIndex: string) => OnRowReturn;
-	pagination?: Pagination;
+	/** Config of pagination. You can ref pagination document
+	 * at https://mint-ui.netlify.com/?path=/story/pagination--basic
+	 * hide it by setting it to false
+	 */
+	pagination?: Pagination | boolean;
+	/**	Loading status of table */
 	loading?: boolean;
+	/** Callback executed when pagination is changed */
 	onChange?: (pagination: any) => void;
 }
 
 export const Table = ({
-	dataSource,
+	dataSource = [],
 	columns,
 	onRow,
 	pagination,
@@ -59,10 +66,12 @@ export const Table = ({
 	const defaultCol = columns.filter(column => column.defaultSortOrder)[0];
 	const [activeCol, setActiveCol] = React.useState<ColumnType>(defaultCol);
 	const [currentPage, setCurrentPage] = React.useState<number>(
-		pagination ? pagination.currentPage : 1
+		pagination && typeof pagination !== "boolean"
+			? pagination.currentPage
+			: 1
 	);
 	const [pageSize] = React.useState<number>(
-		pagination ? pagination.pageSize : 10
+		pagination && typeof pagination !== "boolean" ? pagination.pageSize : 10
 	);
 	React.useEffect(() => {
 		setData(dataSource);
@@ -111,23 +120,30 @@ export const Table = ({
 			{data.length ? (
 				<Row style={{ marginTop: "20px" }}>
 					<Col>
-						<Pagination
-							style={{
-								display: "flex",
-								justifyContent: "flex-end"
-							}}
-							total={
-								pagination
-									? pagination.total
-									: dataSource.length
-							}
-							current={
-								pagination
-									? pagination.currentPage
-									: currentPage
-							}
-							onChange={(page: number) => setCurrentPage(page)}
-						/>
+						{typeof pagination === "boolean" &&
+						pagination === false ? null : (
+							<Pagination
+								style={{
+									display: "flex",
+									justifyContent: "flex-end"
+								}}
+								total={
+									pagination &&
+									typeof pagination !== "boolean"
+										? pagination.total
+										: dataSource.length
+								}
+								current={
+									pagination &&
+									typeof pagination !== "boolean"
+										? pagination.currentPage
+										: currentPage
+								}
+								onChange={(page: number) =>
+									setCurrentPage(page)
+								}
+							/>
+						)}
 					</Col>
 				</Row>
 			) : null}

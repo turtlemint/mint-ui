@@ -1,7 +1,7 @@
 import React, { SVGProps } from "react";
 
 const SvgFilledDoneCircle = (props: SVGProps<SVGSVGElement>) => (
-	<svg width={24} height={24} {...props}>
+	<svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
 		<defs>
 			<path
 				id="filled_done_circle_svg__a"

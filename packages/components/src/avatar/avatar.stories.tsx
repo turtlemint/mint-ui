@@ -36,76 +36,84 @@ stories.add(
 		}
 	}
 );
-stories.add("icon colors", () => (
-	<>
-		<Avatar
-			size={48}
-			icon="close"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="notification_important"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="error_outline"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="outline_done"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="sort"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="announcement"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="info"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="keyboard_arrow_down"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="keyboard_arrow_up"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="settings"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-		<Avatar
-			size={48}
-			icon="warning"
-			color="lime"
-			style={{ background: "black" }}
-		/>
-	</>
-));
+stories.add(
+	"icon colors",
+	() => (
+		<>
+			<Avatar
+				size={48}
+				icon="close"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="notification_important"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="error_outline"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="outline_done"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="sort"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="announcement"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="info"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="keyboard_arrow_down"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="keyboard_arrow_up"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="settings"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+			<Avatar
+				size={48}
+				icon="warning"
+				color="lime"
+				style={{ background: "black" }}
+			/>
+		</>
+	),
+	{
+		info: {
+			propTables: [Avatar]
+		}
+	}
+);
 stories.add(
 	"icon as component",
 	() => (
