@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import Dropdown, { SelectedOption } from "./dropdown";
+import Dropdown, { SelectedOption, Option } from "./dropdown";
 import Icon from "../icon";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
@@ -10,6 +10,7 @@ export const SelectWrapper = styled.div<{ block: boolean }>`
 	width: ${props => (props.block ? "100%" : "328px")};
 	position: relative;
 	background-color: ${COLORS.WHITE};
+	outline: 0;
 `;
 export const StyledSelectCTA = styled.div`
 	outline: none;
@@ -33,9 +34,9 @@ export const StyledSelectCTA = styled.div`
 const ArrowToggle = ({ open }: { open: boolean }) => (
 	<>
 		{open ? (
-			<Icon name="keyboard_arrow_up" size={24} />
+			<Icon name="keyboard_arrow_up" size={24} color={COLORS.GREY2} />
 		) : (
-			<Icon name="keyboard_arrow_down" size={24} />
+			<Icon name="keyboard_arrow_down" size={24} color={COLORS.GREY2} />
 		)}
 	</>
 );
@@ -45,6 +46,8 @@ interface SelectCTAProps {
 	showArrow?: boolean;
 	open?: boolean;
 	onClick?: () => void;
+	onBlur?: () => void;
+	onFocus?: () => void;
 }
 
 export const SelectCTA = ({
@@ -76,8 +79,9 @@ export const SelectCTA = ({
 };
 
 interface SelectProps {
-	value: any;
-	onSelect?: (option: SelectedOption) => void;
+	name: string;
+	value?: any;
+	onChange?: (option: SelectedOption, name: string) => void;
 	block?: boolean;
 	children:
 		| React.ComponentElement<any, any>
@@ -85,24 +89,29 @@ interface SelectProps {
 }
 
 export const Select = ({
+	name,
 	value,
-	onSelect,
+	onChange,
 	block = false,
 	children
 }: SelectProps) => {
 	const [open, setOpen] = React.useState(false);
 	const handleSelect = (option: SelectedOption) => {
-		setOpen(!open);
-		onSelect ? onSelect(option) : null;
+		onChange ? onChange(option, name) : null;
 	};
+	const toggleDropdown = () => {
+		setOpen(!open);
+	};
+
 	return (
-		<SelectWrapper data-testid="select-wrapper" block={block}>
-			<SelectCTA
-				open={open}
-				value={value}
-				showArrow={true}
-				onClick={() => setOpen(!open)}
-			/>
+		<SelectWrapper
+			data-testid="select-wrapper"
+			block={block}
+			onBlur={toggleDropdown}
+			onFocus={toggleDropdown}
+			tabIndex={0}
+		>
+			<SelectCTA open={open} value={value} showArrow={true} />
 			{open ? (
 				<Dropdown onSelect={handleSelect}>{children}</Dropdown>
 			) : null}
@@ -110,4 +119,5 @@ export const Select = ({
 	);
 };
 
+Select.Option = Option;
 export default Select;

@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import axios from "axios";
 import TypeAhead from "./index";
 import { SelectCTA, SelectWrapper } from "../select";
-import Dropdown, { Option } from "../select/dropdown";
+import Dropdown, { Option, SelectedOption } from "../select/dropdown";
 import Input from "../input";
 
 const stories = storiesOf("Typeahead", module).addParameters({
@@ -104,7 +104,7 @@ stories.add(
 	}
 );
 
-export const TypeAheadDemo = () => {
+stories.add("functional demo", () => {
 	const [data, setData] = React.useState([]);
 	const [open, setOpen] = React.useState(false);
 	const [fetching, setFetching] = React.useState(false);
@@ -124,8 +124,8 @@ export const TypeAheadDemo = () => {
 		setFetching(false);
 	};
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const handleSelect = (value: unknown) => {
+	const handleSelect = (option: SelectedOption) => {
+		console.log(option);
 		setOpen(false);
 	};
 
@@ -145,5 +145,4 @@ export const TypeAheadDemo = () => {
 			))}
 		</TypeAhead>
 	);
-};
-stories.add("functional demo", () => <TypeAheadDemo />);
+});
