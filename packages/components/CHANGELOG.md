@@ -1,3 +1,8 @@
+### 2.0.1
+
+### Added
+- ref added on SelectWrapper to trigger onBlur event manually on click of item
+
 ### 2.0.0
 
 ### Added
