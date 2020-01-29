@@ -319,6 +319,12 @@ stories.add(
 					</IconWrapper>
 					<Caption>attachment</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="cloud_download" {...props} />
+					</IconWrapper>
+					<Caption>cloud_download</Caption>
+				</Wrapper>
 			</>
 		);
 	},

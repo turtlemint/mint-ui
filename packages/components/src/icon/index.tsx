@@ -53,6 +53,7 @@ import Email from "../icons/Email";
 import Search from "../icons/Search";
 import Report from "../icons/Report";
 import Attachment from "../icons/Attachment";
+import CloudDownload from "../icons/CloudDownload";
 
 const IconDict: IDict<any> = {
 	announcement: Announcement,
@@ -106,6 +107,7 @@ const IconDict: IDict<any> = {
 	search: Search,
 	report: Report,
 	attachment: Attachment,
+	cloud_download: CloudDownload
 };
 
 interface IconProps {
