@@ -1,4 +1,4 @@
-### 2.1.1 ( January 2020)
+### 2.1.0-alpha.0 ( January 2020)
 
 ### Added
 - Added icons of cloud_download, attachment
