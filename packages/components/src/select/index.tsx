@@ -95,16 +95,23 @@ export const Select = ({
 	block = false,
 	children
 }: SelectProps) => {
+	const selectEl = React.useRef<HTMLDivElement>(null);
 	const [open, setOpen] = React.useState(false);
+
 	const handleSelect = (option: SelectedOption) => {
+		const node = selectEl.current;
+		node ? node.blur() : null;
 		onChange ? onChange(option, name) : null;
+		setOpen(false);
 	};
+
 	const toggleDropdown = () => {
 		setOpen(!open);
 	};
 
 	return (
 		<SelectWrapper
+			ref={selectEl}
 			data-testid="select-wrapper"
 			block={block}
 			onBlur={toggleDropdown}
