@@ -313,6 +313,12 @@ stories.add(
 					</IconWrapper>
 					<Caption>report</Caption>
 				</Wrapper>
+				<Wrapper>
+					<IconWrapper>
+						<Icon name="attachment" {...props} />
+					</IconWrapper>
+					<Caption>attachment</Caption>
+				</Wrapper>
 			</>
 		);
 	},

@@ -52,6 +52,7 @@ import Call from "../icons/Call";
 import Email from "../icons/Email";
 import Search from "../icons/Search";
 import Report from "../icons/Report";
+import Attachment from "../icons/Attachment";
 
 const IconDict: IDict<any> = {
 	announcement: Announcement,
@@ -103,7 +104,8 @@ const IconDict: IDict<any> = {
 	call: Call,
 	email: Email,
 	search: Search,
-	report: Report
+	report: Report,
+	attachment: Attachment,
 };
 
 interface IconProps {
