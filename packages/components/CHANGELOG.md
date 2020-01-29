@@ -1,17 +1,23 @@
-### 2.0.1
+### 2.1.1 ( January 2020)
+
+### Added
+- Added icons of cloud_download, attachment
+
+### Changed
+- Updated Rating icons
+
+### 2.0.1 ( January 2020)
 
 ### Added
 - ref added on SelectWrapper to trigger onBlur event manually on click of item
 
-### 2.0.0
+### 2.0.0 ( January 2020)
 
 ### Added
-
 - onFocus and onBlur handlers to manage internal state
 - added name prop
 
 ### Changed
-
 - Definition of handleChange is updated to handle option ({ text, value }) and name parameter in respective order
 - Changed color of Select ArrowToggle of Dropdown to GREY2
 - Removed import of Option as a seperate component and added as part of Select itself.
@@ -29,7 +35,6 @@
 - Icons of Call, Email, Report, Search
 
 ### 1.0.5-alpha.3
-
 
 #### Added 
 - Help center icons - rating_1, rating_2, rating_3, rating_4, rating_5, rating_filled_1, rating_filled_2, rating_filled_3, rating_filled_4, rating_filled_5, sentiment_satisfied, sentiment_dissatisfied, send, mintpro, lock, cancel, add_circle_outline
