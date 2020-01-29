@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react';
+import React, { SVGProps } from "react";
 
 const SvgAttachment = (props: SVGProps<SVGSVGElement>) => (
 	<svg height="1em" viewBox="0 0 24 24" width="1em" {...props}>
