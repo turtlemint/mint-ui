@@ -1,5 +1,7 @@
 import * as React from "react";
+import styled, { css } from "styled-components";
 import { FormContext } from ".";
+import COLORS from "../__utils/colors";
 
 interface Rule {
 	type?: string;
@@ -8,6 +10,7 @@ interface Rule {
 }
 export interface FormItemProps {
 	label: string;
+	helpText?: string;
 	rules?: Rule[];
 	children: any;
 }
@@ -24,13 +27,14 @@ const validateRuleType = (type: string, value: string) => {
 			return true;
 	}
 };
-const FormItem = ({ label, rules, children }: FormItemProps) => {
+const FormItem = ({ label, helpText, rules, children }: FormItemProps) => {
 	const {
 		state,
 		changeHandler: onChange,
 		errors,
 		setErrors
 	} = React.useContext(FormContext);
+
 	const [fieldName, setFieldName] = React.useState<string>("");
 
 	const handleBlur = (e: {
@@ -43,6 +47,7 @@ const FormItem = ({ label, rules, children }: FormItemProps) => {
 				const requiredItem = rules.filter(item => item.required)[0];
 				errors[e.target.name] = requiredItem.message;
 				setErrors({ ...errors });
+				return;
 			}
 			const typeRule = rules.filter(item => item.type)[0];
 			if (typeRule) {
@@ -50,23 +55,53 @@ const FormItem = ({ label, rules, children }: FormItemProps) => {
 				if (!result) {
 					errors[e.target.name] = typeRule.message;
 					setErrors({ ...errors });
+					return;
 				}
 			}
+			errors[e.target.name] = "";
+			setErrors({ ...errors });
 		}
 	};
 
 	return (
 		<div>
-			<label style={{ color: errors[fieldName] ? "red" : "" }}>
-				{label}
-			</label>
+			<Label error={errors[fieldName]}>{label}</Label>
 			{React.cloneElement(children, {
 				value: state[children.props.name],
 				onChange,
-				onBlur: handleBlur
+				onBlur: handleBlur,
+				error: errors[fieldName]
 			})}
+			{helpText ? <HelpText>{helpText}</HelpText> : null}
+			{errors[fieldName] ? (
+				<ErrorText>{errors[fieldName]}</ErrorText>
+			) : null}
 		</div>
 	);
 };
+
+const Label = styled.label<{ error: undefined | string }>`
+	margin-bottom: 4px;
+	display: flex;
+	label {
+		color: ${COLORS.GREY1};
+		${({ error }) =>
+			error &&
+			css`
+				color: ${COLORS.DANGER};
+			`};
+	}
+	font-weight: 500;
+	color: ${({ error }) => (error ? COLORS.DANGER : "initial")};
+`;
+
+const ErrorText = styled.div<{ children: React.ReactNode }>`
+	color: ${COLORS.DANGER};
+	margin-top: 4px;
+	word-wrap: break-word;
+`;
+export const HelpText = styled.p<{ children: React.ReactNode }>`
+	color: ${COLORS.GREY2};
+`;
 
 export default FormItem;

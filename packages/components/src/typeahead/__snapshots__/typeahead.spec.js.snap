@@ -10,7 +10,7 @@ exports[`Typeahead tests renders correctly 1`] = `
     >
       <input
         aria-label="tm-input"
-        class="input__StyledInput-sc-1pvgcfx-2 fFzUhJ"
+        class="input__StyledInput-sc-1pvgcfx-1 cuIzMm"
         data-testid="typeahead-input"
         placeholder="Select user..."
         type="text"

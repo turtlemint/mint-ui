@@ -17,7 +17,48 @@ export interface InputProps {
 	onBlur?: React.FocusEventHandler;
 }
 
-export const InputStyles = css<
+export const Input: React.FC<InputProps &
+	Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">> = ({
+	type = "text",
+	placeholder,
+	error,
+	block = false,
+	disabled = false,
+	onChange,
+	onBlur,
+	value,
+	className = "",
+	...rest
+}: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (onChange) {
+			onChange(e.target.value, e.target.name);
+		}
+	};
+	return (
+		<StyledWrapper block={block}>
+			<StyledInput
+				type={type}
+				placeholder={placeholder}
+				error={error}
+				disabled={disabled}
+				onBlur={onBlur}
+				onChange={handleChange}
+				value={value}
+				className={className}
+				aria-label="tm-input"
+				{...rest}
+			/>
+		</StyledWrapper>
+	);
+};
+
+const StyledWrapper = styled.div<{ block: boolean }>`
+	${GlobalStyles};
+	width: ${({ block }) => (block ? "100%" : "328px")};
+	text-align: left;
+`;
+export const StyledInput = styled.input<
 	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
 >`
 	box-sizing: border-box;
@@ -87,107 +128,5 @@ export const InputStyles = css<
 			}
 		`};
 `;
-
-const SharedStyles = css`
-	color: ${COLORS.GREY1};
-`;
-
-export const LabelStyles = css<{ error: string | undefined }>`
-	margin-bottom: 4px;
-	label {
-		${SharedStyles};
-		${({ error }) =>
-			error &&
-			css`
-				color: ${COLORS.DANGER};
-			`};
-	}
-`;
-
-export const Error = css`
-	${SharedStyles};
-	margin-top: 4px;
-	word-wrap: break-word;
-	label {
-		color: ${COLORS.DANGER};
-	}
-`;
-
-export const HelpText = css`
-	${SharedStyles};
-	color: ${COLORS.GREY2};
-`;
-
-const StyledWrapper = styled.div<{ block: boolean }>`
-	${GlobalStyles};
-	width: ${({ block }) => (block ? "100%" : "328px")};
-	text-align: left;
-`;
-
-const StyledLabel = styled.div<{ error: undefined | string }>`
-	${LabelStyles};
-	font-weight: 500;
-	color: ${({ error }) => (error ? COLORS.DANGER : "initial")};
-`;
-export const StyledInput = styled.input<
-	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
->`
-	${InputStyles};
-`;
-const StyledError = styled.div<{ children: React.ReactNode }>`
-	${Error};
-`;
-const StyledHelpText = styled.p<{ children: React.ReactNode }>`
-	${HelpText};
-`;
-
-export const Input: React.FC<InputProps &
-	Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">> = ({
-	type = "text",
-	placeholder,
-	label,
-	error,
-	helpText,
-	block = false,
-	disabled = false,
-	onChange,
-	onBlur,
-	value,
-	className = "",
-	...rest
-}: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (onChange) {
-			onChange(e.target.value, e.target.name);
-		}
-	};
-	return (
-		<StyledWrapper block={block}>
-			{label ? (
-				<StyledLabel error={error}>
-					<label>{label}</label>
-				</StyledLabel>
-			) : null}
-			<StyledInput
-				type={type}
-				placeholder={placeholder}
-				error={error}
-				disabled={disabled}
-				onBlur={onBlur}
-				onChange={handleChange}
-				value={value}
-				className={className}
-				aria-label="tm-input"
-				{...rest}
-			/>
-			{error ? (
-				<StyledError>
-					<label>{error}</label>
-				</StyledError>
-			) : null}
-			{helpText ? <StyledHelpText>{helpText}</StyledHelpText> : null}
-		</StyledWrapper>
-	);
-};
 
 export default Input;
