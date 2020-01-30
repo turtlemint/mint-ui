@@ -10,6 +10,7 @@ export const SelectWrapper = styled.div<{ block: boolean }>`
 	width: ${props => (props.block ? "100%" : "328px")};
 	position: relative;
 	background-color: ${COLORS.WHITE};
+	outline: 0;
 `;
 export const StyledSelectCTA = styled.div`
 	outline: none;
@@ -33,9 +34,9 @@ export const StyledSelectCTA = styled.div`
 const ArrowToggle = ({ open }: { open: boolean }) => (
 	<>
 		{open ? (
-			<Icon name="keyboard_arrow_up" size={24} />
+			<Icon name="keyboard_arrow_up" size={24} color={COLORS.GREY2} />
 		) : (
-			<Icon name="keyboard_arrow_down" size={24} />
+			<Icon name="keyboard_arrow_down" size={24} color={COLORS.GREY2} />
 		)}
 	</>
 );
@@ -45,6 +46,8 @@ interface SelectCTAProps {
 	showArrow?: boolean;
 	open?: boolean;
 	onClick?: () => void;
+	onBlur?: () => void;
+	onFocus?: () => void;
 }
 
 export const SelectCTA = ({
@@ -92,19 +95,30 @@ export const Select = ({
 	block = false,
 	children
 }: SelectProps) => {
+	const selectEl = React.useRef<HTMLDivElement>(null);
 	const [open, setOpen] = React.useState(false);
+
 	const handleSelect = (option: SelectedOption) => {
-		setOpen(!open);
+		const node = selectEl.current;
+		node ? node.blur() : null;
 		onChange ? onChange(option, name) : null;
+		setOpen(false);
 	};
+
+	const toggleDropdown = () => {
+		setOpen(!open);
+	};
+
 	return (
-		<SelectWrapper data-testid="select-wrapper" block={block}>
-			<SelectCTA
-				open={open}
-				value={value}
-				showArrow={true}
-				onClick={() => setOpen(!open)}
-			/>
+		<SelectWrapper
+			ref={selectEl}
+			data-testid="select-wrapper"
+			block={block}
+			onBlur={toggleDropdown}
+			onFocus={toggleDropdown}
+			tabIndex={0}
+		>
+			<SelectCTA open={open} value={value} showArrow={true} />
 			{open ? (
 				<Dropdown onSelect={handleSelect}>{children}</Dropdown>
 			) : null}

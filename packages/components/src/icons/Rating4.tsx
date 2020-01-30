@@ -2,23 +2,10 @@ import React, { SVGProps } from "react";
 
 const SvgRating4 = (props: SVGProps<SVGSVGElement>) => (
 	<svg width="1em" height="1em" viewBox="0 0 40 40" {...props}>
-		<g fill="none" fillRule="evenodd" transform="translate(1 1)">
-			<circle
-				cx={19}
-				cy={19}
-				r={19}
-				stroke="#A1A6A7"
-				strokeWidth={1.541}
-			/>
-			<circle cx={8.216} cy={19} r={2.568} fill="#A1A6A7" />
-			<path
-				stroke="#A1A6A7"
-				strokeLinecap="round"
-				strokeWidth={2.054}
-				d="M11.297 27.593c5.142 4.108 10.277 4.108 15.406 0"
-			/>
-			<circle cx={29.784} cy={19} r={2.568} fill="#A1A6A7" />
-		</g>
+		<path
+			fill="#A1A6A7"
+			d="M20.27 2.27c9.941 0 18 8.06 18 18 0 9.941-8.059 18-18 18-9.94 0-18-8.059-18-18 0-9.94 8.06-18 18-18zm0 2c-8.836 0-16 7.164-16 16 0 8.837 7.164 16 16 16 8.837 0 16-7.163 16-16 0-8.836-7.163-16-16-16zm-6.96 23.11c4.516 3.609 8.876 3.609 13.379.002a.973.973 0 111.217 1.518c-5.214 4.177-10.584 4.177-15.81.001a.973.973 0 011.214-1.52zM9.5 18a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm21 0a2.5 2.5 0 110 5 2.5 2.5 0 010-5z"
+		/>
 	</svg>
 );
 

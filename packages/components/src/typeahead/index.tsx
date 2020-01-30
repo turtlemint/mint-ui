@@ -28,7 +28,7 @@ export interface TypeAheadProps {
 	open?: boolean;
 	loading?: boolean;
 	value?: SelectValue;
-	onChange: (value: string | number, name: string) => void;
+	onChange: (value: SelectedOption, name: string) => void;
 	onBlur?: () => void;
 	fetchFunc: (value: string) => any;
 	children:
@@ -76,7 +76,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	}, [labelValue]);
 
 	const handleSelect = (option: SelectedOption) => {
-		onChange ? onChange(option.value, name) : null;
+		onChange ? onChange(option, name) : null;
 		setInputValue("");
 		setLabelValue(option.text);
 		setShowLabelInput(true);

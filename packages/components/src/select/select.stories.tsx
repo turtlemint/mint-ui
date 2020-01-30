@@ -51,12 +51,14 @@ stories.add("default", () => {
 		setValue(dataItem);
 	};
 	return (
-		<Select name="basic-select" value={value} onChange={handleSelect}>
-			{dataItems.map((d: any) => (
-				<Option key={d} value={d}>
-					{d}
-				</Option>
-			))}
-		</Select>
+		<>
+			<Select name="basic-select" value={value} onChange={handleSelect}>
+				{dataItems.map((d: any) => (
+					<Option key={d} value={d}>
+						{d}
+					</Option>
+				))}
+			</Select>
+		</>
 	);
 });

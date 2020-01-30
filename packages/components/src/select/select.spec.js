@@ -116,7 +116,7 @@ describe("Select test suites", () => {
 				))}
 			</Select>
 		);
-		fireEvent.click(
+		fireEvent.focus(
 			getByTestId("select-wrapper").getElementsByTagName("div")[0]
 		);
 		expect(getByTestId("dropdown")).toBeInTheDocument();
@@ -131,14 +131,12 @@ describe("Select test suites", () => {
 		const selectLabel = getByTestId("select-wrapper").getElementsByTagName(
 			"div"
 		)[0];
-		fireEvent.click(selectLabel);
+		fireEvent.focus(selectLabel);
 
 		const liElement = getByTestId("select-wrapper")
 			.getElementsByTagName("div")[1]
 			.getElementsByTagName("li")[1];
 		fireEvent.click(liElement);
-		// console.log(selectLabel.getElementsByTagName("span")[0].textContent);
-		// expect(getByTestId("select-wrapper").getElementsByTagName("div")[1]).not.toBeInTheDocument();
 		expect(selectLabel.getElementsByTagName("span")[0].textContent).toEqual(
 			selectedItem.text
 		);
