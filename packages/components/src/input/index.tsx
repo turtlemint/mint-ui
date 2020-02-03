@@ -6,6 +6,7 @@ import { GlobalStyles } from "../app";
 
 export interface InputProps {
 	type?: string;
+	name?: string;
 	value?: CommonTypeTuple;
 	placeholder?: string;
 	label?: string;
@@ -20,6 +21,7 @@ export interface InputProps {
 export const Input: React.FC<InputProps &
 	Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">> = ({
 	type = "text",
+	name = "",
 	placeholder,
 	error,
 	block = false,
@@ -38,6 +40,7 @@ export const Input: React.FC<InputProps &
 	return (
 		<StyledWrapper block={block}>
 			<StyledInput
+				name={name}
 				type={type}
 				placeholder={placeholder}
 				error={error}

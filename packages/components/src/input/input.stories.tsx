@@ -5,6 +5,7 @@ import makeTable from "../table/prop-table";
 
 const InputProps = [
 	"type",
+	"name",
 	"placeholder",
 	"label",
 	"error",
