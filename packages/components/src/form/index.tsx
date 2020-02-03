@@ -1,64 +1,45 @@
 import * as React from "react";
 import FormItem from "./form-item";
 
-export const FormContext = React.createContext<any>(null);
+// export const FormContext = React.createContext<any>(null);
 interface FormProps {
 	name: string;
-	initialState?: any;
 	onSubmit: any;
-	children: React.ReactNode | React.ReactNodeArray;
+	children: any;
 }
 
-export const Form = ({ name, initialState, onSubmit, children }: FormProps) => {
-	const [state, setState] = React.useState<any>(
-		initialState ? initialState : {}
-	);
+export const Form = ({ name, onSubmit, children }: FormProps) => {
+	const formRef: any = React.useRef(null);
+
 	const [errors, setErrors] = React.useState<any>({});
 
+	const handleError = (name: string, message: string) => {
+		setErrors({ ...errors, [name]: message });
+	};
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		onSubmit(state);
-	};
-	const changeHandler = (value: any, name: string) => {
-		setState({ ...state, [name]: value });
+		const { elements } = formRef.current;
+		let values: any = {};
+		for (let i = 0; i < elements.length; i++) {
+			if (elements[i].name) {
+				values[elements[i].name] = elements[i].value;
+			}
+		}
+		console.log(values);
+		onSubmit ? onSubmit(values) : null;
 	};
 
 	return (
-		<FormContext.Provider
-			value={{
-				state,
-				changeHandler,
-				errors,
-				setErrors
-			}}
-		>
-			<form name={name} onSubmit={handleSubmit}>
-				{children}
-			</form>
-		</FormContext.Provider>
+		<form name={name} ref={formRef} onSubmit={handleSubmit}>
+			{React.Children.map(children, child => {
+				return React.cloneElement(child, {
+					errors,
+					handleError
+				});
+			})}
+		</form>
 	);
 };
-
-/**
-    createHOC function implementatinon starts
-*/
-// const createHOC = (formAttrs: any) => {
-//     const { name } = formAttrs;
-//     return function (FormComponent: any) {
-//         return (
-//             <FormComponent
-//                 name={name}
-//                 form={{
-//                     validateFields,
-//                     resetFields,
-//                     getFieldsError,
-//                     getFieldError,
-//                     isFieldTouched
-//                 }}
-//             />
-//         );
-//     };
-// };
 
 /**
     getFieldDecorator function implementatinon starts

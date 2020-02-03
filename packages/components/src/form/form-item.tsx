@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { FormContext } from ".";
 import COLORS from "../__utils/colors";
 
 interface Rule {
@@ -9,9 +8,12 @@ interface Rule {
 	message: string;
 }
 export interface FormItemProps {
+	name: string;
 	label: string;
 	helpText?: string;
 	rules?: Rule[];
+	errors?: any;
+	handleError?: (name: string, message: string) => void;
 	children: any;
 }
 
@@ -27,55 +29,48 @@ const validateRuleType = (type: string, value: string) => {
 			return true;
 	}
 };
-const FormItem = ({ label, helpText, rules, children }: FormItemProps) => {
-	const {
-		state,
-		changeHandler: onChange,
-		errors,
-		setErrors
-	} = React.useContext(FormContext);
-
-	const [fieldName, setFieldName] = React.useState<string>("");
-
+const FormItem = ({
+	name,
+	label,
+	helpText,
+	rules,
+	errors = {},
+	handleError = () => {},
+	children
+}: FormItemProps) => {
 	const handleBlur = (e: {
 		target: HTMLInputElement | HTMLSelectElement;
 	}) => {
 		if (rules) {
-			const value = e.target.value;
-			setFieldName(e.target.name);
+			const { value } = e.target;
+
 			if (!value) {
 				const requiredItem = rules.filter(item => item.required)[0];
-				errors[e.target.name] = requiredItem.message;
-				setErrors({ ...errors });
+				handleError ? handleError(name, requiredItem.message) : null;
 				return;
 			}
 			const typeRule = rules.filter(item => item.type)[0];
 			if (typeRule) {
 				const result = validateRuleType(typeRule.type as string, value);
 				if (!result) {
-					errors[e.target.name] = typeRule.message;
-					setErrors({ ...errors });
+					handleError(name, typeRule.message);
 					return;
 				}
 			}
-			errors[e.target.name] = "";
-			setErrors({ ...errors });
+
+			handleError(name, "");
 		}
 	};
 
 	return (
 		<div>
-			<Label error={errors[fieldName]}>{label}</Label>
+			<Label error={errors[name]}>{label}</Label>
 			{React.cloneElement(children, {
-				value: state[children.props.name],
-				onChange,
 				onBlur: handleBlur,
-				error: errors[fieldName]
+				name
 			})}
 			{helpText ? <HelpText>{helpText}</HelpText> : null}
-			{errors[fieldName] ? (
-				<ErrorText>{errors[fieldName]}</ErrorText>
-			) : null}
+			{errors[name] ? <ErrorText>{errors[name]}</ErrorText> : null}
 		</div>
 	);
 };
@@ -83,14 +78,12 @@ const FormItem = ({ label, helpText, rules, children }: FormItemProps) => {
 const Label = styled.label<{ error: undefined | string }>`
 	margin-bottom: 4px;
 	display: flex;
-	label {
-		color: ${COLORS.GREY1};
-		${({ error }) =>
-			error &&
-			css`
-				color: ${COLORS.DANGER};
-			`};
-	}
+	color: ${COLORS.GREY1};
+	${({ error }) =>
+		error &&
+		css`
+			color: ${COLORS.DANGER};
+		`};
 	font-weight: 500;
 	color: ${({ error }) => (error ? COLORS.DANGER : "initial")};
 `;
