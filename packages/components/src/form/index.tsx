@@ -32,10 +32,13 @@ export const Form = ({ name, onSubmit, children }: FormProps) => {
 	return (
 		<form name={name} ref={formRef} onSubmit={handleSubmit}>
 			{React.Children.map(children, child => {
-				return React.cloneElement(child, {
-					errors,
-					handleError
-				});
+				if (child.type !== "button") {
+					return React.cloneElement(child, {
+						errors,
+						handleError
+					});
+				}
+				return child;
 			})}
 		</form>
 	);
