@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import Select from "./";
+import Select from "./index";
 import { Option, SelectedOption } from "./dropdown";
 
 const stories = storiesOf("Select", module);
@@ -46,13 +46,14 @@ stories.add("full functional demo", () => {
 stories.add("default", () => {
 	const dataItems = ["Select Item", "Item 1", "Item 2", "Item 3", "Item 4"];
 	const [value, setValue] = React.useState<any>(dataItems[0]);
-	const handleSelect = (option: SelectedOption) => {
+	const handleSelect = (option: SelectedOption, name: string) => {
+		console.log(name, option);
 		const dataItem = dataItems.filter(item => item === option.value)[0];
 		setValue(dataItem);
 	};
 	return (
 		<>
-			<Select name="basic-select" value={value} onChange={handleSelect}>
+			<Select value={value} onChange={handleSelect}>
 				{dataItems.map((d: any) => (
 					<Option key={d} value={d}>
 						{d}

@@ -7,7 +7,7 @@ exports[`Input tests renders correcty 1`] = `
   >
     <input
       aria-label="tm-input"
-      class="input__StyledInput-sc-1pvgcfx-1 cuIzMm"
+      class="input__StyledInput-sc-1pvgcfx-1 dkRtmq"
       name=""
       placeholder="Test input"
       type="text"

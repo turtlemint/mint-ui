@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { Omit, CommonTypeTuple } from "../__utils/type";
+import { CommonTypeTuple, ChangeHandler, BlurHandler } from "../__utils/type";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
@@ -14,28 +14,31 @@ export interface InputProps {
 	helpText?: string;
 	block?: boolean;
 	disabled?: boolean;
-	onChange?: (val: string, name: string) => void;
-	onBlur?: React.FocusEventHandler;
+	onChange?: ChangeHandler<string>;
+	onBlur?: BlurHandler<string>;
 }
 
-export const Input: React.FC<InputProps &
-	Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">> = ({
+type ReactInput = React.InputHTMLAttributes<HTMLInputElement>;
+type InputArgs = InputProps & Omit<ReactInput, "onChange" | "onBlur">;
+
+export const Input = ({
 	type = "text",
 	name = "",
 	placeholder,
 	error,
 	block = false,
 	disabled = false,
-	onChange,
-	onBlur,
+	onChange = () => {},
+	onBlur = () => {},
 	value,
 	className = "",
 	...rest
-}: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (onChange) {
-			onChange(e.target.value, e.target.name);
-		}
+}: InputArgs) => {
+	const handleChange = (e: any) => {
+		onChange(e.target.value, e.target.name);
+	};
+	const handleBlur = (e: any) => {
+		onBlur(e.target.value);
 	};
 	return (
 		<StyledWrapper block={block}>
@@ -45,7 +48,7 @@ export const Input: React.FC<InputProps &
 				placeholder={placeholder}
 				error={error}
 				disabled={disabled}
-				onBlur={onBlur}
+				onBlur={handleBlur}
 				onChange={handleChange}
 				value={value}
 				className={className}
@@ -61,21 +64,17 @@ const StyledWrapper = styled.div<{ block: boolean }>`
 	width: ${({ block }) => (block ? "100%" : "328px")};
 	text-align: left;
 `;
-export const StyledInput = styled.input<
-	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
->`
+export const StyledInput = styled.input<InputProps>`
 	box-sizing: border-box;
 	border: 0;
 	border: 1px solid ${COLORS.GREY4};
-	outline: none;
 	padding: 12px 48px 12px 16px;
 	border-radius: 4px;
 	color: ${COLORS.GREY1};
 	width: 100%;
 	font-size: 14px;
-	&:focus {
-		border-color: ${COLORS.PRIMARY};
-	}
+	outline-color: ${COLORS.PRIMARY};
+	outline-width: 2px;
 	::-webkit-input-placeholder {
 		/* Chrome/Opera/Safari */
 		color: ${COLORS.DISABLED};
@@ -100,7 +99,7 @@ export const StyledInput = styled.input<
 		css`
 			border-color: ${COLORS.DANGER};
 			&:focus {
-				border-color: ${COLORS.DANGER};
+				outline-color: ${COLORS.DANGER};
 			}
 		`};
 	${props =>
