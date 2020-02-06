@@ -3,19 +3,12 @@ import Input from "../input";
 import useDebounce from "../hooks/use-debounce";
 import Dropdown, { SelectedOption } from "../select/dropdown";
 import Select, { SelectCTA, SelectWrapper } from "../select";
+import { ChangeHandler } from "../__utils/type";
 
 export interface LabeledValue {
 	key: string;
 	label: React.ReactNode;
 }
-
-export type SelectValue =
-	| string
-	| string[]
-	| number
-	| number[]
-	| LabeledValue
-	| LabeledValue[];
 
 export interface TypeAheadProps {
 	className?: string;
@@ -27,9 +20,9 @@ export interface TypeAheadProps {
 	id?: string;
 	open?: boolean;
 	loading?: boolean;
-	value?: SelectValue;
-	onChange: (value: SelectedOption, name: string) => void;
-	onBlur?: () => void;
+	value?: SelectedOption;
+	onChange: ChangeHandler<SelectedOption>;
+	onBlur?: (value: any) => void;
 	fetchFunc: (value: string) => any;
 	children:
 		| React.ComponentElement<any, any>
@@ -40,7 +33,9 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	className = "",
 	name,
 	open = false,
-	onChange,
+	value,
+	onChange = () => {},
+	onBlur = () => {},
 	loading = false,
 	fetchFunc,
 	placeholder = "",
@@ -52,7 +47,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	}, [open]);
 
 	const [inputValue, setInputValue] = React.useState<string>("");
-	const handleInputChange = (val: string) => {
+	const handleInputChange = (val: any) => {
 		setInputValue(val);
 	};
 	const debouncedInput = useDebounce(inputValue, 300);
@@ -63,46 +58,61 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 		}
 	}, [debouncedInput]);
 
-	const [labelValue, setLabelValue] = React.useState<string>("");
-	const [showLabelInput, setShowLabelInput] = React.useState<boolean>(false);
+	const [labelValue, setLabelValue] = React.useState<
+		SelectedOption | undefined
+	>(value);
+	const [showLabelInput, setShowLabelInput] = React.useState<boolean>(
+		value ? true : false
+	);
 	const [newPlaceholder, setNewPlaceholder] = React.useState<string>(
 		placeholder
 	);
 
 	React.useEffect(() => {
 		if (labelValue) {
-			setNewPlaceholder(labelValue);
+			setNewPlaceholder(labelValue.text);
 		}
 	}, [labelValue]);
 
+	const valueRef = React.useRef<any>(value);
+
 	const handleSelect = (option: SelectedOption) => {
-		onChange ? onChange(option, name) : null;
+		onChange(option, name);
 		setInputValue("");
-		setLabelValue(option.text);
+		setLabelValue(option);
 		setShowLabelInput(true);
 		setDropdownOpen(false);
+		valueRef.current = option;
+		onBlur(valueRef.current);
 	};
-
+	const handleBlur = () => {
+		onBlur(valueRef.current);
+	};
 	const handleSelectedValueClick = () => {
 		setShowLabelInput(false);
 		setDropdownOpen(true);
 	};
 	const { Option } = Select;
 	return (
-		<SelectWrapper block={false} className={className}>
-			{!showLabelInput ? (
+		<SelectWrapper
+			block={false}
+			className={className}
+			onBlur={handleBlur}
+			tabIndex={0}
+		>
+			{showLabelInput ? (
+				<SelectCTA
+					value={labelValue}
+					showArrow={false}
+					onClick={handleSelectedValueClick}
+				/>
+			) : (
 				<Input
 					data-testid="typeahead-input"
 					block={true}
 					value={inputValue}
 					onChange={handleInputChange}
 					placeholder={newPlaceholder}
-				/>
-			) : (
-				<SelectCTA
-					value={labelValue}
-					showArrow={false}
-					onClick={handleSelectedValueClick}
 				/>
 			)}
 			{loading ? (
