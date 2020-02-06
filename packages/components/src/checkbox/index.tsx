@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { CheckboxIcon } from "./icon";
 import { GlobalStyles } from "../app";
 import COLORS from "../__utils/colors";
+import { ChangeHandler } from "../__utils/type";
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 	// Hide checkbox visually but remain accessible to screen readers.
@@ -26,10 +27,11 @@ const CheckboxContainer = styled.div`
 `;
 
 interface CheckboxProps {
+	name?: string;
 	checked: boolean;
 	disabled?: boolean;
 	indeterminate?: boolean;
-	onChange?: (val: boolean) => void;
+	onChange?: ChangeHandler<boolean>;
 	children?: React.ReactNode;
 	className?: string;
 	style?: React.CSSProperties;
@@ -39,10 +41,10 @@ interface CheckboxProps {
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
+	name,
 	checked = false,
 	disabled = false,
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	onChange = (val: boolean): void => {},
+	onChange = () => {},
 	className = "",
 	children,
 	style,
@@ -52,7 +54,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 	size = 24
 }: CheckboxProps) => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		onChange(e.target.checked);
+		onChange(e.target.checked, e.target.name);
 	};
 	const inputEl = React.useRef<HTMLInputElement>(null);
 	React.useEffect(() => {
@@ -64,6 +66,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 		<label>
 			<CheckboxContainer className={className} style={style}>
 				<HiddenCheckbox
+					name={name}
 					checked={checked}
 					onChange={handleChange}
 					disabled={disabled}

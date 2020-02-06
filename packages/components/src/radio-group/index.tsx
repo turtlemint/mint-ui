@@ -1,8 +1,54 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import COLORS from "../__utils/colors";
-import { tuple, Omit } from "../__utils/type";
+import { tuple, Omit, ChangeHandler } from "../__utils/type";
 import { GlobalStyles } from "../app";
+
+const Size = tuple("large", "small", "default");
+type ButtonSize = typeof Size[number];
+const BtnType = tuple("outline", "solid");
+type ButtonType = typeof BtnType[number];
+
+type ValueType = string | number;
+
+interface RadioGroupProps {
+	name?: string;
+	disabled?: boolean;
+	size?: ButtonSize;
+	value: ValueType;
+	onChange: ChangeHandler<ValueType>;
+	buttonStyle?: ButtonType;
+	children:
+		| React.ComponentElement<any, any>
+		| React.ComponentElement<any, any>[];
+}
+export const RadioGroup = ({
+	name = "",
+	size,
+	value,
+	onChange,
+	buttonStyle,
+	children,
+	...rest
+}: RadioGroupProps) => {
+	const [selectedValue, setSelectedValue] = React.useState<ValueType>(value);
+	const handleClick = (val: ValueType) => {
+		setSelectedValue(val);
+		onChange ? onChange(val, name) : null;
+	};
+	return (
+		<Wrapper {...rest}>
+			{React.Children.map(children, (child: React.CElement<any, any>) =>
+				React.cloneElement(child, {
+					onClick: handleClick,
+					buttonStyle,
+					size,
+					activeValue: selectedValue
+				})
+			)}
+		</Wrapper>
+	);
+};
 
 const Wrapper = styled.div`
 	display: flex;
@@ -132,49 +178,6 @@ const Button = ({
 	);
 };
 
-const Size = tuple("large", "small", "default");
-type ButtonSize = typeof Size[number];
-const BtnType = tuple("outline", "solid");
-type ButtonType = typeof BtnType[number];
-
-type ValueType = string | number;
-
-interface RadioGroupProps {
-	disabled?: boolean;
-	size?: ButtonSize;
-	value: ValueType;
-	onChange: (val: ValueType) => void;
-	buttonStyle?: ButtonType;
-	children:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
-}
-export const RadioGroup = ({
-	size,
-	value,
-	onChange,
-	buttonStyle,
-	children,
-	...rest
-}: RadioGroupProps) => {
-	const [selectedValue, setSelectedValue] = React.useState<ValueType>(value);
-	const handleClick = (val: ValueType) => {
-		setSelectedValue(val);
-		onChange ? onChange(val) : null;
-	};
-	return (
-		<Wrapper {...rest}>
-			{React.Children.map(children, (child: React.CElement<any, any>) =>
-				React.cloneElement(child, {
-					onClick: handleClick,
-					buttonStyle,
-					size,
-					activeValue: selectedValue
-				})
-			)}
-		</Wrapper>
-	);
-};
 RadioGroup.Button = Button;
 
 export default RadioGroup;
