@@ -2,25 +2,28 @@ import * as React from "react";
 import Form from "./index";
 import { storiesOf } from "@storybook/react";
 import Input from "../input";
-// import Select from "../select";
-// import { Option } from "../select/dropdown";
+import Select from "../select";
+import { Option, SelectedOption } from "../select/dropdown";
+import TypeAhead from "../typeahead";
+import { ChangeHandler } from "../__utils/type";
+import axios from "axios";
 
 const stories = storiesOf("Form", module);
 
-// const data = [
-// 	{
-// 		text: "Select Value",
-// 		value: ""
-// 	},
-// 	{
-// 		text: "Item 1",
-// 		value: "item1"
-// 	},
-// 	{
-// 		text: "Item 2",
-// 		value: "item2"
-// 	}
-// ];
+const selectData = [
+	{
+		text: "Select Value",
+		value: ""
+	},
+	{
+		text: "Item 1",
+		value: "item1"
+	},
+	{
+		text: "Item 2",
+		value: "item2"
+	}
+];
 
 stories.add(
 	"basic",
@@ -39,6 +42,29 @@ stories.add(
 		// );
 		const handleSubmit = (state: any) => {
 			console.log("state", state);
+		};
+		// Typeahead
+		const [data, setData] = React.useState([]);
+		const [open, setOpen] = React.useState(false);
+		const [fetching, setFetching] = React.useState(false);
+
+		const fetchUser = async () => {
+			setFetching(true);
+			setOpen(false);
+			const response = await axios.get(
+				"https://randomuser.me/api/?results=15"
+			);
+			const data = response.data.results.map((user: any) => ({
+				text: `${user.name.first} ${user.name.last}`,
+				value: user.login.username
+			}));
+			setData(data);
+			setOpen(true);
+			setFetching(false);
+		};
+		const handleSelect: ChangeHandler<SelectedOption> = (option, name) => {
+			console.log(name, option);
+			setOpen(false);
 		};
 
 		return (
@@ -76,6 +102,24 @@ stories.add(
 						<Input type="text" name="email" placeholder="Email" />
 					</Form.Item>
 					<Form.Item
+						name="state"
+						label="State"
+						rules={[
+							{
+								required: true,
+								message: "State is required"
+							}
+						]}
+					>
+						<Select value={selectData[0]}>
+							{selectData.map((d: any) => (
+								<Option key={d.value} value={d.value}>
+									{d.text}
+								</Option>
+							))}
+						</Select>
+					</Form.Item>
+					<Form.Item
 						name="city"
 						label="City"
 						rules={[
@@ -85,18 +129,21 @@ stories.add(
 							}
 						]}
 					>
-						<select name="petType">
-							<option value="cat">Cat</option>
-							<option value="dog">Dog</option>
-							<option value="ferret">Ferret</option>
-						</select>
-						{/* <Select name="city">
+						<TypeAhead
+							name="some-typeahead"
+							value={selectData[0]}
+							loading={fetching}
+							fetchFunc={fetchUser}
+							onChange={handleSelect}
+							open={open}
+							placeholder="Select user..."
+						>
 							{data.map((d: any) => (
 								<Option key={d.value} value={d.value}>
 									{d.text}
 								</Option>
 							))}
-						</Select> */}
+						</TypeAhead>
 					</Form.Item>
 					<button type="submit">Submit</button>
 				</Form>
