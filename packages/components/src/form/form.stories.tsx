@@ -77,12 +77,27 @@ stories.add(
 							{
 								required: true,
 								message: "First name is required"
+							},
+							{
+								len: 10,
+								message: "Length should be exact 10"
 							}
 						]}
 					>
 						<Input type="text" placeholder="First name" />
 					</Form.Item>
-					<Form.Item name="lastName" label="Last name">
+					<Form.Item
+						name="lastName"
+						label="Last name"
+						rules={[
+							{
+								min: 1,
+								max: 15,
+								message:
+									"Min and Max length should be between 1 and 15"
+							}
+						]}
+					>
 						<Input type="text" placeholder="Last name" />
 					</Form.Item>
 					<Form.Item
