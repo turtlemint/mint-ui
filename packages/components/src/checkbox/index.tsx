@@ -3,8 +3,95 @@ import styled from "styled-components";
 import { CheckboxIcon } from "./icon";
 import { GlobalStyles } from "../app";
 import COLORS from "../__utils/colors";
-import { ChangeHandler } from "../__utils/type";
+import { ChangeHandler, BlurHandler } from "../__utils/type";
 
+interface CheckboxProps {
+	name?: string;
+	value?: boolean;
+	disabled?: boolean;
+	indeterminate?: boolean;
+	onChange?: ChangeHandler<boolean>;
+	onBlur?: BlurHandler<boolean>;
+	children?: React.ReactNode;
+	className?: string;
+	style?: React.CSSProperties;
+	color?: string;
+	outlineColor?: string;
+	size?: number;
+}
+
+export const Checkbox: React.FC<CheckboxProps> = ({
+	name,
+	value = false,
+	disabled = false,
+	onChange = () => {},
+	onBlur = () => {},
+	className = "",
+	children,
+	style,
+	indeterminate = false,
+	color = COLORS.PRIMARY,
+	outlineColor = COLORS.BLACK,
+	size = 24
+}: CheckboxProps) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		onChange(e.target.checked, e.target.name);
+		onBlur(e.target.checked);
+	};
+
+	const handleBlur = () => {
+		if (inputEl.current) {
+			onBlur(inputEl?.current?.checked);
+		}
+	};
+
+	const inputEl = React.useRef<HTMLInputElement>(null);
+	React.useEffect(() => {
+		if (inputEl.current) {
+			inputEl.current.indeterminate = indeterminate;
+		}
+	}, [indeterminate]);
+	return (
+		<label>
+			<CheckboxContainer
+				className={className}
+				style={style}
+				tabIndex={0}
+				onBlur={handleBlur}
+				onKeyUp={(e: any) => {
+					// ENTER KEY
+					if (e.keyCode === 13) {
+						if (inputEl.current) {
+							onChange(
+								!inputEl?.current?.checked,
+								inputEl?.current.name
+							);
+						}
+					}
+				}}
+			>
+				<HiddenCheckbox
+					name={name}
+					checked={value}
+					onChange={handleChange}
+					disabled={disabled}
+					ref={inputEl}
+					aria-label="tm-checkbox"
+				/>
+				<CheckboxIcon
+					size={size}
+					color={color}
+					outlineColor={outlineColor}
+					checked={value}
+					indeterminate={indeterminate}
+				/>
+			</CheckboxContainer>
+			{children !== undefined && (
+				<span style={{ marginLeft: 8 }}>{children}</span>
+			)}
+		</label>
+	);
+};
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 	// Hide checkbox visually but remain accessible to screen readers.
 	// Source: https://polished.js.org/docs/#hidevisually
@@ -20,72 +107,13 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 	width: 1px;
 `;
 
-const CheckboxContainer = styled.div`
+const CheckboxContainer = styled.div<{
+	onBlur: any;
+}>`
 	${GlobalStyles};
 	display: inline-block;
 	vertical-align: middle;
+	cursor: pointer;
 `;
-
-interface CheckboxProps {
-	name?: string;
-	checked: boolean;
-	disabled?: boolean;
-	indeterminate?: boolean;
-	onChange?: ChangeHandler<boolean>;
-	children?: React.ReactNode;
-	className?: string;
-	style?: React.CSSProperties;
-	color?: string;
-	outlineColor?: string;
-	size?: number;
-}
-
-export const Checkbox: React.FC<CheckboxProps> = ({
-	name,
-	checked = false,
-	disabled = false,
-	onChange = () => {},
-	className = "",
-	children,
-	style,
-	indeterminate = false,
-	color = COLORS.PRIMARY,
-	outlineColor = COLORS.BLACK,
-	size = 24
-}: CheckboxProps) => {
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		onChange(e.target.checked, e.target.name);
-	};
-	const inputEl = React.useRef<HTMLInputElement>(null);
-	React.useEffect(() => {
-		if (inputEl.current) {
-			inputEl.current.indeterminate = indeterminate;
-		}
-	}, [indeterminate]);
-	return (
-		<label>
-			<CheckboxContainer className={className} style={style}>
-				<HiddenCheckbox
-					name={name}
-					checked={checked}
-					onChange={handleChange}
-					disabled={disabled}
-					ref={inputEl}
-					aria-label="tm-checkbox"
-				/>
-				<CheckboxIcon
-					size={size}
-					color={color}
-					outlineColor={outlineColor}
-					checked={checked}
-					indeterminate={indeterminate}
-				/>
-			</CheckboxContainer>
-			{children !== undefined && (
-				<span style={{ marginLeft: 8 }}>{children}</span>
-			)}
-		</label>
-	);
-};
 
 export default Checkbox;

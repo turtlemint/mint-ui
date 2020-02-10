@@ -7,6 +7,7 @@ import { Option, SelectedOption } from "../select/dropdown";
 import TypeAhead from "../typeahead";
 import { ChangeHandler } from "../__utils/type";
 import axios from "axios";
+import Checkbox from "../checkbox";
 
 const stories = storiesOf("Form", module);
 
@@ -165,6 +166,18 @@ stories.add(
 								</Option>
 							))}
 						</TypeAhead>
+					</Form.Item>
+					<Form.Item
+						name="gender"
+						label="Select Gender"
+						rules={[
+							{
+								required: true,
+								message: "Gender is required"
+							}
+						]}
+					>
+						<Checkbox />
 					</Form.Item>
 					<button type="submit">Submit</button>
 				</Form>
