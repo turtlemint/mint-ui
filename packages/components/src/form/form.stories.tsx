@@ -125,6 +125,10 @@ stories.add(
 							{
 								required: true,
 								message: "State is required"
+							},
+							{
+								enum: ["Item 1", "Punjab"],
+								message: "The value does not exist in enum"
 							}
 						]}
 					>
