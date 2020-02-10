@@ -11,6 +11,7 @@ export interface Rule {
 	type?: string;
 	required?: boolean;
 	message: string;
+	pattern?: RegExp;
 }
 const REGEX = {
 	EMAIL: /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
@@ -23,6 +24,10 @@ const validateRuleType = (type: string, value: string) => {
 		default:
 			return true;
 	}
+};
+
+const validateRegex = (pattern: RegExp, value: string) => {
+	return pattern.test(value);
 };
 
 export const Form = ({ name, onSubmit = () => {}, children }: FormProps) => {
@@ -40,18 +45,32 @@ export const Form = ({ name, onSubmit = () => {}, children }: FormProps) => {
 	};
 
 	const handleError = (rules: Rule[], name: string, value: any) => {
+		value = value.trim();
 		if (rules) {
 			const requiredRule = rules.filter(item => item.required)[0];
-			const result = requiredRule ? ifEmpty(value) : false;
-			if (result) {
-				setErrors({ ...errors, [name]: requiredRule.message });
-				return;
+			if (requiredRule) {
+				const result = requiredRule ? ifEmpty(value) : false;
+				if (result) {
+					setErrors({ ...errors, [name]: requiredRule.message });
+					return;
+				}
 			}
 			const typeRule = rules.filter(item => item.type)[0];
 			if (typeRule) {
 				const result = validateRuleType(typeRule.type as string, value);
 				if (!result) {
 					setErrors({ ...errors, [name]: typeRule.message });
+					return;
+				}
+			}
+			const patternRule = rules.filter(item => item.pattern)[0];
+			if (patternRule) {
+				const result = validateRegex(
+					patternRule.pattern as RegExp,
+					value
+				);
+				if (!result) {
+					setErrors({ ...errors, [name]: patternRule.message });
 					return;
 				}
 			}
