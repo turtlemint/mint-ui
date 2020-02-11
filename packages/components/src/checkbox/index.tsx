@@ -99,12 +99,12 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 	clip: rect(0 0 0 0);
 	clippath: inset(50%);
 	height: 1px;
+	width: 1px;
 	margin: -1px;
 	overflow: hidden;
 	padding: 0;
 	position: absolute;
 	white-space: nowrap;
-	width: 1px;
 `;
 
 const CheckboxContainer = styled.div<{
@@ -114,6 +114,7 @@ const CheckboxContainer = styled.div<{
 	display: inline-block;
 	vertical-align: middle;
 	cursor: pointer;
+	outline-color: ${COLORS.PRIMARY_LIGHT};
 `;
 
 export default Checkbox;

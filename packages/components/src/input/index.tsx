@@ -73,8 +73,7 @@ export const StyledInput = styled.input<InputProps>`
 	color: ${COLORS.GREY1};
 	width: 100%;
 	font-size: 14px;
-	outline-color: ${COLORS.PRIMARY};
-	outline-width: 2px;
+	outline-color: ${COLORS.PRIMARY_LIGHT};
 	::-webkit-input-placeholder {
 		/* Chrome/Opera/Safari */
 		color: ${COLORS.DISABLED};

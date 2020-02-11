@@ -117,8 +117,7 @@ export const SelectWrapper = styled.div<{ block: boolean; name?: string }>`
 	width: ${props => (props.block ? "100%" : "328px")};
 	position: relative;
 	background-color: ${COLORS.WHITE};
-	outline-color: ${COLORS.PRIMARY};
-	outline-width: 2px;
+	outline-color: ${COLORS.PRIMARY_LIGHT};
 `;
 export const StyledSelectCTA = styled.div`
 	border: 0;
