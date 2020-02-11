@@ -2,7 +2,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import COLORS from "../__utils/colors";
 import { ChangeHandler } from "../__utils/type";
-import { Rule } from ".";
+import { Rule, DisplayType } from ".";
 
 export interface FormItemProps {
 	name: string;
@@ -13,6 +13,7 @@ export interface FormItemProps {
 	handleChange?: ChangeHandler<any>;
 	errors?: any;
 	handleError?: (rules: Rule[], name: string, value: any) => void;
+	display?: DisplayType;
 	children: any;
 }
 
@@ -25,29 +26,53 @@ const FormItem = ({
 	handleChange = () => {},
 	errors = {},
 	handleError = () => {},
+	display = "horizontal",
 	children
 }: FormItemProps) => {
 	const handleBlur = (value: any) => {
 		rules ? handleError(rules, name, value) : null;
 	};
 	return (
-		<div style={{ marginBottom: "20px" }}>
-			<Label error={errors[name]}>{label}</Label>
-			{React.cloneElement(children, {
-				onChange: handleChange,
-				onBlur: handleBlur,
-				name,
-				value: state[name] ?? children.props.value
-			})}
-			{helpText ? <HelpText>{helpText}</HelpText> : null}
-			{errors[name] ? <ErrorText>{errors[name]}</ErrorText> : null}
-		</div>
+		<Wrapper display={display}>
+			{label ? (
+				<Label display={display} error={errors[name]}>
+					{label}
+				</Label>
+			) : null}
+			<Field>
+				{React.cloneElement(children, {
+					onChange: handleChange,
+					onBlur: handleBlur,
+					name,
+					value: state[name] ?? children.props.value
+				})}
+				{helpText ? <HelpText>{helpText}</HelpText> : null}
+				{errors[name] ? <ErrorText>{errors[name]}</ErrorText> : null}
+			</Field>
+		</Wrapper>
 	);
 };
 
-const Label = styled.label<{ error: undefined | string }>`
-	margin-bottom: 7px;
+const Wrapper = styled.div<{ display: DisplayType }>`
+	margin-bottom: 20px;
 	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+	${({ display }) =>
+		display === "inline" &&
+		css`
+			display: inline-flex;
+		`};
+`;
+const Field = styled.div`
+	flex: 4;
+`;
+const Label = styled.label<{
+	error: string;
+	display: DisplayType;
+}>`
+	flex: 1;
 	color: ${COLORS.GREY1};
 	${({ error }) =>
 		error &&
@@ -56,15 +81,25 @@ const Label = styled.label<{ error: undefined | string }>`
 		`};
 	font-weight: 500;
 	color: ${({ error }) => (error ? COLORS.DANGER : "initial")};
+	${({ display }) =>
+		display === "inline" &&
+		css`
+			margin: 0;
+			margin-right: 10px;
+		`};
 `;
 
 const ErrorText = styled.div<{ children: React.ReactNode }>`
 	color: ${COLORS.DANGER};
 	margin-top: 4px;
 	word-wrap: break-word;
+	min-width: 100%;
 `;
 export const HelpText = styled.p<{ children: React.ReactNode }>`
-	color: ${COLORS.GREY2};
+	color: ${COLORS.GREY3};
+	min-width: 100%;
+	font-size: 12px;
+	margin: 4px 0;
 `;
 
 export default FormItem;

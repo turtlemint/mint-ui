@@ -1,11 +1,15 @@
 import * as React from "react";
 import FormItem from "./form-item";
 import { _isObject, _isArray } from "../__utils/type-check";
+import { tuple } from "../__utils/type";
 
+const displayTuple = tuple("horizontal", "vertical", "inline");
+export type DisplayType = typeof displayTuple[number];
 interface FormProps {
 	name: string;
 	onSubmit: React.FormEventHandler;
 	children: any;
+	display?: DisplayType;
 }
 export interface Rule {
 	type?: string;
@@ -34,7 +38,12 @@ const validateRegex = (pattern: RegExp, value: string) => {
 	return pattern.test(value);
 };
 
-export const Form = ({ name, onSubmit = () => {}, children }: FormProps) => {
+export const Form = ({
+	name,
+	display = "horizontal",
+	onSubmit = () => {},
+	children
+}: FormProps) => {
 	const [state, setState] = React.useState<any>({});
 	const [errors, setErrors] = React.useState<any>({});
 
@@ -158,7 +167,8 @@ export const Form = ({ name, onSubmit = () => {}, children }: FormProps) => {
 						state,
 						handleChange,
 						errors,
-						handleError
+						handleError,
+						display
 					});
 				}
 			})}

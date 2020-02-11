@@ -71,7 +71,7 @@ stories.add(
 
 		return (
 			<>
-				<Form name="basic" onSubmit={handleSubmit}>
+				<Form name="basic" display="horizontal" onSubmit={handleSubmit}>
 					<Form.Item
 						label="First name"
 						name="firstName"
@@ -85,6 +85,7 @@ stories.add(
 								message: "Length should be exact 10"
 							}
 						]}
+						helpText="First name has a rule of 10 exact characters for some secret reason"
 					>
 						<Input type="text" placeholder="First name" />
 					</Form.Item>
@@ -99,6 +100,7 @@ stories.add(
 									"Min and Max length should be between 1 and 15"
 							}
 						]}
+						helpText="Last name should be lie between 1 and 15 characters"
 					>
 						<Input type="text" placeholder="Last name" />
 					</Form.Item>
