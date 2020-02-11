@@ -71,7 +71,7 @@ stories.add(
 
 		return (
 			<>
-				<Form name="basic" display="horizontal" onSubmit={handleSubmit}>
+				<Form name="basic" display="vertical" onSubmit={handleSubmit}>
 					<Form.Item
 						label="First name"
 						name="firstName"
@@ -173,6 +173,7 @@ stories.add(
 					<Form.Item
 						name="maritalStatus"
 						label="Are you married?"
+						inline={true}
 						rules={[
 							{
 								required: true,

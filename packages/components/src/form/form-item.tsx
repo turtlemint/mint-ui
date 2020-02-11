@@ -14,6 +14,7 @@ export interface FormItemProps {
 	errors?: any;
 	handleError?: (rules: Rule[], name: string, value: any) => void;
 	display?: DisplayType;
+	inline?: boolean;
 	children: any;
 }
 
@@ -27,6 +28,7 @@ const FormItem = ({
 	errors = {},
 	handleError = () => {},
 	display = "horizontal",
+	inline = false,
 	children
 }: FormItemProps) => {
 	const handleBlur = (value: any) => {
@@ -35,11 +37,11 @@ const FormItem = ({
 	return (
 		<Wrapper display={display}>
 			{label ? (
-				<Label display={display} error={errors[name]}>
+				<Label inline={inline} display={display} error={errors[name]}>
 					{label}
 				</Label>
 			) : null}
-			<Field>
+			<Field display={display}>
 				{React.cloneElement(children, {
 					onChange: handleChange,
 					onBlur: handleBlur,
@@ -65,12 +67,13 @@ const Wrapper = styled.div<{ display: DisplayType }>`
 			display: inline-flex;
 		`};
 `;
-const Field = styled.div`
+const Field = styled.div<{ display: DisplayType }>`
 	flex: 4;
 `;
 const Label = styled.label<{
 	error: string;
 	display: DisplayType;
+	inline: boolean;
 }>`
 	flex: 1;
 	color: ${COLORS.GREY1};
@@ -82,10 +85,22 @@ const Label = styled.label<{
 	font-weight: 500;
 	color: ${({ error }) => (error ? COLORS.DANGER : "initial")};
 	${({ display }) =>
+		display === "vertical" &&
+		css`
+			margin-right: 0px;
+		`};
+	${({ display }) =>
 		display === "inline" &&
 		css`
 			margin: 0;
 			margin-right: 10px;
+		`};
+	${({ display, inline }) =>
+		display === "vertical" &&
+		!inline &&
+		css`
+			min-width: 100%;
+			margin-bottom: 10px;
 		`};
 `;
 
