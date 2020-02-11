@@ -8,6 +8,7 @@ import TypeAhead from "../typeahead";
 import { ChangeHandler } from "../__utils/type";
 import axios from "axios";
 import Checkbox from "../checkbox";
+import RadioGroup from "../radio-group";
 
 const stories = storiesOf("Form", module);
 
@@ -168,16 +169,41 @@ stories.add(
 						</TypeAhead>
 					</Form.Item>
 					<Form.Item
-						name="gender"
-						label="Select Gender"
+						name="maritalStatus"
+						label="Are you married?"
 						rules={[
 							{
 								required: true,
-								message: "Gender is required"
+								message: "Marital Status is required"
 							}
 						]}
 					>
-						<Checkbox />
+						<Checkbox value={true} />
+					</Form.Item>
+					<Form.Item
+						name="radioGroup"
+						label="Select options"
+						rules={[
+							{
+								required: true,
+								message: "Selection is required"
+							}
+						]}
+					>
+						<RadioGroup>
+							<RadioGroup.Button value="item-1">
+								Item 1
+							</RadioGroup.Button>
+							<RadioGroup.Button value="item-2">
+								Item 2
+							</RadioGroup.Button>
+							<RadioGroup.Button value="item-3">
+								Item 3
+							</RadioGroup.Button>
+							<RadioGroup.Button value="item-4">
+								Item 4
+							</RadioGroup.Button>
+						</RadioGroup>
 					</Form.Item>
 					<button type="submit">Submit</button>
 				</Form>

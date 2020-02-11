@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import COLORS from "../__utils/colors";
-import { tuple, Omit, ChangeHandler } from "../__utils/type";
+import { tuple, Omit, ChangeHandler, BlurHandler } from "../__utils/type";
 import { GlobalStyles } from "../app";
 
 const Size = tuple("large", "small", "default");
@@ -15,8 +15,9 @@ interface RadioGroupProps {
 	name?: string;
 	disabled?: boolean;
 	size?: ButtonSize;
-	value: ValueType;
-	onChange: ChangeHandler<ValueType>;
+	value?: ValueType;
+	onChange?: ChangeHandler<ValueType>;
+	onBlur?: BlurHandler<ValueType>;
 	buttonStyle?: ButtonType;
 	children:
 		| React.ComponentElement<any, any>
@@ -25,19 +26,30 @@ interface RadioGroupProps {
 export const RadioGroup = ({
 	name = "",
 	size,
-	value,
-	onChange,
+	value = "",
+	onChange = () => {},
+	onBlur = () => {},
 	buttonStyle,
 	children,
 	...rest
 }: RadioGroupProps) => {
 	const [selectedValue, setSelectedValue] = React.useState<ValueType>(value);
+	const previousVal = React.useRef<any>(value);
+
 	const handleClick = (val: ValueType) => {
 		setSelectedValue(val);
-		onChange ? onChange(val, name) : null;
+		onChange(val, name);
+		onBlur(val);
+		previousVal.current = val;
 	};
+
 	return (
-		<Wrapper {...rest}>
+		<Wrapper
+			{...rest}
+			tabIndex={0}
+			ref={() => (previousVal.current = value)}
+			onBlur={() => onBlur(previousVal.current)}
+		>
 			{React.Children.map(children, (child: React.CElement<any, any>) =>
 				React.cloneElement(child, {
 					onClick: handleClick,
@@ -54,6 +66,7 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	outline-color: ${COLORS.PRIMARY_LIGHT};
 `;
 
 interface LabelProps {
