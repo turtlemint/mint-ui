@@ -37,11 +37,7 @@ const FormItem = ({
 				onChange: handleChange,
 				onBlur: handleBlur,
 				name,
-				value: state[name]
-					? state[name]
-					: children.props.value
-					? children.props.value
-					: null || ""
+				value: state[name] ?? children.props.value
 			})}
 			{helpText ? <HelpText>{helpText}</HelpText> : null}
 			{errors[name] ? <ErrorText>{errors[name]}</ErrorText> : null}
