@@ -1,5 +1,5 @@
 import * as React from "react";
-import Form from "./index";
+import Form, { DisplayType } from "./index";
 import { storiesOf } from "@storybook/react";
 import Input from "../input";
 import Select from "../select";
@@ -10,7 +10,10 @@ import axios from "axios";
 import Checkbox from "../checkbox";
 import RadioGroup from "../radio-group";
 import Button from "../button";
-import { labelCol } from "./form-item";
+import { labelCol, Label } from "./form-item";
+import Row from "../grid/row";
+import Col from "../grid/col";
+import COLORS from "../__utils/colors";
 
 const stories = storiesOf("Form", module);
 
@@ -34,7 +37,7 @@ const formItemLayout: { labelCol: labelCol; fieldCol: labelCol } = {
 };
 
 stories.add(
-	"layout",
+	"default",
 	() => {
 		// const {
 		//     getFieldDecorator,
@@ -77,7 +80,7 @@ stories.add(
 
 		return (
 			<>
-				<Form name="basic" layout="horizontal" onSubmit={handleSubmit}>
+				<Form name="basic" onSubmit={handleSubmit}>
 					<Form.Item
 						label="First name"
 						name="firstName"
@@ -240,3 +243,90 @@ stories.add(
 		}
 	}
 );
+
+stories.add("layout", () => {
+	const [layout, setLayout] = React.useState<DisplayType>("horizontal");
+	const handleSubmit = (state: any) => {
+		console.log("state", state);
+	};
+	return (
+		<>
+			<Row style={{ marginBottom: "30px" }}>
+				<Col>
+					<Label style={{ marginRight: "10px" }}>Form Layout:</Label>
+					<Button
+						size="sm"
+						style={{ marginRight: "10px" }}
+						onClick={() => setLayout("horizontal")}
+					>
+						Horizontal
+					</Button>
+					<Button
+						size="sm"
+						style={{ marginRight: "10px" }}
+						onClick={() => setLayout("vertical")}
+					>
+						Vertical
+					</Button>
+					<Button size="sm" onClick={() => setLayout("inline")}>
+						Inline
+					</Button>
+				</Col>
+			</Row>
+			<div
+				style={{
+					border: `1px dotted ${COLORS.GREY4}`,
+					margin: "30px 0"
+				}}
+			></div>
+			<Form name="basic" layout={layout} onSubmit={handleSubmit}>
+				<Form.Item
+					label="Name"
+					name="name"
+					rules={[
+						{
+							required: true,
+							message: "First name is required"
+						},
+						{
+							len: 10,
+							message: "Length should be exact 10"
+						}
+					]}
+					{...formItemLayout}
+				>
+					<Input type="text" placeholder="First name" />
+				</Form.Item>
+				<Form.Item
+					name="email"
+					label="Email"
+					rules={[
+						{
+							required: true,
+							message: "Email is required"
+						},
+						{
+							message: "Email is not valid",
+							pattern: new RegExp(
+								/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?: [\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+							)
+						}
+					]}
+					{...formItemLayout}
+				>
+					<Input type="text" name="email" placeholder="Email" />
+				</Form.Item>
+
+				<Form.Item labelCol={{ span: 1 }}>
+					<Button
+						btnType="solid"
+						btnStyle="primary"
+						htmlType="submit"
+					>
+						Submit
+					</Button>
+				</Form.Item>
+			</Form>
+		</>
+	);
+});

@@ -44,14 +44,16 @@ const FormItem = ({
 	};
 	return (
 		<Wrapper layout={layout}>
-			<Label
-				inline={inline}
-				layout={layout}
-				error={errors[name]}
-				labelCol={labelCol}
-			>
-				{label}
-			</Label>
+			{layout !== "inline" ? (
+				<Label
+					inline={inline}
+					layout={layout}
+					error={errors[name]}
+					labelCol={labelCol}
+				>
+					{label}
+				</Label>
+			) : null}
 
 			<Field fieldCol={fieldCol}>
 				{React.cloneElement(children, {
@@ -81,15 +83,16 @@ const Wrapper = styled.div<{ layout: DisplayType }>`
 		layout === "inline" &&
 		css`
 			display: inline-flex;
+			margin-left: 20px;
 		`};
 `;
 const Field = styled.div<{ fieldCol?: labelCol }>`
 	flex: ${({ fieldCol }) => (fieldCol ? fieldCol.span : 4)};
 `;
-const Label = styled.label<{
-	error: string;
-	layout: DisplayType;
-	inline: boolean;
+export const Label = styled.label<{
+	error?: string;
+	layout?: DisplayType;
+	inline?: boolean;
 	labelCol?: labelCol;
 }>`
 	flex: ${({ labelCol }) => (labelCol ? labelCol.span : 1)};
