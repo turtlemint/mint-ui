@@ -4,32 +4,68 @@ import Dropdown, { SelectedOption, Option } from "./dropdown";
 import Icon from "../icon";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
+import { ChangeHandler } from "../__utils/type";
 
-export const SelectWrapper = styled.div<{ block: boolean }>`
-	${GlobalStyles};
-	width: ${props => (props.block ? "100%" : "328px")};
-	position: relative;
-	background-color: ${COLORS.WHITE};
-	outline: 0;
-`;
-export const StyledSelectCTA = styled.div`
-	outline: none;
-	border: 0;
-	padding: 8px 15px;
-	border: 1px solid ${COLORS.GREY4};
-	border-radius: 4px;
-	color: ${COLORS.GREY1};
-	max-width: 328px;
-	font-size: 14px;
-	&:hover {
-		border-color: ${COLORS.PERSIAN_GREEN};
-		cursor: pointer;
-	}
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: ${COLORS.WHITE};
-`;
+interface SelectProps {
+	name?: string;
+	value?: any;
+	onChange?: ChangeHandler<SelectedOption>;
+	onBlur?: (option: SelectedOption) => void;
+	block?: boolean;
+	children:
+		| React.ComponentElement<any, any>
+		| React.ComponentElement<any, any>[];
+}
+
+export const Select = ({
+	name,
+	value,
+	onChange = () => {},
+	onBlur = () => {},
+	block = false,
+	children
+}: SelectProps) => {
+	const selectEl = React.useRef<HTMLDivElement>(null);
+	const [open, setOpen] = React.useState(false);
+	const valueRef = React.useRef<any>(value);
+
+	const handleSelect = (option: SelectedOption) => {
+		const node = selectEl.current;
+		node ? node.blur() : null;
+		onBlur(option);
+		onChange(option, name as string);
+		setOpen(false);
+		valueRef.current = option;
+	};
+
+	const toggleDropdown = () => {
+		setOpen(!open);
+	};
+	const handleBlur = () => {
+		setOpen(false);
+		onBlur(valueRef.current);
+	};
+
+	return (
+		<SelectWrapper
+			ref={selectEl}
+			name={name}
+			block={block}
+			tabIndex={0}
+			onBlur={handleBlur}
+		>
+			<SelectCTA
+				open={open}
+				value={value}
+				showArrow={true}
+				onClick={toggleDropdown}
+			/>
+			{open ? (
+				<Dropdown onSelect={handleSelect}>{children}</Dropdown>
+			) : null}
+		</SelectWrapper>
+	);
+};
 
 const ArrowToggle = ({ open }: { open: boolean }) => (
 	<>
@@ -46,8 +82,6 @@ interface SelectCTAProps {
 	showArrow?: boolean;
 	open?: boolean;
 	onClick?: () => void;
-	onBlur?: () => void;
-	onFocus?: () => void;
 }
 
 export const SelectCTA = ({
@@ -78,53 +112,30 @@ export const SelectCTA = ({
 	);
 };
 
-interface SelectProps {
-	name: string;
-	value?: any;
-	onChange?: (option: SelectedOption, name: string) => void;
-	block?: boolean;
-	children:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
-}
-
-export const Select = ({
-	name,
-	value,
-	onChange,
-	block = false,
-	children
-}: SelectProps) => {
-	const selectEl = React.useRef<HTMLDivElement>(null);
-	const [open, setOpen] = React.useState(false);
-
-	const handleSelect = (option: SelectedOption) => {
-		const node = selectEl.current;
-		node ? node.blur() : null;
-		onChange ? onChange(option, name) : null;
-		setOpen(false);
-	};
-
-	const toggleDropdown = () => {
-		setOpen(!open);
-	};
-
-	return (
-		<SelectWrapper
-			ref={selectEl}
-			data-testid="select-wrapper"
-			block={block}
-			onBlur={toggleDropdown}
-			onFocus={toggleDropdown}
-			tabIndex={0}
-		>
-			<SelectCTA open={open} value={value} showArrow={true} />
-			{open ? (
-				<Dropdown onSelect={handleSelect}>{children}</Dropdown>
-			) : null}
-		</SelectWrapper>
-	);
-};
+export const SelectWrapper = styled.div<{ block: boolean; name?: string }>`
+	${GlobalStyles};
+	width: ${props => (props.block ? "100%" : "328px")};
+	position: relative;
+	background-color: ${COLORS.WHITE};
+	outline-color: ${COLORS.PRIMARY_LIGHT};
+`;
+export const StyledSelectCTA = styled.div`
+	border: 0;
+	padding: 8px 15px;
+	border: 1px solid ${COLORS.GREY4};
+	border-radius: 4px;
+	color: ${COLORS.GREY1};
+	max-width: 328px;
+	font-size: 14px;
+	&:hover {
+		border-color: ${COLORS.PERSIAN_GREEN};
+		cursor: pointer;
+	}
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: ${COLORS.WHITE};
+`;
 
 Select.Option = Option;
 export default Select;

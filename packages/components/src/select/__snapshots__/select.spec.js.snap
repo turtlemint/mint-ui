@@ -29,12 +29,11 @@ exports[`Dropdown test suite Dropdown snapshot 1`] = `
 exports[`Select test suites Select snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="select__SelectWrapper-sc-1trodvu-0 jojJEB"
-    data-testid="select-wrapper"
+    class="select__SelectWrapper-sc-1trodvu-0 gYgpvD"
     tabindex="0"
   >
     <div
-      class="select__StyledSelectCTA-sc-1trodvu-1 jYEnQD"
+      class="select__StyledSelectCTA-sc-1trodvu-1 HeKdo"
     >
       <span />
       <svg
