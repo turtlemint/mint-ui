@@ -4,9 +4,15 @@ import Checkbox from "./index";
 
 const stories = storiesOf("Checkbox", module);
 
-stories.add("Default", () => <Checkbox checked={true} />);
+stories.add("Default", () => <Checkbox value={true} />);
 
 stories.add("Indeterminate", () => (
-	<Checkbox checked={true} indeterminate={true} />
+	<Checkbox value={true} indeterminate={true} />
 ));
-stories.add("Disabled", () => <Checkbox checked={false} disabled />);
+stories.add("Disabled", () => <Checkbox value={false} disabled />);
+stories.add("Functional", () => {
+	const [value, setValue] = React.useState<boolean>(false);
+	return (
+		<Checkbox value={value} onChange={(val: boolean) => setValue(val)} />
+	);
+});

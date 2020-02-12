@@ -3,8 +3,9 @@
 exports[`Radio group renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="radio-group__Wrapper-sc-15twc87-0 bgTDsX"
+    class="radio-group__Wrapper-sc-15twc87-0 hSRokO"
     data-testid="radio-group"
+    tabindex="0"
   >
     <label
       class="radio-group__Label-sc-15twc87-1 cZnlzg radio-button"

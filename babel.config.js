@@ -3,6 +3,7 @@ module.exports = {
 		"babel-plugin-styled-components",
 		"@babel/proposal-class-properties",
 		"@babel/proposal-object-rest-spread",
+		"@babel/plugin-proposal-optional-chaining",
 		"macros"
 	],
 	presets: [
