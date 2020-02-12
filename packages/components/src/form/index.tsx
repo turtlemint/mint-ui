@@ -6,9 +6,12 @@ import { tuple } from "../__utils/type";
 const displayTuple = tuple("horizontal", "vertical", "inline");
 export type DisplayType = typeof displayTuple[number];
 interface FormProps {
+	/** name of the form */
 	name: string;
+	/** onSubmit event handler of the form */
 	onSubmit: React.FormEventHandler;
 	children: any;
+	/** layout can take values from  horizontal, vertical and inline. Horizontal is default  */
 	layout?: DisplayType;
 }
 export interface Rule {
@@ -170,57 +173,6 @@ export const Form = ({
 	);
 };
 
-/**
-    getFieldDecorator function implementatinon starts
-*/
-// interface Rule {
-//     type?: string;
-//     message?: string;
-//     required?: boolean;
-//     validator?: (rule: string, value: any, callback: any) => void;
-//     whitespace?: boolean;
-// }
-// interface FieldOptions {
-//     valuePropName?: string;
-//     initialValue?: boolean;
-//     rules: Rule[];
-// }
-
-// const getFieldDecorator = (name: string, options?: FieldOptions) => {
-//     const { valuePropName, initialValue, rules } = options;
-//     // compute isRequired from rules ReactNodeArray
-//     //
-//     return function decorateField(Component: any) {
-//         return <Component name={name} required={isRequired} />
-//     }
-// }
-
-/**
-    validateFields function implementatinon starts
-*/
-// const validateFields = () => { };
-
-/**
-    validateFields function implementatinon starts
-*/
-// const resetFields = () => { };
-
-/**
-    getFieldsError function implementatinon starts
-*/
-// const getFieldsError = () => { };
-
-/**
-    getFieldError function implementatinon starts
-*/
-// const getFieldError = () => { };
-
-/**
-    isFieldTouched function implementatinon starts
-*/
-// const isFieldTouched = () => { };
-
-// Form.create = createHOC;
 Form.Item = FormItem;
 
 export default Form;
