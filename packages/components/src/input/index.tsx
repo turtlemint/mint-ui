@@ -1,37 +1,82 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { Omit, CommonTypeTuple } from "../__utils/type";
+import { CommonTypeTuple, ChangeHandler, BlurHandler } from "../__utils/type";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
 export interface InputProps {
 	type?: string;
-	value: CommonTypeTuple;
+	name?: string;
+	value?: CommonTypeTuple;
 	placeholder?: string;
 	label?: string;
 	error?: string;
 	helpText?: string;
 	block?: boolean;
 	disabled?: boolean;
-	onChange?: (val: string) => void;
-	onBlur?: React.FocusEventHandler;
+	onChange?: ChangeHandler<string>;
+	onBlur?: BlurHandler<string>;
+	size?: "large" | "small" | "default";
 }
 
-export const InputStyles = css<
-	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
->`
+type ReactInput = React.InputHTMLAttributes<HTMLInputElement>;
+type InputArgs = InputProps & Omit<ReactInput, "onChange" | "onBlur">;
+
+export const Input = ({
+	type = "text",
+	name = "",
+	placeholder,
+	error,
+	block = false,
+	disabled = false,
+	onChange = () => {},
+	onBlur = () => {},
+	value,
+	className = "",
+	size,
+	...rest
+}: InputArgs) => {
+	const handleChange = (e: any) => {
+		onChange(e.target.value, e.target.name);
+	};
+	const handleBlur = (e: any) => {
+		onBlur(e.target.value);
+	};
+	return (
+		<StyledWrapper block={block}>
+			<StyledInput
+				name={name}
+				type={type}
+				placeholder={placeholder}
+				error={error}
+				disabled={disabled}
+				onBlur={handleBlur}
+				onChange={handleChange}
+				value={value}
+				className={className}
+				aria-label="tm-input"
+				size={size}
+				{...rest}
+			/>
+		</StyledWrapper>
+	);
+};
+
+const StyledWrapper = styled.div<{ block: boolean }>`
+	${GlobalStyles};
+	width: ${({ block }) => (block ? "100%" : "328px")};
+	text-align: left;
+`;
+export const StyledInput = styled.input<InputProps>`
 	box-sizing: border-box;
 	border: 0;
 	border: 1px solid ${COLORS.GREY4};
-	outline: none;
 	padding: 12px 48px 12px 16px;
 	border-radius: 4px;
 	color: ${COLORS.GREY1};
 	width: 100%;
 	font-size: 14px;
-	&:focus {
-		border-color: ${COLORS.PRIMARY};
-	}
+	outline-color: ${COLORS.PRIMARY_LIGHT};
 	::-webkit-input-placeholder {
 		/* Chrome/Opera/Safari */
 		color: ${COLORS.DISABLED};
@@ -56,7 +101,7 @@ export const InputStyles = css<
 		css`
 			border-color: ${COLORS.DANGER};
 			&:focus {
-				border-color: ${COLORS.DANGER};
+				outline-color: ${COLORS.DANGER};
 			}
 		`};
 	${props =>
@@ -86,108 +131,18 @@ export const InputStyles = css<
 				color: ${COLORS.GREY3};
 			}
 		`};
+	${({ size }) =>
+		size === "small" &&
+		css`
+			padding-top: 8px;
+			padding-bottom: 8px;
+		`}
+	${({ size }) =>
+		size === "large" &&
+		css`
+			padding-top: 14px;
+			padding-bottom: 14px;
+		`}
 `;
-
-const SharedStyles = css`
-	color: ${COLORS.GREY1};
-`;
-
-export const LabelStyles = css<{ error: string | undefined }>`
-	margin-bottom: 4px;
-	label {
-		${SharedStyles};
-		${({ error }) =>
-			error &&
-			css`
-				color: ${COLORS.DANGER};
-			`};
-	}
-`;
-
-export const Error = css`
-	${SharedStyles};
-	margin-top: 4px;
-	word-wrap: break-word;
-	label {
-		color: ${COLORS.DANGER};
-	}
-`;
-
-export const HelpText = css`
-	${SharedStyles};
-	color: ${COLORS.GREY2};
-`;
-
-const StyledWrapper = styled.div<{ block: boolean }>`
-	${GlobalStyles};
-	width: ${({ block }) => (block ? "100%" : "328px")};
-	text-align: left;
-`;
-
-const StyledLabel = styled.div<{ error: undefined | string }>`
-	${LabelStyles};
-	font-weight: 500;
-	color: ${({ error }) => (error ? COLORS.DANGER : "initial")};
-`;
-export const StyledInput = styled.input<
-	Pick<InputProps, "error" | "disabled"> & Omit<InputProps, "onChange">
->`
-	${InputStyles};
-`;
-const StyledError = styled.div<{ children: React.ReactNode }>`
-	${Error};
-`;
-const StyledHelpText = styled.p<{ children: React.ReactNode }>`
-	${HelpText};
-`;
-
-export const Input: React.FC<InputProps &
-	Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">> = ({
-	type = "text",
-	placeholder,
-	label,
-	error,
-	helpText,
-	block = false,
-	disabled = false,
-	onChange,
-	onBlur,
-	value,
-	className = "",
-	...rest
-}: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (onChange) {
-			onChange(e.target.value);
-		}
-	};
-	return (
-		<StyledWrapper block={block}>
-			{label ? (
-				<StyledLabel error={error}>
-					<label>{label}</label>
-				</StyledLabel>
-			) : null}
-			<StyledInput
-				type={type}
-				placeholder={placeholder}
-				error={error}
-				disabled={disabled}
-				onBlur={onBlur}
-				onChange={handleChange}
-				value={value}
-				className={className}
-				aria-label="tm-input"
-				{...rest}
-			/>
-			{error ? (
-				<StyledError>
-					<label>{error}</label>
-				</StyledError>
-			) : null}
-			{helpText ? <StyledHelpText>{helpText}</StyledHelpText> : null}
-		</StyledWrapper>
-	);
-};
 
 export default Input;

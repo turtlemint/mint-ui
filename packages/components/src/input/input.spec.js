@@ -4,7 +4,7 @@ import Input from "./";
 
 export const TestInput = () => {
 	const [value, setValue] = React.useState("");
-	const handleChange = (val) => {
+	const handleChange = val => {
 		setValue(val);
 	};
 	return (

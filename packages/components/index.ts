@@ -19,6 +19,7 @@ import { default as Chip } from "./src/chip";
 import { default as Tabs } from "./src/tabs";
 import { default as Table } from "./src/table";
 import { default as Pagination } from "./src/pagination";
+import { default as Form } from "./src/form";
 
 export {
 	Button,
@@ -42,5 +43,6 @@ export {
 	Chip,
 	Tabs,
 	Table,
-	Pagination
+	Pagination,
+	Form
 };

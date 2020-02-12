@@ -38,6 +38,7 @@
             "error",
             "consistent"
         ],
+        "no-control-regex": 0,
         "@typescript-eslint/no-unused-vars": [
             "error",
             {
