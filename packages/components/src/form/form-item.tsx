@@ -4,49 +4,65 @@ import COLORS from "../__utils/colors";
 import { ChangeHandler } from "../__utils/type";
 import { Rule, DisplayType } from ".";
 
+export type labelCol = { span: number };
+
 export interface FormItemProps {
-	name: string;
-	label: string;
+	name?: string;
+	label?: string;
 	helpText?: string;
 	rules?: Rule[];
 	state?: any;
 	handleChange?: ChangeHandler<any>;
 	errors?: any;
 	handleError?: (rules: Rule[], name: string, value: any) => void;
-	display?: DisplayType;
+	layout?: DisplayType;
 	inline?: boolean;
+	btnDisabled?: boolean;
+	labelCol?: labelCol;
+	fieldCol?: labelCol;
 	children: any;
 }
 
 const FormItem = ({
-	name,
-	label,
+	name = "",
+	label = "",
 	helpText,
 	rules,
 	state = {},
 	handleChange = () => {},
 	errors = {},
 	handleError = () => {},
-	display = "horizontal",
+	layout = "horizontal",
 	inline = false,
+	btnDisabled = false,
+	labelCol,
+	fieldCol,
 	children
 }: FormItemProps) => {
 	const handleBlur = (value: any) => {
 		rules ? handleError(rules, name, value) : null;
 	};
 	return (
-		<Wrapper display={display}>
-			{label ? (
-				<Label inline={inline} display={display} error={errors[name]}>
-					{label}
-				</Label>
-			) : null}
-			<Field display={display}>
+		<Wrapper layout={layout}>
+			<Label
+				inline={inline}
+				layout={layout}
+				error={errors[name]}
+				labelCol={labelCol}
+			>
+				{label}
+			</Label>
+
+			<Field fieldCol={fieldCol}>
 				{React.cloneElement(children, {
 					onChange: handleChange,
 					onBlur: handleBlur,
 					name,
-					value: state[name] ?? children.props.value
+					value: state[name] ?? children.props.value,
+					disabled:
+						children.props.htmlType === "submit"
+							? btnDisabled
+							: false
 				})}
 				{helpText ? <HelpText>{helpText}</HelpText> : null}
 				{errors[name] ? <ErrorText>{errors[name]}</ErrorText> : null}
@@ -55,27 +71,28 @@ const FormItem = ({
 	);
 };
 
-const Wrapper = styled.div<{ display: DisplayType }>`
+const Wrapper = styled.div<{ layout: DisplayType }>`
 	margin-bottom: 20px;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: flex-start;
-	${({ display }) =>
-		display === "inline" &&
+	${({ layout }) =>
+		layout === "inline" &&
 		css`
 			display: inline-flex;
 		`};
 `;
-const Field = styled.div<{ display: DisplayType }>`
-	flex: 4;
+const Field = styled.div<{ fieldCol?: labelCol }>`
+	flex: ${({ fieldCol }) => (fieldCol ? fieldCol.span : 4)};
 `;
 const Label = styled.label<{
 	error: string;
-	display: DisplayType;
+	layout: DisplayType;
 	inline: boolean;
+	labelCol?: labelCol;
 }>`
-	flex: 1;
+	flex: ${({ labelCol }) => (labelCol ? labelCol.span : 1)};
 	color: ${COLORS.GREY1};
 	${({ error }) =>
 		error &&
@@ -84,19 +101,19 @@ const Label = styled.label<{
 		`};
 	font-weight: 500;
 	color: ${({ error }) => (error ? COLORS.DANGER : "initial")};
-	${({ display }) =>
-		display === "vertical" &&
+	${({ layout }) =>
+		layout === "vertical" &&
 		css`
 			margin-right: 0px;
 		`};
-	${({ display }) =>
-		display === "inline" &&
+	${({ layout }) =>
+		layout === "inline" &&
 		css`
 			margin: 0;
 			margin-right: 10px;
 		`};
-	${({ display, inline }) =>
-		display === "vertical" &&
+	${({ layout, inline }) =>
+		layout === "vertical" &&
 		!inline &&
 		css`
 			min-width: 100%;

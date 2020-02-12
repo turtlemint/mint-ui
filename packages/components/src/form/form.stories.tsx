@@ -9,6 +9,8 @@ import { ChangeHandler } from "../__utils/type";
 import axios from "axios";
 import Checkbox from "../checkbox";
 import RadioGroup from "../radio-group";
+import Button from "../button";
+import { labelCol } from "./form-item";
 
 const stories = storiesOf("Form", module);
 
@@ -26,9 +28,13 @@ const selectData = [
 		value: "item2"
 	}
 ];
+const formItemLayout: { labelCol: labelCol; fieldCol: labelCol } = {
+	labelCol: { span: 1 },
+	fieldCol: { span: 4 }
+};
 
 stories.add(
-	"basic",
+	"layout",
 	() => {
 		// const {
 		//     getFieldDecorator,
@@ -71,7 +77,7 @@ stories.add(
 
 		return (
 			<>
-				<Form name="basic" display="vertical" onSubmit={handleSubmit}>
+				<Form name="basic" layout="horizontal" onSubmit={handleSubmit}>
 					<Form.Item
 						label="First name"
 						name="firstName"
@@ -86,6 +92,7 @@ stories.add(
 							}
 						]}
 						helpText="First name has a rule of 10 exact characters for some secret reason"
+						{...formItemLayout}
 					>
 						<Input type="text" placeholder="First name" />
 					</Form.Item>
@@ -101,6 +108,7 @@ stories.add(
 							}
 						]}
 						helpText="Last name should be lie between 1 and 15 characters"
+						{...formItemLayout}
 					>
 						<Input type="text" placeholder="Last name" />
 					</Form.Item>
@@ -119,6 +127,7 @@ stories.add(
 								)
 							}
 						]}
+						{...formItemLayout}
 					>
 						<Input type="text" name="email" placeholder="Email" />
 					</Form.Item>
@@ -135,6 +144,7 @@ stories.add(
 								message: "The value does not exist in enum"
 							}
 						]}
+						{...formItemLayout}
 					>
 						<Select value={selectData[0]}>
 							{selectData.map((d: any) => (
@@ -153,6 +163,7 @@ stories.add(
 								message: "City is required"
 							}
 						]}
+						{...formItemLayout}
 					>
 						<TypeAhead
 							name="some-typeahead"
@@ -192,6 +203,7 @@ stories.add(
 								message: "Selection is required"
 							}
 						]}
+						{...formItemLayout}
 					>
 						<RadioGroup>
 							<RadioGroup.Button value="item-1">
@@ -208,7 +220,16 @@ stories.add(
 							</RadioGroup.Button>
 						</RadioGroup>
 					</Form.Item>
-					<button type="submit">Submit</button>
+					<Form.Item labelCol={{ span: 1 }}>
+						<Button
+							size="sm"
+							btnType="solid"
+							btnStyle="primary"
+							htmlType="submit"
+						>
+							Submit
+						</Button>
+					</Form.Item>
 				</Form>
 			</>
 		);

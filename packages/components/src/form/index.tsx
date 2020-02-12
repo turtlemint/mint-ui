@@ -9,7 +9,7 @@ interface FormProps {
 	name: string;
 	onSubmit: React.FormEventHandler;
 	children: any;
-	display?: DisplayType;
+	layout?: DisplayType;
 }
 export interface Rule {
 	type?: string;
@@ -40,7 +40,7 @@ const validateRegex = (pattern: RegExp, value: string) => {
 
 export const Form = ({
 	name,
-	display = "horizontal",
+	layout = "horizontal",
 	onSubmit = () => {},
 	children
 }: FormProps) => {
@@ -157,20 +157,14 @@ export const Form = ({
 					)[0];
 					if (requiredRule) requiredFields[name] = true;
 				}
-
-				if (child.type === "button") {
-					return React.cloneElement(child, {
-						disabled: checkError() || checkAllEmpty()
-					});
-				} else {
-					return React.cloneElement(child, {
-						state,
-						handleChange,
-						errors,
-						handleError,
-						display
-					});
-				}
+				return React.cloneElement(child, {
+					state,
+					handleChange,
+					errors,
+					handleError,
+					layout,
+					btnDisabled: checkError() || checkAllEmpty()
+				});
 			})}
 		</form>
 	);
