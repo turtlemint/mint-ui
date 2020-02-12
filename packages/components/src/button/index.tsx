@@ -44,7 +44,7 @@ export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 const BaseButton = css<ButtonProps>`
 	${GlobalStyles};
 	cursor: pointer;
-	padding: 8px 15px;
+	padding: 12px 15px;
 	display: inline-flex;
 	align-items: flex-end;
 	justify-content: space-between;
@@ -72,7 +72,7 @@ const BaseButton = css<ButtonProps>`
 			font-size: 12px;
 			line-height: 13px;
 			min-height: 36px;
-			padding: 6px 15px;
+			padding: 8px 15px;
 		`};
 	${({ size }) =>
 		size === "lg" &&
@@ -80,7 +80,7 @@ const BaseButton = css<ButtonProps>`
 			font-size: 16px;
 			line-height: 16px;
 			min-height: 48px;
-			padding: 10px 15px;
+			padding: 14px 15px;
 		`}
 `;
 

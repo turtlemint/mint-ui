@@ -16,6 +16,7 @@ export interface InputProps {
 	disabled?: boolean;
 	onChange?: ChangeHandler<string>;
 	onBlur?: BlurHandler<string>;
+	size?: "large" | "small" | "default";
 }
 
 type ReactInput = React.InputHTMLAttributes<HTMLInputElement>;
@@ -32,6 +33,7 @@ export const Input = ({
 	onBlur = () => {},
 	value,
 	className = "",
+	size,
 	...rest
 }: InputArgs) => {
 	const handleChange = (e: any) => {
@@ -53,6 +55,7 @@ export const Input = ({
 				value={value}
 				className={className}
 				aria-label="tm-input"
+				size={size}
 				{...rest}
 			/>
 		</StyledWrapper>
@@ -128,6 +131,18 @@ export const StyledInput = styled.input<InputProps>`
 				color: ${COLORS.GREY3};
 			}
 		`};
+	${({ size }) =>
+		size === "small" &&
+		css`
+			padding-top: 8px;
+			padding-bottom: 8px;
+		`}
+	${({ size }) =>
+		size === "large" &&
+		css`
+			padding-top: 14px;
+			padding-bottom: 14px;
+		`}
 `;
 
 export default Input;
