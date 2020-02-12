@@ -7,31 +7,44 @@ import { Rule, DisplayType } from ".";
 export type labelCol = { span: number };
 
 export interface FormItemProps {
+	/** Name of the form control field */
 	name?: string;
+	/** label of the form control label element */
 	label?: string;
+	/** helpText to aid understanding of the form field */
 	helpText?: string;
+	/** validation rules for the form control field */
 	rules?: Rule[];
+	/** state of the form  (Used internally ) */
 	state?: any;
+	/** common handleChange event for form control field (Used internally )  */
 	handleChange?: ChangeHandler<any>;
+	/** error state of the form */
 	errors?: any;
+	/** handleError handler to be called on onBlur of the form controld fields */
 	handleError?: (rules: Rule[], name: string, value: any) => void;
+	/** layout propagated from Form component ( Used internally) */
 	layout?: DisplayType;
+	/** used to create an inline form label and checkbox type of field when form layout is vertical */
 	inline?: boolean;
+	/** disabled button state  */
 	btnDisabled?: boolean;
+	/** flex value for label */
 	labelCol?: labelCol;
+	/** flex value for form control field */
 	fieldCol?: labelCol;
 	children: any;
 }
 
-const FormItem = ({
+export const FormItem = ({
 	name = "",
 	label = "",
 	helpText,
 	rules,
 	state = {},
-	handleChange = () => {},
+	handleChange = () => { },
 	errors = {},
-	handleError = () => {},
+	handleError = () => { },
 	layout = "horizontal",
 	inline = false,
 	btnDisabled = false,
