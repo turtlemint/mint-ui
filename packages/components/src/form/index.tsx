@@ -44,7 +44,7 @@ const validateRegex = (pattern: RegExp, value: string) => {
 export const Form = ({
 	name,
 	layout = "horizontal",
-	onSubmit = () => { },
+	onSubmit = () => {},
 	children
 }: FormProps) => {
 	const [state, setState] = React.useState<any>({});
