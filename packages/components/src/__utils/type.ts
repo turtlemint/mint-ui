@@ -7,3 +7,6 @@ export interface IDict<T> {
 	[key: string]: T;
 }
 export type CommonTypeTuple = string | boolean | number | undefined;
+
+export type ChangeHandler<T> = (value: T, name: string) => void;
+export type BlurHandler<T> = (value: T) => void;

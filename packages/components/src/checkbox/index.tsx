@@ -3,33 +3,15 @@ import styled from "styled-components";
 import { CheckboxIcon } from "./icon";
 import { GlobalStyles } from "../app";
 import COLORS from "../__utils/colors";
-
-const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
-	// Hide checkbox visually but remain accessible to screen readers.
-	// Source: https://polished.js.org/docs/#hidevisually
-	border: 0;
-	clip: rect(0 0 0 0);
-	clippath: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
-`;
-
-const CheckboxContainer = styled.div`
-	${GlobalStyles};
-	display: inline-block;
-	vertical-align: middle;
-`;
+import { ChangeHandler, BlurHandler } from "../__utils/type";
 
 interface CheckboxProps {
-	checked: boolean;
+	name?: string;
+	value?: boolean;
 	disabled?: boolean;
 	indeterminate?: boolean;
-	onChange?: (val: boolean) => void;
+	onChange?: ChangeHandler<boolean>;
+	onBlur?: BlurHandler<boolean>;
 	children?: React.ReactNode;
 	className?: string;
 	style?: React.CSSProperties;
@@ -39,10 +21,11 @@ interface CheckboxProps {
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
-	checked = false,
+	name,
+	value = false,
 	disabled = false,
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	onChange = (val: boolean): void => {},
+	onChange = () => {},
+	onBlur = () => {},
 	className = "",
 	children,
 	style,
@@ -52,8 +35,16 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 	size = 24
 }: CheckboxProps) => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		onChange(e.target.checked);
+		onChange(e.target.checked, e.target.name);
+		onBlur(e.target.checked);
 	};
+
+	const handleBlur = () => {
+		if (inputEl.current) {
+			onBlur(inputEl?.current?.checked);
+		}
+	};
+
 	const inputEl = React.useRef<HTMLInputElement>(null);
 	React.useEffect(() => {
 		if (inputEl.current) {
@@ -62,9 +53,26 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 	}, [indeterminate]);
 	return (
 		<label>
-			<CheckboxContainer className={className} style={style}>
+			<CheckboxContainer
+				className={className}
+				style={style}
+				tabIndex={0}
+				onBlur={handleBlur}
+				onKeyUp={(e: any) => {
+					// ENTER KEY
+					if (e.keyCode === 13) {
+						if (inputEl.current) {
+							onChange(
+								!inputEl?.current?.checked,
+								inputEl?.current.name
+							);
+						}
+					}
+				}}
+			>
 				<HiddenCheckbox
-					checked={checked}
+					name={name}
+					checked={value}
 					onChange={handleChange}
 					disabled={disabled}
 					ref={inputEl}
@@ -74,7 +82,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 					size={size}
 					color={color}
 					outlineColor={outlineColor}
-					checked={checked}
+					checked={value}
 					indeterminate={indeterminate}
 				/>
 			</CheckboxContainer>
@@ -84,5 +92,29 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 		</label>
 	);
 };
+const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
+	// Hide checkbox visually but remain accessible to screen readers.
+	// Source: https://polished.js.org/docs/#hidevisually
+	border: 0;
+	clip: rect(0 0 0 0);
+	clippath: inset(50%);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+`;
+
+const CheckboxContainer = styled.div<{
+	onBlur: any;
+}>`
+	${GlobalStyles};
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	outline-color: ${COLORS.PRIMARY_LIGHT};
+`;
 
 export default Checkbox;
