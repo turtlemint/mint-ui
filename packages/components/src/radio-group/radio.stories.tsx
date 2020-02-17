@@ -142,3 +142,24 @@ stories.add("size", () => (
 		</Row>
 	</>
 ));
+stories.add("disabled", () => (
+	<Row style={{ marginTop: "30px" }}>
+		<Col>
+			<RadioGroup
+				size="default"
+				value="item-1"
+				onChange={(val: any) => {
+					console.log(val);
+				}}
+				disabled={true}
+			>
+				<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
+				<RadioGroup.Button disabled={true} value="item-2">
+					Item 2
+				</RadioGroup.Button>
+				<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
+				<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
+			</RadioGroup>
+		</Col>
+	</Row>
+));

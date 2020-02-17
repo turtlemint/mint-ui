@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { CheckboxIcon } from "./icon";
 import { GlobalStyles } from "../app";
 import COLORS from "../__utils/colors";
@@ -12,12 +12,12 @@ interface CheckboxProps {
 	indeterminate?: boolean;
 	onChange?: ChangeHandler<boolean>;
 	onBlur?: BlurHandler<boolean>;
-	children?: React.ReactNode;
 	className?: string;
 	style?: React.CSSProperties;
 	color?: string;
 	outlineColor?: string;
 	size?: number;
+	children?: React.ReactNode;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
@@ -58,6 +58,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 				style={style}
 				tabIndex={0}
 				onBlur={handleBlur}
+				disabled={disabled}
 				onKeyUp={(e: any) => {
 					// ENTER KEY
 					if (e.keyCode === 13) {
@@ -109,12 +110,18 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 
 const CheckboxContainer = styled.div<{
 	onBlur: any;
+	disabled?: boolean;
 }>`
 	${GlobalStyles};
 	display: inline-block;
 	vertical-align: middle;
 	cursor: pointer;
 	outline-color: ${COLORS.PRIMARY_LIGHT};
+	${({ disabled }) =>
+		disabled &&
+		css`
+			outline: none;
+		`}
 `;
 
 export default Checkbox;

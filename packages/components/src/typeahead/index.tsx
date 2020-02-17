@@ -39,6 +39,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	loading = false,
 	fetchFunc,
 	placeholder = "",
+	disabled = false,
 	children
 }: TypeAheadProps) => {
 	const [dropdownOpen, setDropdownOpen] = React.useState<boolean>(false);
@@ -98,12 +99,14 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 			block={false}
 			className={className}
 			onBlur={handleBlur}
+			disabled={disabled}
 			tabIndex={0}
 		>
 			{showLabelInput ? (
 				<SelectCTA
 					value={labelValue}
 					showArrow={false}
+					disabled={disabled}
 					onClick={handleSelectedValueClick}
 				/>
 			) : (
