@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Dropdown, { SelectedOption, Option } from "./dropdown";
 import Icon from "../icon";
 import COLORS from "../__utils/colors";
@@ -12,6 +12,7 @@ interface SelectProps {
 	onChange?: ChangeHandler<SelectedOption>;
 	onBlur?: (option: SelectedOption) => void;
 	block?: boolean;
+	disabled?: boolean;
 	children:
 		| React.ComponentElement<any, any>
 		| React.ComponentElement<any, any>[];
@@ -23,6 +24,7 @@ export const Select = ({
 	onChange = () => {},
 	onBlur = () => {},
 	block = false,
+	disabled = false,
 	children
 }: SelectProps) => {
 	const selectEl = React.useRef<HTMLDivElement>(null);
@@ -52,12 +54,14 @@ export const Select = ({
 			name={name}
 			block={block}
 			tabIndex={0}
+			disabled={disabled}
 			onBlur={handleBlur}
 		>
 			<SelectCTA
 				open={open}
 				value={value}
 				showArrow={true}
+				disabled={disabled}
 				onClick={toggleDropdown}
 			/>
 			{open ? (
@@ -81,6 +85,7 @@ interface SelectCTAProps {
 	value: any;
 	showArrow?: boolean;
 	open?: boolean;
+	disabled?: boolean;
 	onClick?: () => void;
 }
 
@@ -88,6 +93,7 @@ export const SelectCTA = ({
 	value,
 	showArrow = false,
 	open,
+	disabled = false,
 	onClick
 }: SelectCTAProps) => {
 	let displayValue;
@@ -105,21 +111,30 @@ export const SelectCTA = ({
 	}
 
 	return (
-		<StyledSelectCTA onClick={handleSelectCTAClick}>
+		<StyledSelectCTA onClick={handleSelectCTAClick} disabled={disabled}>
 			<span>{displayValue}</span>
 			{showArrow ? <ArrowToggle open={open as boolean} /> : null}
 		</StyledSelectCTA>
 	);
 };
 
-export const SelectWrapper = styled.div<{ block: boolean; name?: string }>`
+export const SelectWrapper = styled.div<{
+	block: boolean;
+	name?: string;
+	disabled?: boolean;
+}>`
 	${GlobalStyles};
 	width: ${props => (props.block ? "100%" : "328px")};
 	position: relative;
 	background-color: ${COLORS.WHITE};
 	outline-color: ${COLORS.PRIMARY_LIGHT};
+	${props =>
+		props.disabled &&
+		css`
+			outline: none;
+		`};
 `;
-export const StyledSelectCTA = styled.div`
+export const StyledSelectCTA = styled.div<{ disabled?: boolean }>`
 	border: 0;
 	padding: 8px 15px;
 	border: 1px solid ${COLORS.GREY4};
@@ -135,6 +150,37 @@ export const StyledSelectCTA = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	background-color: ${COLORS.WHITE};
+	${props =>
+		props.disabled &&
+		css`
+			pointer-events: none;
+			opacity: 0.64;
+			cursor: no-drop;
+			background-color: ${COLORS.DISABLED};
+			color: ${COLORS.GREY3};
+			&:focus {
+				outline: none;
+			}
+			::-webkit-input-placeholder {
+				/* Chrome/Opera/Safari */
+				color: ${COLORS.GREY3};
+			}
+			::-moz-placeholder {
+				/* Firefox 19+ */
+				color: ${COLORS.GREY3};
+			}
+			:-ms-input-placeholder {
+				/* IE 10+ */
+				color: ${COLORS.GREY3};
+			}
+			:-moz-placeholder {
+				/* Firefox 18- */
+				color: ${COLORS.GREY3};
+			}
+			::placeholder: {
+				color: ${COLORS.GREY3};
+			}
+		`};
 `;
 
 Select.Option = Option;

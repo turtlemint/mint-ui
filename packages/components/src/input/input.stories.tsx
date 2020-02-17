@@ -64,3 +64,6 @@ const InputDemo = () => {
 	);
 };
 stories.add("functional demo", () => <InputDemo />);
+stories.add("disabled", () => (
+	<Input disabled={true} placeholder="Enter value" />
+));

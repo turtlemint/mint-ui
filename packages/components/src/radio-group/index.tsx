@@ -31,6 +31,7 @@ export const RadioGroup = ({
 	onBlur = () => {},
 	buttonStyle,
 	children,
+	disabled,
 	...rest
 }: RadioGroupProps) => {
 	const [selectedValue, setSelectedValue] = React.useState<ValueType>(value);
@@ -48,6 +49,7 @@ export const RadioGroup = ({
 			{...rest}
 			tabIndex={0}
 			ref={() => (previousVal.current = value)}
+			disabled={disabled}
 			onBlur={() => onBlur(previousVal.current)}
 		>
 			{React.Children.map(children, (child: React.CElement<any, any>) =>
@@ -55,6 +57,7 @@ export const RadioGroup = ({
 					onClick: handleClick,
 					buttonStyle,
 					size,
+					disabled,
 					activeValue: selectedValue
 				})
 			)}
@@ -62,11 +65,16 @@ export const RadioGroup = ({
 	);
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ disabled?: boolean }>`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	outline-color: ${COLORS.PRIMARY_LIGHT};
+	${({ disabled }) =>
+		disabled &&
+		css`
+			outline: none;
+		`}
 `;
 
 interface LabelProps {
@@ -150,6 +158,7 @@ const Label = styled.label<Omit<LabelProps, "onClick">>`
 			pointer-events: none;
 			background: ${COLORS.BACKGROUND_GREY};
 			color: ${COLORS.DISABLED};
+			border-color: ${COLORS.GREY4};
 		`}
 `;
 

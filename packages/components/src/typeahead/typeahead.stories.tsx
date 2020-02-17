@@ -153,3 +153,22 @@ stories.add("functional demo", () => {
 		</TypeAhead>
 	);
 });
+
+stories.add("disabled", () => (
+	<TypeAhead
+		name="default-typeahead"
+		value={{ text: "Select user", value: "" }}
+		loading={false}
+		fetchFunc={() => {}}
+		onChange={() => {}}
+		open={false}
+		disabled={true}
+		placeholder="Select user..."
+	>
+		{mockData.map((d: any) => (
+			<Option key={d.value} value={d.value}>
+				{d.text}
+			</Option>
+		))}
+	</TypeAhead>
+));
