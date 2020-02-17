@@ -3,12 +3,12 @@
 exports[`Button renders button 1`] = `
 <DocumentFragment>
   <button
-    class="button__ButtonDefault-wy1cie-0 eAvXTz"
+    class="button__ButtonDefault-wy1cie-0 cQvaHJ"
     type="button"
   >
-    <span>
-      Test
-    </span>
+    <span
+      style="margin-left: 0px;"
+    />
   </button>
 </DocumentFragment>
 `;
