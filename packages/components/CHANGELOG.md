@@ -1,29 +1,40 @@
-### 2.1.1 ( January 2020)
+### 2.2.0-alpha.0 ( February 2020)
+#### Added
+- Disabled state to all form control elements
 
-### Added
+### 2.1.0 ( February 2020)
+
+#### Added 
+- Form component
+
+### 2.1.0-alpha.0 ( January 2020)
+
+#### Added
 - Added icons of cloud_download, attachment
 
-### Changed
+#### Changed
 - Updated Rating icons
 
 ### 2.0.1 ( January 2020)
 
-### Added
+#### Added
 - ref added on SelectWrapper to trigger onBlur event manually on click of item
 
 ### 2.0.0 ( January 2020)
 
-### Added
+#### Added
 - onFocus and onBlur handlers to manage internal state
 - added name prop
 
-### Changed
+#### Changed
 - Definition of handleChange is updated to handle option ({ text, value }) and name parameter in respective order
 - Changed color of Select ArrowToggle of Dropdown to GREY2
+- Removed import of Option as a seperate component and added as part of Select itself.
 
 ### 1.1.0
 
 #### Added
+
 - Update Storybook to Storybook Docs
 - Changelog.md
 
