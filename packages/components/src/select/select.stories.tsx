@@ -63,3 +63,12 @@ stories.add("default", () => {
 		</>
 	);
 });
+stories.add("disabled", () => (
+	<Select name="demo-select" disabled>
+		{data.map((d: any) => (
+			<Option key={d.value} value={d.value}>
+				{d.text}
+			</Option>
+		))}
+	</Select>
+));
