@@ -1,3 +1,7 @@
+### 2.2.0-alpha.0 ( February 2020)
+#### Added
+- Disabled state to all form control elements
+
 ### 2.1.0 ( February 2020)
 
 #### Added 
