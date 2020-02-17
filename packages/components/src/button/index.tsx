@@ -10,22 +10,27 @@ const ButtonTypeTuple = tuple("outlined", "solid", "link");
 export type ButtonType = typeof ButtonTypeTuple[number];
 const ButtonStyleTuple = tuple("default", "primary", "danger");
 export type ButtonStyle = typeof ButtonStyleTuple[number];
-const ButtonSizeTuple = tuple("sm", "default", "lg");
+const ButtonSizeTuple = tuple("small", "default", "large");
 export type ButtonSize = typeof ButtonSizeTuple[number];
 const ButtonHTMLTypes = tuple("submit", "button", "reset");
 export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export interface BaseButtonProps {
+	/** Display type of button from "outlined", "solid", "link"  */
 	btnType?: ButtonType;
+	/** Display style of button from "default", "primary", "danger" */
 	btnStyle?: ButtonStyle;
 	disabled?: boolean;
+	/** Size options - "small", "default", "large" */
 	size?: ButtonSize;
+	/** Text of the button to display */
 	title?: string;
+	/** Loading state of the button*/
 	loading?: boolean | { delay?: number };
+	/** Icon name or component to be displayed */
 	icon?: any;
-	className?: string;
+	/** Set the button to full width with block={true} */
 	block?: boolean;
-	prefixCls?: string;
 }
 export type AnchorButtonProps = {
 	href: string;
@@ -73,7 +78,7 @@ const BaseButton = css<ButtonProps>`
 			pointer-events: none;
 		`}
 	${({ size }) =>
-		size === "sm" &&
+		size === "small" &&
 		css`
 			font-size: 14px;
 			line-height: 14px;
@@ -81,7 +86,7 @@ const BaseButton = css<ButtonProps>`
 			padding: 8px 15px;
 		`};
 	${({ size }) =>
-		size === "lg" &&
+		size === "large" &&
 		css`
 			font-size: 18px;
 			line-height: 18px;
@@ -306,9 +311,9 @@ const getButtonType = (props: ButtonProps, type: string | undefined) => {
 const getIcon = (icon: string, style: string, btnType: string, rest: any) => {
 	const { size } = rest;
 	let dimensions = 16;
-	if (size === "lg") {
+	if (size === "large") {
 		dimensions = 18;
-	} else if (size === "sm") {
+	} else if (size === "small") {
 		dimensions = 14;
 	}
 
