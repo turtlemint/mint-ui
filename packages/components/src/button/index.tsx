@@ -10,22 +10,27 @@ const ButtonTypeTuple = tuple("outlined", "solid", "link");
 export type ButtonType = typeof ButtonTypeTuple[number];
 const ButtonStyleTuple = tuple("default", "primary", "danger");
 export type ButtonStyle = typeof ButtonStyleTuple[number];
-const ButtonSizeTuple = tuple("sm", "default", "lg");
+const ButtonSizeTuple = tuple("small", "default", "large");
 export type ButtonSize = typeof ButtonSizeTuple[number];
 const ButtonHTMLTypes = tuple("submit", "button", "reset");
 export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export interface BaseButtonProps {
+	/** Display type of button from "outlined", "solid", "link"  */
 	btnType?: ButtonType;
+	/** Display style of button from "default", "primary", "danger" */
 	btnStyle?: ButtonStyle;
 	disabled?: boolean;
+	/** Size options - "small", "default", "large" */
 	size?: ButtonSize;
+	/** Text of the button to display */
 	title?: string;
+	/** Loading state of the button*/
 	loading?: boolean | { delay?: number };
+	/** Icon name or component to be displayed */
 	icon?: any;
-	className?: string;
+	/** Set the button to full width with block={true} */
 	block?: boolean;
-	prefixCls?: string;
 }
 export type AnchorButtonProps = {
 	href: string;
@@ -41,6 +46,116 @@ export type NativeButtonProps = {
 	Omit<React.ButtonHTMLAttributes<unknown>, "type" | "onClick">;
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
+
+export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
+	const { btnType = "outlined", loading = false } = props;
+
+	return loading ? (
+		<ButtonDefault btnType={btnType} disabled>
+			Loading...
+		</ButtonDefault>
+	) : btnType ? (
+		getButtonType(props, btnType)
+	) : null;
+};
+
+const getButtonType = (props: ButtonProps, type: string | undefined) => {
+	const {
+		btnType = "outlined",
+		btnStyle = "default",
+		icon,
+		title,
+		onClick = function() {},
+		href = "#",
+		target = "blank",
+		htmlType = "button",
+		...rest
+	} = props;
+
+	const handleClick: React.MouseEventHandler<
+		HTMLButtonElement | HTMLAnchorElement
+	> = e => {
+		if (btnType !== "link") {
+			onClick(e);
+		}
+	};
+	switch (type) {
+		case "solid":
+			return (
+				<ButtonSolid
+					onClick={handleClick}
+					btnType={btnType}
+					btnStyle={btnStyle}
+					type={htmlType}
+					{...rest}
+				>
+					{icon ? getIcon(icon, btnStyle, btnType, rest) : null}
+					{getTitle(icon, title)}
+				</ButtonSolid>
+			);
+		case "link":
+			return (
+				<Link
+					href={href}
+					target={target}
+					btnStyle={btnStyle}
+					onClick={handleClick}
+					{...rest}
+				>
+					{icon ? getIcon(icon, btnStyle, btnType, rest) : null}
+					{getTitle(icon, title)}
+				</Link>
+			);
+		default:
+			return (
+				<ButtonDefault
+					onClick={handleClick}
+					btnType={btnType}
+					btnStyle={btnStyle}
+					type={htmlType}
+					{...rest}
+				>
+					{icon ? getIcon(icon, btnStyle, btnType, rest) : null}
+					{getTitle(icon, title)}
+				</ButtonDefault>
+			);
+	}
+};
+
+const getIcon = (icon: string, style: string, btnType: string, rest: any) => {
+	const { size } = rest;
+	let dimensions = 16;
+	if (size === "large") {
+		dimensions = 18;
+	} else if (size === "small") {
+		dimensions = 14;
+	}
+
+	if (btnType === "outlined" || btnType === "link") {
+		switch (style) {
+			case "primary":
+				return (
+					<Icon
+						name={icon}
+						color={COLORS.PRIMARY}
+						size={dimensions}
+					/>
+				);
+			case "danger":
+				return (
+					<Icon name={icon} color={COLORS.DANGER} size={dimensions} />
+				);
+			default:
+				return (
+					<Icon name={icon} color={COLORS.GREY2} size={dimensions} />
+				);
+		}
+	}
+	return <Icon name={icon} color={COLORS.WHITE} size={dimensions} />;
+};
+const getTitle = (icon: string, title?: string) => (
+	<span style={{ marginLeft: icon && title ? "7px" : "0px" }}>{title}</span>
+);
 
 const BaseButton = css<ButtonProps>`
 	${GlobalStyles};
@@ -73,7 +188,7 @@ const BaseButton = css<ButtonProps>`
 			pointer-events: none;
 		`}
 	${({ size }) =>
-		size === "sm" &&
+		size === "small" &&
 		css`
 			font-size: 14px;
 			line-height: 14px;
@@ -81,7 +196,7 @@ const BaseButton = css<ButtonProps>`
 			padding: 8px 15px;
 		`};
 	${({ size }) =>
-		size === "lg" &&
+		size === "large" &&
 		css`
 			font-size: 18px;
 			line-height: 18px;
@@ -227,115 +342,5 @@ export const Link = styled.a<ButtonProps>`
 			}
 		`}
 `;
-
-export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
-	const { btnType = "outlined", loading = false } = props;
-
-	return loading ? (
-		<ButtonDefault btnType={btnType} disabled>
-			Loading...
-		</ButtonDefault>
-	) : btnType ? (
-		getButtonType(props, btnType)
-	) : null;
-};
-
-const getButtonType = (props: ButtonProps, type: string | undefined) => {
-	const {
-		btnType = "outlined",
-		btnStyle = "default",
-		icon,
-		title,
-		onClick = function() {},
-		href = "#",
-		target = "blank",
-		htmlType = "button",
-		...rest
-	} = props;
-
-	const handleClick: React.MouseEventHandler<
-		HTMLButtonElement | HTMLAnchorElement
-	> = e => {
-		if (btnType !== "link") {
-			onClick(e);
-		}
-	};
-	switch (type) {
-		case "solid":
-			return (
-				<ButtonSolid
-					onClick={handleClick}
-					btnType={btnType}
-					btnStyle={btnStyle}
-					type={htmlType}
-					{...rest}
-				>
-					{icon ? getIcon(icon, btnStyle, btnType, rest) : null}
-					{getTitle(icon, title)}
-				</ButtonSolid>
-			);
-		case "link":
-			return (
-				<Link
-					href={href}
-					target={target}
-					btnStyle={btnStyle}
-					onClick={handleClick}
-					{...rest}
-				>
-					{icon ? getIcon(icon, btnStyle, btnType, rest) : null}
-					{getTitle(icon, title)}
-				</Link>
-			);
-		default:
-			return (
-				<ButtonDefault
-					onClick={handleClick}
-					btnType={btnType}
-					btnStyle={btnStyle}
-					type={htmlType}
-					{...rest}
-				>
-					{icon ? getIcon(icon, btnStyle, btnType, rest) : null}
-					{getTitle(icon, title)}
-				</ButtonDefault>
-			);
-	}
-};
-
-const getIcon = (icon: string, style: string, btnType: string, rest: any) => {
-	const { size } = rest;
-	let dimensions = 16;
-	if (size === "lg") {
-		dimensions = 18;
-	} else if (size === "sm") {
-		dimensions = 14;
-	}
-
-	if (btnType === "outlined" || btnType === "link") {
-		switch (style) {
-			case "primary":
-				return (
-					<Icon
-						name={icon}
-						color={COLORS.PRIMARY}
-						size={dimensions}
-					/>
-				);
-			case "danger":
-				return (
-					<Icon name={icon} color={COLORS.DANGER} size={dimensions} />
-				);
-			default:
-				return (
-					<Icon name={icon} color={COLORS.GREY2} size={dimensions} />
-				);
-		}
-	}
-	return <Icon name={icon} color={COLORS.WHITE} size={dimensions} />;
-};
-const getTitle = (icon: string, title?: string) => (
-	<span style={{ marginLeft: icon && title ? "7px" : "0px" }}>{title}</span>
-);
 
 export default Button;

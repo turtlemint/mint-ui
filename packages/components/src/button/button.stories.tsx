@@ -10,9 +10,9 @@ const ButtonProps = [
 	"btnStyle",
 	"disabled",
 	"size",
+	"title",
 	"loading",
 	"icon",
-	"className",
 	"block"
 ];
 
@@ -29,16 +29,24 @@ stories.add("outlined", () => (
 	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button title="Default outlined" size="lg" block />
+				<Button title="Default outlined" size="large" block />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button title="Disabled outlined" disabled size="lg" />
+				<Button title="Disabled outlined" disabled size="large" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button title="Primary outlined" btnStyle="primary" size="lg" />
+				<Button
+					title="Primary outlined"
+					btnStyle="primary"
+					size="large"
+				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button title="Danger outlined" btnStyle="danger" size="lg" />
+				<Button
+					title="Danger outlined"
+					btnStyle="danger"
+					size="large"
+				/>
 			</Col>
 		</Row>
 		<Row style={{ marginTop: "30px" }}>
@@ -57,16 +65,24 @@ stories.add("outlined", () => (
 		</Row>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" title="Default outlined" />
+				<Button size="small" title="Default outlined" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button disabled size="sm" title="Disabled outlined" />
+				<Button disabled size="small" title="Disabled outlined" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnStyle="primary" size="sm" title="Primary outlined" />
+				<Button
+					btnStyle="primary"
+					size="small"
+					title="Primary outlined"
+				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnStyle="danger" size="sm" title="Danger outlined" />
+				<Button
+					btnStyle="danger"
+					size="small"
+					title="Danger outlined"
+				/>
 			</Col>
 		</Row>
 	</>
@@ -76,13 +92,13 @@ stories.add("solid", () => (
 	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="solid" size="lg" title="Default solid" />
+				<Button btnType="solid" size="large" title="Default solid" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
 					btnType="solid"
 					disabled
-					size="lg"
+					size="large"
 					title="Disabled solid"
 				/>
 			</Col>
@@ -90,7 +106,7 @@ stories.add("solid", () => (
 				<Button
 					btnType="solid"
 					btnStyle="primary"
-					size="lg"
+					size="large"
 					title="Primary solid"
 				/>
 			</Col>
@@ -98,7 +114,7 @@ stories.add("solid", () => (
 				<Button
 					btnType="solid"
 					btnStyle="danger"
-					size="lg"
+					size="large"
 					title="Danger solid"
 				/>
 			</Col>
@@ -127,13 +143,13 @@ stories.add("solid", () => (
 		</Row>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
-				<Button btnType="solid" size="sm" title="Default solid" />
+				<Button btnType="solid" size="small" title="Default solid" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
 					btnType="solid"
 					disabled
-					size="sm"
+					size="small"
 					title="Disabled solid"
 				/>
 			</Col>
@@ -141,7 +157,7 @@ stories.add("solid", () => (
 				<Button
 					btnType="solid"
 					btnStyle="primary"
-					size="sm"
+					size="small"
 					title="Primary solid"
 				/>
 			</Col>
@@ -149,7 +165,7 @@ stories.add("solid", () => (
 				<Button
 					btnType="solid"
 					btnStyle="danger"
-					size="sm"
+					size="small"
 					title="Danger solid"
 				/>
 			</Col>
@@ -161,14 +177,14 @@ stories.add("link", () => (
 	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button title="Default link" btnType="link" size="lg" />
+				<Button title="Default link" btnType="link" size="large" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
 					title="Disabled link"
 					btnType="link"
 					disabled
-					size="lg"
+					size="large"
 				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
@@ -176,7 +192,7 @@ stories.add("link", () => (
 					title="Primary link"
 					btnType="link"
 					btnStyle="primary"
-					size="lg"
+					size="large"
 				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
@@ -184,7 +200,7 @@ stories.add("link", () => (
 					title="Danger link"
 					btnType="link"
 					btnStyle="danger"
-					size="lg"
+					size="large"
 				/>
 			</Col>
 		</Row>
@@ -208,14 +224,14 @@ stories.add("link", () => (
 		</Row>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button title="Default link" btnType="link" size="sm" />
+				<Button title="Default link" btnType="link" size="small" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
 					title="Disabled link"
 					btnType="link"
 					disabled
-					size="sm"
+					size="small"
 				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
@@ -223,7 +239,7 @@ stories.add("link", () => (
 					title="Primary link"
 					btnType="link"
 					btnStyle="primary"
-					size="sm"
+					size="small"
 				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
@@ -231,7 +247,7 @@ stories.add("link", () => (
 					title="Danger link"
 					btnType="link"
 					btnStyle="danger"
-					size="sm"
+					size="small"
 				/>
 			</Col>
 		</Row>
@@ -254,21 +270,21 @@ stories.add("icons/outlined", () => (
 	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button title="Text with icon" size="lg" icon="warning" />
+				<Button title="Text with icon" size="large" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="lg" icon="warning" />
+				<Button size="large" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
 					title="Text with icon"
-					size="lg"
+					size="large"
 					btnStyle="primary"
 					icon="warning"
 				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="lg" btnStyle="primary" icon="warning" />
+				<Button size="large" btnStyle="primary" icon="warning" />
 			</Col>
 		</Row>
 		<Row style={{ marginTop: "30px" }}>
@@ -291,21 +307,21 @@ stories.add("icons/outlined", () => (
 		</Row>
 		<Row style={{ marginTop: "30px" }}>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" icon="warning" title="Text with icon" />
+				<Button size="small" icon="warning" title="Text with icon" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" icon="warning" />
+				<Button size="small" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
-					size="sm"
+					size="small"
 					btnStyle="primary"
 					icon="warning"
 					title="Text with icon"
 				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" btnStyle="primary" icon="warning" />
+				<Button size="small" btnStyle="primary" icon="warning" />
 			</Col>
 		</Row>
 	</>
@@ -317,17 +333,17 @@ stories.add("icons/solid", () => (
 			<Col sm={3} md={3} lg={3}>
 				<Button
 					title="Text with icon"
-					size="lg"
+					size="large"
 					btnType="solid"
 					icon="warning"
 				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="lg" btnType="solid" icon="warning" />
+				<Button size="large" btnType="solid" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
-					size="lg"
+					size="large"
 					btnType="solid"
 					btnStyle="primary"
 					icon="warning"
@@ -336,7 +352,7 @@ stories.add("icons/solid", () => (
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
-					size="lg"
+					size="large"
 					btnType="solid"
 					btnStyle="primary"
 					icon="warning"
@@ -366,17 +382,17 @@ stories.add("icons/solid", () => (
 			<Col sm={3} md={3} lg={3}>
 				<Button
 					title="Text with icon"
-					size="sm"
+					size="small"
 					btnType="solid"
 					icon="warning"
 				/>
 			</Col>
 			<Col sm={3} md={3} lg={3}>
-				<Button size="sm" btnType="solid" icon="warning" />
+				<Button size="small" btnType="solid" icon="warning" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
-					size="sm"
+					size="small"
 					btnType="solid"
 					btnStyle="primary"
 					icon="warning"
@@ -385,7 +401,7 @@ stories.add("icons/solid", () => (
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button
-					size="sm"
+					size="small"
 					btnType="solid"
 					btnStyle="primary"
 					icon="warning"
