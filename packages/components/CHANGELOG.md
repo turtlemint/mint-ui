@@ -1,3 +1,12 @@
+### 2.2.0-alpha.1 ( February 2020)
+#### Added
+- Button component: added block prop
+
+#### Changed
+- Button component: Changed the API to use title prop instead of children for text
+- Button component: updated prop descriptions and renamed the size prop values to full names
+- Button component: modified form stories and modal for button title prop changes
+
 ### 2.2.0-alpha.0 ( February 2020)
 #### Added
 - Disabled state to all form control elements
