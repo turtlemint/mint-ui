@@ -75,21 +75,19 @@ export const Confirm = ({
 				>
 					{type && ConfirmValues.includes(type) ? null : (
 						<Button
+							title={cancelText ? cancelText : "Cancel"}
 							style={{ marginRight: "10px" }}
 							onClick={onCancel}
 							{...cancelButtonProps}
-						>
-							{cancelText ? cancelText : "Cancel"}
-						</Button>
+						/>
 					)}
 					<Button
+						title={okText ? okText : "OK"}
 						btnType={okType ? okType : "solid"}
 						btnStyle="primary"
 						onClick={onOk}
 						{...okButtonProps}
-					>
-						{okText ? okText : "OK"}
-					</Button>
+					/>
 				</Footer>
 			</Body>
 		</Dialog>
