@@ -69,18 +69,16 @@ export const Modal = ({
 				<Button
 					style={{ marginRight: "10px" }}
 					onClick={onCancel}
+					title={cancelText ? cancelText : "Cancel"}
 					{...cancelButtonProps}
-				>
-					{cancelText ? cancelText : "Cancel"}
-				</Button>
+				/>
 				<Button
 					btnType={okType ? okType : "solid"}
 					btnStyle="primary"
 					onClick={onOk}
+					title={okText ? okText : "OK"}
 					{...okButtonProps}
-				>
-					{okText ? okText : "OK"}
-				</Button>
+				/>
 			</Footer>
 		</Dialog>
 	) : null;
