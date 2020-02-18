@@ -212,13 +212,12 @@ stories.add(
 					</Form.Item>
 					<Form.Item labelCol={{ span: 1 }}>
 						<Button
-							size="sm"
+							size="small"
 							btnType="solid"
 							btnStyle="primary"
 							htmlType="submit"
-						>
-							Submit
-						</Button>
+							title="Submit"
+						/>
 					</Form.Item>
 				</Form>
 			</>
@@ -246,22 +245,22 @@ stories.add(
 							Form Layout:
 						</Label>
 						<Button
-							size="sm"
+							title="Horizontal"
+							size="small"
 							style={{ marginRight: "10px" }}
 							onClick={() => setLayout("horizontal")}
-						>
-							Horizontal
-						</Button>
+						/>
 						<Button
-							size="sm"
+							title="Vertical"
+							size="small"
 							style={{ marginRight: "10px" }}
 							onClick={() => setLayout("vertical")}
-						>
-							Vertical
-						</Button>
-						<Button size="sm" onClick={() => setLayout("inline")}>
-							Inline
-						</Button>
+						/>
+						<Button
+							title="Inline"
+							size="small"
+							onClick={() => setLayout("inline")}
+						/>
 					</Col>
 				</Row>
 				<div
@@ -310,12 +309,11 @@ stories.add(
 
 					<Form.Item labelCol={{ span: 1 }}>
 						<Button
+							title="Submit"
 							btnType="solid"
 							btnStyle="primary"
 							htmlType="submit"
-						>
-							Submit
-						</Button>
+						/>
 					</Form.Item>
 				</Form>
 			</>
