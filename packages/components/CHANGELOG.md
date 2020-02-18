@@ -1,4 +1,4 @@
-### 2.2.0-alpha.1 ( February 2020)
+### 3.0.0-alpha.0 ( February 2020)
 #### Added
 - Button component: added block prop
 
