@@ -2,16 +2,16 @@ import styled, { css } from "styled-components";
 import { BREAKPOINTS } from "./breakpoints";
 import { tupleNum } from "../__utils/type";
 import { GlobalStyles } from "../app";
+import { Gutter, applyGutter } from "./row";
 
 const getColWidth = (gridSpan: number): string | null => {
 	if (!gridSpan) return null;
 	const width = (gridSpan / 12) * 100;
-	return `${width.toFixed(8)}%`;
+	return `${width.toFixed(3)}%`;
 };
 
-const ColValues = tupleNum(12, 9, 8, 6, 4, 3);
+const ColValues = tupleNum(12, 9, 8, 6, 4, 3, 0);
 export type ColValueType = typeof ColValues[number];
-
 interface ColProps {
 	xs: ColValueType;
 	sm: ColValueType;
@@ -21,23 +21,29 @@ interface ColProps {
 	smOffset: ColValueType;
 	mdOffset: ColValueType;
 	lgOffset: ColValueType;
-	align: string;
 	xsHidden: boolean;
 	smHidden: boolean;
 	mdHidden: boolean;
 	lgHidden: boolean;
+	gutter?: Gutter;
+	order?: number;
 }
 
-export const Col = styled.div<Partial<ColProps>>`
+type UnionProps = React.HTMLAttributes<HTMLDivElement> | Partial<ColProps>;
+export type FinalProps = Exclude<
+	UnionProps,
+	React.HTMLAttributes<HTMLDivElement>
+>;
+
+export const Col = styled.div<FinalProps>`
 	${GlobalStyles};
-	padding-left: 15px;
-	padding-right: 15px;
-	min-height: 1px;
-	float: left;
-	width: 100%;
-	text-align: ${props => (props.align ? props.align : "left")};
+	${({ order }) =>
+		order &&
+		css`
+			order: ${order};
+		`};
 	/* <= 768px */
-	@media (max-width: ${BREAKPOINTS.SM}px) {
+	@media screen and (max-width: ${BREAKPOINTS.SM}px) {
 		${({ xsHidden = false }) =>
 			xsHidden &&
 			css`
@@ -47,7 +53,7 @@ export const Col = styled.div<Partial<ColProps>>`
 			xs &&
 			!xsHidden &&
 			css`
-				width: ${getColWidth(xs)};
+				flex: ${xs} ${getColWidth(xs)};
 			`};
 		${({ xsOffset, xsHidden }) =>
 			xsOffset &&
@@ -55,9 +61,10 @@ export const Col = styled.div<Partial<ColProps>>`
 			css`
 				margin-left: ${getColWidth(xsOffset)};
 			`};
+		${({ gutter }) => gutter && applyGutter(gutter, "xs")};
 	}
 	/* 769 - 1024 */
-	@media (min-width: ${BREAKPOINTS.SM +
+	@media screen and (min-width: ${BREAKPOINTS.SM +
 			1}px) and (max-width: ${BREAKPOINTS.MD}px) {
 		${({ smHidden = false }) =>
 			smHidden &&
@@ -68,7 +75,7 @@ export const Col = styled.div<Partial<ColProps>>`
 			sm &&
 			!smHidden &&
 			css`
-				width: ${getColWidth(sm)};
+				flex-basis: ${getColWidth(sm)};
 			`};
 		${({ smOffset, smHidden }) =>
 			smOffset &&
@@ -76,9 +83,10 @@ export const Col = styled.div<Partial<ColProps>>`
 			css`
 				margin-left: ${getColWidth(smOffset)};
 			`};
+		${({ gutter }) => gutter && applyGutter(gutter, "sm")};
 	}
 	/* 1025 - 1440 */
-	@media (min-width: ${BREAKPOINTS.MD +
+	@media screen and (min-width: ${BREAKPOINTS.MD +
 			1}px) and (max-width: ${BREAKPOINTS.LG}px) {
 		${({ mdHidden = false }) =>
 			mdHidden &&
@@ -89,7 +97,9 @@ export const Col = styled.div<Partial<ColProps>>`
 			md &&
 			!mdHidden &&
 			css`
-				width: ${getColWidth(md)};
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: ${getColWidth(md)};
 			`};
 		${({ mdOffset, mdHidden }) =>
 			mdOffset &&
@@ -97,9 +107,10 @@ export const Col = styled.div<Partial<ColProps>>`
 			css`
 				margin-left: ${getColWidth(mdOffset)};
 			`};
+		${({ gutter }) => gutter && applyGutter(gutter, "md")};
 	}
 	/* > 1440 */
-	@media (min-width: ${BREAKPOINTS.LG + 1}px) {
+	@media screen and (min-width: ${BREAKPOINTS.LG + 1}px) {
 		${({ lgHidden = false }) =>
 			lgHidden &&
 			css`
@@ -109,7 +120,7 @@ export const Col = styled.div<Partial<ColProps>>`
 			lg &&
 			!lgHidden &&
 			css`
-				width: ${getColWidth(lg)};
+				flex-basis: ${getColWidth(lg)};
 			`};
 		${({ lgOffset, lgHidden }) =>
 			lgOffset &&
@@ -117,6 +128,7 @@ export const Col = styled.div<Partial<ColProps>>`
 			css`
 				margin-left: ${getColWidth(lgOffset)};
 			`};
+		${({ gutter }) => gutter && applyGutter(gutter, "lg")};
 	}
 `;
 
