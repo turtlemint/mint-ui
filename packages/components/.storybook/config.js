@@ -9,9 +9,9 @@ import { withConsole } from '@storybook/addon-console';
 import requireContext from 'require-context.macro';
 import StoryBookWrapper from "../src/storybook.setup";
 
-
 addDecorator(withInfo({
   	inline: true,
+    source: false,
     styles: {
       infoStory: {
         padding: 40
@@ -23,7 +23,7 @@ addParameters({
   options: {
     name: "Mint UI",
     url: "https://mint-ui.netlify.com",
-    showAddonPanel:false,
+    showAddonPanel:true,
     panelPosition: "bottom",
   }
 })
@@ -36,7 +36,7 @@ addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 const req = requireContext('../src/', true, /\.stories\.tsx$/);
 
 function loadStories() {
-    req.keys().forEach(req);
+  req.keys().forEach(req);
 }
 
 configure(loadStories, module);

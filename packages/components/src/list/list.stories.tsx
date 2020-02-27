@@ -4,8 +4,6 @@ import { storiesOf } from "@storybook/react";
 import Icon from "../icon";
 import ListItem from "./list-item";
 
-const stories = storiesOf("List", module);
-
 const stringData = [
 	"Racing car sprays burning fuel into crowd.",
 	"Japanese princess to wed commoner.",
@@ -120,134 +118,130 @@ const objectList: any = [
 	}
 ];
 
-stories.add("default", () => <List dataSource={stringData} bordered={true} />, {
-	info: {
-		propTables: [List, ListItem]
-	}
-});
-
-stories.add("avatar & single action", () => {
-	return <List dataSource={objectList} bordered={true} />;
-});
-
-stories.add(
-	"custom list element",
-	() => {
-		return (
-			<List
-				dataSource={textList}
-				renderItem={(item: any) => {
-					return <ListItem key={item.key} {...item} />;
-				}}
-			/>
-		);
-	},
-	{
+storiesOf("List", module)
+	.add("default", () => <List dataSource={stringData} bordered={true} />, {
 		info: {
 			propTables: [List, ListItem]
 		}
-	}
-);
-
-stories.add("size", () => {
-	return (
-		<>
-			<h3>[Small Size]</h3>
-			<List dataSource={textList} size="small" bordered={true} />
-			<h3>[Default Size</h3>
-			<List dataSource={textList} bordered={true} />
-			<h3>[Large Size]</h3>
-			<List dataSource={textList} size="large" bordered={true} />
-		</>
-	);
-});
-
-stories.add("loading...", () => {
-	return <List dataSource={stringData} loading={true} />;
-});
-
-stories.add("mutiple actions", () => {
-	const actionsList: any = [
-		{
-			key: 1,
-			title: "Insurance",
-			avatar: {
-				icon: "close"
-			},
-			actions: [
-				<a href="https://google.com" key="list-loadmore-edit">
-					Edit
-				</a>,
-				<a href="https://google.com" key="list-loadmore-edit">
-					More
-				</a>
-			]
+	})
+	.add("avatar & single action", () => {
+		return <List dataSource={objectList} bordered={true} />;
+	})
+	.add(
+		"custom list element",
+		() => {
+			return (
+				<List
+					dataSource={textList}
+					renderItem={(item: any) => {
+						return <ListItem key={item.key} {...item} />;
+					}}
+				/>
+			);
 		},
 		{
-			key: 2,
-			title: "Mutual funds",
-			avatar: {
-				icon: "error_outline",
-				color: "lime",
-				style: {
-					background: "black"
-				}
-			},
-			actions: [
-				<a href="https://google.com" key="list-loadmore-edit">
-					Edit
-				</a>,
-				<a href="https://google.com" key="list-loadmore-edit">
-					More
-				</a>
-			]
-		},
-		{
-			key: 3,
-			title: "Gold",
-			avatar: {
-				icon: "settings",
-				color: "green"
-			},
-			actions: [
-				<a href="https://google.com" key="list-loadmore-edit">
-					Edit
-				</a>,
-				<a href="https://google.com" key="list-loadmore-edit">
-					More
-				</a>
-			]
-		},
-		{
-			key: 4,
-			title: "Loans",
-			avatar: {
-				icon: "warning"
-			},
-			actions: [
-				<a href="https://google.com" key="list-loadmore-edit">
-					Edit
-				</a>,
-				<a href="https://google.com" key="list-loadmore-edit">
-					More
-				</a>
-			]
-		},
-		{
-			key: 5,
-			title: "Something else",
-			avatar: {
-				icon: "notification_important"
-			},
-			actions: [
-				<a href="https://google.com" key="list-loadmore-edit">
-					Edit
-				</a>,
-				<a href="https://google.com" key="list-loadmore-edit">
-					More
-				</a>
-			]
+			info: {
+				propTables: [List, ListItem]
+			}
 		}
-	];
-	return <List dataSource={actionsList} bordered={true} />;
-});
+	)
+	.add("size", () => {
+		return (
+			<>
+				<h3>[Small Size]</h3>
+				<List dataSource={textList} size="small" bordered={true} />
+				<h3>[Default Size</h3>
+				<List dataSource={textList} bordered={true} />
+				<h3>[Large Size]</h3>
+				<List dataSource={textList} size="large" bordered={true} />
+			</>
+		);
+	})
+	.add("loading...", () => {
+		return <List dataSource={stringData} loading={true} />;
+	})
+	.add("mutiple actions", () => {
+		const actionsList: any = [
+			{
+				key: 1,
+				title: "Insurance",
+				avatar: {
+					icon: "close"
+				},
+				actions: [
+					<a href="https://google.com" key="list-loadmore-edit">
+						Edit
+					</a>,
+					<a href="https://google.com" key="list-loadmore-edit">
+						More
+					</a>
+				]
+			},
+			{
+				key: 2,
+				title: "Mutual funds",
+				avatar: {
+					icon: "error_outline",
+					color: "lime",
+					style: {
+						background: "black"
+					}
+				},
+				actions: [
+					<a href="https://google.com" key="list-loadmore-edit">
+						Edit
+					</a>,
+					<a href="https://google.com" key="list-loadmore-edit">
+						More
+					</a>
+				]
+			},
+			{
+				key: 3,
+				title: "Gold",
+				avatar: {
+					icon: "settings",
+					color: "green"
+				},
+				actions: [
+					<a href="https://google.com" key="list-loadmore-edit">
+						Edit
+					</a>,
+					<a href="https://google.com" key="list-loadmore-edit">
+						More
+					</a>
+				]
+			},
+			{
+				key: 4,
+				title: "Loans",
+				avatar: {
+					icon: "warning"
+				},
+				actions: [
+					<a href="https://google.com" key="list-loadmore-edit">
+						Edit
+					</a>,
+					<a href="https://google.com" key="list-loadmore-edit">
+						More
+					</a>
+				]
+			},
+			{
+				key: 5,
+				title: "Something else",
+				avatar: {
+					icon: "notification_important"
+				},
+				actions: [
+					<a href="https://google.com" key="list-loadmore-edit">
+						Edit
+					</a>,
+					<a href="https://google.com" key="list-loadmore-edit">
+						More
+					</a>
+				]
+			}
+		];
+		return <List dataSource={actionsList} bordered={true} />;
+	});

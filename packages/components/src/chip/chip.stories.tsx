@@ -2,9 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import Chip from "./index";
 
-const stories = storiesOf("Chip", module);
-
-stories.add(
+storiesOf("Chip", module).add(
 	"default",
 	() => (
 		<>

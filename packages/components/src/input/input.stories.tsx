@@ -20,32 +20,33 @@ const InputProps = [
 
 const TableComponent = makeTable(InputProps);
 
-const stories = storiesOf("Input", module).addParameters({
-	info: {
-		TableComponent,
-		propTables: [Input]
-	}
-});
-
-stories.add("empty input", () => (
-	<Input type="text" placeholder="Enter text" value="" />
-));
-
-stories.add("text", () => (
-	<Input type="text" placeholder="Enter text" value="some value" />
-));
-
-stories.add("password", () => (
-	<Input type="password" placeholder="Enter password" value="Test value" />
-));
-
-stories.add("number", () => <Input type="number" value={10} />);
-
-stories.add("label", () => <Input value="" type="text" label="Normal label" />);
-
-stories.add("input with error", () => (
-	<Input value="" type="text" error="Oops! something went wrong" />
-));
+storiesOf("Input", module)
+	.addParameters({
+		info: {
+			TableComponent,
+			propTables: [Input]
+		}
+	})
+	.add("empty input", () => (
+		<Input type="text" placeholder="Enter text" value="" />
+	))
+	.add("text", () => (
+		<Input type="text" placeholder="Enter text" value="some value" />
+	))
+	.add("password", () => (
+		<Input
+			type="password"
+			placeholder="Enter password"
+			value="Test value"
+		/>
+	))
+	.add("number", () => <Input type="number" value={10} />)
+	.add("label", () => <Input value="" type="text" label="Normal label" />)
+	.add("input with error", () => (
+		<Input value="" type="text" error="Oops! something went wrong" />
+	))
+	.add("functional demo", () => <InputDemo />)
+	.add("disabled", () => <Input disabled={true} placeholder="Enter value" />);
 
 const InputDemo = () => {
 	const [value, setValue] = React.useState<string>("");
@@ -63,7 +64,3 @@ const InputDemo = () => {
 		</>
 	);
 };
-stories.add("functional demo", () => <InputDemo />);
-stories.add("disabled", () => (
-	<Input disabled={true} placeholder="Enter value" />
-));

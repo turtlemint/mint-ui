@@ -4,8 +4,6 @@ import Icon from "./";
 import styled from "styled-components";
 import COLORS from "../__utils/colors";
 
-const stories = storiesOf("Icon", module);
-
 const Wrapper = styled.div`
 	width: 170px;
 	text-align: center;
@@ -22,7 +20,7 @@ const Caption = styled.p`
 	color: ${COLORS.GREY2};
 `;
 
-stories.add(
+storiesOf("Icon", module).add(
 	"default",
 	() => {
 		const props = {
