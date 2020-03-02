@@ -9,10 +9,15 @@ const ShapeTuple = tuple("circle", "square");
 type ShapeType = typeof ShapeTuple[number];
 
 interface AvatarProps {
+	/** specify icon="search" or icon={IconComponent} */
 	icon?: string | React.ReactNode;
+	/** circle or square */
 	shape?: ShapeType;
+	/** size of the  svg icon to render */
 	size?: number;
+	/** color of the svg icon to render */
 	color?: string;
+	/** style of the wrapper around SVG */
 	style?: React.CSSProperties;
 }
 

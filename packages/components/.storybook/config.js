@@ -9,16 +9,6 @@ import { withConsole } from '@storybook/addon-console';
 import requireContext from 'require-context.macro';
 import StoryBookWrapper from "../src/storybook.setup";
 
-addDecorator(withInfo({
-  	inline: true,
-    source: false,
-    styles: {
-      infoStory: {
-        padding: 40
-      }
-    }
-}));
-
 addParameters({
   options: {
     name: "Mint UI",
