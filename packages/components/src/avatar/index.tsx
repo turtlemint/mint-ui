@@ -10,7 +10,7 @@ type ShapeType = typeof ShapeTuple[number];
 
 interface AvatarProps {
 	/** specify icon="search" or icon={IconComponent} */
-	icon?: string | React.ReactNode;
+	icon: React.ReactNode | string;
 	/** circle or square */
 	shape?: ShapeType;
 	/** size of the  svg icon to render */

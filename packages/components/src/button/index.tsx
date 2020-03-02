@@ -1,4 +1,6 @@
 import * as React from "react";
+import PropTypes from "prop-types";
+
 import styled, { css } from "styled-components";
 import { tuple } from "../__utils/type";
 import COLORS from "../__utils/colors";
@@ -343,4 +345,34 @@ export const Link = styled.a<ButtonProps>`
 		`}
 `;
 
+Button.propTypes = {
+	/** Display type of button from "outlined", "solid", "link"  */
+	btnType: PropTypes.oneOf(["outlined", "solid", "link"]),
+	/** Display style of button from "default", "primary", "danger" */
+	btnStyle: PropTypes.oneOf(["default", "primary", "danger"]),
+	disabled: PropTypes.bool,
+	/** Size options - "small", "default", "large" */
+	size: PropTypes.oneOf(["small", "default", "large"]),
+	/** Text of the button to display */
+	title: PropTypes.string,
+	/** Loading state of the button -*/
+	loading: PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.shape({
+			delay: PropTypes.number
+		})
+	]),
+	/** Icon name or component to be displayed */
+	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+	/** Set the button to full width with block={true} */
+	block: PropTypes.bool
+};
+Button.defaultProps = {
+	btnType: "outlined",
+	btnStyle: "default",
+	disabled: false,
+	size: "default",
+	loading: false,
+	block: false
+};
 export default Button;

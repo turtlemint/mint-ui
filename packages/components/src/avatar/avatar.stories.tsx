@@ -5,8 +5,10 @@ import COLORS from "../__utils/colors";
 
 export default {
 	title: "Avatar",
-	subtitle: "Size",
-	component: Avatar
+	component: Avatar,
+	parameters: {
+		componentSubtitle: "Size"
+	}
 };
 export const Size = () => (
 	<>
