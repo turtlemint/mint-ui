@@ -1,0 +1,91 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { CompositeUI } from "../index";
+import config from "./mock.json";
+import { TypeMap } from "./type-map";
+
+<Meta title="CompositeUI" component={CompositeUI} />
+
+# Composite UI
+
+With `CompositeUI` you can render any nested layout with specified structure in config structure
+in a single line
+
+
+<Preview>
+  <Story name="basic">
+   <CompositeUI config={config} typeMap={TypeMap} />
+  </Story>
+</Preview>
+
+### Props Table
+
+<Props of={CompositeUI} />
+
+### Config structure
+
+```
+{
+    "type": "help_center",
+    "children": [
+        {
+            "type": "header"
+        },
+        {
+            "type": "section_title"
+        },
+        {
+            "type": "list",
+            "children": [
+                {
+                    "type": "list_item",
+                    "props": {
+                        "avatar": {
+                            "icon": "warning",
+                            "color": "blue"
+                        },
+                        "title": "Insurance"
+                    }
+                },
+                {
+                    "type": "list_item",
+                    "props": {
+                        "avatar": {
+                            "icon": "close"
+                        },
+                        "title": "Mutual Funds"
+                    }
+                },
+                {
+                    "type": "list_item",
+                    "props": {
+                        "avatar": {
+                            "icon": "settings",
+                            "color": "grey"
+                        },
+                        "title": "Gold"
+                    }
+                },
+                {
+                    "type": "list_item",
+                    "props": {
+                        "avatar": {
+                            "icon": "notification_important",
+                            "color": "red"
+                        },
+                        "title": "Loans"
+                    }
+                },
+                {
+                    "type": "list_item",
+                    "props": {
+                        "avatar": {
+                            "icon": "info"
+                        },
+                        "title": "Something Else"
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
