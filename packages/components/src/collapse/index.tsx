@@ -7,18 +7,18 @@ import KeyboardArrowRight from "../icons/KeyboardArrowRight";
 import { GlobalStyles } from "../app";
 
 interface CollapseProps {
+	/** Active panel key */
 	activeKey?: string | number;
+	/** if Accordian is true only one panel opens at a time */
 	accordion?: boolean;
+	/** Callback to handle the change event of the tab */
 	onChange?: (val: string | number) => void;
+	/** Determines the icon position of the arrow */
 	expandIconPosition?: "left" | "right";
 	children?: React.ReactNode | React.ReactNodeArray;
 }
 
-// type CollapseContextProps = Partial<CollapseProps> & {
-//     key: string | number;
-// }ay
 const CollapseContext = React.createContext<any>({});
-// const CollapseContext = React.createContext<CollapseContextProps>({ key});
 
 const CollapseWrap = styled.div`
 	${GlobalStyles};
@@ -32,9 +32,9 @@ const CollapseWrap = styled.div`
 
 export const Collapse = ({
 	activeKey = 1,
-	accordion,
+	accordion = false,
 	onChange,
-	expandIconPosition,
+	expandIconPosition = "right",
 	children,
 	...rest
 }: CollapseProps) => {
@@ -118,14 +118,14 @@ export const Panel = ({
 	const getIcon = () => {
 		return !showArrow ? null : open ? (
 			<Icon position={expandIconPosition}>
-				<KeyboardArrowDown width={24} height={24} fill={COLORS.GREY1} />
+				<KeyboardArrowDown width={24} height={24} fill={COLORS.GREY3} />
 			</Icon>
 		) : (
 			<Icon position={expandIconPosition}>
 				<KeyboardArrowRight
 					width={24}
 					height={24}
-					fill={COLORS.GREY1}
+					fill={COLORS.GREY3}
 				/>
 			</Icon>
 		);
