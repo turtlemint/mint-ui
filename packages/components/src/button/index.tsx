@@ -28,7 +28,7 @@ export interface BaseButtonProps {
 	/** Text of the button to display */
 	title?: string;
 	/** Loading state of the button*/
-	loading?: boolean | { delay?: number };
+	loading?: boolean;
 	/** Icon name or component to be displayed */
 	icon?: any;
 	/** Set the button to full width with block={true} */
@@ -50,7 +50,7 @@ export type NativeButtonProps = {
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
-	const { btnType = "outlined", loading = false } = props;
+	const { btnType, loading } = props;
 
 	return loading ? (
 		<ButtonDefault btnType={btnType} disabled>
@@ -356,12 +356,7 @@ Button.propTypes = {
 	/** Text of the button to display */
 	title: PropTypes.string,
 	/** Loading state of the button -*/
-	loading: PropTypes.oneOfType([
-		PropTypes.bool,
-		PropTypes.shape({
-			delay: PropTypes.number
-		})
-	]),
+	loading: PropTypes.bool,
 	/** Icon name or component to be displayed */
 	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	/** Set the button to full width with block={true} */
