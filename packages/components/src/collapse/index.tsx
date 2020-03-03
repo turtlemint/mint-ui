@@ -61,9 +61,13 @@ export const Collapse = ({
 
 interface PanelProps {
 	disabled?: boolean;
+	/** header as string or custom component */
 	header?: string | React.ReactNode;
+	/** active Panel Key */
 	panelKey?: string | number;
+	/** showArrow toggles visibility for arrow on the right  */
 	showArrow?: boolean;
+	/** exrtra component to be rendered on the right side of the header */
 	extra?: React.ReactNode;
 	children?: React.ReactNode | React.ReactNodeArray;
 }

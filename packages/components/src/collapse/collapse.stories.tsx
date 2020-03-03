@@ -6,6 +6,7 @@ import COLORS from "../__utils/colors";
 export default {
 	title: "Collapse",
 	component: Collapse,
+	subcomponents: { Panel },
 	parameters: {
 		componentSubtitle: "Basic"
 	}
