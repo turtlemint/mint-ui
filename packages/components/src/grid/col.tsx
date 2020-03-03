@@ -1,3 +1,5 @@
+import * as React from "react";
+import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { BREAKPOINTS } from "./breakpoints";
 import { tupleNum } from "../__utils/type";
@@ -13,19 +15,30 @@ const getColWidth = (gridSpan: number): string | null => {
 const ColValues = tupleNum(12, 9, 8, 6, 4, 3, 0);
 export type ColValueType = typeof ColValues[number];
 interface ColProps {
-	xs: ColValueType;
-	sm: ColValueType;
-	md: ColValueType;
-	lg: ColValueType;
-	xsOffset: ColValueType;
-	smOffset: ColValueType;
-	mdOffset: ColValueType;
-	lgOffset: ColValueType;
-	xsHidden: boolean;
-	smHidden: boolean;
-	mdHidden: boolean;
-	lgHidden: boolean;
+	/** grid value for mobile screens */
+	xs?: ColValueType;
+	/** grid value for tablets viewport */
+	sm?: ColValueType;
+	/** grid value for laptop viewport */
+	md?: ColValueType;
+	/** grid value for desktop viewport */
+	lg?: ColValueType;
+	/** applies margin left or provides empty space to a column */
+	xsOffset?: ColValueType;
+	smOffset?: ColValueType;
+	mdOffset?: ColValueType;
+	lgOffset?: ColValueType;
+	/** hides for mobile screens */
+	xsHidden?: boolean;
+	/** hides for tablet screens */
+	smHidden?: boolean;
+	/** hides for laptop screens */
+	mdHidden?: boolean;
+	/** hides for very large screens */
+	lgHidden?: boolean;
+	/** {6} or [6, 6] or {xs: 6, sm: 4, md: 3, lg: 4} or [3, {xs: 6, sm: 4, md: 3, lg: 4}] */
 	gutter?: Gutter;
+	/** behaves the same way as flexbox ordering for columns */
 	order?: number;
 }
 
@@ -34,6 +47,10 @@ export type FinalProps = Exclude<
 	UnionProps,
 	React.HTMLAttributes<HTMLDivElement>
 >;
+
+// export const Col: React.FC<UnionProps> = (props: UnionProps) => (
+// 	<StyledCol {...props}></StyledCol>
+// );
 
 export const Col = styled.div<FinalProps>`
 	${GlobalStyles};
@@ -132,4 +149,20 @@ export const Col = styled.div<FinalProps>`
 	}
 `;
 
+Col.propTypes = {
+	xs: PropTypes.oneOf(ColValues),
+	sm: PropTypes.oneOf(ColValues),
+	md: PropTypes.oneOf(ColValues),
+	lg: PropTypes.oneOf(ColValues),
+	xsOffset: PropTypes.oneOf(ColValues),
+	smOffset: PropTypes.oneOf(ColValues),
+	mdOffset: PropTypes.oneOf(ColValues),
+	lgOffset: PropTypes.oneOf(ColValues),
+	xsHidden: PropTypes.bool,
+	smHidden: PropTypes.bool,
+	mdHidden: PropTypes.bool,
+	lgHidden: PropTypes.bool,
+	order: PropTypes.number,
+	gutter: PropTypes.any
+};
 export default Col;

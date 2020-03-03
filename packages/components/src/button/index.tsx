@@ -347,12 +347,12 @@ export const Link = styled.a<ButtonProps>`
 
 Button.propTypes = {
 	/** Display type of button from "outlined", "solid", "link"  */
-	btnType: PropTypes.oneOf(["outlined", "solid", "link"]),
+	btnType: PropTypes.oneOf(ButtonTypeTuple),
 	/** Display style of button from "default", "primary", "danger" */
-	btnStyle: PropTypes.oneOf(["default", "primary", "danger"]),
+	btnStyle: PropTypes.oneOf(ButtonStyleTuple),
 	disabled: PropTypes.bool,
 	/** Size options - "small", "default", "large" */
-	size: PropTypes.oneOf(["small", "default", "large"]),
+	size: PropTypes.oneOf(ButtonSizeTuple),
 	/** Text of the button to display */
 	title: PropTypes.string,
 	/** Loading state of the button -*/
