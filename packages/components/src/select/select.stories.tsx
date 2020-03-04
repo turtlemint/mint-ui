@@ -1,31 +1,32 @@
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import Select from "./index";
 import { Option, SelectedOption } from "./dropdown";
 
-const stories = storiesOf("Select", module);
+export default {
+	title: "Select",
+	component: Select
+};
 
-interface DataItem {
-	text?: string;
-	value?: string;
-}
-
-export const data: DataItem[] = [
-	{
-		text: "Select Value",
-		value: ""
-	},
-	{
-		value: "item1",
-		text: "Item 1"
-	},
-	{
-		value: "item2",
-		text: "Item 2"
+export const demo = () => {
+	interface DataItem {
+		text?: string;
+		value?: string;
 	}
-];
 
-stories.add("full functional demo", () => {
+	const data: DataItem[] = [
+		{
+			text: "Select Value",
+			value: ""
+		},
+		{
+			value: "item1",
+			text: "Item 1"
+		},
+		{
+			value: "item2",
+			text: "Item 2"
+		}
+	];
 	const [value, setValue] = React.useState<any>(data[0]);
 
 	const handleSelect = (option: SelectedOption) => {
@@ -33,17 +34,19 @@ stories.add("full functional demo", () => {
 		setValue(dataItem);
 	};
 	return (
-		<Select name="demo-select" value={value} onChange={handleSelect}>
-			{data.map((d: any) => (
-				<Option key={d.value} value={d.value}>
-					{d.text}
-				</Option>
-			))}
-		</Select>
+		<div style={{ height: "150px" }}>
+			<Select value={value} onChange={handleSelect}>
+				{data.map((d: any) => (
+					<Option key={d.value} value={d.value}>
+						{d.text}
+					</Option>
+				))}
+			</Select>
+		</div>
 	);
-});
+};
 
-stories.add("default", () => {
+export const basic = () => {
 	const dataItems = ["Select Item", "Item 1", "Item 2", "Item 3", "Item 4"];
 	const [value, setValue] = React.useState<any>(dataItems[0]);
 	const handleSelect = (option: SelectedOption, name: string) => {
@@ -52,7 +55,7 @@ stories.add("default", () => {
 		setValue(dataItem);
 	};
 	return (
-		<>
+		<div style={{ height: "150px" }}>
 			<Select value={value} onChange={handleSelect}>
 				{dataItems.map((d: any) => (
 					<Option key={d} value={d}>
@@ -60,15 +63,39 @@ stories.add("default", () => {
 					</Option>
 				))}
 			</Select>
-		</>
+		</div>
 	);
-});
-stories.add("disabled", () => (
-	<Select name="demo-select" disabled>
-		{data.map((d: any) => (
-			<Option key={d.value} value={d.value}>
-				{d.text}
-			</Option>
-		))}
-	</Select>
-));
+};
+
+export const disabled = () => {
+	interface DataItem {
+		text?: string;
+		value?: string;
+	}
+
+	const data: DataItem[] = [
+		{
+			text: "Select Value",
+			value: ""
+		},
+		{
+			value: "item1",
+			text: "Item 1"
+		},
+		{
+			value: "item2",
+			text: "Item 2"
+		}
+	];
+	return (
+		<div>
+			<Select name="demo-select" disabled>
+				{data.map((d: any) => (
+					<Option key={d.value} value={d.value}>
+						{d.text}
+					</Option>
+				))}
+			</Select>
+		</div>
+	);
+};
