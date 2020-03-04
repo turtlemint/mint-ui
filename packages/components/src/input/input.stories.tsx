@@ -1,54 +1,33 @@
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import { Input } from "./index";
-import makeTable from "../table/prop-table";
 
-const InputProps = [
-	"type",
-	"name",
-	"placeholder",
-	"label",
-	"error",
-	"helpText",
-	"block",
-	"disabled",
-	"onChange",
-	"onBlur",
-	"value",
-	"className"
-];
+export default {
+	title: "Input",
+	component: Input
+};
 
-const TableComponent = makeTable(InputProps);
+export const emptyInput = () => (
+	<Input type="text" placeholder="Enter text" value="" />
+);
 
-storiesOf("Input", module)
-	.addParameters({
-		info: {
-			TableComponent,
-			propTables: [Input]
-		}
-	})
-	.add("empty input", () => (
-		<Input type="text" placeholder="Enter text" value="" />
-	))
-	.add("text", () => (
-		<Input type="text" placeholder="Enter text" value="some value" />
-	))
-	.add("password", () => (
-		<Input
-			type="password"
-			placeholder="Enter password"
-			value="Test value"
-		/>
-	))
-	.add("number", () => <Input type="number" value={10} />)
-	.add("label", () => <Input value="" type="text" label="Normal label" />)
-	.add("input with error", () => (
-		<Input value="" type="text" error="Oops! something went wrong" />
-	))
-	.add("functional demo", () => <InputDemo />)
-	.add("disabled", () => <Input disabled={true} placeholder="Enter value" />);
+export const text = () => (
+	<Input type="text" placeholder="Enter text" value="some value" />
+);
 
-const InputDemo = () => {
+export const password = () => (
+	<Input type="password" placeholder="Enter password" value="Test value" />
+);
+export const number = () => <Input type="number" value={10} />;
+
+export const inputWithError = () => (
+	<Input value="" type="text" error="Oops! something went wrong" />
+);
+
+export const disabled = () => (
+	<Input disabled={true} placeholder="Enter value" />
+);
+
+export const demo = () => {
 	const [value, setValue] = React.useState<string>("");
 	const handleChange = (val: any) => {
 		setValue(val);
