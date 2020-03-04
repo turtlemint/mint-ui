@@ -27,36 +27,26 @@ export const Shape = () => (
 
 export const IconColors = () => (
 	<>
-		<Avatar
-			size={48}
-			icon="close"
-			color="lime"
-			style={{ background: "black" }}
-		/>
+		<Avatar size={48} icon="close" color="lime" backgroundColor="black" />
 		<Avatar
 			size={48}
 			icon="notification_important"
 			color="lime"
-			style={{ background: "black" }}
+			backgroundColor="black"
 		/>
 		<Avatar
 			size={48}
 			icon="error_outline"
 			color="lime"
-			style={{ background: "black" }}
+			backgroundColor="black"
 		/>
 		<Avatar
 			size={48}
 			icon="outline_done"
 			color="lime"
-			style={{ background: "black" }}
+			backgroundColor="black"
 		/>
-		<Avatar
-			size={48}
-			icon="sort"
-			color="lime"
-			style={{ background: "black" }}
-		/>
+		<Avatar size={48} icon="sort" color="lime" backgroundColor="black" />
 	</>
 );
 
@@ -69,44 +59,34 @@ export const IconAsComponent = () => (
 		/>
 		<Avatar
 			size={48}
-			style={{ backgroundColor: COLORS.PICTON_BLUE }}
+			backgroundColor={COLORS.PICTON_BLUE}
 			icon={<Warning width={24} height={24} fill={COLORS.WHITE} />}
 		/>
 		<Avatar
 			size={48}
 			icon="announcement"
 			color="lime"
-			style={{ background: "black" }}
+			backgroundColor="black"
 		/>
-		<Avatar
-			size={48}
-			icon="info"
-			color="lime"
-			style={{ background: "black" }}
-		/>
+		<Avatar size={48} icon="info" color="lime" backgroundColor="black" />
 		<Avatar
 			size={48}
 			icon="keyboard_arrow_down"
 			color="lime"
-			style={{ background: "black" }}
+			backgroundColor="black"
 		/>
 		<Avatar
 			size={48}
 			icon="keyboard_arrow_up"
 			color="lime"
-			style={{ background: "black" }}
+			backgroundColor="black"
 		/>
 		<Avatar
 			size={48}
 			icon="settings"
 			color="lime"
-			style={{ background: "black" }}
+			backgroundColor="black"
 		/>
-		<Avatar
-			size={48}
-			icon="warning"
-			color="lime"
-			style={{ background: "black" }}
-		/>
+		<Avatar size={48} icon="warning" color="lime" backgroundColor="black" />
 	</>
 );
