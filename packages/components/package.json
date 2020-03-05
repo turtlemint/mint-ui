@@ -33,7 +33,7 @@
         "styled-components": "4.3.2"
     },
     "scripts": {
-        "dev": "start-storybook -p 5555 -s ./public",
+        "dev": "start-storybook --docs -p 5555 -s ./public",
         "build-storybook": "build-storybook --docs -c .storybook -s ./public",
         "build-icons": "rm -rf src/icons && npx @svgr/cli --icon -d src/icons svg-icons --ext tsx",
         "create-index": "npx create-index src/icons",
