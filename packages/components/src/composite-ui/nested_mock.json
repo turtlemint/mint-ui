@@ -9,7 +9,6 @@
         },
         {
             "type": "form",
-            "grid": {},
             "children": [
                 {
                     "type": "formgroup",

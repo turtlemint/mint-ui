@@ -1,4 +1,6 @@
 import * as React from "react";
+import PropTypes from "prop-types";
+
 import styled, { css } from "styled-components";
 import { tuple } from "../__utils/type";
 import COLORS from "../__utils/colors";
@@ -26,7 +28,7 @@ export interface BaseButtonProps {
 	/** Text of the button to display */
 	title?: string;
 	/** Loading state of the button*/
-	loading?: boolean | { delay?: number };
+	loading?: boolean;
 	/** Icon name or component to be displayed */
 	icon?: any;
 	/** Set the button to full width with block={true} */
@@ -48,7 +50,7 @@ export type NativeButtonProps = {
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
-	const { btnType = "outlined", loading = false } = props;
+	const { btnType, loading } = props;
 
 	return loading ? (
 		<ButtonDefault btnType={btnType} disabled>
@@ -343,4 +345,29 @@ export const Link = styled.a<ButtonProps>`
 		`}
 `;
 
+Button.propTypes = {
+	/** Display type of button from "outlined", "solid", "link"  */
+	btnType: PropTypes.oneOf(ButtonTypeTuple),
+	/** Display style of button from "default", "primary", "danger" */
+	btnStyle: PropTypes.oneOf(ButtonStyleTuple),
+	disabled: PropTypes.bool,
+	/** Size options - "small", "default", "large" */
+	size: PropTypes.oneOf(ButtonSizeTuple),
+	/** Text of the button to display */
+	title: PropTypes.string,
+	/** Loading state of the button -*/
+	loading: PropTypes.bool,
+	/** Icon name or component to be displayed */
+	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+	/** Set the button to full width with block={true} */
+	block: PropTypes.bool
+};
+Button.defaultProps = {
+	btnType: "outlined",
+	btnStyle: "default",
+	disabled: false,
+	size: "default",
+	loading: false,
+	block: false
+};
 export default Button;

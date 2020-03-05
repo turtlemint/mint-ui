@@ -1,18 +1,26 @@
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import Checkbox from "./index";
 
-const stories = storiesOf("Checkbox", module);
+export default {
+	title: "Checkbox",
+	component: Checkbox,
+	parameters: {
+		componentSubtitle: "all states"
+	}
+};
 
-stories.add("Default", () => <Checkbox value={true} />);
+export const allStates = () => (
+	<>
+		<Checkbox value={false} />
+		<Checkbox value={true} />
+		<Checkbox value={true} indeterminate={true} />
+		<Checkbox value={false} disabled />
+	</>
+);
 
-stories.add("Indeterminate", () => (
-	<Checkbox value={true} indeterminate={true} />
-));
-stories.add("Disabled", () => <Checkbox value={false} disabled />);
-stories.add("Functional", () => {
+export const demo = () => {
 	const [value, setValue] = React.useState<boolean>(false);
 	return (
 		<Checkbox value={value} onChange={(val: boolean) => setValue(val)} />
 	);
-});
+};

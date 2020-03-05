@@ -10,9 +10,9 @@ interface FormProps {
 	name: string;
 	/** onSubmit event handler of the form */
 	onSubmit: React.FormEventHandler;
-	children: any;
 	/** layout can take values from  horizontal, vertical and inline. Horizontal is default  */
 	layout?: DisplayType;
+	children: any;
 }
 export interface Rule {
 	type?: string;

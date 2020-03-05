@@ -13,6 +13,7 @@ interface SelectProps {
 	onBlur?: (option: SelectedOption) => void;
 	block?: boolean;
 	disabled?: boolean;
+	style?: React.CSSProperties;
 	children:
 		| React.ComponentElement<any, any>
 		| React.ComponentElement<any, any>[];
@@ -25,6 +26,7 @@ export const Select = ({
 	onBlur = () => {},
 	block = false,
 	disabled = false,
+	style,
 	children
 }: SelectProps) => {
 	const selectEl = React.useRef<HTMLDivElement>(null);
@@ -56,6 +58,7 @@ export const Select = ({
 			tabIndex={0}
 			disabled={disabled}
 			onBlur={handleBlur}
+			{...style}
 		>
 			<SelectCTA
 				open={open}
@@ -126,6 +129,7 @@ export const SelectWrapper = styled.div<{
 	${GlobalStyles};
 	width: ${props => (props.block ? "100%" : "328px")};
 	position: relative;
+	z-index: 9999;
 	background-color: ${COLORS.WHITE};
 	outline-color: ${COLORS.PRIMARY_LIGHT};
 	${props =>

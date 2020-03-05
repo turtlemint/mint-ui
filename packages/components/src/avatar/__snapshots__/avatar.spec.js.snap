@@ -3,18 +3,23 @@
 exports[`avatar renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="avatar__Wrapper-m71sy-0 lffqth"
+    class="avatar__Wrapper-m71sy-1 cLwyxi"
     size="24"
   >
-    <svg
-      height="14"
-      viewBox="0 0 24 24"
-      width="14"
+    <span
+      class="avatar__Shape-m71sy-0 hSowRy"
+      size="24"
     >
-      <path
-        d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-      />
-    </svg>
+      <svg
+        height="14"
+        viewBox="0 0 24 24"
+        width="14"
+      >
+        <path
+          d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+        />
+      </svg>
+    </span>
   </div>
 </DocumentFragment>
 `;

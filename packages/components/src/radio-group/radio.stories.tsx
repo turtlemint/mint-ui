@@ -1,16 +1,17 @@
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import RadioGroup from "./index";
 import Row from "../grid/row";
 import Col from "../grid/col";
 
-const stories = storiesOf("RadioGroup", module).addParameters({
-	info: {
-		propTables: [RadioGroup]
+export default {
+	title: "RadioGroup",
+	component: RadioGroup,
+	parameters: {
+		componentSubtitle: "outlined"
 	}
-});
+};
 
-stories.add("outlined", () => (
+export const outlined = () => (
 	<>
 		<Row>
 			<Col>
@@ -45,9 +46,9 @@ stories.add("outlined", () => (
 			</Col>
 		</Row>
 	</>
-));
+);
 
-stories.add("solid", () => (
+export const solid = () => (
 	<>
 		<Row>
 			<Col>
@@ -84,9 +85,9 @@ stories.add("solid", () => (
 			</Col>
 		</Row>
 	</>
-));
+);
 
-stories.add("size", () => (
+export const size = () => (
 	<>
 		<Row>
 			<Col>
@@ -141,8 +142,9 @@ stories.add("size", () => (
 			</Col>
 		</Row>
 	</>
-));
-stories.add("disabled", () => (
+);
+
+export const disabled = () => (
 	<Row style={{ marginTop: "30px" }}>
 		<Col>
 			<RadioGroup
@@ -162,4 +164,4 @@ stories.add("disabled", () => (
 			</RadioGroup>
 		</Col>
 	</Row>
-));
+);

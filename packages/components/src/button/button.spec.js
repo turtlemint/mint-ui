@@ -10,8 +10,8 @@ describe("Button", () => {
 		expect(asFragment()).toMatchSnapshot();
 	});
 	test("captures button click", () => {
-		const handleClick = jest.fn()
-	
+		const handleClick = jest.fn();
+
 		const { getByTestId } = render(
 			<Button data-testid="capture-click" onClick={handleClick}>
 				Capture click
