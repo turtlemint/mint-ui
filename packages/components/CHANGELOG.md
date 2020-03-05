@@ -1,4 +1,4 @@
-### 3.0.1
+### 3.1.0
 ### Changed
 - Storybook Addons Info replaced by Addon Docs
 - Migrated stories to use CSF format
