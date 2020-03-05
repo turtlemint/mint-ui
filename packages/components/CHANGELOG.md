@@ -1,3 +1,12 @@
+### 3.0.1
+### Changed
+- Storybook Addons Info replaced by Addon Docs
+- Migrated stories to use CSF format
+
+### 3.0.0 ( February 2020)
+#### Added
+- Flexbox Grid
+
 ### 3.0.0-alpha.0 ( February 2020)
 #### Added
 - Button component: added block prop
