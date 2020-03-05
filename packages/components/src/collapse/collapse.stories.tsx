@@ -1,11 +1,17 @@
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import Collapse, { Panel } from "./index";
 import Icon from "../icon";
+import COLORS from "../__utils/colors";
 
-const stories = storiesOf("Collapse", module);
-
-stories.add("simple collapse", () => (
+export default {
+	title: "Collapse",
+	component: Collapse,
+	subcomponents: { Panel },
+	parameters: {
+		componentSubtitle: "Basic"
+	}
+};
+export const Basic = () => (
 	<Collapse
 		activeKey={2}
 		onChange={(key: string | number) => {
@@ -22,9 +28,9 @@ stories.add("simple collapse", () => (
 			Some content
 		</Panel>
 	</Collapse>
-));
+);
 
-stories.add("accordion", () => (
+export const Accordion = () => (
 	<Collapse
 		accordion={true}
 		activeKey={2}
@@ -42,9 +48,9 @@ stories.add("accordion", () => (
 			Some content
 		</Panel>
 	</Collapse>
-));
+);
 
-stories.add("custom panel", () => (
+export const CustomPanel = () => (
 	<Collapse
 		accordion={true}
 		expandIconPosition="right"
@@ -56,14 +62,14 @@ stories.add("custom panel", () => (
 		<Panel
 			panelKey={1}
 			header="Panel Header 1"
-			extra={<Icon name="settings" />}
+			extra={<Icon name="settings" color={COLORS.GREY1} />}
 		>
 			Some content
 		</Panel>
 		<Panel
 			panelKey={2}
 			header="Panel Header 2"
-			extra={<Icon name="settings" />}
+			extra={<Icon name="settings" color={COLORS.GREY1} />}
 		>
 			Some content
 		</Panel>
@@ -71,4 +77,4 @@ stories.add("custom panel", () => (
 			Some content
 		</Panel>
 	</Collapse>
-));
+);

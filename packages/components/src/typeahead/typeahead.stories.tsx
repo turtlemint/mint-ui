@@ -1,5 +1,4 @@
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import axios from "axios";
 import TypeAhead from "./index";
 import { SelectCTA, SelectWrapper } from "../select";
@@ -7,108 +6,144 @@ import Dropdown, { Option, SelectedOption } from "../select/dropdown";
 import Input from "../input";
 import { ChangeHandler } from "../__utils/type";
 
-const stories = storiesOf("Typeahead", module).addParameters({
-	propTables: [TypeAhead]
-});
-
-export const mockData = [
-	{
-		value: 1,
-		text: "Item 1"
-	},
-	{
-		value: 2,
-		text: "Item 2"
+export default {
+	title: "Typeahead",
+	component: TypeAhead,
+	parameters: {
+		componentSubtitle: "basic"
 	}
-];
+};
 
-stories.add("default", () => (
-	<TypeAhead
-		name="default-typeahead"
-		value={{ text: "Select user", value: "" }}
-		loading={false}
-		fetchFunc={() => {}}
-		onChange={() => {}}
-		open={false}
-		placeholder="Select user..."
-	>
-		{mockData.map((d: any) => (
-			<Option key={d.value} value={d.value}>
-				{d.text}
-			</Option>
-		))}
-	</TypeAhead>
-));
-
-stories.add("loading", () => (
-	<TypeAhead
-		name="loading-typeahead"
-		loading={true}
-		fetchFunc={() => {}}
-		onChange={() => {}}
-		open={false}
-		placeholder="Select user..."
-	>
-		{mockData.map((d: any) => (
-			<Option key={d.value} value={d.value}>
-				{d.text}
-			</Option>
-		))}
-	</TypeAhead>
-));
-
-stories.add("loaded", () => (
-	<TypeAhead
-		name="loaded-typeahead"
-		loading={false}
-		fetchFunc={() => {}}
-		onChange={() => {}}
-		open={true}
-		placeholder="Select user..."
-	>
-		{mockData.map((d: any) => (
-			<Option key={d.value} value={d.value}>
-				{d.text}
-			</Option>
-		))}
-	</TypeAhead>
-));
-
-stories.add(
-	"selected value label",
-	() => (
-		<SelectWrapper block={false}>
-			<SelectCTA value={{ text: "Item 1", value: "item1" }} />
-		</SelectWrapper>
-	),
-	{
-		info: {
-			propTables: [SelectCTA]
+export const basic = () => {
+	const mockData = [
+		{
+			value: 1,
+			text: "Item 1"
+		},
+		{
+			value: 2,
+			text: "Item 2"
 		}
-	}
-);
-stories.add(
-	"clicked label",
-	() => (
-		<SelectWrapper block={false}>
-			<Input block={true} value="" placeholder="Item 1" />
-			<Dropdown data-testid="typeahead-dropdown">
+	];
+	return (
+		<div style={{ height: "150px" }}>
+			<TypeAhead
+				name="default-typeahead"
+				value={{ text: "Select user", value: "" }}
+				loading={false}
+				fetchFunc={() => {}}
+				onChange={() => {}}
+				open={false}
+				placeholder="Select user..."
+			>
 				{mockData.map((d: any) => (
 					<Option key={d.value} value={d.value}>
 						{d.text}
 					</Option>
 				))}
-			</Dropdown>
-		</SelectWrapper>
-	),
-	{
-		info: {
-			propTables: [Dropdown]
+			</TypeAhead>
+		</div>
+	);
+};
+
+export const loading = () => {
+	const mockData = [
+		{
+			value: 1,
+			text: "Item 1"
+		},
+		{
+			value: 2,
+			text: "Item 2"
 		}
-	}
+	];
+
+	return (
+		<div style={{ height: "150px" }}>
+			<TypeAhead
+				name="loading-typeahead"
+				loading={true}
+				fetchFunc={() => {}}
+				onChange={() => {}}
+				open={false}
+				placeholder="Select user..."
+			>
+				{mockData.map((d: any) => (
+					<Option key={d.value} value={d.value}>
+						{d.text}
+					</Option>
+				))}
+			</TypeAhead>
+		</div>
+	);
+};
+export const loaded = () => {
+	const mockData = [
+		{
+			value: 1,
+			text: "Item 1"
+		},
+		{
+			value: 2,
+			text: "Item 2"
+		}
+	];
+	return (
+		<div style={{ height: "150px" }}>
+			<TypeAhead
+				name="loaded-typeahead"
+				loading={false}
+				fetchFunc={() => {}}
+				onChange={() => {}}
+				open={true}
+				placeholder="Select user..."
+			>
+				{mockData.map((d: any) => (
+					<Option key={d.value} value={d.value}>
+						{d.text}
+					</Option>
+				))}
+			</TypeAhead>
+		</div>
+	);
+};
+
+export const SelectedValueLabel = () => (
+	<div style={{ height: "150px" }}>
+		<SelectWrapper block={false}>
+			<SelectCTA value={{ text: "Item 1", value: "item1" }} />
+		</SelectWrapper>
+	</div>
 );
 
-stories.add("functional demo", () => {
+export const clickedLabel = () => {
+	const mockData = [
+		{
+			value: 1,
+			text: "Item 1"
+		},
+		{
+			value: 2,
+			text: "Item 2"
+		}
+	];
+	return (
+		<div style={{ height: "150px" }}>
+			<SelectWrapper block={false}>
+				<Input block={true} value="" placeholder="Item 1" />
+				<Dropdown data-testid="typeahead-dropdown">
+					{mockData.map((d: any) => (
+						<Option key={d.value} value={d.value}>
+							{d.text}
+						</Option>
+					))}
+				</Dropdown>
+			</SelectWrapper>
+		</div>
+	);
+};
+
+export const Demo = () => {
 	const [data, setData] = React.useState([
 		{ text: "Search user", value: "" }
 	]);
@@ -136,39 +171,53 @@ stories.add("functional demo", () => {
 	};
 
 	return (
+		<div style={{ height: "150px" }}>
+			<TypeAhead
+				name="some-typeahead"
+				value={data[0]}
+				loading={fetching}
+				fetchFunc={fetchUser}
+				onChange={handleSelect}
+				open={open}
+				placeholder="Search user..."
+			>
+				{data.map((d: any) => (
+					<Option key={d.value} value={d.value}>
+						{d.text}
+					</Option>
+				))}
+			</TypeAhead>
+		</div>
+	);
+};
+
+export const disabled = () => {
+	const mockData = [
+		{
+			value: 1,
+			text: "Item 1"
+		},
+		{
+			value: 2,
+			text: "Item 2"
+		}
+	];
+	return (
 		<TypeAhead
-			name="some-typeahead"
-			value={data[0]}
-			loading={fetching}
-			fetchFunc={fetchUser}
-			onChange={handleSelect}
-			open={open}
-			placeholder="Search user..."
+			name="default-typeahead"
+			value={{ text: "Select user", value: "" }}
+			loading={false}
+			fetchFunc={() => {}}
+			onChange={() => {}}
+			open={false}
+			disabled={true}
+			placeholder="Select user..."
 		>
-			{data.map((d: any) => (
+			{mockData.map((d: any) => (
 				<Option key={d.value} value={d.value}>
 					{d.text}
 				</Option>
 			))}
 		</TypeAhead>
 	);
-});
-
-stories.add("disabled", () => (
-	<TypeAhead
-		name="default-typeahead"
-		value={{ text: "Select user", value: "" }}
-		loading={false}
-		fetchFunc={() => {}}
-		onChange={() => {}}
-		open={false}
-		disabled={true}
-		placeholder="Select user..."
-	>
-		{mockData.map((d: any) => (
-			<Option key={d.value} value={d.value}>
-				{d.text}
-			</Option>
-		))}
-	</TypeAhead>
-));
+};

@@ -1,17 +1,16 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-// import Button from "../button";
 import COLORS from "../__utils/colors";
-// import Icon from "../icon";
 import { ListContext, SizeType } from ".";
 import Row from "../grid/row";
 import Col from "../grid/col";
-import Avatar from "../avatar";
+import Avatar, { AvatarProps } from "../avatar";
 
 export interface ListItemProps {
-	avatar?: any;
+	avatar?: AvatarProps;
 	title?: string | React.ReactNode;
 	text?: string | React.ReactNode;
+	/** custom actions to render on the right */
 	actions?: any[];
 }
 
@@ -56,10 +55,7 @@ export const ListItem = ({ avatar, title, text, actions }: ListItemProps) => {
 			<LeftWrapper>
 				{avatar ? (
 					<Avatar
-						icon={avatar.icon}
-						size={avatar.size}
-						shape={avatar.shape}
-						color={avatar.color}
+						{...avatar}
 						style={{ marginTop: 0, ...avatar.style }}
 					/>
 				) : null}

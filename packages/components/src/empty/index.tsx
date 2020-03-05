@@ -10,14 +10,15 @@ const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
 
 export interface EmptyProps {
-	className?: string;
+	/** style object to control wrapper appearance */
 	style?: React.CSSProperties;
-	/**
-	 * @since 3.16.0
-	 */
+	/** style object to control image appearance */
 	imageStyle?: React.CSSProperties;
+	/** custom image to render */
 	image?: React.ReactNode;
+	/** Really is the title to show under the image */
 	description?: React.ReactNode;
+	/** More text and words go here */
 	children?: React.ReactNode;
 }
 
@@ -70,7 +71,6 @@ export const Footer = styled.div`
 `;
 
 export const Empty: EmptyType = ({
-	className,
 	image = defaultEmptyImg,
 	description,
 	children,
@@ -88,7 +88,7 @@ export const Empty: EmptyType = ({
 	}
 
 	return (
-		<StyledContainer className={className} image={image} {...restProps}>
+		<StyledContainer image={image} {...restProps}>
 			<StyledImageContainer image={image} style={imageStyle}>
 				{imageNode}
 			</StyledImageContainer>

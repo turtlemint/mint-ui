@@ -111,9 +111,13 @@ const IconDict: IDict<any> = {
 };
 
 interface IconProps {
+	/** name of the prop */
 	name: string;
+	/** color of the prop */
 	color?: string;
+	/** style of the prop */
 	style?: React.CSSProperties;
+	/** size of the prop */
 	size?: number;
 }
 

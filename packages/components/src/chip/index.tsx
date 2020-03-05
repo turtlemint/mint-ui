@@ -6,6 +6,7 @@ import { GlobalStyles } from "../app";
 
 interface ChipProps {
 	text: string;
+	/** If true shows a tick*/
 	done?: boolean;
 	style?: React.CSSProperties;
 }

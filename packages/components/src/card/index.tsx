@@ -4,13 +4,19 @@ import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
 export interface CardProps {
+	/** Card title*/
 	title?: string;
+	/** Size to choose from default and small */
 	size?: "default" | "small";
+	/** Extra options to be rendered inside header */
 	extra?: React.ReactNode;
+	/** When hovered a box shadow will appear */
 	hoverable?: boolean;
+	/** Custom styles to modfiy the wrapper */
 	style?: React.CSSProperties;
 	bordered?: boolean;
-	headerBackground?: boolean;
+	/** Header background color. */
+	headerBackground?: string;
 	children: React.ReactNode | React.ReactNode[];
 }
 
@@ -33,13 +39,13 @@ const Wrapper = styled.div<Pick<CardProps, "hoverable" | "bordered">>`
 			`};
 	}
 `;
-const Header = styled.div<Pick<CardProps, "size" | "headerBackground">>`
+const Header = styled.div<CardProps>`
 	min-height: ${({ size }) => (size === "small" ? `38px` : `48px`)};
 	margin-bottom: -1px;
 	padding: ${({ size }) => (size === "small" ? `0 12px` : `0 24px`)};
 	color: rgba(0, 0, 0, 0.85);
 	background: ${({ headerBackground }) =>
-		headerBackground ? `${COLORS.BACKGROUND_GREY}` : `transparent`};
+		headerBackground ? `${headerBackground}` : `transparent`};
 	border-bottom: 1px solid ${COLORS.GREY4};
 	border-radius: 2px 2px 0 0;
 `;
@@ -75,9 +81,9 @@ export const Card = ({
 	title,
 	size = "default",
 	extra,
-	hoverable,
+	hoverable = false,
 	style,
-	bordered,
+	bordered = true,
 	headerBackground,
 	children,
 	...rest
