@@ -15,6 +15,7 @@ export const DropdownWrapper = styled.div`
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 	position: absolute;
 	width: 100%;
+	z-index: 9999;
 `;
 
 export const List = styled.ul`
