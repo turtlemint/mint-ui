@@ -1,20 +1,26 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { CommonTypeTuple, ChangeHandler, BlurHandler } from "../__utils/type";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
 export interface InputProps {
+	/** htmlType of the input */
 	type?: string;
+	/** passed by form item */
 	name?: string;
+	/** initial value of the input */
 	value?: CommonTypeTuple;
 	placeholder?: string;
-	label?: string;
+	/** passed by form item */
 	error?: string;
-	helpText?: string;
+	/** full width of the input */
 	block?: boolean;
 	disabled?: boolean;
+	/** callback for onChange of the input */
 	onChange?: ChangeHandler<string>;
+	/** callback for onBlur of the input */
 	onBlur?: BlurHandler<string>;
 	size?: "large" | "small" | "default";
 }
@@ -144,5 +150,25 @@ export const StyledInput = styled.input<InputProps>`
 			padding-bottom: 14px;
 		`}
 `;
+
+Input.propTypes = {
+	type: PropTypes.string,
+	name: PropTypes.string,
+	placeholder: PropTypes.string,
+	error: PropTypes.string,
+	block: PropTypes.bool,
+	disabled: PropTypes.bool,
+	onChange: PropTypes.func,
+	onBlur: PropTypes.func,
+	value: PropTypes.string,
+	className: PropTypes.string,
+	size: PropTypes.oneOf(["large", "small", "default"])
+};
+
+Input.defaultProps = {
+	type: "text",
+	block: false,
+	disabled: false
+};
 
 export default Input;

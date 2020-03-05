@@ -8,21 +8,36 @@ import { GlobalStyles } from "../app";
 import Icon from "../icon";
 
 export interface ModalProps {
+	/** DOM element to render the app to */
 	container?: Element;
+	/** title of the Modal header to render the app to */
 	title: string | React.ReactNode;
+	/** toggle the visibility of the modal */
 	visible: boolean;
+	/** customisation for modal width in pixels, percentages, em, rem */
 	width?: string | number;
+	/** style */
 	style?: React.CSSProperties;
+	/** styles applied to the body */
 	bodyStyle?: Object;
+	/** If the modal is closable or not */
 	closable?: boolean;
 	closeIcon?: React.ReactNode;
+	/** text in cancel Button */
 	cancelText?: string;
+	/** text in cancelButtonProps Button */
 	cancelButtonProps?: ButtonProps;
+	/** onCancel callback */
 	onCancel?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+	/**  text in ok Button */
 	okText?: string;
+	/** type of the ok button */
 	okType?: ButtonType;
+	/** type of the okButtonProps button */
 	okButtonProps?: ButtonProps;
+	/** callback for OK button click */
 	onOk?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+	/** callback for close button */
 	onClose?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 	children: React.ReactNode;
 }

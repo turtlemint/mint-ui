@@ -1,37 +1,12 @@
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import { default as ModalBase, ModalProps } from "./";
 import { default as ConfirmBase, ConfirmProps } from "./confirm";
 import Button from "../button";
 import COLORS from "../__utils/colors";
-import makeTable from "../table/prop-table";
 
 const el = document.createElement("div");
 el.setAttribute("id", "modal-root");
 document.body.append(el);
-
-const ConfProps = [
-	"container",
-	"title",
-	"visible",
-	"width",
-	"style",
-	"bodyStyle",
-	"closable",
-	"closeIcon",
-	"cancelText",
-	"cancelButtonProps",
-	"onCancel",
-	"okText",
-	"okType",
-	"okButtonProps",
-	"onOk",
-	"onClose"
-];
-
-const TableComponent = makeTable(ConfProps);
-
-const stories = storiesOf("Modal", module);
 
 const Modal = ({
 	width,
@@ -45,7 +20,13 @@ const Modal = ({
 
 	return (
 		<>
-			<Button onClick={() => setOpen(true)}>Open Modal</Button>
+			<Button
+				btnStyle="primary"
+				btnType="outlined"
+				title={title as string}
+				onClick={() => setOpen(true)}
+				style={{ margin: "20px" }}
+			/>
 			{open ? (
 				<ModalBase
 					container={el}
@@ -75,25 +56,18 @@ const Modal = ({
 	);
 };
 
-stories.add("basic modal", () => <Modal title="Basic Modal" />, {
-	info: {
-		propTables: [ModalBase]
+export default {
+	title: "Modal",
+	component: ModalBase,
+	parameters: {
+		componentSubtitle: "all modals"
 	}
-});
+};
 
-stories.add(
-	"custom width",
-	() => <Modal title="Custom Width Modal" width="90%" />,
-	{
-		info: {
-			propTables: [ModalBase]
-		}
-	}
-);
-
-stories.add(
-	"custom footer buttons",
-	() => (
+export const allModals = () => (
+	<>
+		<Modal title="Basic Modal" />
+		<Modal title="Custom Width Modal" width="90%" />
 		<Modal
 			title="Custom footer buttons"
 			cancelText="Reset"
@@ -104,12 +78,57 @@ stories.add(
 			}}
 			onOk={() => alert("custom ok handler called")}
 		/>
-	),
-	{
-		info: {
-			propTables: [ModalBase]
-		}
-	}
+	</>
+);
+
+export const allDialogs = () => (
+	<>
+		<Confirm
+			icon="announcement"
+			iconColor={COLORS.YELLOW}
+			title="Warning Dialog?"
+			okText="Confirm"
+			cancelText="Close"
+		>
+			<p>Lorem ipsum dolor sit amet.</p>
+		</Confirm>
+		<Confirm
+			icon="announcement"
+			iconColor={COLORS.DANGER}
+			title="Delete Dialog?"
+			okText="Yes"
+			okButtonProps={{
+				btnStyle: "danger"
+			}}
+			cancelText="No"
+		>
+			<p>Lorem ipsum dolor sit amet.</p>
+		</Confirm>
+		<Confirm
+			type="info"
+			icon="info"
+			iconColor={COLORS.PICTON_BLUE}
+			title="This is a notification  message"
+		>
+			<p>Lorem ipsum dolor sit amet.</p>
+		</Confirm>
+		<Confirm
+			type="success"
+			icon="check_circle_outline"
+			iconColor={COLORS.PRIMARY}
+			title="Success title"
+		>
+			<p>Lorem ipsum dolor sit amet.</p>
+		</Confirm>
+		<Confirm
+			type="error"
+			icon="error_outline"
+			iconColor={COLORS.DANGER}
+			title="Error title"
+		>
+			<p>Lorem ipsum dolor sit amet.</p>
+		</Confirm>
+	</>
 );
 
 const Confirm = ({
@@ -129,7 +148,13 @@ const Confirm = ({
 
 	return (
 		<>
-			<Button onClick={() => setOpen(true)}>Confirm</Button>
+			<Button
+				btnType="outlined"
+				btnStyle="default"
+				title={title as string}
+				onClick={() => setOpen(true)}
+				style={{ margin: "20px" }}
+			/>
 			{open ? (
 				<ConfirmBase
 					type={type}
@@ -154,105 +179,3 @@ const Confirm = ({
 		</>
 	);
 };
-
-stories.add(
-	"confirm",
-	() => (
-		<Confirm
-			icon="announcement"
-			iconColor={COLORS.YELLOW}
-			title="Do you want to delete these items?"
-			okText="Confirm"
-			cancelText="Close"
-		>
-			<p>Lorem ipsum dolor sit amet.</p>
-		</Confirm>
-	),
-	{
-		info: {
-			TableComponent,
-			propTables: [ConfirmBase]
-		}
-	}
-);
-
-stories.add(
-	"delete",
-	() => (
-		<Confirm
-			icon="announcement"
-			iconColor={COLORS.DANGER}
-			title="Are you sure you want to delete this?"
-			okText="Yes"
-			okButtonProps={{
-				btnStyle: "danger"
-			}}
-			cancelText="No"
-		>
-			<p>Lorem ipsum dolor sit amet.</p>
-		</Confirm>
-	),
-	{
-		info: {
-			TableComponent,
-			propTables: [ConfirmBase]
-		}
-	}
-);
-stories.add(
-	"info",
-	() => (
-		<Confirm
-			type="info"
-			icon="info"
-			iconColor={COLORS.PICTON_BLUE}
-			title="This is a notification  message"
-		>
-			<p>Lorem ipsum dolor sit amet.</p>
-		</Confirm>
-	),
-	{
-		info: {
-			TableComponent,
-			propTables: [ConfirmBase]
-		}
-	}
-);
-stories.add(
-	"success",
-	() => (
-		<Confirm
-			type="success"
-			icon="check_circle_outline"
-			iconColor={COLORS.PRIMARY}
-			title="Success title"
-		>
-			<p>Lorem ipsum dolor sit amet.</p>
-		</Confirm>
-	),
-	{
-		info: {
-			TableComponent,
-			propTables: [ConfirmBase]
-		}
-	}
-);
-stories.add(
-	"error",
-	() => (
-		<Confirm
-			type="error"
-			icon="error_outline"
-			iconColor={COLORS.DANGER}
-			title="Error title"
-		>
-			<p>Lorem ipsum dolor sit amet.</p>
-		</Confirm>
-	),
-	{
-		info: {
-			TableComponent,
-			propTables: [ConfirmBase]
-		}
-	}
-);

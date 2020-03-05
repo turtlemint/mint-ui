@@ -5,6 +5,6 @@ import packageJson from '../package.json'
 addons.register('TitleAddon', api => {
   api.on(STORY_RENDERED, story => {
     const storyData = api.getCurrentStoryData()
-    document.title = `${storyData.kind}/${storyData.name} - Turtlemint UI`
+    document.title = `${storyData.kind}/${storyData.name} - Mint UI`
   })
 });

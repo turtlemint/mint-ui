@@ -1,35 +1,21 @@
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import { Button } from "./index";
 import Row from "../grid/row";
 import Col from "../grid/col";
-import makeTable from "../table/prop-table";
 
-const ButtonProps = [
-	"btnType",
-	"btnStyle",
-	"disabled",
-	"size",
-	"title",
-	"loading",
-	"icon",
-	"block"
-];
-
-const TableComponent = makeTable(ButtonProps);
-
-const stories = storiesOf("Buttons", module).addParameters({
-	info: {
-		TableComponent,
-		propTables: [Button]
+export default {
+	title: "Button",
+	component: Button,
+	parameters: {
+		componentSubtitle: "outlined"
 	}
-});
+};
 
-stories.add("outlined", () => (
+export const ButtonOutlined = () => (
 	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
-				<Button title="Default outlined" size="large" block />
+				<Button title="Default outlined" size="large" />
 			</Col>
 			<Col sm={3} md={3} lg={3}>
 				<Button title="Disabled outlined" disabled size="large" />
@@ -86,9 +72,9 @@ stories.add("outlined", () => (
 			</Col>
 		</Row>
 	</>
-));
+);
 
-stories.add("solid", () => (
+export const ButtonSolid = () => (
 	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
@@ -171,9 +157,9 @@ stories.add("solid", () => (
 			</Col>
 		</Row>
 	</>
-));
+);
 
-stories.add("link", () => (
+export const ButtonLink = () => (
 	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
@@ -264,9 +250,8 @@ stories.add("link", () => (
 			</Col>
 		</Row>
 	</>
-));
-
-stories.add("icons/outlined", () => (
+);
+export const ButtonIconsOutlined = () => (
 	<>
 		<Row>
 			<Col sm={3} md={3} lg={3}>
@@ -325,93 +310,9 @@ stories.add("icons/outlined", () => (
 			</Col>
 		</Row>
 	</>
-));
+);
 
-stories.add("icons/solid", () => (
-	<>
-		<Row style={{ marginTop: "30px" }}>
-			<Col sm={3} md={3} lg={3}>
-				<Button
-					title="Text with icon"
-					size="large"
-					btnType="solid"
-					icon="warning"
-				/>
-			</Col>
-			<Col sm={3} md={3} lg={3}>
-				<Button size="large" btnType="solid" icon="warning" />
-			</Col>
-			<Col sm={3} md={3} lg={3}>
-				<Button
-					size="large"
-					btnType="solid"
-					btnStyle="primary"
-					icon="warning"
-					title="Text with icon"
-				/>
-			</Col>
-			<Col sm={3} md={3} lg={3}>
-				<Button
-					size="large"
-					btnType="solid"
-					btnStyle="primary"
-					icon="warning"
-				/>
-			</Col>
-		</Row>
-		<Row style={{ marginTop: "30px" }}>
-			<Col sm={3} md={3} lg={3}>
-				<Button title="Text with icon" btnType="solid" icon="warning" />
-			</Col>
-			<Col sm={3} md={3} lg={3}>
-				<Button btnType="solid" icon="warning" />
-			</Col>
-			<Col sm={3} md={3} lg={3}>
-				<Button
-					title="Text with icon"
-					btnType="solid"
-					btnStyle="primary"
-					icon="warning"
-				/>
-			</Col>
-			<Col sm={3} md={3} lg={3}>
-				<Button btnType="solid" btnStyle="primary" icon="warning" />
-			</Col>
-		</Row>
-		<Row style={{ marginTop: "30px" }}>
-			<Col sm={3} md={3} lg={3}>
-				<Button
-					title="Text with icon"
-					size="small"
-					btnType="solid"
-					icon="warning"
-				/>
-			</Col>
-			<Col sm={3} md={3} lg={3}>
-				<Button size="small" btnType="solid" icon="warning" />
-			</Col>
-			<Col sm={3} md={3} lg={3}>
-				<Button
-					size="small"
-					btnType="solid"
-					btnStyle="primary"
-					icon="warning"
-					title="Text with icon"
-				/>
-			</Col>
-			<Col sm={3} md={3} lg={3}>
-				<Button
-					size="small"
-					btnType="solid"
-					btnStyle="primary"
-					icon="warning"
-				/>
-			</Col>
-		</Row>
-	</>
-));
-
-stories.add("submit button", () => (
+export const Submit = () => (
 	<form
 		onSubmit={e => {
 			e.preventDefault();
@@ -425,4 +326,4 @@ stories.add("submit button", () => (
 			btnStyle="primary"
 		/>
 	</form>
-));
+);

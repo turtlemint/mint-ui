@@ -1,23 +1,20 @@
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import Empty from "./";
 import SimpleImage from "./simple";
 
-const stories = storiesOf("Empty", module);
+export default {
+	title: "Empty",
+	component: Empty
+};
 
-stories.add("default", () => {
-	return (
+export const All = () => (
+	<>
 		<Empty description="Default description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
 			corrupti.
 		</Empty>
-	);
-});
-
-stories.add("simple", () => {
-	return (
 		<Empty image={<SimpleImage />} description="Simple description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nisi.
 		</Empty>
-	);
-});
+	</>
+);
