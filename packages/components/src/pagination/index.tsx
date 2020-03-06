@@ -3,13 +3,45 @@ import styled, { css } from "styled-components";
 import { GlobalStyles } from "../app";
 import Icon from "../icon";
 import COLORS from "../__utils/colors";
+import Select from "../select";
+import { SelectedOption } from "../select/dropdown";
 
+const { Option } = Select;
+
+interface DataItem {
+	text: string;
+	value: number;
+}
+
+const pageSizeMap: DataItem[] = [
+	{
+		value: 10,
+		text: "10 / page"
+	},
+	{
+		value: 20,
+		text: "20 / page"
+	},
+	{
+		value: 30,
+		text: "30 / page"
+	},
+	{
+		value: 40,
+		text: "40 / page"
+	}
+];
+export type PaginationCallbackProps = {
+	currentPage: number;
+	pageSize: number;
+};
 interface PaginationProps {
 	total: number;
 	current?: number;
-	onChange?: (activePage: number) => void;
+	onChange?: ({ currentPage, pageSize }: PaginationCallbackProps) => void;
 	defaultCurrent?: number;
 	disabled?: boolean;
+	pageSize?: number;
 	style?: React.CSSProperties;
 }
 
@@ -19,10 +51,16 @@ export const Pagination = ({
 	disabled,
 	current,
 	onChange,
+	pageSize,
 	style
 }: PaginationProps) => {
-	const [pageSize] = React.useState<number>(10);
-	const lastPage: number = Math.ceil(total / pageSize);
+	const getPageSize = (size: number): DataItem =>
+		pageSizeMap.filter(page => page.value === size)[0];
+
+	const [currentPageSize, setPageSize] = React.useState<DataItem>(
+		pageSize ? getPageSize(pageSize) : pageSizeMap[0]
+	);
+	const lastPage: number = Math.ceil(total / currentPageSize.value);
 	const [currentPage, setCurrentPage] = React.useState<number>(
 		defaultCurrent ? defaultCurrent : current ? current : 1
 	);
@@ -75,8 +113,11 @@ export const Pagination = ({
 		));
 	};
 	React.useEffect(() => {
-		onChange ? onChange(currentPage) : null;
-	}, [currentPage]);
+		onChange
+			? onChange({ currentPage, pageSize: currentPageSize.value })
+			: null;
+	}, [currentPage, currentPageSize]);
+
 	return (
 		<Wrapper style={style}>
 			<Item
@@ -162,6 +203,22 @@ export const Pagination = ({
 			>
 				<Icon size={18} name="keyboard_arrow_right" />
 			</Item>
+			{pageSize ? (
+				<Select
+					value={currentPageSize}
+					onChange={(value: SelectedOption) => {
+						setPageSize(value as DataItem);
+					}}
+					style={{ width: "120px" }}
+					innerStyle={{ padding: "4px 8px" }}
+				>
+					{pageSizeMap.map((size: DataItem) => (
+						<Option key={size.value} value={size.value}>
+							{size.text}
+						</Option>
+					))}
+				</Select>
+			) : null}
 		</Wrapper>
 	);
 };

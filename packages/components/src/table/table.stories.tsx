@@ -1,5 +1,6 @@
 import * as React from "react";
-import Table, { sortOrderType, ColumnType } from "./index";
+import Table, { sortOrderType, ColumnType, ActiveSort } from "./index";
+import { PaginationCallbackProps } from "../pagination";
 
 export default {
 	title: "Table",
@@ -84,7 +85,7 @@ const columns: ColumnType[] = [
 ];
 export const basic = () => {
 	const dataSource: any = [];
-	for (let i = 0; i < 250; i++) {
+	for (let i = 0; i < 120; i++) {
 		dataSource.push({
 			key: i,
 			name: `Name: ${i}`,
@@ -162,14 +163,10 @@ export const basic = () => {
 };
 
 export const ajax = () => {
-	interface PaginationProps {
-		currentPage: number;
-	}
-
 	const [tableData, setTableData] = React.useState([]);
 	const [loading, setLoading] = React.useState(false);
 	const [currentPage, setCurrentPage] = React.useState(1);
-	const pageSize: number = 10;
+	const pageSize: number = 40;
 
 	const getData = async (currentPage: number) => {
 		setLoading(true);
@@ -183,20 +180,26 @@ export const ajax = () => {
 		setTableData(dataSlice);
 	};
 
-	const handleTableChange = (pagination: PaginationProps) => {
+	const handleTableChange = (
+		pagination: PaginationCallbackProps,
+		activeSort: ActiveSort
+	) => {
 		const { currentPage } = pagination;
+		console.log(pagination, activeSort);
 		getData(currentPage);
 		setCurrentPage(currentPage);
 	};
 
 	return (
-		<Table
-			dataSource={tableData}
-			columns={columns}
-			loading={loading}
-			pagination={{ total: dataSource.length, pageSize, currentPage }}
-			onChange={handleTableChange}
-		/>
+		<div style={{ marginBottom: "120px" }}>
+			<Table
+				dataSource={tableData}
+				columns={columns}
+				loading={loading}
+				pagination={{ total: dataSource.length, pageSize, currentPage }}
+				onChange={handleTableChange}
+			/>
+		</div>
 	);
 };
 

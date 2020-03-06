@@ -185,48 +185,7 @@ exports[`table renders correctly 1`] = `
   >
     <div
       class="col__Col-u0epwl-0 kmTwre"
-    >
-      <ul
-        class="pagination__Wrapper-sc-15e309c-0 mzCVi"
-        style="display: flex; justify-content: flex-end;"
-      >
-        <li
-          class="pagination__Item-sc-15e309c-1 fGYHZN"
-          disabled=""
-        >
-          <svg
-            height="18"
-            viewBox="0 0 24 24"
-            width="18"
-          >
-            <path
-              d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
-            />
-          </svg>
-        </li>
-        <li
-          class="pagination__Item-sc-15e309c-1 lmCruD"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          class="pagination__Item-sc-15e309c-1 fGYHZN"
-          disabled=""
-        >
-          <svg
-            height="18"
-            viewBox="0 0 24 24"
-            width="18"
-          >
-            <path
-              d="M9.29 15.88L13.17 12 9.29 8.12a.996.996 0 111.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3a.996.996 0 01-1.41 0c-.38-.39-.39-1.03 0-1.42z"
-            />
-          </svg>
-        </li>
-      </ul>
-    </div>
+    />
   </div>
 </DocumentFragment>
 `;
