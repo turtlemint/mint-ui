@@ -1,4 +1,9 @@
-### 3.0.1
+### 3.2.0
+### Added
+- Callback for table sorting added
+- pageSize prop added to pagination
+
+### 3.1.0
 ### Changed
 - Storybook Addons Info replaced by Addon Docs
 - Migrated stories to use CSF format
