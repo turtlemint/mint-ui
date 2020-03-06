@@ -7,13 +7,21 @@ import { GlobalStyles } from "../app";
 import { ChangeHandler } from "../__utils/type";
 
 interface SelectProps {
+	/** name of the select element */
 	name?: string;
+	/** current value  */
 	value?: any;
+	/** callback for the change handler */
 	onChange?: ChangeHandler<SelectedOption>;
+	/** callback for the blur handler */
 	onBlur?: (option: SelectedOption) => void;
+	/** full width select */
 	block?: boolean;
 	disabled?: boolean;
+	/** Wrapper styles */
 	style?: React.CSSProperties;
+	/** Select CTA styles */
+	innerStyle?: React.CSSProperties;
 	children:
 		| React.ComponentElement<any, any>
 		| React.ComponentElement<any, any>[];
@@ -27,6 +35,7 @@ export const Select = ({
 	block = false,
 	disabled = false,
 	style,
+	innerStyle,
 	children
 }: SelectProps) => {
 	const selectEl = React.useRef<HTMLDivElement>(null);
@@ -58,7 +67,7 @@ export const Select = ({
 			tabIndex={0}
 			disabled={disabled}
 			onBlur={handleBlur}
-			{...style}
+			style={style}
 		>
 			<SelectCTA
 				open={open}
@@ -66,6 +75,7 @@ export const Select = ({
 				showArrow={true}
 				disabled={disabled}
 				onClick={toggleDropdown}
+				style={innerStyle}
 			/>
 			{open ? (
 				<Dropdown onSelect={handleSelect}>{children}</Dropdown>
@@ -90,6 +100,7 @@ interface SelectCTAProps {
 	open?: boolean;
 	disabled?: boolean;
 	onClick?: () => void;
+	style?: React.CSSProperties;
 }
 
 export const SelectCTA = ({
@@ -97,7 +108,8 @@ export const SelectCTA = ({
 	showArrow = false,
 	open,
 	disabled = false,
-	onClick
+	onClick,
+	style
 }: SelectCTAProps) => {
 	let displayValue;
 	const handleSelectCTAClick = () => {
@@ -114,7 +126,11 @@ export const SelectCTA = ({
 	}
 
 	return (
-		<StyledSelectCTA onClick={handleSelectCTAClick} disabled={disabled}>
+		<StyledSelectCTA
+			onClick={handleSelectCTAClick}
+			disabled={disabled}
+			style={style}
+		>
 			<span>{displayValue}</span>
 			{showArrow ? <ArrowToggle open={open as boolean} /> : null}
 		</StyledSelectCTA>
@@ -127,7 +143,7 @@ export const SelectWrapper = styled.div<{
 	disabled?: boolean;
 }>`
 	${GlobalStyles};
-	width: ${props => (props.block ? "100%" : "328px")};
+	max-width: ${props => (props.block ? "100%" : "328px")};
 	position: relative;
 	background-color: ${COLORS.WHITE};
 	outline-color: ${COLORS.PRIMARY_LIGHT};
@@ -185,6 +201,5 @@ export const StyledSelectCTA = styled.div<{ disabled?: boolean }>`
 			}
 		`};
 `;
-
 Select.Option = Option;
 export default Select;

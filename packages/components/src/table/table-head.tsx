@@ -1,19 +1,19 @@
 import * as React from "react";
 import styled from "styled-components";
-import { ColumnType, sortOrderType } from "./index";
+import { ColumnType, sortOrderType, ActiveSort } from "./index";
 import COLORS from "../__utils/colors";
 import Icon from "../icon";
 
 interface TheadProps {
 	columns: ColumnType[];
-	activeCol: ColumnType;
+	activeSort: ActiveSort;
 	handleSort: (
 		column: ColumnType,
 		sortOrder: sortOrderType | undefined
 	) => void;
 }
 
-const Thead = ({ columns, activeCol, handleSort }: TheadProps) => {
+const Thead = ({ columns, activeSort, handleSort }: TheadProps) => {
 	return (
 		<thead>
 			<tr>
@@ -31,8 +31,7 @@ const Thead = ({ columns, activeCol, handleSort }: TheadProps) => {
 									name="arrow_dropdown"
 									size={21}
 									color={
-										// eslint-disable-next-line react/prop-types
-										column.key === activeCol.key &&
+										column.key === activeSort?.column.key &&
 										sortOrder &&
 										sortOrder === "descends"
 											? COLORS.PRIMARY_LIGHT
@@ -43,8 +42,7 @@ const Thead = ({ columns, activeCol, handleSort }: TheadProps) => {
 									name="arrow_dropup"
 									size={21}
 									color={
-										// eslint-disable-next-line react/prop-types
-										column.key === activeCol.key &&
+										column.key === activeSort?.column.key &&
 										sortOrder &&
 										sortOrder === "ascends"
 											? COLORS.PRIMARY_LIGHT
