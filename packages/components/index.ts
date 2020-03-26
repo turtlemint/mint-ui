@@ -20,6 +20,7 @@ import { default as Tabs } from "./src/tabs";
 import { default as Table } from "./src/table";
 import { default as Pagination } from "./src/pagination";
 import { default as Form } from "./src/form";
+import { default as COLORS } from "./src/colors";
 
 export {
 	Button,
@@ -44,5 +45,6 @@ export {
 	Tabs,
 	Table,
 	Pagination,
-	Form
+	Form,
+	COLORS
 };
