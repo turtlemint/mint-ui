@@ -1,3 +1,8 @@
+### 3.2.1
+### Changed
+- COLORS shifted to mint-ui package
+- core package deleted
+
 ### 3.2.0
 ### Added
 - Callback for table sorting added
