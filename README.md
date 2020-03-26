@@ -15,8 +15,6 @@
 
 - [@turtlemint/mint-ui](https://github.com/turtlemint/mint-ui/tree/master/packages/components) ![npm version](https://img.shields.io/npm/v/@turtlemint/mint-ui) ![NPM size](https://badgen.net/bundlephobia/minzip/@turtlemint/mint-ui)
 
-- [@turtlemint/ui-core](https://github.com/turtlemint/mint-ui/tree/master/packages/core) ![npm](https://img.shields.io/npm/v/@turtlemint/ui-core.svg) ![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/ui-core.svg) 
-
 ## Install
 
 ```bash
