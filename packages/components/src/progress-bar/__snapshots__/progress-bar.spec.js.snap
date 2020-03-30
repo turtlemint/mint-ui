@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar tests renders correcty 1`] = `
+<DocumentFragment>
+  <div
+    class="progress-bar__ProgressBarWrapper-sciksu-4 hEJGiJ"
+  >
+    <div
+      class="progress-bar__ProgressTitleWrapper-sciksu-0 hpWfwO"
+    >
+      <span
+        class="progress-bar__ProgressBarLeftText-sciksu-2 hunJdx"
+      >
+        Life profile
+      </span>
+      <span
+        class="progress-bar__ProgressBarRightText-sciksu-3 hWQnub"
+      >
+        <span>
+          50% Complete
+        </span>
+      </span>
+    </div>
+    <div
+      class="progress-bar__ProgressBox-sciksu-5 kJOfYN"
+    >
+      <div
+        class="progress-bar__ProgressLine-sciksu-1 bADeZS"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
