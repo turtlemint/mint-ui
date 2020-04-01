@@ -1,3 +1,9 @@
+### 3.3.0
+### Added
+- Form validate API added ( imperative approach )
+- FormItems Prop Table added to Form stories
+- Demonstrated validate API in form stories
+
 ### 3.2.1
 ### Changed
 - COLORS shifted to mint-ui package
