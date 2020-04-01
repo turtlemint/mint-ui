@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeSelector tests renders correcty 1`] = `
+<DocumentFragment>
+  <div
+    class="range-selector__TrackWrapper-sc-1s3z4an-1 jyPrCi"
+    style="transform: scale(1); cursor: pointer;"
+  >
+    <div
+      class="range-selector__TrackLine-sc-1s3z4an-0 bLIKPU"
+      max="100"
+      min="0"
+    >
+      <div
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="range-selector__StyledThumb-sc-1s3z4an-2 gbOITU"
+        draggable="false"
+        role="slider"
+        style="position: absolute; z-index: 0; cursor: grab; user-select: none; transform: translate(NaNpx, NaNpx);"
+        tabindex="0"
+      >
+        <div
+          class="range-selector__StyledThumbText-sc-1s3z4an-3 gTDDLe"
+        >
+          0 Lakhs
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
