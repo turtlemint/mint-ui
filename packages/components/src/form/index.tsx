@@ -1,5 +1,5 @@
 import * as React from "react";
-import FormItem from "./form-item";
+import FormItem, { FormItemProps } from "./form-item";
 import { _isObject, _isArray } from "../__utils/type-check";
 import { tuple } from "../__utils/type";
 
@@ -41,137 +41,154 @@ const validateRegex = (pattern: RegExp, value: string) => {
 	return pattern.test(value);
 };
 
-export const Form = ({
-	name,
-	layout = "horizontal",
-	onSubmit = () => {},
-	children
-}: FormProps) => {
-	const [state, setState] = React.useState<any>({});
-	const [errors, setErrors] = React.useState<any>({});
+interface CompoundedComponent
+	extends React.ForwardRefExoticComponent<
+		FormProps & React.RefAttributes<HTMLFormElement>
+	> {
+	Item: React.FC<FormItemProps>;
+}
 
-	const ifEmpty = (value: any): boolean => {
-		if (
-			!value ||
-			(_isObject(value) && !value.value) ||
-			(_isArray(value) && !value.length)
-		)
-			return true;
-		return false;
-	};
+export const Form = React.forwardRef<HTMLFormElement, FormProps>(
+	(props: FormProps, ref: any) => {
+		const {
+			name,
+			layout = "horizontal",
+			onSubmit = () => {},
+			children
+		} = props;
+		const [state, setState] = React.useState<any>({});
+		const [errors, setErrors] = React.useState<any>({});
 
-	const handleError = (rules: Rule[], name: string, value: any) => {
-		value = typeof value === "string" ? value.trim() : value;
-		if (rules) {
-			const requiredRule = rules.filter(item => item.required)[0];
-			if (requiredRule) {
-				if (ifEmpty(value)) {
-					setErrors({ ...errors, [name]: requiredRule.message });
-					return;
-				}
-			}
-			const typeRule = rules.filter(item => item.type)[0];
-			if (typeRule) {
-				const isValid = validateRuleType(
-					typeRule.type as string,
-					value
-				);
-				if (!isValid) {
-					setErrors({ ...errors, [name]: typeRule.message });
-					return;
-				}
-			}
-			const patternRule = rules.filter(item => item.pattern)[0];
-			if (patternRule) {
-				const isValid = validateRegex(
-					patternRule.pattern as RegExp,
-					value
-				);
-				if (!isValid) {
-					setErrors({ ...errors, [name]: patternRule.message });
-					return;
-				}
-			}
-			const lengthRule = rules.filter(item => item.len)[0];
-			if (lengthRule) {
-				const isValid = value.length === lengthRule.len;
-				if (!isValid) {
-					setErrors({ ...errors, [name]: lengthRule.message });
-					return;
-				}
-			}
-			const minMaxRule = rules.filter(item => item.min && item.max)[0];
-			if (minMaxRule) {
-				const { min, max }: any = minMaxRule;
-				const isValid = value.length >= min && value.length <= max;
-				if (!isValid) {
-					setErrors({ ...errors, [name]: minMaxRule.message });
-					return;
-				}
-			}
-			const enumRule = rules.filter(item => item.enum)[0];
-			if (enumRule) {
-				const isValid = enumRule.enum?.includes(
-					_isObject(value) ? value.text : value
-				);
-				if (!isValid) {
-					setErrors({ ...errors, [name]: enumRule.message });
-					return;
-				}
-			}
-			setErrors({ ...errors, [name]: "" });
-		}
-	};
+		const ifEmpty = (value: any): boolean => {
+			if (
+				!value ||
+				(_isObject(value) && !value.value) ||
+				(_isArray(value) && !value.length)
+			)
+				return true;
+			return false;
+		};
 
-	const handleChange = (value: any, name: string) => {
-		setState({ ...state, [name]: value });
-	};
-
-	const checkError = () => {
-		const result = Object.keys(errors).filter(field => errors[field]);
-		return result.length ? true : false;
-	};
-
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
-		if (checkError()) return;
-		console.log(state);
-		onSubmit(state);
-	};
-	const requiredFields: any = {};
-
-	const checkAllEmpty = (): boolean => {
-		let isEmpty = false;
-		for (let key in requiredFields) {
-			if (ifEmpty(state[key])) {
-				isEmpty = true;
-				break;
-			}
-		}
-		return isEmpty;
-	};
-	return (
-		<form name={name} onSubmit={handleSubmit}>
-			{React.Children.map(children, child => {
-				const { rules, name } = child.props;
-				if (rules) {
-					const requiredRule = rules.filter(
-						(item: any) => item.required
-					)[0];
-					if (requiredRule) requiredFields[name] = true;
+		const handleError = (rules: Rule[], name: string, value: any) => {
+			value = typeof value === "string" ? value.trim() : value;
+			if (rules) {
+				const requiredRule = rules.filter(item => item.required)[0];
+				if (requiredRule) {
+					if (ifEmpty(value)) {
+						setErrors({ ...errors, [name]: requiredRule.message });
+						return;
+					}
 				}
-				return React.cloneElement(child, {
-					state,
-					handleChange,
-					errors,
-					handleError,
-					layout,
-					btnDisabled: checkError() || checkAllEmpty()
-				});
-			})}
-		</form>
-	);
-};
+				const typeRule = rules.filter(item => item.type)[0];
+				if (typeRule) {
+					const isValid = validateRuleType(
+						typeRule.type as string,
+						value
+					);
+					if (!isValid) {
+						setErrors({ ...errors, [name]: typeRule.message });
+						return;
+					}
+				}
+				const patternRule = rules.filter(item => item.pattern)[0];
+				if (patternRule) {
+					const isValid = validateRegex(
+						patternRule.pattern as RegExp,
+						value
+					);
+					if (!isValid) {
+						setErrors({ ...errors, [name]: patternRule.message });
+						return;
+					}
+				}
+				const lengthRule = rules.filter(item => item.len)[0];
+				if (lengthRule) {
+					const isValid = value.length === lengthRule.len;
+					if (!isValid) {
+						setErrors({ ...errors, [name]: lengthRule.message });
+						return;
+					}
+				}
+				const minMaxRule = rules.filter(
+					item => item.min && item.max
+				)[0];
+				if (minMaxRule) {
+					const { min, max }: any = minMaxRule;
+					const isValid = value.length >= min && value.length <= max;
+					if (!isValid) {
+						setErrors({ ...errors, [name]: minMaxRule.message });
+						return;
+					}
+				}
+				const enumRule = rules.filter(item => item.enum)[0];
+				if (enumRule) {
+					const isValid = enumRule.enum?.includes(
+						_isObject(value) ? value.text : value
+					);
+					if (!isValid) {
+						setErrors({ ...errors, [name]: enumRule.message });
+						return;
+					}
+				}
+				setErrors({ ...errors, [name]: "" });
+			}
+		};
+
+		const handleChange = (value: any, name: string) => {
+			setState({ ...state, [name]: value });
+		};
+
+		const isError = () => {
+			const result = Object.keys(errors).filter(field => errors[field]);
+			return result.length ? true : false;
+		};
+
+		const handleSubmit = (e: React.FormEvent) => {
+			e.preventDefault();
+			if (isError()) return;
+			console.log(state);
+			onSubmit(state);
+		};
+		const requiredFields: any = {};
+
+		const isFormEmpty = (): boolean => {
+			let isEmpty = false;
+			for (let key in requiredFields) {
+				if (ifEmpty(state[key])) {
+					isEmpty = true;
+					break;
+				}
+			}
+			return isEmpty;
+		};
+
+		React.useImperativeHandle(ref, () => ({
+			validate: () => !(isError() || isFormEmpty())
+		}));
+
+		return (
+			<form name={name} onSubmit={handleSubmit}>
+				{React.Children.map(children, child => {
+					const { rules, name } = child.props;
+					if (rules) {
+						const requiredRule = rules.filter(
+							(item: any) => item.required
+						)[0];
+						if (requiredRule) requiredFields[name] = true;
+					}
+					return React.cloneElement(child, {
+						state,
+						handleChange,
+						errors,
+						handleError,
+						layout,
+						btnDisabled: isError() || isFormEmpty()
+					});
+				})}
+			</form>
+		);
+	}
+) as CompoundedComponent;
 
 Form.Item = FormItem;
 

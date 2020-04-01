@@ -9,7 +9,7 @@ import axios from "axios";
 import Checkbox from "../checkbox";
 import RadioGroup from "../radio-group";
 import Button from "../button";
-import { labelCol, Label } from "./form-item";
+import FormItem, { labelCol, Label } from "./form-item";
 import Row from "../grid/row";
 import Col from "../grid/col";
 import COLORS from "../__utils/colors";
@@ -36,10 +36,10 @@ const formItemLayout: { labelCol: labelCol; fieldCol: labelCol } = {
 export default {
 	title: "Form",
 	component: Form,
+	subcomponents: { FormItem },
 	parameters: {
 		componentSubtitle: "basic"
-	},
-	includeStories: ["basic", "layout"]
+	}
 };
 
 export const basic = () => {
@@ -299,6 +299,43 @@ export const layout = () => {
 					/>
 				</Form.Item>
 			</Form>
+		</>
+	);
+};
+
+export const validateAPI = () => {
+	const formRef = React.useRef<HTMLFormElement>();
+	const [value, setValue] = React.useState("");
+
+	const handleChange = (val: string) => setValue(val);
+
+	return (
+		<>
+			<Form name="validateAPI" ref={formRef} onSubmit={() => {}}>
+				<Form.Item
+					label="Username"
+					name="username"
+					rules={[
+						{
+							required: true,
+							message: "Username is required"
+						}
+					]}
+				>
+					<Input
+						value={value}
+						placeholder="Type your username..."
+						onChange={handleChange}
+					/>
+				</Form.Item>
+			</Form>
+			<Button
+				title="validate"
+				onClick={() => {
+					const isValid = formRef.current.validate();
+					alert("result:" + isValid);
+				}}
+			/>
 		</>
 	);
 };
