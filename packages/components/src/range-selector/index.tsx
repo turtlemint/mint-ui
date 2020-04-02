@@ -13,6 +13,8 @@ export interface RangeSelector {
 	disabled?: boolean;
 	onChange?: (value: number) => void;
 	onFinalChange?: (value: number) => void;
+	thumbLabel?: (value: number) => JSX.Element;
+	showLabel: boolean;
 }
 
 export const RangeSelector = ({
@@ -27,36 +29,6 @@ export const RangeSelector = ({
 
 	const Track = React.forwardRef((props: any, ref: any) => {
 		return <StylesTrack {...{ ...props, trackRef: ref }} />;
-		// return (
-		// 	<div
-		// 		onMouseDown={props.onMouseDown}
-		// 		onTouchStart={props.onTouchStart}
-		// 		style={{
-		// 			...props.style,
-		// 			height: "36px",
-		// 			display: "flex",
-		// 			width: "100%"
-		// 		}}
-		// 	>
-		// 		<div
-		// 			ref={ref}
-		// 			style={{
-		// 				height: "8px",
-		// 				width: "100%",
-		// 				borderRadius: "4px",
-		// 				background: getTrackBackground({
-		// 					values: [localValue],
-		// 					colors: ["#417ffd", "#dfe3e9"],
-		// 					min: min,
-		// 					max: max
-		// 				}),
-		// 				alignSelf: "center"
-		// 			}}
-		// 		>
-		// 			{props.children}
-		// 		</div>
-		// 	</div>
-		// )
 	});
 
 	const handleChange = (values: number[]) => {
@@ -83,7 +55,9 @@ export const RangeSelector = ({
 					{...{ ...props, children, min, max, localValue }}
 				/>
 			)}
-			renderThumb={({ props }) => <Thumb {...{ ...props, localValue }} />}
+			renderThumb={({ props }) => (
+				<Thumb {...{ ...props, localValue, ...rest }} />
+			)}
 		/>
 	);
 };
@@ -95,23 +69,6 @@ export const StylesTrack = (props: any) => {
 			onTouchStart={props.onTouchStart}
 			style={{ ...props.style }}
 		>
-			{/* <div
-				ref={props.ref}
-				style={{
-					height: "8px",
-					width: "100%",
-					borderRadius: "4px",
-					background: getTrackBackground({
-						values: [props.localValue],
-						colors: ["#417ffd", "#dfe3e9"],
-						min: props.min,
-						max: props.max
-					}),
-					alignSelf: "center"
-				}}
-			>
-				{props.children}
-			</div> */}
 			{
 				<TrackLine
 					ref={props.trackRef}
@@ -150,15 +107,11 @@ const TrackWrapper = styled.div`
 	width: 100%;
 `;
 
-const Thumb = React.forwardRef((props: any) => {
+const Thumb = React.forwardRef((props: any, ref: any) => {
 	return (
-		<StyledThumb
-			{...props}
-			style={{
-				...props.style
-			}}
-		>
-			<StyledThumbText>{props.localValue} Lakhs</StyledThumbText>
+		<StyledThumb {...props} ref={ref}>
+			{/* Thumb Label */}
+			{props.showLabel && props.thumbLabel(props.localValue)}
 		</StyledThumb>
 	);
 });
@@ -180,7 +133,6 @@ const StyledThumb = styled.div`
 const StyledThumbText = styled.div`
 	${GlobalStyles};
 	bottom: 16px;
-	padding: 1px 3px;
 	color: #55637d;
 	cursor: default;
 	position: absolute;
@@ -188,7 +140,6 @@ const StyledThumbText = styled.div`
 	white-space: nowrap;
 	font-size: 16px;
 	bottom: 26px;
-	right: -21px;
 `;
 
 RangeSelector.defaultProps = {
@@ -196,7 +147,9 @@ RangeSelector.defaultProps = {
 	max: 100,
 	step: 1,
 	value: 0,
-	disabled: false
+	disabled: false,
+	showLabel: true,
+	thumbLabel: (value: number) => <StyledThumbText>{value}</StyledThumbText>
 };
 
 export default RangeSelector;
