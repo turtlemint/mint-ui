@@ -1,6 +1,6 @@
 {
     "name": "@turtlemint/mint-ui",
-    "version": "3.3.0",
+    "version": "3.3.1-alpha.0",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": "https://github.com/turtlemint/mint-ui.git",
