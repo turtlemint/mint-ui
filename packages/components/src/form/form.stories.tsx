@@ -305,9 +305,8 @@ export const layout = () => {
 
 export const validateAPI = () => {
 	const formRef = React.useRef<HTMLFormElement>();
-	const [value, setValue] = React.useState("");
 
-	const handleChange = (val: string) => setValue(val);
+	const [formError, setFormError] = React.useState<boolean>(false);
 
 	return (
 		<>
@@ -322,18 +321,22 @@ export const validateAPI = () => {
 						}
 					]}
 				>
-					<Input
-						value={value}
-						placeholder="Type your username..."
-						onChange={handleChange}
-					/>
+					<Input placeholder="Type your username..." />
 				</Form.Item>
 			</Form>
+			{formError ? (
+				<p style={{ color: COLORS.DANGER }}>
+					Your custom global error message at any place outside the
+					form component
+				</p>
+			) : null}
 			<Button
 				title="validate"
+				size="small"
+				btnType="solid"
 				onClick={() => {
 					const isValid = formRef.current.validate();
-					alert("result:" + isValid);
+					setFormError(!isValid);
 				}}
 			/>
 		</>
