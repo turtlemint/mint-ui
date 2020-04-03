@@ -1,26 +1,30 @@
+### 3.3.1
+#### Changed
+- Form onSubmit handler
+
 ### 3.4.0-alpha.0
-### Added
+#### Added
 - Form seed state
 - Select placeholder
 
 ### 3.3.0
-### Added
+#### Added
 - Form validate API added ( imperative approach )
 - FormItems Prop Table added to Form stories
 - Demonstrated validate API in form stories
 
 ### 3.2.1
-### Changed
+#### Changed
 - COLORS shifted to mint-ui package
 - core package deleted
 
 ### 3.2.0
-### Added
+#### Added
 - Callback for table sorting added
 - pageSize prop added to pagination
 
 ### 3.1.0
-### Changed
+#### Changed
 - Storybook Addons Info replaced by Addon Docs
 - Migrated stories to use CSF format
 
