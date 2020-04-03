@@ -9,7 +9,7 @@ interface FormProps {
 	/** name of the form */
 	name: string;
 	/** onSubmit event handler of the form */
-	onSubmit: React.FormEventHandler;
+	onSubmit: (state: any, e?: React.FormEvent) => {};
 	/** layout can take values from  horizontal, vertical and inline. Horizontal is default  */
 	layout?: DisplayType;
 	formState?: any;
@@ -146,7 +146,7 @@ const formWithRef = (props: FormProps, ref: any) => {
 		e.preventDefault();
 		if (isError()) return;
 		console.log(state);
-		onSubmit(state);
+		onSubmit(state, e);
 	};
 	const requiredFields: any = {};
 
