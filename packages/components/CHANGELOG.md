@@ -1,3 +1,8 @@
+### 3.4.0-alpha.0
+### Added
+- Form seed state
+- Select placeholder
+
 ### 3.3.0
 ### Added
 - Form validate API added ( imperative approach )

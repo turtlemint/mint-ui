@@ -38,11 +38,11 @@ export default {
 	component: Form,
 	subcomponents: { FormItem },
 	parameters: {
-		componentSubtitle: "basic"
+		componentSubtitle: "seedState"
 	}
 };
 
-export const basic = () => {
+export const seedState = () => {
 	const handleSubmit = (state: any) => {
 		console.log("state", state);
 	};
@@ -68,9 +68,16 @@ export const basic = () => {
 		console.log(name, option);
 		setOpen(false);
 	};
-
+	const formState = {
+		firstName: "Kushal",
+		lastName: "Mahajan",
+		email: "",
+		state: selectData[1],
+		radioGroup: "item-2",
+		maritalStatus: true
+	};
 	return (
-		<Form name="basic" onSubmit={handleSubmit}>
+		<Form name="full" formState={formState} onSubmit={handleSubmit}>
 			<Form.Item
 				label="First name"
 				name="firstName"
@@ -130,15 +137,11 @@ export const basic = () => {
 					{
 						required: true,
 						message: "State is required"
-					},
-					{
-						enum: ["Item 1", "Punjab"],
-						message: "The value does not exist in enum"
 					}
 				]}
 				{...formItemLayout}
 			>
-				<Select value={selectData[0]}>
+				<Select placeholder="Select user...">
 					{selectData.map((d: any) => (
 						<Option key={d.value} value={d.value}>
 							{d.text}
@@ -159,7 +162,6 @@ export const basic = () => {
 			>
 				<TypeAhead
 					name="some-typeahead"
-					value={selectData[0]}
 					loading={fetching}
 					fetchFunc={fetchUser}
 					onChange={handleSelect}
@@ -184,7 +186,7 @@ export const basic = () => {
 					}
 				]}
 			>
-				<Checkbox value={true} />
+				<Checkbox />
 			</Form.Item>
 			<Form.Item
 				name="radioGroup"
