@@ -9,8 +9,7 @@
     "lint:fix": "eslint './packages/**/*.{ts,tsx}' --fix",
     "coverage": "jest --coverage",
     "unit": "jest",
-    "build": "lerna exec --parallel -- rm -rf dist && lerna exec --parallel -- tsc -p ./tsconfig.json",
-    "prepublishOnly": "yarn run lint:fix && yarn run build && yarn run unit"
+    "build": "lerna exec --parallel -- rm -rf dist && lerna exec --parallel -- tsc -p ./tsconfig.json"
   },
   "husky": {
     "hooks": {
