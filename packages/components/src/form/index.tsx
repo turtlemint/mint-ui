@@ -12,6 +12,7 @@ interface FormProps {
 	onSubmit: React.FormEventHandler;
 	/** layout can take values from  horizontal, vertical and inline. Horizontal is default  */
 	layout?: DisplayType;
+	formState?: any;
 	children: any;
 }
 export interface Rule {
@@ -53,9 +54,10 @@ const formWithRef = (props: FormProps, ref: any) => {
 		name,
 		layout = "horizontal",
 		onSubmit = () => {},
+		formState,
 		children
 	} = props;
-	const [state, setState] = React.useState<any>({});
+	const [state, setState] = React.useState<any>(formState ?? {});
 	const [errors, setErrors] = React.useState<any>({});
 
 	const ifEmpty = (value: any): boolean => {
