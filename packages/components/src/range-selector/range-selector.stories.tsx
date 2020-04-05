@@ -43,17 +43,18 @@ export const RangeSelectorWithCustomLabel = () => {
 		position: absolute;
 		display: inline-block;
 		white-space: nowrap;
-		font-size: 16px;
 		background-color: #d4d4d4;
 		padding: 6px;
-		left: -30px;
+		left: -15px;
+		border-radius: 9px;
+		font-size: 11px;
 	`;
 
 	return (
 		<RangeSelector
 			value={75}
 			thumbLabel={(value: number) => {
-				return <StyledLabel>Rs. {value * 1000} </StyledLabel>;
+				return <StyledLabel>{value * 1000} </StyledLabel>;
 			}}
 		/>
 	);
