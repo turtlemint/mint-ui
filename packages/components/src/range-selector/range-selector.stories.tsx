@@ -54,7 +54,7 @@ export const RangeSelectorWithCustomLabel = () => {
 		<RangeSelector
 			value={75}
 			thumbLabel={(value: number) => {
-				return <StyledLabel>{value * 1000} </StyledLabel>;
+				return <StyledLabel>{(value * 1000).toFixed(2)} </StyledLabel>;
 			}}
 		/>
 	);
@@ -108,7 +108,7 @@ export const RangeSelectorWithCustomTrackColor = () => {
 		<RangeSelector
 			value={75}
 			thumbLabel={(value: number) => {
-				return <StyledLabel>{value * 100} </StyledLabel>;
+				return <StyledLabel>{(value * 1000).toFixed(2)} </StyledLabel>;
 			}}
 			trackFilledColor="#417ffd"
 		/>
