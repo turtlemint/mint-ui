@@ -6,10 +6,10 @@ export interface ITrackProps {
 	localValue: number;
 	disabled: boolean;
 	children: React.ReactNode;
-
 	onMouseDown: (e: React.MouseEvent) => void;
 	onTouchStart: (e: React.TouchEvent) => void;
 	style: React.CSSProperties;
+	trackFilledColor: string;
 }
 
 export interface IStyledTrack extends ITrackProps {

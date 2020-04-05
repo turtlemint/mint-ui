@@ -22,6 +22,9 @@ export interface RangeSelector {
 	onFinalChange?: (value: number) => void;
 	thumbLabel?: (value: number) => JSX.Element;
 	showLabel?: boolean;
+	startLabel?: React.ReactNode;
+	endLabel?: React.ReactNode;
+	trackFilledColor?: string;
 }
 
 export const RangeSelector = ({
@@ -33,6 +36,7 @@ export const RangeSelector = ({
 	thumbLabel = (value: number) => (
 		<StyledThumbLable>{value}</StyledThumbLable>
 	),
+	trackFilledColor = COLORS.PRIMARY,
 	...rest
 }: RangeSelector) => {
 	let [localValue, setLocalValue] = React.useState(value);
@@ -53,39 +57,67 @@ export const RangeSelector = ({
 	};
 
 	return (
-		<Range
-			disabled={disabled}
-			step={step}
-			min={min}
-			max={max}
-			values={[localValue]}
-			onChange={handleChange}
-			onFinalChange={handleFinalChange}
-			renderTrack={({
-				props,
-				children
-			}: {
-				props: IRenderTrackCallbackProps;
-				children: React.ReactNode;
-			}): React.ReactNode => (
-				<Track
-					ref={props.ref}
-					{...{ ...props, children, min, max, localValue, disabled }}
-				/>
-			)}
-			renderThumb={({
-				props
-			}: {
-				props: IRenderThumbCallbackProps;
-			}): React.ReactNode => (
-				<StyledThumb key={props.key} disabled>
-					{/* Thumb Label */}
-					{rest.showLabel && thumbLabel(localValue)}
-				</StyledThumb>
-			)}
-		/>
+		<RangeSelectorWrapper>
+			<Range
+				disabled={disabled}
+				step={step}
+				min={min}
+				max={max}
+				values={[localValue]}
+				onChange={handleChange}
+				onFinalChange={handleFinalChange}
+				renderTrack={({
+					props,
+					children
+				}: {
+					props: IRenderTrackCallbackProps;
+					children: React.ReactNode;
+				}): React.ReactNode => (
+					<Track
+						ref={props.ref}
+						{...{
+							...props,
+							children,
+							min,
+							max,
+							localValue,
+							disabled,
+							trackFilledColor
+						}}
+					/>
+				)}
+				renderThumb={({
+					props
+				}: {
+					props: IRenderThumbCallbackProps;
+				}): React.ReactNode => (
+					<StyledThumb key={props.key} disabled>
+						{/* Thumb Label */}
+						{rest.showLabel && thumbLabel(localValue)}
+					</StyledThumb>
+				)}
+			/>
+			<div>
+				{rest.startLabel && <StartLabel>{rest.startLabel}</StartLabel>}
+				{rest.startLabel && <EndLabel>{rest.endLabel}</EndLabel>}
+			</div>
+		</RangeSelectorWrapper>
 	);
 };
+
+const RangeSelectorWrapper = styled.div`
+	${GlobalStyles};
+`;
+
+const StartLabel = styled.div`
+	position: relative;
+	float: left;
+`;
+
+const EndLabel = styled.div`
+	position: relative;
+	float: right;
+`;
 
 export const StyledTrack = (props: IStyledTrack) => {
 	return (
@@ -101,6 +133,7 @@ export const StyledTrack = (props: IStyledTrack) => {
 					max={props.max}
 					localValue={props.localValue}
 					disabled={props.disabled}
+					trackFilledColor={props.trackFilledColor}
 				>
 					{props.children}
 				</TrackLine>
@@ -114,6 +147,7 @@ const TrackLine = styled.div<{
 	min: number;
 	max: number;
 	disabled: boolean;
+	trackFilledColor: string;
 }>`
 	height: 8px;
 	width: 100%;
@@ -122,7 +156,7 @@ const TrackLine = styled.div<{
 		getTrackBackground({
 			values: [props.localValue],
 			colors: [
-				props.disabled ? COLORS.GREY3 : COLORS.PRIMARY,
+				props.disabled ? COLORS.GREY3 : props.trackFilledColor,
 				COLORS.GREY5
 			],
 			min: props.min,
@@ -172,7 +206,8 @@ RangeSelector.defaultProps = {
 	showLabel: true,
 	thumbLabel: (value: number): React.ReactNode => (
 		<StyledThumbLable>{value}</StyledThumbLable>
-	)
+	),
+	trackFilledColor: COLORS.PRIMARY
 };
 
 export default RangeSelector;
