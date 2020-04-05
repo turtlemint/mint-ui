@@ -7,16 +7,17 @@ exports[`RangeSelector tests renders correcty 1`] = `
     style="transform: scale(1); cursor: pointer;"
   >
     <div
-      class="range-selector__TrackLine-sc-1s3z4an-0 kNmTVK"
+      class="range-selector__TrackLine-sc-1s3z4an-0 jbdHqa"
       max="100"
       min="0"
     >
       <div
-        class="range-selector__StyledThumb-sc-1s3z4an-2 uhIGs"
+        class="range-selector__StyledThumb-sc-1s3z4an-2 ehqpof"
+        disabled=""
         style="transform: translate(NaNpx, NaNpx);"
       >
         <div
-          class="range-selector__StyledThumbText-sc-1s3z4an-3 iFfsRT"
+          class="range-selector__StyledThumbLable-sc-1s3z4an-3 hzvekx"
         >
           0
         </div>

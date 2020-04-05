@@ -6,22 +6,35 @@ import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
 import {
-	IRangeSelector,
 	ITrackProps,
 	IStyledTrack,
 	IRenderTrackCallbackProps,
 	IRenderThumbCallbackProps
 } from "./interfaces";
 
+export interface RangeSelector {
+	min?: number;
+	max?: number;
+	step?: number;
+	value?: number;
+	disabled?: boolean;
+	onChange?: (value: number) => void;
+	onFinalChange?: (value: number) => void;
+	thumbLabel?: (value: number) => JSX.Element;
+	showLabel?: boolean;
+}
+
 export const RangeSelector = ({
 	min = 0,
 	max = 100,
 	step = 0.1,
 	value = 0,
-	disabled = true,
-	thumbLabel = (value: number) => <StyledThumbText>{value}</StyledThumbText>,
+	disabled = false,
+	thumbLabel = (value: number) => (
+		<StyledThumbLable>{value}</StyledThumbLable>
+	),
 	...rest
-}: IRangeSelector) => {
+}: RangeSelector) => {
 	let [localValue, setLocalValue] = React.useState(value);
 
 	const Track = React.forwardRef(
@@ -65,7 +78,7 @@ export const RangeSelector = ({
 			}: {
 				props: IRenderThumbCallbackProps;
 			}): React.ReactNode => (
-				<StyledThumb key={props.key}>
+				<StyledThumb key={props.key} disabled>
 					{/* Thumb Label */}
 					{rest.showLabel && thumbLabel(localValue)}
 				</StyledThumb>
@@ -109,8 +122,8 @@ const TrackLine = styled.div<{
 		getTrackBackground({
 			values: [props.localValue],
 			colors: [
-				props.disabled ? "#999" : COLORS.PRIMARY,
-				COLORS.BACKGROUND_GREY
+				props.disabled ? COLORS.GREY3 : COLORS.PRIMARY,
+				COLORS.GREY5
 			],
 			min: props.min,
 			max: props.max
@@ -124,24 +137,24 @@ const TrackWrapper = styled.div`
 	width: 100%;
 `;
 
-const StyledThumb = styled.div`
+const StyledThumb = styled.div<{
+	disabled: boolean;
+}>`
 	width: 20px;
 	height: 20px;
-	background: ${COLORS.BACKGROUND_GREY};
-	box-shadow: 0 2px 4px 0 ${COLORS.BACKGROUND_GREEN},
-		0 -2px 4px 0 ${COLORS.BACKGROUND_GREEN};
+	background: ${COLORS.WHITE};
+	box-shadow: 0 0px 2px 0 ${COLORS.GREY2}, 0 0px 2px 0 ${COLORS.GREY2};
 	z-index: 3;
 	border-radius: 16px;
-	cursor: pointer;
+	cursor: ${props => (props.disabled ? null : "pointer")};
 	position: absolute;
 	display: inline-block;
 	white-space: nowrap;
 `;
 
-const StyledThumbText = styled.div`
+const StyledThumbLable = styled.div`
 	${GlobalStyles};
 	bottom: 16px;
-	color: #55637d;
 	cursor: default;
 	position: absolute;
 	display: inline-block;
@@ -158,7 +171,7 @@ RangeSelector.defaultProps = {
 	disabled: false,
 	showLabel: true,
 	thumbLabel: (value: number): React.ReactNode => (
-		<StyledThumbText>{value}</StyledThumbText>
+		<StyledThumbLable>{value}</StyledThumbLable>
 	)
 };
 

@@ -1,17 +1,5 @@
 import * as React from "react";
 
-export interface IRangeSelector {
-	min?: number;
-	max?: number;
-	step?: number;
-	value?: number;
-	disabled?: boolean;
-	onChange?: (value: number) => void;
-	onFinalChange?: (value: number) => void;
-	thumbLabel?: (value: number) => JSX.Element;
-	showLabel: boolean;
-}
-
 export interface ITrackProps {
 	min: number;
 	max: number;
