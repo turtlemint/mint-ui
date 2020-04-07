@@ -1,6 +1,6 @@
 {
     "name": "@turtlemint/mint-ui",
-    "version": "3.2.0",
+    "version": "3.3.1",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": "https://github.com/turtlemint/mint-ui.git",
@@ -23,7 +23,6 @@
     ],
     "dependencies": {
         "@svgr/cli": "^4.3.3",
-        "@turtlemint/ui-core": "^0.1.3",
         "@types/marked": "^0.7.0",
         "create-index": "^2.5.0",
         "marked": "^0.7.0",

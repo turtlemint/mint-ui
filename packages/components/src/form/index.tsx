@@ -1,5 +1,5 @@
 import * as React from "react";
-import FormItem from "./form-item";
+import FormItem, { FormItemProps } from "./form-item";
 import { _isObject, _isArray } from "../__utils/type-check";
 import { tuple } from "../__utils/type";
 
@@ -9,9 +9,10 @@ interface FormProps {
 	/** name of the form */
 	name: string;
 	/** onSubmit event handler of the form */
-	onSubmit: React.FormEventHandler;
+	onSubmit: (state: any, e?: React.FormEvent) => void;
 	/** layout can take values from  horizontal, vertical and inline. Horizontal is default  */
 	layout?: DisplayType;
+	formState?: any;
 	children: any;
 }
 export interface Rule {
@@ -41,13 +42,22 @@ const validateRegex = (pattern: RegExp, value: string) => {
 	return pattern.test(value);
 };
 
-export const Form = ({
-	name,
-	layout = "horizontal",
-	onSubmit = () => {},
-	children
-}: FormProps) => {
-	const [state, setState] = React.useState<any>({});
+interface CompoundedComponent
+	extends React.ForwardRefExoticComponent<
+		FormProps & React.RefAttributes<HTMLFormElement>
+	> {
+	Item: React.FC<FormItemProps>;
+}
+
+const formWithRef = (props: FormProps, ref: any) => {
+	const {
+		name,
+		layout = "horizontal",
+		onSubmit = () => {},
+		formState,
+		children
+	} = props;
+	const [state, setState] = React.useState<any>(formState ?? {});
 	const [errors, setErrors] = React.useState<any>({});
 
 	const ifEmpty = (value: any): boolean => {
@@ -127,20 +137,20 @@ export const Form = ({
 		setState({ ...state, [name]: value });
 	};
 
-	const checkError = () => {
+	const isError = () => {
 		const result = Object.keys(errors).filter(field => errors[field]);
 		return result.length ? true : false;
 	};
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		if (checkError()) return;
+		if (isError()) return;
 		console.log(state);
-		onSubmit(state);
+		onSubmit(state, e);
 	};
 	const requiredFields: any = {};
 
-	const checkAllEmpty = (): boolean => {
+	const isFormEmpty = (): boolean => {
 		let isEmpty = false;
 		for (let key in requiredFields) {
 			if (ifEmpty(state[key])) {
@@ -150,6 +160,11 @@ export const Form = ({
 		}
 		return isEmpty;
 	};
+
+	React.useImperativeHandle(ref, () => ({
+		validate: () => !(isError() || isFormEmpty())
+	}));
+
 	return (
 		<form name={name} onSubmit={handleSubmit}>
 			{React.Children.map(children, child => {
@@ -166,12 +181,16 @@ export const Form = ({
 					errors,
 					handleError,
 					layout,
-					btnDisabled: checkError() || checkAllEmpty()
+					btnDisabled: isError() || isFormEmpty()
 				});
 			})}
 		</form>
 	);
 };
+
+export const Form = React.forwardRef<HTMLFormElement, FormProps>(
+	formWithRef
+) as CompoundedComponent;
 
 Form.Item = FormItem;
 
