@@ -158,7 +158,7 @@ const TrackLine = styled.div<{
 			values: [props.localValue],
 			colors: [
 				props.disabled ? COLORS.GREY3 : props.trackFilledColor,
-				COLORS.GREY5
+				COLORS.GREY4
 			],
 			min: props.min,
 			max: props.max
