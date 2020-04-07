@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { Range, getTrackBackground } from "react-range";
 
 import COLORS from "../__utils/colors";
@@ -214,20 +213,20 @@ const StyledThumb = styled.div<{
 	white-space: nowrap;
 `;
 
-RangeSelector.propTypes = {
-	min: PropTypes.number,
-	max: PropTypes.number,
-	step: PropTypes.number,
-	value: PropTypes.number,
-	disabled: PropTypes.bool,
-	onChange: PropTypes.func,
-	onFinalChange: PropTypes.func,
-	thumbLabel: PropTypes.string,
-	showLabel: PropTypes.bool,
-	startLabel: PropTypes.node,
-	endLabel: PropTypes.node,
-	trackFilledColor: PropTypes.string
-};
+// RangeSelector.propTypes = {
+// 	min: PropTypes.number,
+// 	max: PropTypes.number,
+// 	step: PropTypes.number,
+// 	value: PropTypes.number,
+// 	disabled: PropTypes.bool,
+// 	onChange: PropTypes.func,
+// 	onFinalChange: PropTypes.func,
+// 	thumbLabel: PropTypes.string,
+// 	showLabel: PropTypes.bool,
+// 	startLabel: PropTypes.node,
+// 	endLabel: PropTypes.node,
+// 	trackFilledColor: PropTypes.string
+// };
 
 RangeSelector.defaultProps = {
 	min: 0,
