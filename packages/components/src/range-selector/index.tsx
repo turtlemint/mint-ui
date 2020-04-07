@@ -7,8 +7,6 @@ import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
 import {
-	ITrackProps,
-	IStyledTrack,
 	IRenderTrackCallbackProps,
 	IRenderThumbCallbackProps
 } from "./interfaces";
@@ -42,12 +40,6 @@ export const RangeSelector = ({
 }: RangeSelector) => {
 	let [localValue, setLocalValue] = React.useState(value);
 
-	const Track = React.forwardRef(
-		(props: ITrackProps, ref: React.Ref<any>) => {
-			return <StyledTrack {...{ ...props, trackRef: ref }} />;
-		}
-	);
-
 	const handleChange = (values: number[]): void => {
 		setLocalValue(values[0]);
 		rest.onChange && rest.onChange(localValue);
@@ -74,25 +66,31 @@ export const RangeSelector = ({
 					props: IRenderTrackCallbackProps;
 					children: React.ReactNode;
 				}): React.ReactNode => (
-					<Track
-						ref={props.ref}
-						{...{
-							...props,
-							children,
-							min,
-							max,
-							localValue,
-							disabled,
-							trackFilledColor
-						}}
-					/>
+					<TrackWrapper
+						onMouseDown={props.onMouseDown}
+						onTouchStart={props.onTouchStart}
+						style={{ ...props.style }}
+					>
+						{
+							<TrackLine
+								ref={props.ref}
+								min={min}
+								max={max}
+								localValue={localValue}
+								disabled={disabled}
+								trackFilledColor={trackFilledColor}
+							>
+								{children}
+							</TrackLine>
+						}
+					</TrackWrapper>
 				)}
 				renderThumb={({
 					props
 				}: {
 					props: IRenderThumbCallbackProps;
 				}): React.ReactNode => (
-					<StyledThumb key={props.key} disabled>
+					<StyledThumb key={props.key} {...props} disabled>
 						{/* Thumb Label */}
 						{rest.showLabel && thumbLabel(localValue)}
 					</StyledThumb>
@@ -119,29 +117,6 @@ const EndLabel = styled.div`
 	position: relative;
 	float: right;
 `;
-
-export const StyledTrack = (props: IStyledTrack) => {
-	return (
-		<TrackWrapper
-			onMouseDown={props.onMouseDown}
-			onTouchStart={props.onTouchStart}
-			style={{ ...props.style }}
-		>
-			{
-				<TrackLine
-					ref={props.trackRef}
-					min={props.min}
-					max={props.max}
-					localValue={props.localValue}
-					disabled={props.disabled}
-					trackFilledColor={props.trackFilledColor}
-				>
-					{props.children}
-				</TrackLine>
-			}
-		</TrackWrapper>
-	);
-};
 
 const TrackLine = styled.div<{
 	localValue: number;
