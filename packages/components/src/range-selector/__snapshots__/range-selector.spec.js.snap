@@ -10,7 +10,7 @@ exports[`RangeSelector tests renders correcty 1`] = `
       style="transform: scale(1); cursor: pointer;"
     >
       <div
-        class="range-selector__TrackLine-sc-1s3z4an-3 geTSrl"
+        class="range-selector__TrackLine-sc-1s3z4an-3 bKBFxO"
         max="100"
         min="0"
       >
