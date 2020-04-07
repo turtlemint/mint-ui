@@ -1,6 +1,6 @@
-### 3.3.1
-#### Changed
-- Form onSubmit handler
+### 3.4.0
+#### Added
+- RangeSelector component
 
 ### 3.4.0-alpha.0
 #### Added
