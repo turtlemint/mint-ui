@@ -2,48 +2,26 @@ import * as React from "react";
 import { RangeSelector } from "./index";
 import styled from "styled-components";
 import { GlobalStyles } from "../app";
+import COLORS from "../__utils/colors";
 
 export default {
 	title: "RangeSelector",
-	component: RangeSelector
+	component: RangeSelector,
+	parameters: {
+		componentSubtitle: "CustomLabel"
+	}
 };
 
-export const BasicRangeSelectorBasic = () => <RangeSelector />;
-
-export const RangeSelectorWithBigStep = () => {
-	const props = {
-		min: 0,
-		max: 100,
-		step: 10,
-		value: 50
-	};
-
-	return (
-		<div>
-			<RangeSelector {...props} />
-		</div>
-	);
-};
-
-export const RangeSelectorDisabled = () => (
-	<RangeSelector disabled={true} value={25} />
-);
-
-export const RangeSelectorWithoutLabel = () => (
-	<RangeSelector value={75} showLabel={false} />
-);
-
-export const RangeSelectorWithCustomLabel = () => {
+export const CustomLabel = () => {
 	const StyledLabel = styled.div`
 		${GlobalStyles};
 		bottom: 25px;
 		padding: 1px 3px;
-		color: #55637d;
-		cursor: default;
+		color: ${COLORS.GREY1};
 		position: absolute;
 		display: inline-block;
 		white-space: nowrap;
-		background-color: #d4d4d4;
+		background-color: ${COLORS.GREY4};
 		padding: 6px;
 		left: -15px;
 		border-radius: 9px;
@@ -60,11 +38,33 @@ export const RangeSelectorWithCustomLabel = () => {
 	);
 };
 
-export const RangeSelectorWithStartAndEndLabel = () => {
+export const BigStep = () => {
+	const props = {
+		min: 0,
+		max: 100,
+		step: 10,
+		value: 50
+	};
+
+	return (
+		<div>
+			<RangeSelector {...props} />
+		</div>
+	);
+};
+export const Basic = () => <RangeSelector />;
+
+export const Disabled = () => <RangeSelector disabled={true} value={25} />;
+
+export const WithoutLabel = () => (
+	<RangeSelector value={75} showLabel={false} />
+);
+
+export const StartAndEndLabel = () => {
 	const StartLabel = styled.div`
 		position: relative;
 		left: -15px;
-		background-color: #e8e8e8;
+		background-color: ${COLORS.GREY4};
 		padding: 5px;
 		font-size: 10px;
 		border-radius: 3px;
@@ -72,7 +72,7 @@ export const RangeSelectorWithStartAndEndLabel = () => {
 
 	const EndLabel = styled.div`
 		right: -10px;
-		background-color: #e8e8e8;
+		background-color: ${COLORS.GREY4};
 		padding: 5px;
 		font-size: 10px;
 		border-radius: 3px;
@@ -87,17 +87,16 @@ export const RangeSelectorWithStartAndEndLabel = () => {
 	);
 };
 
-export const RangeSelectorWithCustomTrackColor = () => {
+export const CustomTrackColor = () => {
 	const StyledLabel = styled.div`
 		${GlobalStyles};
 		bottom: 25px;
 		padding: 1px 3px;
-		color: white;
-		cursor: default;
+		color: ${COLORS.GREY1};
 		position: absolute;
 		display: inline-block;
 		white-space: nowrap;
-		background-color: #417ffd;
+		background-color: ${COLORS.GREY4};
 		padding: 6px;
 		left: -15px;
 		border-radius: 9px;
@@ -110,7 +109,7 @@ export const RangeSelectorWithCustomTrackColor = () => {
 			thumbLabel={(value: number) => {
 				return <StyledLabel>{(value * 1000).toFixed(2)} </StyledLabel>;
 			}}
-			trackFilledColor="#417ffd"
+			trackFilledColor={COLORS.PICTON_BLUE}
 		/>
 	);
 };
