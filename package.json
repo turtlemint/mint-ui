@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run lint && yarn run lint:fix && yarn run unit"
+      "pre-commit": "yarn run lint:fix && yarn run unit -u &&  git add ."
     }
   },
   "devDependencies": {

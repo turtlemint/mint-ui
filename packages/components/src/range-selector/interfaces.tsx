@@ -3,7 +3,7 @@ import * as React from "react";
 export interface ITrackProps {
 	min: number;
 	max: number;
-	localValue: number;
+	value: number;
 	disabled: boolean;
 	children: React.ReactNode;
 	onMouseDown: (e: React.MouseEvent) => void;
