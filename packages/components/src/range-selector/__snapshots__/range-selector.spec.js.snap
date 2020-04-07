@@ -3,24 +3,25 @@
 exports[`RangeSelector tests renders correcty 1`] = `
 <DocumentFragment>
   <div
-    class="range-selector__RangeSelectorWrapper-sc-1s3z4an-0 hMwAGm"
+    class="range-selector__RangeSelectorWrapper-sc-1s3z4an-0 kmSczB"
   >
     <div
-      class="range-selector__TrackWrapper-sc-1s3z4an-4 hRbFEK"
+      class="range-selector__TrackWrapper-sc-1s3z4an-4 hyLRag"
       style="transform: scale(1); cursor: pointer;"
     >
       <div
-        class="range-selector__TrackLine-sc-1s3z4an-3 geTSrl"
-        max="100"
+        class="range-selector__TrackLine-sc-1s3z4an-5 bIUTCI"
+        max="10000"
         min="0"
+        value="0"
       >
         <div
-          class="range-selector__StyledThumb-sc-1s3z4an-5 ilgMZk"
+          class="range-selector__StyledThumb-sc-1s3z4an-6 jOejeO"
           disabled=""
           style="transform: translate(NaNpx, NaNpx);"
         >
           <div
-            class="range-selector__StyledThumbLable-sc-1s3z4an-6 hueBnI"
+            class="range-selector__StyledThumbLabel-sc-1s3z4an-1 cDKYeU"
           >
             0
           </div>
