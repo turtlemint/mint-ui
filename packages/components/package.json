@@ -1,6 +1,6 @@
 {
     "name": "@turtlemint/mint-ui",
-    "version": "3.3.3",
+    "version": "3.4.0",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": "https://github.com/turtlemint/mint-ui.git",
@@ -29,6 +29,7 @@
         "polished": "^3.4.2",
         "react": "16.8.6",
         "react-dom": "16.8.6",
+        "react-range": "^1.5.3",
         "styled-components": "4.3.2"
     },
     "scripts": {
