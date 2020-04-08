@@ -21,6 +21,7 @@ import { default as Table } from "./src/table";
 import { default as Pagination } from "./src/pagination";
 import { default as Form } from "./src/form";
 import { default as COLORS } from "./src/colors";
+import { default as RangeSelector } from "./src/range-selector";
 
 export {
 	Button,
@@ -46,5 +47,6 @@ export {
 	Table,
 	Pagination,
 	Form,
-	COLORS
+	COLORS,
+	RangeSelector
 };

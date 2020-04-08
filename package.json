@@ -10,11 +10,11 @@
     "coverage": "jest --coverage",
     "unit": "jest",
     "build": "lerna exec --parallel -- rm -rf dist && lerna exec --parallel -- tsc -p ./tsconfig.json",
-    "prepublishOnly": "yarn run lint:fix && yarn run build && yarn run unit"
+    "prepublishOnly": "yarn run build"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run lint && yarn run lint:fix && yarn run unit"
+      "pre-commit": "yarn run lint:fix && yarn run unit -u &&  git add ."
     }
   },
   "devDependencies": {

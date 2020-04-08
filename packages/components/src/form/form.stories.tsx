@@ -9,7 +9,7 @@ import axios from "axios";
 import Checkbox from "../checkbox";
 import RadioGroup from "../radio-group";
 import Button from "../button";
-import { labelCol, Label } from "./form-item";
+import FormItem, { labelCol, Label } from "./form-item";
 import Row from "../grid/row";
 import Col from "../grid/col";
 import COLORS from "../__utils/colors";
@@ -36,13 +36,13 @@ const formItemLayout: { labelCol: labelCol; fieldCol: labelCol } = {
 export default {
 	title: "Form",
 	component: Form,
+	subcomponents: { FormItem },
 	parameters: {
-		componentSubtitle: "basic"
-	},
-	includeStories: ["basic", "layout"]
+		componentSubtitle: "seedState"
+	}
 };
 
-export const basic = () => {
+export const seedState = () => {
 	const handleSubmit = (state: any) => {
 		console.log("state", state);
 	};
@@ -68,9 +68,16 @@ export const basic = () => {
 		console.log(name, option);
 		setOpen(false);
 	};
-
+	const formState = {
+		firstName: "Kushal",
+		lastName: "Mahajan",
+		email: "",
+		state: selectData[1],
+		radioGroup: "item-2",
+		maritalStatus: true
+	};
 	return (
-		<Form name="basic" onSubmit={handleSubmit}>
+		<Form name="full" formState={formState} onSubmit={handleSubmit}>
 			<Form.Item
 				label="First name"
 				name="firstName"
@@ -130,15 +137,11 @@ export const basic = () => {
 					{
 						required: true,
 						message: "State is required"
-					},
-					{
-						enum: ["Item 1", "Punjab"],
-						message: "The value does not exist in enum"
 					}
 				]}
 				{...formItemLayout}
 			>
-				<Select value={selectData[0]}>
+				<Select placeholder="Select user...">
 					{selectData.map((d: any) => (
 						<Option key={d.value} value={d.value}>
 							{d.text}
@@ -159,7 +162,6 @@ export const basic = () => {
 			>
 				<TypeAhead
 					name="some-typeahead"
-					value={selectData[0]}
 					loading={fetching}
 					fetchFunc={fetchUser}
 					onChange={handleSelect}
@@ -184,7 +186,7 @@ export const basic = () => {
 					}
 				]}
 			>
-				<Checkbox value={true} />
+				<Checkbox />
 			</Form.Item>
 			<Form.Item
 				name="radioGroup"
@@ -299,6 +301,46 @@ export const layout = () => {
 					/>
 				</Form.Item>
 			</Form>
+		</>
+	);
+};
+
+export const validateAPI = () => {
+	const formRef = React.useRef<HTMLFormElement>();
+
+	const [formError, setFormError] = React.useState<boolean>(false);
+
+	return (
+		<>
+			<Form name="validateAPI" ref={formRef} onSubmit={() => {}}>
+				<Form.Item
+					label="Username"
+					name="username"
+					rules={[
+						{
+							required: true,
+							message: "Username is required"
+						}
+					]}
+				>
+					<Input placeholder="Type your username..." />
+				</Form.Item>
+			</Form>
+			{formError ? (
+				<p style={{ color: COLORS.DANGER }}>
+					Your custom global error message at any place outside the
+					form component
+				</p>
+			) : null}
+			<Button
+				title="validate"
+				size="small"
+				btnType="solid"
+				onClick={() => {
+					const isValid = formRef.current.validate();
+					setFormError(!isValid);
+				}}
+			/>
 		</>
 	);
 };

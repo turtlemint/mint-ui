@@ -35,7 +35,9 @@ exports[`Select test suites Select snapshot 1`] = `
     <div
       class="select__StyledSelectCTA-sc-1trodvu-1 bFMGxn"
     >
-      <span />
+      <span
+        style="color: rgb(232, 232, 232);"
+      />
       <svg
         fill="#6c7375"
         height="24"

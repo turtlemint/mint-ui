@@ -11,6 +11,8 @@ interface SelectProps {
 	name?: string;
 	/** current value  */
 	value?: any;
+	/** show placeholder */
+	placeholder?: string;
 	/** callback for the change handler */
 	onChange?: ChangeHandler<SelectedOption>;
 	/** callback for the blur handler */
@@ -30,6 +32,7 @@ interface SelectProps {
 export const Select = ({
 	name,
 	value,
+	placeholder,
 	onChange = () => {},
 	onBlur = () => {},
 	block = false,
@@ -72,6 +75,7 @@ export const Select = ({
 			<SelectCTA
 				open={open}
 				value={value}
+				placeholder={placeholder}
 				showArrow={true}
 				disabled={disabled}
 				onClick={toggleDropdown}
@@ -96,6 +100,7 @@ const ArrowToggle = ({ open }: { open: boolean }) => (
 
 interface SelectCTAProps {
 	value: any;
+	placeholder?: string;
 	showArrow?: boolean;
 	open?: boolean;
 	disabled?: boolean;
@@ -105,6 +110,7 @@ interface SelectCTAProps {
 
 export const SelectCTA = ({
 	value,
+	placeholder,
 	showArrow = false,
 	open,
 	disabled = false,
@@ -131,7 +137,11 @@ export const SelectCTA = ({
 			disabled={disabled}
 			style={style}
 		>
-			<span>{displayValue}</span>
+			{displayValue ? (
+				<span>{displayValue}</span>
+			) : (
+				<span style={{ color: COLORS.GREY4 }}>{placeholder}</span>
+			)}
 			{showArrow ? <ArrowToggle open={open as boolean} /> : null}
 		</StyledSelectCTA>
 	);
