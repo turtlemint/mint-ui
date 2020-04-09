@@ -99,7 +99,7 @@ export const RangeSelector = ({
 					</StyledThumb>
 				)}
 			/>
-			<div>
+			<div style={{ position: "relative" }}>
 				{rest.startLabel ? (
 					<StartLabel>{rest.startLabel}</StartLabel>
 				) : null}
@@ -130,7 +130,6 @@ const StyledThumbLabel = styled.div`
 `;
 const StartLabel = styled.div`
 	position: absolute;
-	left: -5px;
 	background-color: ${COLORS.GREY4};
 	padding: 5px;
 	font-size: 10px;
@@ -140,7 +139,7 @@ const StartLabel = styled.div`
 
 const EndLabel = styled.div`
 	position: absolute;
-	right: -10px;
+	right: 0;
 	background-color: ${COLORS.GREY4};
 	padding: 5px;
 	font-size: 10px;
