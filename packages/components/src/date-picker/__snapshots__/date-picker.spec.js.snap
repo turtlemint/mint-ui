@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeSelector tests renders correcty 1`] = `
+<DocumentFragment>
+  <div
+    class="react-datepicker-wrapper"
+  >
+    <div
+      class="react-datepicker__input-container"
+    >
+      <input
+        class=""
+        type="text"
+        value="04/10/2020"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
