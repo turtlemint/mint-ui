@@ -19,7 +19,7 @@ exports[`RangeSelector tests renders correcty 1`] = `
             class="react-datepicker__header react-datepicker__header--custom"
           >
             <div
-              class="header__HeaderWrapper-jltwzm-1 gunGZK"
+              class="header__HeaderWrapper-jltwzm-1 jsVFRj"
             >
               <button
                 class="header__LeftNavigation-jltwzm-2 hKhMga"
@@ -27,7 +27,7 @@ exports[`RangeSelector tests renders correcty 1`] = `
                 ▲
               </button>
               <select
-                class="header__StyledSelect-jltwzm-0 kmpTop"
+                class="header__StyledSelect-jltwzm-0 kIqvrc"
               >
                 <option
                   value="2019"
@@ -46,27 +46,27 @@ exports[`RangeSelector tests renders correcty 1`] = `
                 </option>
               </select>
               <select
-                class="header__StyledSelect-jltwzm-0 kmpTop"
+                class="header__StyledSelect-jltwzm-0 kIqvrc"
               >
                 <option
                   value="0"
                 >
-                  January
+                  Jan
                 </option>
                 <option
                   value="1"
                 >
-                  February
+                  Feb
                 </option>
                 <option
                   value="2"
                 >
-                  March
+                  Mar
                 </option>
                 <option
                   value="3"
                 >
-                  April
+                  Apr
                 </option>
                 <option
                   value="4"
@@ -76,37 +76,37 @@ exports[`RangeSelector tests renders correcty 1`] = `
                 <option
                   value="5"
                 >
-                  June
+                  Jun
                 </option>
                 <option
                   value="6"
                 >
-                  July
+                  Jul
                 </option>
                 <option
                   value="7"
                 >
-                  August
+                  Aug
                 </option>
                 <option
                   value="8"
                 >
-                  September
+                  Sep
                 </option>
                 <option
                   value="9"
                 >
-                  October
+                  Oct
                 </option>
                 <option
                   value="10"
                 >
-                  November
+                  Nov
                 </option>
                 <option
                   value="11"
                 >
-                  December
+                  Dec
                 </option>
               </select>
               <button

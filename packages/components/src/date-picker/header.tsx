@@ -8,7 +8,7 @@ import { IHeaderProps, IMonth, IMonthProps } from "./interfaces";
 // List of valid Months within min-max date range
 const getMonths = ({ date, minDate, maxDate }: IMonthProps): Array<IMonth> => {
 	// All months by default
-	let months = moment.months().map((month: string, index: number) => ({
+	let months = moment.monthsShort().map((month: string, index: number) => ({
 		month,
 		value: index
 	}));
@@ -55,6 +55,9 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 
 	// Callbacks in case we need to add something more in future
 	const changeYear = (year: number) => {
+		// if (minDate.year() === year) {
+		// }
+
 		rest.changeYear(year);
 	};
 
@@ -108,11 +111,12 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 
 const StyledSelect = styled.select`
 	font-size: 14px;
+	width: 75px;
 `;
 
 const HeaderWrapper = styled.div`
 	border-radius: 3px;
-	padding: 15px 0px;
+	padding: 10px 0px;
 	display: flex;
 	justify-content: space-around;
 	background-color: ${COLORS.PRIMARY};
