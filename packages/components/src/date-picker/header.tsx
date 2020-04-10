@@ -1,5 +1,7 @@
 import * as React from "react";
 import moment from "moment";
+import styled from "styled-components";
+import COLORS from "../__utils/colors";
 
 import { IHeaderProps, IMonth, IMonthProps } from "./interfaces";
 
@@ -8,7 +10,7 @@ const getMonths = ({ date, minDate, maxDate }: IMonthProps): Array<IMonth> => {
 	// All months by default
 	let months = moment.months().map((month: string, index: number) => ({
 		month,
-		value: index + 1
+		value: index
 	}));
 	let minMonthNumber = 1;
 	let maxMonthNumber = 12;
@@ -36,10 +38,7 @@ const getMonths = ({ date, minDate, maxDate }: IMonthProps): Array<IMonth> => {
 	}
 
 	return months.filter(month => {
-		return (
-			minMonthNumber <= month.value - 1 &&
-			month.value - 1 <= maxMonthNumber
-		);
+		return minMonthNumber <= month.value && month.value <= maxMonthNumber;
 	});
 };
 
@@ -64,20 +63,14 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 	};
 
 	return (
-		<div
-			style={{
-				margin: 10,
-				display: "flex",
-				justifyContent: "center"
-			}}
-		>
-			<button
+		<HeaderWrapper>
+			<LeftNavigation
 				onClick={rest.decreaseMonth}
 				disabled={rest.prevMonthButtonDisabled}
 			>
-				{"<"}
-			</button>
-			<select
+				{"▲"}
+			</LeftNavigation>
+			<StyledSelect
 				value={date.year()}
 				onChange={({ target: { value } }: { target: { value: any } }) =>
 					changeYear(value)
@@ -88,9 +81,9 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 						{option}
 					</option>
 				))}
-			</select>
+			</StyledSelect>
 
-			<select
+			<StyledSelect
 				value={date.month()}
 				onChange={({ target: { value } }: { target: { value: any } }) =>
 					changeMonth(value)
@@ -101,16 +94,46 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 						{option.month}
 					</option>
 				))}
-			</select>
+			</StyledSelect>
 
-			<button
+			<RightNavigation
 				onClick={rest.increaseMonth}
 				disabled={rest.nextMonthButtonDisabled}
 			>
-				{">"}
-			</button>
-		</div>
+				{"▲"}
+			</RightNavigation>
+		</HeaderWrapper>
 	);
 };
+
+const StyledSelect = styled.select`
+	font-size: 14px;
+`;
+
+const HeaderWrapper = styled.div`
+	border-radius: 3px;
+	padding: 15px 0px;
+	display: flex;
+	justify-content: space-around;
+	background-color: ${COLORS.PRIMARY};
+`;
+
+const LeftNavigation = styled.button`
+	transform: rotate(-90deg);
+	background: transparent;
+	border: none;
+	border-radius: 3px;
+	font-size: 15px;
+	cursor: pointer;
+`;
+
+const RightNavigation = styled.button`
+	transform: rotate(90deg);
+	background: transparent;
+	border: none;
+	border-radius: 3px;
+	font-size: 15px;
+	cursor: pointer;
+`;
 
 export default Header;

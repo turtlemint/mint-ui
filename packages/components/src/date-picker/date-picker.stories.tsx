@@ -1,4 +1,5 @@
 import * as React from "react";
+import moment from "moment";
 import { DatePicker } from "./index";
 
 export default {
@@ -9,7 +10,13 @@ export default {
 export const TestDatePicker = () => {
 	return (
 		<div style={{ height: "250px" }}>
-			<DatePicker />
+			<DatePicker
+				date={moment()}
+				onChange={date => {
+					date;
+				}}
+				maxDate={moment().add(5, "days")}
+			/>
 		</div>
 	);
 };
