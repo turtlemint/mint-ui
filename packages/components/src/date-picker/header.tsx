@@ -44,7 +44,6 @@ const getMonths = ({ date, minDate, maxDate }: IMonthProps): Array<IMonth> => {
 
 export const Header = (props: IHeaderProps): JSX.Element => {
 	let { minDate, maxDate, ...rest } = props;
-
 	const date = moment(props.date);
 	const years = [];
 
@@ -55,9 +54,19 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 
 	// Callbacks in case we need to add something more in future
 	const changeYear = (year: number) => {
-		// if (minDate.year() === year) {
-		// }
+		// Handling month case where year changes and existing month is out of its range
 
+		// Set month to minimum
+		if (minDate.year() === year && date.month() < minDate.month()) {
+			changeMonth(minDate.month());
+		}
+
+		// Set month to maximum
+		if (maxDate.year() === year && date.month() > maxDate.month()) {
+			changeMonth(maxDate.month());
+		}
+
+		// year change
 		rest.changeYear(year);
 	};
 
@@ -75,9 +84,11 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 			</LeftNavigation>
 			<StyledSelect
 				value={date.year()}
-				onChange={({ target: { value } }: { target: { value: any } }) =>
-					changeYear(value)
-				}
+				onChange={({
+					target: { value }
+				}: {
+					target: { value: string };
+				}) => changeYear(+value)}
 			>
 				{years.map(option => (
 					<option key={option} value={option}>
@@ -88,9 +99,11 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 
 			<StyledSelect
 				value={date.month()}
-				onChange={({ target: { value } }: { target: { value: any } }) =>
-					changeMonth(value)
-				}
+				onChange={({
+					target: { value }
+				}: {
+					target: { value: string };
+				}) => changeMonth(+value)}
 			>
 				{getMonths({ date, minDate, maxDate }).map(option => (
 					<option key={option.value} value={option.value}>

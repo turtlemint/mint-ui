@@ -15,7 +15,8 @@ export const TestDatePicker = () => {
 				onChange={date => {
 					date;
 				}}
-				maxDate={moment().add(5, "days")}
+				// minDate={moment().subtract(1, "year")}
+				// maxDate={moment().add(1, "years")}
 			/>
 		</div>
 	);

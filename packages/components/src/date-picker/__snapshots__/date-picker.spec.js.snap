@@ -278,18 +278,18 @@ exports[`RangeSelector tests renders correcty 1`] = `
               <div
                 aria-disabled="false"
                 aria-label="Choose Friday, April 10th, 2020"
-                class="react-datepicker__day react-datepicker__day--010 react-datepicker__day--selected react-datepicker__day--today"
+                class="react-datepicker__day react-datepicker__day--010"
                 role="option"
-                tabindex="0"
+                tabindex="-1"
               >
                 10
               </div>
               <div
                 aria-disabled="false"
                 aria-label="Choose Saturday, April 11th, 2020"
-                class="react-datepicker__day react-datepicker__day--011 react-datepicker__day--weekend"
+                class="react-datepicker__day react-datepicker__day--011 react-datepicker__day--selected react-datepicker__day--today react-datepicker__day--weekend"
                 role="option"
-                tabindex="-1"
+                tabindex="0"
               >
                 11
               </div>
