@@ -450,7 +450,7 @@ export const SideEffects = () => {
 						btnType="outlined"
 						btnStyle="default"
 						onClick={() => {
-							formRef.current.reset({
+							formRef.current.resetForm({
 								statename: "",
 								city: undefined
 							});

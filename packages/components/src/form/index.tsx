@@ -169,7 +169,7 @@ const formWithRef = (props: FormProps, ref: any) => {
 		setFormState: (state: any) => {
 			setState({ ...state });
 		},
-		reset: (emptyState: any) => {
+		resetForm: (emptyState: any) => {
 			setState(emptyState);
 		}
 	}));
