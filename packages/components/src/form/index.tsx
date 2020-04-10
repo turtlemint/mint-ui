@@ -2,6 +2,7 @@ import * as React from "react";
 import FormItem, { FormItemProps } from "./form-item";
 import { _isObject, _isArray } from "../__utils/type-check";
 import { tuple } from "../__utils/type";
+import FormRow, { FormRowProps } from "./row";
 
 const displayTuple = tuple("horizontal", "vertical", "inline");
 export type DisplayType = typeof displayTuple[number];
@@ -47,6 +48,7 @@ interface CompoundedComponent
 		FormProps & React.RefAttributes<HTMLFormElement>
 	> {
 	Item: React.FC<FormItemProps>;
+	Row: React.FC<FormRowProps>;
 }
 
 const formWithRef = (props: FormProps, ref: any) => {
@@ -169,19 +171,26 @@ const formWithRef = (props: FormProps, ref: any) => {
 		<form name={name} onSubmit={handleSubmit}>
 			{React.Children.map(children, child => {
 				const { rules, name } = child.props;
+				if (child.props.submit) {
+					const disabled = isError() || isFormEmpty();
+					return React.cloneElement(child, {
+						disabled,
+						layout
+					});
+				}
 				if (rules) {
 					const requiredRule = rules.filter(
 						(item: any) => item.required
 					)[0];
 					if (requiredRule) requiredFields[name] = true;
 				}
+
 				return React.cloneElement(child, {
 					state,
 					handleChange,
 					errors,
 					handleError,
-					layout,
-					btnDisabled: isError() || isFormEmpty()
+					layout
 				});
 			})}
 		</form>
@@ -193,5 +202,6 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
 ) as CompoundedComponent;
 
 Form.Item = FormItem;
+Form.Row = FormRow;
 
 export default Form;

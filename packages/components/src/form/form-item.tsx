@@ -27,8 +27,6 @@ export interface FormItemProps {
 	layout?: DisplayType;
 	/** used to create an inline form label and checkbox type of field when form layout is vertical */
 	inline?: boolean;
-	/** disabled button state  */
-	btnDisabled?: boolean;
 	/** flex value for label */
 	labelCol?: labelCol;
 	/** flex value for form control field */
@@ -47,7 +45,6 @@ export const FormItem = ({
 	handleError = () => {},
 	layout = "horizontal",
 	inline = false,
-	btnDisabled = false,
 	labelCol,
 	fieldCol,
 	children
@@ -73,11 +70,7 @@ export const FormItem = ({
 					onChange: handleChange,
 					onBlur: handleBlur,
 					name,
-					value: state[name] ?? children.props.value,
-					disabled:
-						children.props.htmlType === "submit"
-							? btnDisabled
-							: false
+					value: state[name] ?? children.props.value
 				})}
 				{helpText ? <HelpText>{helpText}</HelpText> : null}
 				{errors[name] ? <ErrorText>{errors[name]}</ErrorText> : null}
