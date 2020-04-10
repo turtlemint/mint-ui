@@ -10,6 +10,7 @@ export interface CardProps {
 	size?: "default" | "small";
 	/** Extra options to be rendered inside header */
 	extra?: React.ReactNode;
+	boxShadow?: boolean;
 	/** When hovered a box shadow will appear */
 	hoverable?: boolean;
 	/** Custom styles to modfiy the wrapper */
@@ -20,16 +21,53 @@ export interface CardProps {
 	children: React.ReactNode | React.ReactNode[];
 }
 
-const Wrapper = styled.div<Pick<CardProps, "hoverable" | "bordered">>`
+export const Card = ({
+	title,
+	size = "default",
+	extra,
+	hoverable = false,
+	boxShadow,
+	style,
+	bordered = true,
+	headerBackground,
+	children,
+	...rest
+}: CardProps) => (
+	<Wrapper
+		hoverable={hoverable}
+		boxShadow={boxShadow}
+		bordered={bordered}
+		style={style}
+		{...rest}
+	>
+		{title ? (
+			<Header size={size} headerBackground={headerBackground}>
+				<HeadWrapper size={size}>
+					<Title size={size}>{title}</Title>
+					<Extra size={size}>{extra}</Extra>
+				</HeadWrapper>
+			</Header>
+		) : null}
+		<Body size={size}>{children}</Body>
+	</Wrapper>
+);
+
+const Wrapper = styled.div<CardProps>`
 	${GlobalStyles};
 	border-radius: 4px;
 	animation: 500ms ease 0ms;
 	border: 1px solid ${COLORS.GREY4};
+	background: ${COLORS.WHITE};
 	${({ bordered }) =>
 		bordered === false &&
 		css`
 			background: white;
 			border-color: transparent;
+		`};
+	${({ boxShadow }) =>
+		boxShadow &&
+		css`
+			box-shadow: rgba(102, 143, 211, 0.33) 0px 1px 10px 0px;
 		`};
 	&:hover {
 		${({ hoverable }) =>
@@ -76,29 +114,5 @@ const Body = styled.div<Pick<CardProps, "size">>`
 	color: ${COLORS.GREY1};
 	padding: ${({ size }) => (size === "small" ? `12px` : `24px`)};
 `;
-
-export const Card = ({
-	title,
-	size = "default",
-	extra,
-	hoverable = false,
-	style,
-	bordered = true,
-	headerBackground,
-	children,
-	...rest
-}: CardProps) => (
-	<Wrapper hoverable={hoverable} bordered={bordered} style={style} {...rest}>
-		{title ? (
-			<Header size={size} headerBackground={headerBackground}>
-				<HeadWrapper size={size}>
-					<Title size={size}>{title}</Title>
-					<Extra size={size}>{extra}</Extra>
-				</HeadWrapper>
-			</Header>
-		) : null}
-		<Body size={size}>{children}</Body>
-	</Wrapper>
-);
 
 export default Card;
