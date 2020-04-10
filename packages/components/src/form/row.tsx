@@ -7,22 +7,20 @@ export interface FormRowProps extends RowProps {
 	submit?: boolean;
 	/** Passed internally by Form Component */
 	disabled?: boolean;
+	/** layout can take values from  horizontal, vertical and inline. Horizontal is default  */
 	layout?: DisplayType;
 	children: React.ReactElement<any> | React.ReactElement<any>[];
 }
 export const FormRow = ({
 	layout,
-	disabled,
+	disabled = false,
 	children,
 	...rest
 }: FormRowProps) => {
 	return layout === "inline" ? ( // Render submit button directly
 		<span style={{ marginLeft: "15px" }}>
 			{React.Children.map(children, child => {
-				if (child.props.htmlType && child.props.htmlType === "submit") {
-					return React.cloneElement(child, { disabled });
-				}
-				return child;
+				return React.cloneElement(child, { disabled });
 			})}
 		</span>
 	) : (
