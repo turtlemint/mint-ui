@@ -5,6 +5,8 @@ import { IRenderHeaderProps } from "./interfaces";
 import Header from "./header";
 import styled from "styled-components";
 import { GlobalStyles } from "../app";
+import Input from "../input";
+import Icon from "../icon";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./css/datepicker.css";
@@ -15,6 +17,24 @@ export interface DatePicker {
 	maxDate?: moment.Moment;
 	onChange: (date: moment.Moment) => void;
 }
+
+const ExampleCustomInput = React.forwardRef(
+	({ value, onClick }: any, ref: any) => {
+		return (
+			<div ref={ref}>
+				<Input
+					type="text"
+					placeholder="Enter text"
+					value={value}
+					onClick={onClick}
+				/>
+				<CalendarIconWrapper>
+					<Icon name="calendar" {...CalendarIconProps} />
+				</CalendarIconWrapper>
+			</div>
+		);
+	}
+);
 
 export const DatePicker = ({
 	date = moment(),
@@ -46,7 +66,7 @@ export const DatePicker = ({
 				onChange={date => handleDateChange(date)}
 				minDate={minDate.toDate()}
 				maxDate={maxDate.toDate()}
-				inline
+				customInput={<ExampleCustomInput />}
 			/>
 		</DatePickerWrapper>
 	);
@@ -54,6 +74,24 @@ export const DatePicker = ({
 
 const DatePickerWrapper = styled.div`
 	${GlobalStyles},
+`;
+
+const CalendarIconProps = {
+	style: {
+		msTransform: "rotate(360deg)",
+		WebkitTransform: "rotate(360deg)",
+		transform: "rotate(360deg)"
+	},
+	size: 17
+};
+
+const CalendarIconWrapper = styled.div`
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	top: 14px;
+	background: #fff;
+	border: none;
 `;
 
 export default DatePicker;
