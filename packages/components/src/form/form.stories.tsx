@@ -6,6 +6,7 @@ import { Option, SelectedOption } from "../select/dropdown";
 import TypeAhead from "../typeahead";
 import { ChangeHandler } from "../__utils/type";
 import axios from "axios";
+import styled from "styled-components";
 import RadioGroup from "../radio-group";
 import Button from "../button";
 import FormItem, { labelCol, Label } from "./form-item";
@@ -13,12 +14,12 @@ import Row from "../grid/row";
 import Col from "../grid/col";
 import COLORS from "../__utils/colors";
 import Card from "../card";
-import styled from "styled-components";
+import FormRow from "./row";
 
 export default {
 	title: "Form",
 	component: Form,
-	subcomponents: { FormItem },
+	subcomponents: { FormItem, FormRow },
 	parameters: {
 		componentSubtitle: "seedState"
 	}
@@ -75,8 +76,8 @@ export const seedState = () => {
 		setOpen(false);
 	};
 	const formState = {
-		firstName: "Kushal",
-		lastName: "Mahajan",
+		firstName: "Your",
+		lastName: "Name",
 		email: "",
 		state: selectData[1],
 		radioGroup: "item-2",
@@ -335,11 +336,33 @@ export const layout = () => {
 	);
 };
 
-export const validateAPI = () => {
+export const SideEffects = () => {
+	const [state] = React.useState({
+		statename: "",
+		city: undefined
+	});
 	const formRef = React.useRef<HTMLFormElement>();
 
 	const [formError, setFormError] = React.useState<boolean>(false);
 
+	const handleChange = (selected: any, name: string) => {
+		const state = formRef.current.getFormState();
+		let newState;
+		if (selected.value === "udaipur") {
+			newState = {
+				...state,
+				[name]: selected,
+				statename: "Rajasthan"
+			};
+		} else {
+			newState = {
+				...state,
+				[name]: selected,
+				statename: "Karnataka"
+			};
+		}
+		formRef.current.setFormState(newState);
+	};
 	return (
 		<LayoutWrapper>
 			<Card boxShadow>
@@ -349,40 +372,92 @@ export const validateAPI = () => {
 					But we have got you covered even for such pandemic
 					situations in case these are unavoidable.
 				</h4>
-				<Form name="validateAPI" ref={formRef} onSubmit={() => {}}>
+				<Form
+					name="validateAPI"
+					formState={state}
+					ref={formRef}
+					onSubmit={() => {}}
+				>
 					<Form.Item
-						label="Username"
-						name="username"
+						label="State Name"
+						name="statename"
+						labelCol={{ span: 4 }}
+						fieldCol={{ span: 8 }}
+					>
+						<Input placeholder="Select city below to get state name..." />
+					</Form.Item>
+					<Form.Item
+						name="city"
+						label="City"
+						handleChange={handleChange}
+						labelCol={{ span: 4 }}
+						fieldCol={{ span: 8 }}
 						rules={[
 							{
 								required: true,
-								message: "Username is required"
+								message:
+									"Select city to see real power of imperative handlers"
 							}
 						]}
 					>
-						<Input placeholder="Type your username..." />
+						<Select placeholder="Select City">
+							<Option value="udaipur">Udaipur</Option>
+							<Option value="coorg">Coorg</Option>
+						</Select>
 					</Form.Item>
+					<Form.Row submit justify="center">
+						<Button
+							size="small"
+							btnType="solid"
+							btnStyle="primary"
+							htmlType="submit"
+							title="Submit"
+						/>
+					</Form.Row>
 				</Form>
-
 				{formError ? (
 					<p style={{ color: COLORS.DANGER }}>
 						Your custom global error message at any place outside
 						the form component
 					</p>
 				) : null}
+				<hr />
+				<p>
+					Legit sophisticated `Form` ends here. Below is an entry into
+					imperative handlers to show more dynamism we have or maybe
+					to just show we can break rules too. IDK!
+				</p>
+				<p style={{ color: COLORS.DANGER_LIGHT }}>
+					Statutory Warning: Not recommended way. Choose only when you
+					are on verge of World War 3 with your unsavvy/unfriendly
+					designer
+				</p>
+				<Row style={{ marginTop: "30px" }} justify="center">
+					<Button
+						title="Validate manually"
+						size="small"
+						btnType="outlined"
+						btnStyle="primary"
+						onClick={() => {
+							const isValid = formRef.current.validate();
+							setFormError(!isValid);
+						}}
+						style={{ marginRight: "15px" }}
+					/>
+					<Button
+						title="reset"
+						size="small"
+						btnType="outlined"
+						btnStyle="default"
+						onClick={() => {
+							formRef.current.resetForm({
+								statename: "",
+								city: undefined
+							});
+						}}
+					/>
+				</Row>
 			</Card>
-			<Row style={{ marginTop: "30px" }}>
-				<Button
-					title="validate"
-					size="small"
-					btnType="outlined"
-					btnStyle="primary"
-					onClick={() => {
-						const isValid = formRef.current.validate();
-						setFormError(!isValid);
-					}}
-				/>
-			</Row>
 		</LayoutWrapper>
 	);
 };
