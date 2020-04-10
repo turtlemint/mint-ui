@@ -164,7 +164,14 @@ const formWithRef = (props: FormProps, ref: any) => {
 	};
 
 	React.useImperativeHandle(ref, () => ({
-		validate: () => !(isError() || isFormEmpty())
+		validate: () => !(isError() || isFormEmpty()),
+		getFormState: () => state,
+		setFormState: (state: any) => {
+			setState({ ...state });
+		},
+		reset: (emptyState: any) => {
+			setState(emptyState);
+		}
 	}));
 
 	return (
@@ -184,10 +191,14 @@ const formWithRef = (props: FormProps, ref: any) => {
 					)[0];
 					if (requiredRule) requiredFields[name] = true;
 				}
+				// This is a check for handling side effects
+				const changeHandler = child.props.handleChange
+					? child.props.handleChange
+					: handleChange;
 
 				return React.cloneElement(child, {
 					state,
-					handleChange,
+					handleChange: changeHandler,
 					errors,
 					handleError,
 					layout
