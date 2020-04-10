@@ -60,7 +60,7 @@ export const Size = () => (
 export const BoxShadow = () => (
 	<Card
 		size="small"
-		hoverable={true}
+		boxShadow={true}
 		title="Hoverable Card"
 		style={{ width: 300 }}
 	>
