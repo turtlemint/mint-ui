@@ -15,6 +15,7 @@ export const TestDatePicker = () => {
 				onChange={date => {
 					date;
 				}}
+				// disabled={true}
 				// minDate={moment().subtract(1, "year")}
 				// maxDate={moment().add(1, "years")}
 			/>

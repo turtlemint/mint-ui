@@ -125,6 +125,7 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 const StyledSelect = styled.select`
 	font-size: 14px;
 	width: 75px;
+	font-weight: bold;
 `;
 
 const HeaderWrapper = styled.div`

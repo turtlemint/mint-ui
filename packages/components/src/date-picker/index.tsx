@@ -15,11 +15,12 @@ export interface DatePicker {
 	date: moment.Moment;
 	minDate?: moment.Moment;
 	maxDate?: moment.Moment;
+	disabled?: boolean;
 	onChange: (date: moment.Moment) => void;
 }
 
-const ExampleCustomInput = React.forwardRef(
-	({ value, onClick }: any, ref: any) => {
+const CalendarInput = React.forwardRef(
+	({ value, onClick, disable }: any, ref: any) => {
 		return (
 			<div ref={ref}>
 				<Input
@@ -27,6 +28,8 @@ const ExampleCustomInput = React.forwardRef(
 					placeholder="Enter text"
 					value={value}
 					onClick={onClick}
+					disabled={disable}
+					// size="small"
 				/>
 				<CalendarIconWrapper>
 					<Icon name="calendar" {...CalendarIconProps} />
@@ -40,7 +43,8 @@ export const DatePicker = ({
 	date = moment(),
 	minDate = moment().subtract(1, "years"),
 	maxDate = moment().add(1, "years"),
-	onChange
+	onChange,
+	disabled
 }: DatePicker) => {
 	const handleDateChange = (date: any) => {
 		onChange(moment(date));
@@ -66,7 +70,7 @@ export const DatePicker = ({
 				onChange={date => handleDateChange(date)}
 				minDate={minDate.toDate()}
 				maxDate={maxDate.toDate()}
-				customInput={<ExampleCustomInput />}
+				customInput={<CalendarInput disable={disabled} />}
 			/>
 		</DatePickerWrapper>
 	);
@@ -89,8 +93,8 @@ const CalendarIconWrapper = styled.div`
 	cursor: pointer;
 	position: absolute;
 	right: 10px;
-	top: 14px;
-	background: #fff;
+	top: 10px;
+	background: none;
 	border: none;
 `;
 
