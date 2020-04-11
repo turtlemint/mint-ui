@@ -53,7 +53,7 @@
 	visibility: hidden;
 }
 
-.react-datepicker__triangle{
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle{
 	border-top: none;
 	border-bottom-color: white;
 }

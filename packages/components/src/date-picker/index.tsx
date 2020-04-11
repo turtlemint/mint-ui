@@ -18,6 +18,7 @@ export interface DatePicker {
 	disabled?: boolean;
 	onChange?: (date: moment.Moment) => void;
 	headerStyles?: React.CSSProperties;
+	navigationStyles?: React.CSSProperties;
 }
 
 const CalendarInput = React.forwardRef(
@@ -47,7 +48,8 @@ export const DatePicker = ({
 	maxDate = moment().add(10, "years"),
 	onChange,
 	disabled,
-	headerStyles
+	headerStyles,
+	navigationStyles
 }: DatePicker) => {
 	const handleDateChange = (date: any) => {
 		onChange && onChange(moment(date));
@@ -68,6 +70,7 @@ export const DatePicker = ({
 						minDate={minDate}
 						maxDate={maxDate}
 						headerStyles={headerStyles}
+						navigationStyles={navigationStyles}
 					/>
 				)}
 				selected={date.toDate()}
@@ -101,7 +104,6 @@ const CalendarIconProps = {
 };
 
 const CalendarIconWrapper = styled.div`
-	cursor: pointer;
 	position: absolute;
 	right: 10px;
 	top: 10px;

@@ -47,6 +47,10 @@ export const CustomHeaderStyle = () => {
 					backgroundColor: "#475577",
 					color: "#475577"
 				}}
+				navigationStyles={{
+					color: "white",
+					fontSize: "13px"
+				}}
 			/>
 		</div>
 	);
