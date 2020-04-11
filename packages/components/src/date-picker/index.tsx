@@ -19,16 +19,18 @@ export interface DatePicker {
 	onChange?: (date: moment.Moment) => void;
 	headerStyles?: React.CSSProperties;
 	navigationStyles?: React.CSSProperties;
+	dateFormat?: string;
 }
 
 const CalendarInput = React.forwardRef(
-	({ value, onClick, disable }: any, ref: any) => {
+	({ value, onClick, disable, dateFormat }: any, ref: any) => {
+		let formattedValue = moment(value, "MM/DD/YYYY").format(dateFormat);
 		return (
 			<div ref={ref}>
 				<Input
 					type="text"
 					placeholder="Enter text"
-					value={value}
+					value={formattedValue}
 					onClick={onClick}
 					disabled={disable}
 					size="small"
@@ -49,7 +51,8 @@ export const DatePicker = ({
 	onChange,
 	disabled,
 	headerStyles,
-	navigationStyles
+	navigationStyles,
+	dateFormat = "DD/MM/YYYY"
 }: DatePicker) => {
 	const handleDateChange = (date: any) => {
 		onChange && onChange(moment(date));
@@ -77,7 +80,9 @@ export const DatePicker = ({
 				onChange={date => handleDateChange(date)}
 				minDate={minDate.toDate()}
 				maxDate={maxDate.toDate()}
-				customInput={<CalendarInput disable={disabled} />}
+				customInput={
+					<CalendarInput disable={disabled} dateFormat={dateFormat} />
+				}
 			/>
 		</DatePickerWrapper>
 	);
