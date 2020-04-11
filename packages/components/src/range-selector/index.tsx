@@ -6,8 +6,6 @@ import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
 import {
-	ITrackProps,
-	IStyledTrack,
 	IRenderTrackCallbackProps,
 	IRenderThumbCallbackProps
 } from "./interfaces";
@@ -39,12 +37,6 @@ export const RangeSelector = ({
 	onFinalChange,
 	...rest
 }: RangeSelector) => {
-	const Track = React.forwardRef(
-		(props: ITrackProps, ref: React.Ref<any>) => {
-			return <StyledTrack {...{ ...props, trackRef: ref }} />;
-		}
-	);
-
 	const handleChange = (values: number[]): void => {
 		onChange(values[0]);
 	};
@@ -70,25 +62,31 @@ export const RangeSelector = ({
 					props: IRenderTrackCallbackProps;
 					children: React.ReactNode;
 				}): React.ReactNode => (
-					<Track
-						ref={props.ref}
-						{...{
-							...props,
-							children,
-							min,
-							max,
-							value,
-							disabled,
-							trackFilledColor
-						}}
-					/>
+					<TrackWrapper
+						onMouseDown={props.onMouseDown}
+						onTouchStart={props.onTouchStart}
+						style={{ ...props.style }}
+					>
+						{
+							<TrackLine
+								ref={props.ref}
+								min={min}
+								max={max}
+								value={value}
+								disabled={disabled}
+								trackFilledColor={trackFilledColor}
+							>
+								{children}
+							</TrackLine>
+						}
+					</TrackWrapper>
 				)}
 				renderThumb={({
 					props
 				}: {
 					props: IRenderThumbCallbackProps;
 				}): React.ReactNode => (
-					<StyledThumb key={props.key} disabled>
+					<StyledThumb key={props.key} {...props} disabled>
 						{rest.showLabel ? (
 							<StyledThumbLabel>
 								{labelFormatter
@@ -147,33 +145,13 @@ const EndLabel = styled.div`
 	float: right;
 `;
 
-export const StyledTrack = (props: IStyledTrack) => {
-	return (
-		<TrackWrapper
-			onMouseDown={props.onMouseDown}
-			onTouchStart={props.onTouchStart}
-			style={props.style}
-		>
-			<TrackLine
-				ref={props.trackRef}
-				min={props.min}
-				max={props.max}
-				value={props.value}
-				disabled={props.disabled}
-				trackFilledColor={props.trackFilledColor}
-			>
-				{props.children}
-			</TrackLine>
-		</TrackWrapper>
-	);
-};
-
 const TrackWrapper = styled.div`
 	height: 36px;
 	display: flex;
 	width: 100%;
 	position: relative;
 `;
+
 const TrackLine = styled.div<{
 	value: number;
 	min: number;

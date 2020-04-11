@@ -16,9 +16,15 @@ exports[`RangeSelector tests renders correcty 1`] = `
         value="0"
       >
         <div
+          aria-valuemax="10000"
+          aria-valuemin="0"
+          aria-valuenow="0"
           class="range-selector__StyledThumb-sc-1s3z4an-6 jOejeO"
           disabled=""
-          style="transform: translate(NaNpx, NaNpx);"
+          draggable="false"
+          role="slider"
+          style="position: absolute; z-index: 0; cursor: grab; user-select: none; transform: translate(NaNpx, NaNpx);"
+          tabindex="0"
         >
           <div
             class="range-selector__StyledThumbLabel-sc-1s3z4an-1 cDKYeU"
