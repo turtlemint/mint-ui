@@ -16,7 +16,8 @@ export interface DatePicker {
 	minDate?: moment.Moment;
 	maxDate?: moment.Moment;
 	disabled?: boolean;
-	onChange: (date: moment.Moment) => void;
+	onChange?: (date: moment.Moment) => void;
+	headerStyles?: React.CSSProperties;
 }
 
 const CalendarInput = React.forwardRef(
@@ -41,13 +42,14 @@ const CalendarInput = React.forwardRef(
 
 export const DatePicker = ({
 	date = moment(),
-	minDate = moment().subtract(1, "years"),
-	maxDate = moment().add(1, "years"),
+	minDate = moment().subtract(10, "years"),
+	maxDate = moment().add(10, "years"),
 	onChange,
-	disabled
+	disabled,
+	headerStyles
 }: DatePicker) => {
 	const handleDateChange = (date: any) => {
-		onChange(moment(date));
+		onChange && onChange(moment(date));
 	};
 
 	return (
@@ -64,6 +66,7 @@ export const DatePicker = ({
 						nextMonthButtonDisabled={props.nextMonthButtonDisabled}
 						minDate={minDate}
 						maxDate={maxDate}
+						headerStyles={headerStyles}
 					/>
 				)}
 				selected={date.toDate()}
@@ -74,6 +77,13 @@ export const DatePicker = ({
 			/>
 		</DatePickerWrapper>
 	);
+};
+
+DatePicker.defaultProps = {
+	date: moment(),
+	minDate: moment().subtract(10, "years"),
+	maxDate: moment().add(10, "years"),
+	disabled: false
 };
 
 const DatePickerWrapper = styled.div`

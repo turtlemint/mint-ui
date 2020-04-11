@@ -7,17 +7,46 @@ export default {
 	component: DatePicker
 };
 
-export const TestDatePicker = () => {
+export const Default = () => {
+	let [date, updateDate] = React.useState(moment());
+	return (
+		<div style={{ height: "250px" }}>
+			<DatePicker date={date} onChange={updateDate} />
+		</div>
+	);
+};
+
+export const MinMax = () => {
+	let [date, updateDate] = React.useState(moment());
+	return (
+		<div style={{ height: "250px" }}>
+			<DatePicker
+				date={date}
+				onChange={updateDate}
+				minDate={moment().subtract(1, "year")}
+				maxDate={moment().add(1, "years")}
+			/>
+		</div>
+	);
+};
+
+export const disabled = () => {
+	return (
+		<div style={{ height: "250px" }}>
+			<DatePicker date={moment()} disabled={true} />
+		</div>
+	);
+};
+
+export const CustomHeaderStyle = () => {
 	return (
 		<div style={{ height: "250px" }}>
 			<DatePicker
 				date={moment()}
-				onChange={date => {
-					date;
+				headerStyles={{
+					backgroundColor: "#475577",
+					color: "#475577"
 				}}
-				// disabled={true}
-				// minDate={moment().subtract(1, "year")}
-				// maxDate={moment().add(1, "years")}
 			/>
 		</div>
 	);

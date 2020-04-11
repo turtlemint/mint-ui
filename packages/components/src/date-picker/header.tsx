@@ -75,7 +75,7 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 	};
 
 	return (
-		<HeaderWrapper>
+		<HeaderWrapper style={props.headerStyles}>
 			<LeftNavigation
 				onClick={rest.decreaseMonth}
 				disabled={rest.prevMonthButtonDisabled}

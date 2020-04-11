@@ -19,6 +19,7 @@ export interface IHeaderProps extends IRenderHeaderProps {
 	date?: Date;
 	minDate: moment.Moment;
 	maxDate: moment.Moment;
+	headerStyles?: React.CSSProperties;
 }
 
 export interface IMonthProps {
