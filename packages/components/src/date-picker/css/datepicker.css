@@ -54,5 +54,6 @@
 }
 
 .react-datepicker__triangle{
+	border-top: none;
 	border-bottom-color: white;
 }

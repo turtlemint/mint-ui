@@ -30,7 +30,8 @@ const CalendarInput = React.forwardRef(
 					value={value}
 					onClick={onClick}
 					disabled={disable}
-					// size="small"
+					size="small"
+					block={true}
 				/>
 				<CalendarIconWrapper>
 					<Icon name="calendar" {...CalendarIconProps} />

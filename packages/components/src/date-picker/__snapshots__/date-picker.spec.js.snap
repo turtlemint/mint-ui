@@ -13,11 +13,11 @@ exports[`RangeSelector tests renders correcty 1`] = `
       >
         <div>
           <div
-            class="input__StyledWrapper-sc-1pvgcfx-0 gIclKW"
+            class="input__StyledWrapper-sc-1pvgcfx-0 gNoaoS"
           >
             <input
               aria-label="tm-input"
-              class="input__StyledInput-sc-1pvgcfx-1 ecPMUy"
+              class="input__StyledInput-sc-1pvgcfx-1 gFOMrt"
               name=""
               placeholder="Enter text"
               type="text"
