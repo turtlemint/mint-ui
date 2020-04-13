@@ -20,6 +20,7 @@ export interface DatePicker {
 	headerStyles?: React.CSSProperties;
 	navigationStyles?: React.CSSProperties;
 	dateFormat?: string;
+	style?: React.CSSProperties;
 }
 
 const CalendarInput = React.forwardRef(
@@ -52,14 +53,15 @@ export const DatePicker = ({
 	disabled,
 	headerStyles,
 	navigationStyles,
-	dateFormat = "DD/MM/YYYY"
+	dateFormat = "DD/MM/YYYY",
+	style
 }: DatePicker) => {
 	const handleDateChange = (date: any) => {
 		onChange && onChange(moment(date));
 	};
 
 	return (
-		<DatePickerWrapper>
+		<DatePickerWrapper style={style}>
 			<ReactDatePicker
 				renderCustomHeader={(props: IRenderHeaderProps) => (
 					<Header
