@@ -5,6 +5,7 @@ import { CommonTypeTuple, ChangeHandler, BlurHandler } from "../__utils/type";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
+type InputSizeType = "large" | "small" | "default";
 export interface InputProps {
 	/** htmlType of the input */
 	type?: string;
@@ -22,11 +23,11 @@ export interface InputProps {
 	onChange?: ChangeHandler<string>;
 	/** callback for onBlur of the input */
 	onBlur?: BlurHandler<string>;
-	size?: "large" | "small" | "default";
+	size?: InputSizeType;
 }
 
 type ReactInput = React.InputHTMLAttributes<HTMLInputElement>;
-type InputArgs = InputProps & Omit<ReactInput, "onChange" | "onBlur">;
+type InputArgs = InputProps & Omit<ReactInput, "onChange" | "onBlur" | "size">;
 
 export const Input = ({
 	type = "text",
@@ -61,7 +62,7 @@ export const Input = ({
 				value={value}
 				className={className}
 				aria-label="tm-input"
-				size={size}
+				inputSize={size}
 				{...rest}
 			/>
 		</StyledWrapper>
@@ -73,7 +74,11 @@ const StyledWrapper = styled.div<{ block: boolean }>`
 	width: ${({ block }) => (block ? "100%" : "328px")};
 	text-align: left;
 `;
-export const StyledInput = styled.input<InputProps>`
+export const StyledInput = styled.input<{
+	error?: string;
+	disabled?: boolean;
+	inputSize?: InputSizeType;
+}>`
 	box-sizing: border-box;
 	border: 0;
 	border: 1px solid ${COLORS.GREY4};
@@ -137,14 +142,14 @@ export const StyledInput = styled.input<InputProps>`
 				color: ${COLORS.GREY3};
 			}
 		`};
-	${({ size }) =>
-		size === "small" &&
+	${({ inputSize }) =>
+		inputSize === "small" &&
 		css`
 			padding-top: 8px;
 			padding-bottom: 8px;
 		`}
-	${({ size }) =>
-		size === "large" &&
+	${({ inputSize }) =>
+		inputSize === "large" &&
 		css`
 			padding-top: 14px;
 			padding-bottom: 14px;

@@ -14,7 +14,6 @@ interface FormProps {
 	/** layout can take values from  horizontal, vertical and inline. Horizontal is default  */
 	layout?: DisplayType;
 	formState?: any;
-	style?: React.CSSProperties;
 	children: any;
 }
 export interface Rule {
@@ -58,9 +57,7 @@ const formWithRef = (props: FormProps, ref: any) => {
 		layout = "horizontal",
 		onSubmit = () => {},
 		formState,
-		style,
-		children,
-		...rest
+		children
 	} = props;
 	const [state, setState] = React.useState<any>(formState ?? {});
 	const [errors, setErrors] = React.useState<any>({});
@@ -75,6 +72,7 @@ const formWithRef = (props: FormProps, ref: any) => {
 		return false;
 	};
 
+	// Called on blur
 	const handleError = (rules: Rule[], name: string, value: any) => {
 		value = typeof value === "string" ? value.trim() : value;
 		if (rules) {
@@ -138,13 +136,9 @@ const formWithRef = (props: FormProps, ref: any) => {
 		}
 	};
 
+	// Called on each keystroke
 	const handleChange = (value: any, name: string) => {
 		setState({ ...state, [name]: value });
-	};
-
-	const isError = () => {
-		const result = Object.keys(errors).filter(field => errors[field]);
-		return result.length ? true : false;
 	};
 
 	const handleSubmit = (e: React.FormEvent) => {
@@ -155,19 +149,20 @@ const formWithRef = (props: FormProps, ref: any) => {
 	};
 	const requiredFields: any = {};
 
-	const isFormEmpty = (): boolean => {
-		let isEmpty = false;
+	const isError = (): boolean => {
+		// throw error only if rule is violated on any of the required fields
+		let isError = false;
 		for (let key in requiredFields) {
-			if (ifEmpty(state[key])) {
-				isEmpty = true;
+			if (ifEmpty(state[key]) || errors[key]) {
+				isError = true;
 				break;
 			}
 		}
-		return isEmpty;
+		return isError;
 	};
 
 	React.useImperativeHandle(ref, () => ({
-		validate: () => !(isError() || isFormEmpty()),
+		validate: () => !isError(),
 		getFormState: () => state,
 		setFormState: (state: any) => {
 			setState({ ...state });
@@ -178,11 +173,11 @@ const formWithRef = (props: FormProps, ref: any) => {
 	}));
 
 	return (
-		<form name={name} onSubmit={handleSubmit} style={style} {...rest}>
+		<form name={name} onSubmit={handleSubmit}>
 			{React.Children.map(children, child => {
 				const { rules, name } = child.props;
 				if (child.props.submit) {
-					const disabled = isError() || isFormEmpty();
+					const disabled = isError();
 					return React.cloneElement(child, {
 						disabled,
 						layout

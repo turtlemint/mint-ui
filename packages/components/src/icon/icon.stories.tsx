@@ -327,6 +327,12 @@ export const allIcons = () => {
 				</IconWrapper>
 				<Caption>cloud_download</Caption>
 			</Wrapper>
+			<Wrapper>
+				<IconWrapper>
+					<Icon name="calendar" {...props} />
+				</IconWrapper>
+				<Caption>Calendar</Caption>
+			</Wrapper>
 		</>
 	);
 };
