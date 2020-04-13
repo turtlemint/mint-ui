@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker tests renders correcty 1`] = `
+<DocumentFragment>
+  <div
+    class="date-picker__DatePickerWrapper-sc-1xeybem-0 jFIckO"
+  >
+    <div
+      class="react-datepicker-wrapper"
+    >
+      <div
+        class="react-datepicker__input-container"
+      >
+        <div>
+          <div
+            class="input__StyledWrapper-sc-1pvgcfx-0 gNoaoS"
+          >
+            <input
+              aria-label="tm-input"
+              class="input__StyledInput-sc-1pvgcfx-1 gFOMrt"
+              name=""
+              placeholder="Enter text"
+              type="text"
+              value="13/04/2020"
+            />
+          </div>
+          <div
+            class="date-picker__CalendarIconWrapper-sc-1xeybem-1 knMMOB"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="17"
+              preserveAspectRatio="xMidYMid meet"
+              style="transform: rotate(360deg);"
+              viewBox="0 0 448 512"
+              width="17"
+            >
+              <path
+                d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"
+                fill="#626262"
+              />
+              <rect
+                fill="rgba(0, 0, 0, 0)"
+                height="512"
+                width="448"
+                x="0"
+                y="0"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
