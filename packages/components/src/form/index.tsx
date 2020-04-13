@@ -14,6 +14,7 @@ interface FormProps {
 	/** layout can take values from  horizontal, vertical and inline. Horizontal is default  */
 	layout?: DisplayType;
 	formState?: any;
+	style?: React.CSSProperties;
 	children: any;
 }
 export interface Rule {
@@ -57,7 +58,9 @@ const formWithRef = (props: FormProps, ref: any) => {
 		layout = "horizontal",
 		onSubmit = () => {},
 		formState,
-		children
+		style,
+		children,
+		...rest
 	} = props;
 	const [state, setState] = React.useState<any>(formState ?? {});
 	const [errors, setErrors] = React.useState<any>({});
@@ -175,7 +178,7 @@ const formWithRef = (props: FormProps, ref: any) => {
 	}));
 
 	return (
-		<form name={name} onSubmit={handleSubmit}>
+		<form name={name} onSubmit={handleSubmit} style={style} {...rest}>
 			{React.Children.map(children, child => {
 				const { rules, name } = child.props;
 				if (child.props.submit) {
