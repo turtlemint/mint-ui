@@ -10,7 +10,6 @@ export enum COLORS {
 	DISABLED = "#d2d5d6",
 	WHITE = "#fff",
 	BLACK = "#121617",
-	BLACK1 = "##475577",
 	GREY1 = "#4d5556",
 	GREY2 = "#6c7375",
 	GREY3 = "#a1a6a7",

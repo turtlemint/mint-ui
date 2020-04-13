@@ -22,6 +22,7 @@ import { default as Pagination } from "./src/pagination";
 import { default as Form } from "./src/form";
 import { default as COLORS } from "./src/colors";
 import { default as RangeSelector } from "./src/range-selector";
+import { default as ProgressBar } from "./src/progress-bar";
 
 export {
 	Button,
@@ -48,5 +49,6 @@ export {
 	Pagination,
 	Form,
 	COLORS,
-	RangeSelector
+	RangeSelector,
+	ProgressBar
 };
