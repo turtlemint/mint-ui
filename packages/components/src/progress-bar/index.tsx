@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import COLORS from "../__utils/colors";
@@ -82,17 +81,5 @@ const ProgressBox = styled.div`
 	overflow: hidden;
 	width: 100%;
 `;
-
-ProgressBar.propTypes = {
-	progress: PropTypes.number,
-	title: PropTypes.string,
-	showProgressPercent: PropTypes.bool
-};
-
-ProgressBar.defaultProps = {
-	progress: 0,
-	title: "",
-	showProgressPercent: true
-};
 
 export default ProgressBar;
