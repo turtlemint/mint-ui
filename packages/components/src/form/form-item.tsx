@@ -31,6 +31,7 @@ export interface FormItemProps {
 	labelCol?: labelCol;
 	/** flex value for form control field */
 	fieldCol?: labelCol;
+	style?: React.CSSProperties;
 	children: any;
 }
 
@@ -47,13 +48,14 @@ export const FormItem = ({
 	inline = false,
 	labelCol,
 	fieldCol,
+	style,
 	children
 }: FormItemProps) => {
 	const handleBlur = (value: any) => {
 		rules ? handleError(rules, name, value) : null;
 	};
 	return (
-		<Wrapper layout={layout}>
+		<Wrapper layout={layout} style={style}>
 			{layout !== "inline" ? (
 				<Label
 					inline={inline}
