@@ -3839,15 +3839,6 @@
     "@testing-library/dom" "^6.3.0"
     "@types/testing-library__react" "^9.1.0"
 
-"@turtlemint/ui-core@^0.1.3":
-  version "0.1.3"
-  resolved "http://nexus.turtlemint.com/repository/npm-group/@turtlemint/ui-core/-/ui-core-0.1.3.tgz#344ce1ff4e90929ed8af0a583447de6a153ab7b0"
-  integrity sha512-vsxpnvscrqapU/sS876FI5rDYxLcprXdS0vXeu2ZE/NuL2gdgjXycNWxLfyT4rxPrfLS3SetrrI8VYJWSYZEsw==
-  dependencies:
-    react "16.8.6"
-    react-dom "16.8.6"
-    styled-components "4.3.2"
-
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-7.0.7.tgz#667eb1640e8039436028055737d2b9986ee336e3"
