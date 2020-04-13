@@ -1,19 +1,19 @@
 import * as React from "react";
 import { render, cleanup } from "@testing-library/react";
-import RangeSelector from "./";
+import DatePicker from "./";
 
-export const TestRangeSelector = () => {
+export const TestDatePicker = () => {
 	
 	return (
-		<RangeSelector />
+		<DatePicker />
 	);
 };
 
 afterEach(cleanup);
 
-describe("RangeSelector tests", () => {
+describe("DatePicker tests", () => {
 	test("renders correcty", () => {
-		const { asFragment } = render(<TestRangeSelector />);
+		const { asFragment } = render(<TestDatePicker />);
 		expect(asFragment()).toMatchSnapshot();
 	});
 	
