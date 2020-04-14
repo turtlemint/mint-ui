@@ -165,3 +165,24 @@ export const disabled = () => (
 		</Col>
 	</Row>
 );
+
+export const radio = () => (
+	<Row>
+		<Col>
+			<RadioGroup
+				buttonStyle="radio"
+				size="default"
+				value="item-1"
+				layout="vertical"
+				onChange={(val: any) => {
+					console.log(val);
+				}}
+			>
+				<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
+				<RadioGroup.Button value="item-2">Item 2</RadioGroup.Button>
+				<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
+				<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
+			</RadioGroup>
+		</Col>
+	</Row>
+);
