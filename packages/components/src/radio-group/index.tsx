@@ -6,15 +6,17 @@ import { GlobalStyles } from "../app";
 
 const Size = tuple("large", "small", "default");
 type ButtonSize = typeof Size[number];
-const BtnType = tuple("outline", "solid");
+const Layout = tuple("vertical", "default");
+type ButtonLayout = typeof Layout[number];
+const BtnType = tuple("outline", "solid", "radio");
 type ButtonType = typeof BtnType[number];
-
 type ValueType = string | number;
 
 interface RadioGroupProps {
 	name?: string;
 	disabled?: boolean;
 	size?: ButtonSize;
+	layout?: ButtonLayout;
 	value?: ValueType;
 	onChange?: ChangeHandler<ValueType>;
 	onBlur?: BlurHandler<ValueType>;
@@ -26,6 +28,7 @@ interface RadioGroupProps {
 export const RadioGroup = ({
 	name = "",
 	size,
+	layout,
 	value = "",
 	onChange = () => {},
 	onBlur = () => {},
@@ -50,6 +53,7 @@ export const RadioGroup = ({
 			tabIndex={0}
 			ref={() => (previousVal.current = value)}
 			disabled={disabled}
+			layout={layout}
 			onBlur={() => onBlur(previousVal.current)}
 		>
 			{React.Children.map(children, (child: React.CElement<any, any>) =>
@@ -57,6 +61,7 @@ export const RadioGroup = ({
 					onClick: handleClick,
 					buttonStyle,
 					size,
+					layout,
 					disabled,
 					activeValue: selectedValue
 				})
@@ -65,7 +70,7 @@ export const RadioGroup = ({
 	);
 };
 
-const Wrapper = styled.div<{ disabled?: boolean }>`
+const Wrapper = styled.div<{ disabled?: boolean; layout?: ButtonLayout }>`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -75,11 +80,19 @@ const Wrapper = styled.div<{ disabled?: boolean }>`
 		css`
 			outline: none;
 		`}
+	${({ layout }) =>
+		layout === "vertical" &&
+		css`
+			border:none
+			outline: none;
+			flex-direction: column
+		`}
 `;
 
 interface LabelProps {
 	isActive?: boolean;
 	size?: ButtonSize;
+	layout?: ButtonLayout;
 	buttonStyle?: ButtonType;
 	disabled: boolean;
 	onClick: (val: string) => void;
@@ -109,6 +122,7 @@ const Label = styled.label<Omit<LabelProps, "onClick">>`
 	:focus-within {
 		outline: 3px solid rgba(24, 144, 255, 0.06);
 	}
+
 	${({ isActive }) =>
 		isActive &&
 		css`
@@ -160,6 +174,48 @@ const Label = styled.label<Omit<LabelProps, "onClick">>`
 			color: ${COLORS.DISABLED};
 			border-color: ${COLORS.GREY4};
 		`}
+
+	${({ buttonStyle }) =>
+		buttonStyle === "radio" &&
+		css`
+			position: relative;
+			border: none;
+			border-right: none;
+			padding-left: 24px;
+			:last-child {
+				border-right: none;
+			}
+			::before {
+				content: "";
+				position: absolute;
+				height: 14px;
+				width: 14px;
+				left: 0px;
+				top: 12px;
+				border-radius: 50%;
+				border: 1px solid ${COLORS.GREY3};
+			}
+			::after {
+				position: absolute;
+				content: "";
+				height: 8px;
+				width: 8px;
+				left: 4px;
+				top: 16px;
+				border-radius: 50%;
+			}
+		`}
+	${({ isActive, buttonStyle }) =>
+		isActive &&
+		buttonStyle === "radio" &&
+		css`
+			::before {
+				border: 1px solid ${COLORS.PRIMARY};
+			}
+			::after {
+				background: ${COLORS.PRIMARY};
+			}
+		`}	
 `;
 
 interface ButtonProps {
