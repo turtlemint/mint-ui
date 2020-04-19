@@ -32,14 +32,13 @@ export const List = styled.ul`
 `;
 
 export interface OptionProps {
-	key?: string | number;
 	disabled?: boolean;
 	value?: string | number;
 	title?: string;
 	children?: React.ReactNode;
 	className?: string;
 	style?: React.CSSProperties;
-	onClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+	onClick?: any;
 }
 
 export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
@@ -74,19 +73,13 @@ export interface SelectedOption {
 	text: string;
 }
 export const Option = ({
-	key,
 	value,
 	disabled = false,
 	children,
 	onClick
 }: OptionProps) => {
 	return (
-		<StyledOption
-			key={key}
-			value={value}
-			disabled={disabled}
-			onClick={onClick}
-		>
+		<StyledOption value={value} disabled={disabled} onClick={onClick}>
 			{children}
 		</StyledOption>
 	);
@@ -94,29 +87,39 @@ export const Option = ({
 
 interface DropdownProps {
 	onSelect?: (option: SelectedOption) => void;
-	children:
+	listData?: any;
+	style?: React.CSSProperties;
+	children?:
 		| React.ComponentElement<any, any>
 		| React.ComponentElement<any, any>[];
 }
 
-export const Dropdown = ({ onSelect, children }: DropdownProps) => {
-	const handleSelect = (event: React.ChangeEvent<HTMLDivElement>) => {
+export const Dropdown = ({ onSelect, listData, children }: DropdownProps) => {
+	const handleSelect = (event: any) => {
 		const text = event.target.innerText || event.target.textContent || "";
 		const value = event.target.getAttribute("value") || "";
-		if (event.target) {
-			onSelect ? onSelect({ value, text }) : null;
-		}
+		onSelect ? onSelect({ value, text }) : null;
 	};
 	return (
 		<DropdownWrapper data-testid="dropdown">
 			<List>
-				{React.Children.map(
-					children,
-					(child: React.CElement<any, any>) =>
-						React.cloneElement(child, {
-							onClick: handleSelect
-						})
-				)}
+				{listData
+					? listData.map((d: any) => (
+							<Option
+								key={d.value}
+								value={d.value}
+								onClick={handleSelect}
+							>
+								{d.text}
+							</Option>
+					  ))
+					: React.Children.map(
+							children as any,
+							(child: React.CElement<any, any>) =>
+								React.cloneElement(child, {
+									onClick: handleSelect
+								})
+					  )}
 			</List>
 		</DropdownWrapper>
 	);

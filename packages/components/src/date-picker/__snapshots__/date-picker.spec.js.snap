@@ -21,7 +21,7 @@ exports[`DatePicker tests renders correcty 1`] = `
               name=""
               placeholder="Enter text"
               type="text"
-              value="13/04/2020"
+              value="19/04/2020"
             />
           </div>
           <div

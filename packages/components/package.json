@@ -24,10 +24,12 @@
     "dependencies": {
         "@svgr/cli": "^4.3.3",
         "@types/marked": "^0.7.0",
+        "@types/query-string": "^6.3.0",
         "@types/react-datepicker": "^2.11.0",
         "create-index": "^2.5.0",
         "marked": "^0.7.0",
         "polished": "^3.4.2",
+        "query-string": "^6.12.1",
         "react": "16.8.6",
         "react-datepicker": "^2.14.1",
         "react-dom": "16.8.6",
