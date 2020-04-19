@@ -5,6 +5,7 @@ import Icon from "../icon";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 import { ChangeHandler } from "../__utils/type";
+import queryString from "query-string";
 
 interface SelectProps {
 	/** name of the select element */
@@ -24,9 +25,17 @@ interface SelectProps {
 	style?: React.CSSProperties;
 	/** Select CTA styles */
 	innerStyle?: React.CSSProperties;
-	children:
+	data?: AsyncProps;
+	children?:
 		| React.ComponentElement<any, any>
 		| React.ComponentElement<any, any>[];
+}
+export interface AsyncProps {
+	url: string;
+	params: any;
+	dataKey: string;
+	valueKey: string;
+	displayKey: string;
 }
 
 export const Select = ({
@@ -39,6 +48,7 @@ export const Select = ({
 	disabled = false,
 	style,
 	innerStyle,
+	data,
 	children
 }: SelectProps) => {
 	const selectEl = React.useRef<HTMLDivElement>(null);
@@ -53,15 +63,42 @@ export const Select = ({
 		setOpen(false);
 		valueRef.current = option;
 	};
-
+	const [listData, setListData] = React.useState();
 	const toggleDropdown = () => {
-		setOpen(!open);
+		if (data) {
+			const { url, params, valueKey, displayKey, dataKey } = data;
+			// Make an API call and set data for Dropdown
+			fetch(`${url}?${queryString.stringify(params)}`)
+				.then(response => response.json())
+				.then(jsonR => {
+					const finalList = jsonR[dataKey].reduce(
+						(acc: Array<any>, item: any) => {
+							acc.push({
+								value: item[valueKey],
+								text: item[displayKey]
+							});
+							return acc;
+						},
+						[]
+					);
+					setListData(finalList);
+					setOpen(!open);
+				});
+		} else {
+			setOpen(!open);
+		}
 	};
 	const handleBlur = () => {
 		setOpen(false);
 		onBlur(valueRef.current);
 	};
+	const render = () => {
+		if (!open) return null;
+		if (listData)
+			return <Dropdown onSelect={handleSelect} listData={listData} />;
 
+		return <Dropdown onSelect={handleSelect}>{children}</Dropdown>;
+	};
 	return (
 		<SelectWrapper
 			ref={selectEl}
@@ -81,9 +118,7 @@ export const Select = ({
 				onClick={toggleDropdown}
 				style={innerStyle}
 			/>
-			{open ? (
-				<Dropdown onSelect={handleSelect}>{children}</Dropdown>
-			) : null}
+			{render()}
 		</SelectWrapper>
 	);
 };

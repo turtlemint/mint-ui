@@ -2,9 +2,8 @@ import * as React from "react";
 import Form, { DisplayType } from "./index";
 import Input from "../input";
 import Select from "../select";
-import { Option, SelectedOption } from "../select/dropdown";
+import { Option } from "../select/dropdown";
 import TypeAhead from "../typeahead";
-import { ChangeHandler } from "../__utils/type";
 import axios from "axios";
 import styled from "styled-components";
 import RadioGroup from "../radio-group";
@@ -71,10 +70,7 @@ export const seedState = () => {
 		setOpen(true);
 		setFetching(false);
 	};
-	const handleSelect: ChangeHandler<SelectedOption> = (option, name) => {
-		console.log(name, option);
-		setOpen(false);
-	};
+
 	const formState = {
 		firstName: "Your",
 		lastName: "Name",
@@ -174,7 +170,6 @@ export const seedState = () => {
 							name="some-typeahead"
 							loading={fetching}
 							fetchFunc={fetchUser}
-							onChange={handleSelect}
 							open={open}
 							placeholder="Select user..."
 						>
@@ -337,7 +332,7 @@ export const layout = () => {
 };
 
 export const SideEffects = () => {
-	const [state] = React.useState({
+	const [state, setState] = React.useState({
 		statename: "",
 		city: undefined
 	});
@@ -361,7 +356,7 @@ export const SideEffects = () => {
 				statename: "Karnataka"
 			};
 		}
-		formRef.current.setFormState(newState);
+		setState(newState);
 	};
 	return (
 		<LayoutWrapper>
@@ -405,6 +400,7 @@ export const SideEffects = () => {
 							<Option value="coorg">Coorg</Option>
 						</Select>
 					</Form.Item>
+
 					<Form.Row submit justify="center">
 						<Button
 							size="small"
@@ -424,14 +420,10 @@ export const SideEffects = () => {
 				<hr />
 				<p>
 					Legit sophisticated `Form` ends here. Below is an entry into
-					imperative handlers to show more dynamism we have or maybe
-					to just show we can break rules too. IDK!
+					imperative handlers to show more dynamism which in some
+					cases maybe required.
 				</p>
-				<p style={{ color: COLORS.DANGER_LIGHT }}>
-					Statutory Warning: Not recommended way. Choose only when you
-					are on verge of World War 3 with your unsavvy/unfriendly
-					designer
-				</p>
+
 				<Row style={{ marginTop: "30px" }} justify="center">
 					<Button
 						title="Validate manually"
@@ -459,5 +451,49 @@ export const SideEffects = () => {
 				</Row>
 			</Card>
 		</LayoutWrapper>
+	);
+};
+
+export const fieldsFromJSON = () => {
+	const selectConfig = {
+		url: "https://api.publicapis.org/entries?category=finance&https=true",
+		params: {
+			// fill the params here or later in app flow dynamically as you wish
+			category: "business",
+			https: true
+		},
+		dataKey: "entries",
+		valueKey: "Link", // this will usually be id key
+		displayKey: "API"
+	};
+	return (
+		<Form name="configDriven" onSubmit={() => {}}>
+			<Form.Item
+				label="Business"
+				name="business"
+				labelCol={{ span: 4 }}
+				fieldCol={{ span: 8 }}
+				rules={[
+					{
+						required: true,
+						message: "You need to select a business here"
+					}
+				]}
+			>
+				<Select
+					data={selectConfig}
+					placeholder="Select a business..."
+				/>
+			</Form.Item>
+			<Form.Row submit justify="center">
+				<Button
+					size="small"
+					btnType="solid"
+					btnStyle="primary"
+					htmlType="submit"
+					title="Submit"
+				/>
+			</Form.Row>
+		</Form>
 	);
 };
