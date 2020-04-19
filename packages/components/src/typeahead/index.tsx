@@ -21,7 +21,7 @@ export interface TypeAheadProps {
 	open?: boolean;
 	loading?: boolean;
 	value?: SelectedOption;
-	onChange: ChangeHandler<SelectedOption>;
+	onChange?: ChangeHandler<SelectedOption>;
 	onBlur?: (value: any) => void;
 	fetchFunc: (value: string) => any;
 	children:

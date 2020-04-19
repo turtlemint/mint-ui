@@ -67,35 +67,36 @@ export const basic = () => {
 	);
 };
 
-export const disabled = () => {
-	interface DataItem {
-		text?: string;
-		value?: string;
-	}
-
-	const data: DataItem[] = [
-		{
-			text: "Select Value",
-			value: ""
+export const asyncList = () => {
+	const [state, setState] = React.useState<any>();
+	const dataConfig = {
+		url: "https://api.publicapis.org/entries",
+		params: {
+			// fill the params here or later in app flow dynamically as you wish
+			category: "business",
+			https: true
 		},
-		{
-			value: "item1",
-			text: "Item 1"
-		},
-		{
-			value: "item2",
-			text: "Item 2"
-		}
-	];
+		dataKey: "entries",
+		valueKey: "Link", // this will usually be id key
+		displayKey: "API"
+	};
+	const handleSelect = (option: SelectedOption) => {
+		setState(option);
+	};
 	return (
-		<div>
-			<Select name="demo-select" disabled>
-				{data.map((d: any) => (
-					<Option key={d.value} value={d.value}>
-						{d.text}
-					</Option>
-				))}
-			</Select>
+		<div style={{ paddingBottom: "100px" }}>
+			<p>
+				Just supply the data object configuration in specified format
+				and rest is handled
+			</p>
+			<Select
+				style={{ paddingBottom: "40px" }}
+				name="async-select"
+				value={state}
+				data={dataConfig}
+				onChange={handleSelect}
+				placeholder="Select one..."
+			/>
 		</div>
 	);
 };
