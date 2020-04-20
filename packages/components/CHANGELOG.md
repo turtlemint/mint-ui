@@ -1,3 +1,7 @@
+### 3.9.0
+#### Added
+- Async Select
+
 ### 3.8.0
 #### Added
 - Progress Bar component
