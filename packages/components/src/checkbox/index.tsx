@@ -86,10 +86,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 					checked={value}
 					indeterminate={indeterminate}
 				/>
+
+				{children !== undefined && (
+					<span style={{ marginLeft: 8 }}>{children}</span>
+				)}
 			</CheckboxContainer>
-			{children !== undefined && (
-				<span style={{ marginLeft: 8 }}>{children}</span>
-			)}
 		</label>
 	);
 };
