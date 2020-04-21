@@ -1,3 +1,8 @@
+### 4.0.0
+#### Changed
+- Changed the API for radiogroup to use radios prop for rendering children
+- fixed Panel export
+
 ### 3.9.0
 #### Added
 - Async Select
