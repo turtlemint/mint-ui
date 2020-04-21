@@ -191,4 +191,5 @@ const Body = styled.div`
 	border-bottom: 1px solid ${COLORS.BORDER};
 `;
 
+Collapse.Panel = Panel;
 export default Collapse;

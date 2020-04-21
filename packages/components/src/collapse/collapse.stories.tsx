@@ -1,7 +1,9 @@
 import * as React from "react";
-import Collapse, { Panel } from "./index";
+import Collapse from "./index";
 import Icon from "../icon";
 import COLORS from "../__utils/colors";
+
+const { Panel } = Collapse;
 
 export default {
 	title: "Collapse",
