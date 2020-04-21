@@ -7,104 +7,136 @@ export default {
 	title: "RadioGroup",
 	component: RadioGroup,
 	parameters: {
-		componentSubtitle: "outlined"
+		componentSubtitle: "solid"
 	}
 };
 
-export const outlined = () => (
-	<>
-		<Row>
-			<Col>
-				<RadioGroup
-					value="item-4"
-					onChange={(val: any) => {
-						console.log(val);
-					}}
-				>
-					<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
-					<RadioGroup.Button value="item-2">Item 2</RadioGroup.Button>
-					<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
-					<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
-				</RadioGroup>
-			</Col>
-		</Row>
-		<Row style={{ marginTop: "30px" }}>
-			<Col>
-				<RadioGroup
-					value="item-1"
-					onChange={(val: any) => {
-						console.log(val);
-					}}
-				>
-					<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
-					<RadioGroup.Button disabled={true} value="item-2">
-						Item 2
-					</RadioGroup.Button>
-					<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
-					<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
-				</RadioGroup>
-			</Col>
-		</Row>
-	</>
-);
+export const solid = () => {
+	const items = [
+		{
+			value: "item-1",
+			text: "Item 1"
+		},
+		{
+			value: "item-2",
+			text: "Item 2"
+		}
+	];
+	return (
+		<RadioGroup
+			buttonStyle="solid"
+			onChange={(val: any) => {
+				console.log(val);
+			}}
+			radios={items}
+		/>
+	);
+};
+export const outlined = () => {
+	const radios = [
+		{
+			value: "item-1",
+			text: "Item 1"
+		},
+		{
+			value: "item-2",
+			text: "Item 2"
+		}
+	];
+	return (
+		<>
+			<Row>
+				<Col>
+					<RadioGroup
+						value="item-2"
+						buttonStyle="outline"
+						onChange={(val: any) => {
+							console.log(val);
+						}}
+						radios={radios}
+					/>
+				</Col>
+			</Row>
+			<Row style={{ marginTop: "30px" }}>
+				<Col>
+					<RadioGroup
+						value="item-1"
+						onChange={(val: any) => {
+							console.log(val);
+						}}
+						radios={radios}
+					/>
+				</Col>
+			</Row>
+		</>
+	);
+};
 
-export const solid = () => (
-	<>
-		<Row>
-			<Col>
-				<RadioGroup
-					buttonStyle="solid"
-					value="item-4"
-					onChange={(val: any) => {
-						console.log(val);
-					}}
-				>
-					<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
-					<RadioGroup.Button value="item-2">Item 2</RadioGroup.Button>
-					<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
-					<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
-				</RadioGroup>
-			</Col>
-		</Row>
-		<Row style={{ marginTop: "30px" }}>
-			<Col>
-				<RadioGroup
-					buttonStyle="solid"
-					value="item-4"
-					onChange={(val: any) => {
-						console.log(val);
-					}}
-				>
-					<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
-					<RadioGroup.Button disabled value="item-2">
-						Item 2
-					</RadioGroup.Button>
-					<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
-					<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
-				</RadioGroup>
-			</Col>
-		</Row>
-	</>
-);
+export const size = () => {
+	const radios = [
+		{
+			value: "item-1",
+			text: "Item 1"
+		},
+		{
+			value: "item-2",
+			text: "Item 2"
+		}
+	];
+	return (
+		<>
+			<Row>
+				<Col>
+					<RadioGroup
+						size="large"
+						value="item-4"
+						onChange={(val: any) => {
+							console.log(val);
+						}}
+						radios={radios}
+					/>
+				</Col>
+			</Row>
+			<Row style={{ marginTop: "30px" }}>
+				<Col>
+					<RadioGroup
+						size="default"
+						value="item-1"
+						onChange={(val: any) => {
+							console.log(val);
+						}}
+						radios={radios}
+					/>
+				</Col>
+			</Row>
+			<Row style={{ marginTop: "30px" }}>
+				<Col>
+					<RadioGroup
+						size="small"
+						value="item-1"
+						onChange={(val: any) => {
+							console.log(val);
+						}}
+						radios={radios}
+					/>
+				</Col>
+			</Row>
+		</>
+	);
+};
 
-export const size = () => (
-	<>
-		<Row>
-			<Col>
-				<RadioGroup
-					size="large"
-					value="item-4"
-					onChange={(val: any) => {
-						console.log(val);
-					}}
-				>
-					<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
-					<RadioGroup.Button value="item-2">Item 2</RadioGroup.Button>
-					<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
-					<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
-				</RadioGroup>
-			</Col>
-		</Row>
+export const disabled = () => {
+	const radios = [
+		{
+			value: "item-1",
+			text: "Item 1"
+		},
+		{
+			value: "item-2",
+			text: "Item 2"
+		}
+	];
+	return (
 		<Row style={{ marginTop: "30px" }}>
 			<Col>
 				<RadioGroup
@@ -113,76 +145,39 @@ export const size = () => (
 					onChange={(val: any) => {
 						console.log(val);
 					}}
-				>
-					<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
-					<RadioGroup.Button disabled={true} value="item-2">
-						Item 2
-					</RadioGroup.Button>
-					<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
-					<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
-				</RadioGroup>
+					disabled={true}
+					radios={radios}
+				/>
 			</Col>
 		</Row>
-		<Row style={{ marginTop: "30px" }}>
+	);
+};
+
+export const radio = () => {
+	const radios = [
+		{
+			value: "item-1",
+			text: "Item 1"
+		},
+		{
+			value: "item-2",
+			text: "Item 2"
+		}
+	];
+	return (
+		<Row>
 			<Col>
 				<RadioGroup
-					size="small"
+					buttonStyle="radio"
+					size="default"
 					value="item-1"
+					layout="vertical"
 					onChange={(val: any) => {
 						console.log(val);
 					}}
-				>
-					<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
-					<RadioGroup.Button disabled={true} value="item-2">
-						Item 2
-					</RadioGroup.Button>
-					<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
-					<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
-				</RadioGroup>
+					radios={radios}
+				/>
 			</Col>
 		</Row>
-	</>
-);
-
-export const disabled = () => (
-	<Row style={{ marginTop: "30px" }}>
-		<Col>
-			<RadioGroup
-				size="default"
-				value="item-1"
-				onChange={(val: any) => {
-					console.log(val);
-				}}
-				disabled={true}
-			>
-				<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
-				<RadioGroup.Button disabled={true} value="item-2">
-					Item 2
-				</RadioGroup.Button>
-				<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
-				<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
-			</RadioGroup>
-		</Col>
-	</Row>
-);
-
-export const radio = () => (
-	<Row>
-		<Col>
-			<RadioGroup
-				buttonStyle="radio"
-				size="default"
-				value="item-1"
-				layout="vertical"
-				onChange={(val: any) => {
-					console.log(val);
-				}}
-			>
-				<RadioGroup.Button value="item-1">Item 1</RadioGroup.Button>
-				<RadioGroup.Button value="item-2">Item 2</RadioGroup.Button>
-				<RadioGroup.Button value="item-3">Item 3</RadioGroup.Button>
-				<RadioGroup.Button value="item-4">Item 4</RadioGroup.Button>
-			</RadioGroup>
-		</Col>
-	</Row>
-);
+	);
+};

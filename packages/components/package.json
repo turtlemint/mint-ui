@@ -56,5 +56,8 @@
     "publishConfig": {
         "access": "public"
     },
-    "license": "GPL-3.0"
+    "license": "GPL-3.0",
+    "devDependencies": {
+        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3"
+    }
 }
