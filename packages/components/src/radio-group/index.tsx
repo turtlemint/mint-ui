@@ -21,10 +21,9 @@ interface RadioGroupProps {
 	onChange?: ChangeHandler<ValueType>;
 	onBlur?: BlurHandler<ValueType>;
 	buttonStyle?: ButtonType;
-	children:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
+	radios: ButtonProps[];
 }
+
 export const RadioGroup = ({
 	name = "",
 	size,
@@ -33,7 +32,7 @@ export const RadioGroup = ({
 	onChange = () => {},
 	onBlur = () => {},
 	buttonStyle,
-	children,
+	radios,
 	disabled,
 	...rest
 }: RadioGroupProps) => {
@@ -56,16 +55,18 @@ export const RadioGroup = ({
 			layout={layout}
 			onBlur={() => onBlur(previousVal.current)}
 		>
-			{React.Children.map(children, (child: React.CElement<any, any>) =>
-				React.cloneElement(child, {
-					onClick: handleClick,
-					buttonStyle,
-					size,
-					layout,
-					disabled,
-					activeValue: selectedValue
-				})
-			)}
+			{radios.map((child: ButtonProps, idx: number) => (
+				<Button
+					key={idx}
+					text={child.text}
+					value={child.value}
+					onClick={handleClick}
+					activeValue={selectedValue}
+					buttonStyle={buttonStyle}
+					size={size}
+					disabled={disabled ?? child.disabled}
+				/>
+			))}
 		</Wrapper>
 	);
 };
@@ -74,25 +75,54 @@ const Wrapper = styled.div<{ disabled?: boolean; layout?: ButtonLayout }>`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	outline-color: ${COLORS.PRIMARY_LIGHT};
-	${({ disabled }) =>
-		disabled &&
-		css`
-			outline: none;
-		`}
+	outline: none;
 	${({ layout }) =>
 		layout === "vertical" &&
 		css`
-			border:none
-			outline: none;
-			flex-direction: column
+			border: 0;
+			flex-direction: column;
+			align-items: flex-start;
 		`}
 `;
+
+interface ButtonProps {
+	text: string;
+	value: ValueType;
+	activeValue?: ValueType;
+	size?: ButtonSize;
+	buttonStyle?: ButtonType;
+	disabled?: boolean;
+	onClick?: (val: ValueType) => void;
+}
+
+const Button = ({
+	text,
+	value,
+	activeValue = "",
+	size,
+	buttonStyle,
+	onClick,
+	disabled = false
+}: ButtonProps) => {
+	const handleClick = () => {
+		onClick ? onClick(value) : null;
+	};
+	return (
+		<Label
+			size={size}
+			isActive={activeValue === value}
+			buttonStyle={buttonStyle}
+			onClick={handleClick}
+			disabled={disabled}
+		>
+			{text}
+		</Label>
+	);
+};
 
 interface LabelProps {
 	isActive?: boolean;
 	size?: ButtonSize;
-	layout?: ButtonLayout;
 	buttonStyle?: ButtonType;
 	disabled: boolean;
 	onClick: (val: string) => void;
@@ -118,9 +148,6 @@ const Label = styled.label<Omit<LabelProps, "onClick">>`
 		border-right: 1px solid ${COLORS.GREY4};
 		border-top-right-radius: 4px;
 		border-bottom-right-radius: 4px;
-	}
-	:focus-within {
-		outline: 3px solid rgba(24, 144, 255, 0.06);
 	}
 
 	${({ isActive }) =>
@@ -217,45 +244,5 @@ const Label = styled.label<Omit<LabelProps, "onClick">>`
 			}
 		`}	
 `;
-
-interface ButtonProps {
-	value: ValueType;
-	activeValue?: ValueType;
-	size?: ButtonSize;
-	buttonStyle?: ButtonType;
-	children: string;
-	disabled?: boolean;
-	onClick?: (val: ValueType) => void;
-}
-
-const Button = ({
-	value,
-	activeValue = "",
-	size,
-	buttonStyle,
-	onClick,
-	disabled = false,
-	children
-}: ButtonProps) => {
-	const handleClick = () => {
-		onClick ? onClick(value) : null;
-	};
-	return (
-		<>
-			<Label
-				className="radio-button"
-				size={size}
-				isActive={activeValue === value}
-				buttonStyle={buttonStyle}
-				onClick={handleClick}
-				disabled={disabled}
-			>
-				{children}
-			</Label>
-		</>
-	);
-};
-
-RadioGroup.Button = Button;
 
 export default RadioGroup;

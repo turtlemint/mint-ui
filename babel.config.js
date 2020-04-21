@@ -4,7 +4,8 @@ module.exports = {
 		"@babel/proposal-class-properties",
 		"@babel/proposal-object-rest-spread",
 		"@babel/plugin-proposal-optional-chaining",
-		"macros"
+		"macros",
+		"@babel/plugin-proposal-nullish-coalescing-operator"
 	],
 	presets: [
 		"@babel/preset-env",
