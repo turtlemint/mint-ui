@@ -3,14 +3,13 @@
 exports[`collapse renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="collapse__CollapseWrap-t8cnoc-0 crPkdY"
+    class="collapse__CollapseWrap-t8cnoc-0 fqDspw"
   >
     <div
       class="tm-panel"
     >
       <div
-        class="collapse__Header-t8cnoc-2 kmmYTd tm-panel-header"
-        data-testid="tm-panel-header"
+        class="collapse__StyledHeader-t8cnoc-1 iugnJF tm-panel-header"
       >
         <div
           style="display: inline-flex;"
@@ -23,41 +22,7 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <i
-            class="collapse__StyledEL-t8cnoc-1 eCKQYe"
-          >
-            <svg
-              fill="#a1a6a7"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path
-                d="M9.29 15.88L13.17 12 9.29 8.12a.996.996 0 111.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3a.996.996 0 01-1.41 0c-.38-.39-.39-1.03 0-1.42z"
-              />
-            </svg>
-          </i>
-        </div>
-      </div>
-    </div>
-    <div
-      class="tm-panel"
-    >
-      <div
-        class="collapse__Header-t8cnoc-2 kmmYTd tm-panel-header"
-        data-testid="tm-panel-header"
-      >
-        <div
-          style="display: inline-flex;"
-        >
-          <span>
-            Panel Header 2
-          </span>
-        </div>
-        <div
-          style="display: inline-flex;"
-        >
-          <i
-            class="collapse__StyledEL-t8cnoc-1 eCKQYe"
+            class="collapse__StyledEL-t8cnoc-3 hKFcpC"
           >
             <svg
               fill="#a1a6a7"
@@ -77,18 +42,55 @@ exports[`collapse renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="collapse__Body-t8cnoc-3 jbmdAh tm-collapse-body"
-        data-testid="tm-collapse-body"
+        class="collapse__Body-t8cnoc-2 boREtH"
       >
-        Some content
+        <div>
+          Panel content
+        </div>
       </div>
     </div>
     <div
       class="tm-panel"
     >
       <div
-        class="collapse__Header-t8cnoc-2 bjMhuH tm-panel-header"
-        data-testid="tm-panel-header"
+        class="collapse__StyledHeader-t8cnoc-1 iugnJF tm-panel-header"
+      >
+        <div
+          style="display: inline-flex;"
+        >
+          <span>
+            Panel Header 2
+          </span>
+        </div>
+        <div
+          style="display: inline-flex;"
+        >
+          <i
+            class="collapse__StyledEL-t8cnoc-3 hKFcpC"
+          >
+            <svg
+              fill="#a1a6a7"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+              />
+              <path
+                d="M0 0h24v24H0V0z"
+                fill="none"
+              />
+            </svg>
+          </i>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tm-panel"
+    >
+      <div
+        class="collapse__StyledHeader-t8cnoc-1 jjQRyH tm-panel-header"
         disabled=""
       >
         <div
@@ -102,7 +104,7 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <i
-            class="collapse__StyledEL-t8cnoc-1 eCKQYe"
+            class="collapse__StyledEL-t8cnoc-3 hKFcpC"
           >
             <svg
               fill="#a1a6a7"
@@ -111,7 +113,11 @@ exports[`collapse renders correctly 1`] = `
               width="24"
             >
               <path
-                d="M9.29 15.88L13.17 12 9.29 8.12a.996.996 0 111.41-1.41l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3a.996.996 0 01-1.41 0c-.38-.39-.39-1.03 0-1.42z"
+                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+              />
+              <path
+                d="M0 0h24v24H0V0z"
+                fill="none"
               />
             </svg>
           </i>
