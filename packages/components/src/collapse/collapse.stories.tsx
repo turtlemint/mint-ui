@@ -13,70 +13,74 @@ export default {
 		componentSubtitle: "Basic"
 	}
 };
-export const Basic = () => (
-	<Collapse
-		activeKey={2}
-		onChange={(key: string | number) => {
-			console.log("key", key);
-		}}
-	>
-		<Panel panelKey={1} header="Panel Header 1">
-			Some content
-		</Panel>
-		<Panel panelKey={2} header="Panel Header 2">
-			Some content
-		</Panel>
-		<Panel panelKey={3} header="Panel Header 3" disabled>
-			Some content
-		</Panel>
-	</Collapse>
-);
+export const Basic = () => {
+	const PanelContent = () => <div>Panel content</div>;
+	const [value, setValue] = React.useState(2);
+	return (
+		<Collapse
+			activeKey={value}
+			onChange={(val: number) => setValue(val)}
+			panels={[
+				{
+					panelKey: 1,
+					header: {
+						text: "Panel Header 1"
+					},
+					content: <PanelContent />
+				},
+				{
+					panelKey: 2,
+					header: {
+						text: "Panel Header 2"
+					},
+					content: <PanelContent />
+				},
+				{
+					panelKey: 3,
+					header: {
+						text: "Panel Header 3"
+					},
+					disabled: true,
+					content: PanelContent
+				}
+			]}
+		/>
+	);
+};
 
-export const Accordion = () => (
-	<Collapse
-		accordion={true}
-		activeKey={2}
-		onChange={(key: string | number) => {
-			console.log(key);
-		}}
-	>
-		<Panel panelKey={1} header="Panel Header 1">
-			Some content
-		</Panel>
-		<Panel panelKey={2} header="Panel Header 2">
-			Some content
-		</Panel>
-		<Panel panelKey={3} header="Panel Header 3" disabled>
-			Some content
-		</Panel>
-	</Collapse>
-);
-
-export const CustomPanel = () => (
-	<Collapse
-		accordion={true}
-		expandIconPosition="right"
-		activeKey={2}
-		onChange={(key: string | number) => {
-			console.log(key);
-		}}
-	>
-		<Panel
-			panelKey={1}
-			header="Panel Header 1"
-			extra={<Icon name="settings" color={COLORS.GREY1} />}
-		>
-			Some content
-		</Panel>
-		<Panel
-			panelKey={2}
-			header="Panel Header 2"
-			extra={<Icon name="settings" color={COLORS.GREY1} />}
-		>
-			Some content
-		</Panel>
-		<Panel panelKey={3} header="Panel Header 3" disabled>
-			Some content
-		</Panel>
-	</Collapse>
-);
+export const Extra = () => {
+	const [value, setValue] = React.useState(1);
+	const PanelContent = () => <div>Panel content</div>;
+	return (
+		<Collapse
+			activeKey={value}
+			onChange={(val: number) => setValue(val)}
+			panels={[
+				{
+					panelKey: 1,
+					content: <PanelContent />,
+					header: {
+						text: "Panel Header 1",
+						extra: <Icon name="settings" color={COLORS.GREY1} />
+					}
+				},
+				{
+					panelKey: 2,
+					content: <PanelContent />,
+					header: {
+						text: "Panel Header 2",
+						extra: <Icon name="settings" color={COLORS.GREY1} />
+					}
+				},
+				{
+					panelKey: 3,
+					content: <PanelContent />,
+					header: {
+						text: "Panel header 3"
+					}
+				}
+			]}
+			expandIconPosition="right"
+		/>
+	);
+};
