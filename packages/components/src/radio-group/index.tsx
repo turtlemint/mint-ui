@@ -85,6 +85,32 @@ const Wrapper = styled.div<{ disabled?: boolean; layout?: ButtonLayout }>`
 		`}
 `;
 
+const RadioIcon = styled.span<{ isActive?: boolean }>`
+	height: 14px;
+	width: 14px;
+	margin-right: 12px;
+	border-radius: 50%;
+	border: 2px solid ${COLORS.GREY3};
+	display: inline-block;
+	vertical-align: middle;
+	${({ isActive }) =>
+		isActive &&
+		css`
+			border: 2px solid ${COLORS.PRIMARY};
+			span {
+				position: absolute;
+				height: 10px;
+				width: 10px;
+				border-radius: 50%;
+				background: ${COLORS.PRIMARY};
+				display: inline-block;
+				vertical-align: super;
+				margin-left: 2px;
+				margin-top: 2px;
+			}
+		`}
+`;
+
 interface ButtonProps {
 	text: string;
 	value: ValueType;
@@ -115,6 +141,11 @@ const Button = ({
 			onClick={handleClick}
 			disabled={disabled}
 		>
+			{buttonStyle == "radio" && (
+				<RadioIcon isActive={activeValue === value}>
+					<span></span>
+				</RadioIcon>
+			)}
 			{text}
 		</Label>
 	);
@@ -212,37 +243,8 @@ const Label = styled.label<Omit<LabelProps, "onClick">>`
 			:last-child {
 				border-right: none;
 			}
-			::before {
-				content: "";
-				position: absolute;
-				height: 14px;
-				width: 14px;
-				left: 0px;
-				top: 12px;
-				border-radius: 50%;
-				border: 1px solid ${COLORS.GREY3};
-			}
-			::after {
-				position: absolute;
-				content: "";
-				height: 8px;
-				width: 8px;
-				left: 4px;
-				top: 16px;
-				border-radius: 50%;
-			}
 		`}
-	${({ isActive, buttonStyle }) =>
-		isActive &&
-		buttonStyle === "radio" &&
-		css`
-			::before {
-				border: 1px solid ${COLORS.PRIMARY};
-			}
-			::after {
-				background: ${COLORS.PRIMARY};
-			}
-		`}	
+	
 `;
 
 export default RadioGroup;
