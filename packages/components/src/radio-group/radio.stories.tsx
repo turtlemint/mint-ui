@@ -181,3 +181,31 @@ export const radio = () => {
 		</Row>
 	);
 };
+export const radiolarge = () => {
+	const radios = [
+		{
+			value: "item-1",
+			text: "Item 1"
+		},
+		{
+			value: "item-2",
+			text: "Item 2"
+		}
+	];
+	return (
+		<Row>
+			<Col>
+				<RadioGroup
+					buttonStyle="radio"
+					size="large"
+					value="item-1"
+					layout="vertical"
+					onChange={(val: any) => {
+						console.log(val);
+					}}
+					radios={radios}
+				/>
+			</Col>
+		</Row>
+	);
+};
