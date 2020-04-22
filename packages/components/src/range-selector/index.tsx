@@ -5,10 +5,7 @@ import { Range, getTrackBackground } from "react-range";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
-import {
-	IRenderTrackCallbackProps,
-	IRenderThumbCallbackProps
-} from "./interfaces";
+import { IRenderThumbCallbackProps } from "./interfaces";
 
 export interface RangeSelector {
 	min?: number;
@@ -55,13 +52,7 @@ export const RangeSelector = ({
 				values={[value]}
 				onChange={handleChange}
 				onFinalChange={handleFinalChange}
-				renderTrack={({
-					props,
-					children
-				}: {
-					props: IRenderTrackCallbackProps;
-					children: React.ReactNode;
-				}): React.ReactNode => (
+				renderTrack={({ props, children }: any): React.ReactNode => (
 					<TrackWrapper
 						onMouseDown={props.onMouseDown}
 						onTouchStart={props.onTouchStart}
