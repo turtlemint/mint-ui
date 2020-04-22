@@ -1,3 +1,9 @@
+### 5.1.0
+#### Changed
+- Adjusted Panel header fonts, spacing and colours to align more with Turtlemint theme
+- Enhanced story of extra to mock checkout flow behaviour.
+- removed colors.ts duplicate package in root of src.
+
 ### 5.0.0
 #### Changed
 - Changed the API for Collapse to use panels instead of children
