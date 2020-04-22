@@ -1,3 +1,8 @@
+### 5.0.0
+#### Changed
+- Changed the API for Collapse to use panels instead of children
+- Removed accordion prop
+
 ### 4.0.0
 #### Changed
 - Changed the API for radiogroup to use radios prop for rendering children
