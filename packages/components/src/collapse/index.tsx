@@ -6,6 +6,7 @@ import KeyboardArrowDown from "../icons/KeyboardArrowDown";
 import KeyboardArrowRight from "../icons/KeyboardArrowRight";
 import { GlobalStyles } from "../app";
 import { ChangeHandler } from "../__utils/type";
+import { Title } from "../typography";
 
 interface CollapseProps {
 	panels: PanelProps[];
@@ -23,7 +24,7 @@ export const Collapse = ({
 	activeKey = 1,
 	onChange,
 	panels,
-	expandIconPosition = "right"
+	expandIconPosition
 }: CollapseProps) => {
 	return (
 		<CollapseContext.Provider
@@ -59,6 +60,7 @@ export const Panel = ({
 	disabled = false
 }: PanelProps) => {
 	const { activeKey } = React.useContext(CollapseContext);
+	const open = activeKey === panelKey;
 	return (
 		<PanelContext.Provider
 			value={{
@@ -67,19 +69,30 @@ export const Panel = ({
 			}}
 		>
 			<div className="tm-panel">
-				<Header {...header} />
-				{activeKey === panelKey ? <Body>{content}</Body> : null}
+				{open ? null : <Header {...header} />}
+				{open ? (
+					<Body className="tm-panel-body">
+						<Title text={header.text} level={4} />
+						<div
+							style={{
+								marginTop: "30px"
+							}}
+						>
+							{content}
+						</div>
+					</Body>
+				) : null}
 			</div>
 		</PanelContext.Provider>
 	);
 };
 
-interface HeaderProps {
+export interface HeaderProps {
 	text: string;
 	style?: React.CSSProperties;
 	extra?: React.ReactNode;
 }
-const Header = ({ text, style, extra }: HeaderProps) => {
+export const Header = ({ text, style, extra }: HeaderProps) => {
 	const { onChange, expandIconPosition } = React.useContext(CollapseContext);
 
 	const { panelKey, disabled } = React.useContext(PanelContext);
@@ -108,11 +121,11 @@ const Header = ({ text, style, extra }: HeaderProps) => {
 		>
 			<div style={{ display: "inline-flex" }}>
 				{expandIconPosition === "left" ? getIcon() : null}
-				<span>{text}</span>
+				<Title text={text} level={4} />
 			</div>
 			<div style={{ display: "inline-flex" }}>
 				{extra ? extra : null}
-				{expandIconPosition !== "left" ? getIcon() : null}
+				{expandIconPosition === "right" ? getIcon() : null}
 			</div>
 		</StyledHeader>
 	);
@@ -126,15 +139,19 @@ const CollapseWrap = styled.div`
 	.tm-panel:first-of-type .tm-panel-header {
 		border-top: 1px solid ${COLORS.BORDER};
 	}
+	.tm-panel:first-of-type .tm-panel-body {
+		border-top: 1px solid ${COLORS.BORDER};
+	}
 `;
 
 const StyledHeader = styled.div<{ disabled?: boolean }>`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 12px 15px;
-	color: ${COLORS.BLACK};
-	background: ${COLORS.BACKGROUND_GREY};
+	padding: 12px 45px;
+	color: ${COLORS.INACTIVE_HEADING};
+	background: ${COLORS.BACKGROUND_COLOR_LIGHT};
+
 	border-bottom: 1px solid ${COLORS.BORDER};
 	cursor: pointer;
 	${({ disabled }) =>
@@ -147,8 +164,9 @@ const StyledHeader = styled.div<{ disabled?: boolean }>`
 `;
 
 const Body = styled.div`
-	padding: 15px;
+	padding: 12px 45px;
 	border-bottom: 1px solid ${COLORS.BORDER};
+	background: ${COLORS.WHITE};
 `;
 interface IconProps {
 	position: "left" | "right";
@@ -168,5 +186,4 @@ const Icon = ({ position, children }: IconProps) => {
 	return <StyledEL position={position}>{children}</StyledEL>;
 };
 
-Collapse.Panel = Panel;
 export default Collapse;

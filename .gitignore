@@ -1,5 +1,6 @@
 .log
 /DS_Store
+.DS_Store
 dist
 .jest-*
 node_modules
@@ -13,3 +14,5 @@ commit-msg
 commit-msg.sh
 storybook-static
 .vscode
+packages/components/.cache
+packages/components/src/*/__snapshots__/

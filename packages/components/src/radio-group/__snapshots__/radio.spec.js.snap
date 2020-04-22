@@ -7,12 +7,12 @@ exports[`Radio group renders correctly 1`] = `
     tabindex="0"
   >
     <label
-      class="radio-group__Label-sc-15twc87-1 oPPNt"
+      class="radio-group__Label-sc-15twc87-2 fUfbWL"
     >
       Item 1
     </label>
     <label
-      class="radio-group__Label-sc-15twc87-1 oPPNt"
+      class="radio-group__Label-sc-15twc87-2 fUfbWL"
     >
       Item 2
     </label>

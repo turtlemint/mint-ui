@@ -3,49 +3,29 @@
 exports[`collapse renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="collapse__CollapseWrap-t8cnoc-0 fqDspw"
+    class="collapse__CollapseWrap-t8cnoc-0 dGBplW"
   >
     <div
       class="tm-panel"
     >
       <div
-        class="collapse__StyledHeader-t8cnoc-1 iugnJF tm-panel-header"
+        class="collapse__Body-t8cnoc-2 kxbXqM tm-panel-body"
       >
-        <div
-          style="display: inline-flex;"
+        <span
+          class="typography__Wrapper-sc-1jpifeu-0 kiqios"
         >
-          <span>
+          <span
+            class="typography__Content-sc-1jpifeu-1 fklVyP"
+          >
             Panel Header 1
           </span>
-        </div>
+        </span>
         <div
-          style="display: inline-flex;"
+          style="margin-top: 30px;"
         >
-          <i
-            class="collapse__StyledEL-t8cnoc-3 hKFcpC"
-          >
-            <svg
-              fill="#a1a6a7"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path
-                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-              />
-              <path
-                d="M0 0h24v24H0V0z"
-                fill="none"
-              />
-            </svg>
-          </i>
-        </div>
-      </div>
-      <div
-        class="collapse__Body-t8cnoc-2 boREtH"
-      >
-        <div>
-          Panel content
+          <div>
+            Panel content
+          </div>
         </div>
       </div>
     </div>
@@ -53,75 +33,49 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__StyledHeader-t8cnoc-1 iugnJF tm-panel-header"
+        class="collapse__StyledHeader-t8cnoc-1 YRnTO tm-panel-header"
       >
         <div
           style="display: inline-flex;"
         >
-          <span>
-            Panel Header 2
+          <span
+            class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+          >
+            <span
+              class="typography__Content-sc-1jpifeu-1 fklVyP"
+            >
+              Panel Header 2
+            </span>
           </span>
         </div>
         <div
           style="display: inline-flex;"
-        >
-          <i
-            class="collapse__StyledEL-t8cnoc-3 hKFcpC"
-          >
-            <svg
-              fill="#a1a6a7"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path
-                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-              />
-              <path
-                d="M0 0h24v24H0V0z"
-                fill="none"
-              />
-            </svg>
-          </i>
-        </div>
+        />
       </div>
     </div>
     <div
       class="tm-panel"
     >
       <div
-        class="collapse__StyledHeader-t8cnoc-1 jjQRyH tm-panel-header"
+        class="collapse__StyledHeader-t8cnoc-1 cOxnRE tm-panel-header"
         disabled=""
       >
         <div
           style="display: inline-flex;"
         >
-          <span>
-            Panel Header 3
+          <span
+            class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+          >
+            <span
+              class="typography__Content-sc-1jpifeu-1 fklVyP"
+            >
+              Panel Header 3
+            </span>
           </span>
         </div>
         <div
           style="display: inline-flex;"
-        >
-          <i
-            class="collapse__StyledEL-t8cnoc-3 hKFcpC"
-          >
-            <svg
-              fill="#a1a6a7"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path
-                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-              />
-              <path
-                d="M0 0h24v24H0V0z"
-                fill="none"
-              />
-            </svg>
-          </i>
-        </div>
+        />
       </div>
     </div>
   </div>

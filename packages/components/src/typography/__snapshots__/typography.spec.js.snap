@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography tests Font weights renders correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+  >
+    <span
+      class="typography__Content-sc-1jpifeu-1 beRdms"
+      size="20"
+    >
+      LIGHT Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Typography tests Text Types renders correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+  >
+    <span
+      class="typography__Content-sc-1jpifeu-1 bpfwXB"
+    >
+      Warning Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Typography tests Text styles renders correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+  >
+    <span
+      class="typography__Content-sc-1jpifeu-1 fexyZE"
+    >
+      UPPERCASE Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Typography tests Title renders correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+  >
+    <span
+      class="typography__Content-sc-1jpifeu-1 etKRG"
+    >
+      Heading 1
+    </span>
+  </span>
+</DocumentFragment>
+`;
