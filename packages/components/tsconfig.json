@@ -12,7 +12,7 @@
         "strict": true,
         "esModuleInterop": true,
         "jsx": "react",
-        "types": [],
+        "types": ["jest"],
         "forceConsistentCasingInFileNames": true,
         "strictBindCallApply": true,
         "strictFunctionTypes": true,
