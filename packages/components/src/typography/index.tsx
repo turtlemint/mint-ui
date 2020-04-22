@@ -138,7 +138,6 @@ const Wrapper = styled.span`
 	${GlobalStyles};
 	display: flex;
 	flex-direction: column;
-	padding: 8px 12px;
 `;
 
 const Content = styled.span<{

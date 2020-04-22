@@ -1,20 +1,21 @@
 import * as React from "react";
-import Collapse from "./index";
+import Collapse, { Panel, Header } from "./index";
 import Icon from "../icon";
 import COLORS from "../__utils/colors";
-
-const { Panel } = Collapse;
+import Button from "../button";
 
 export default {
 	title: "Collapse",
 	component: Collapse,
-	subcomponents: { Panel },
+	subcomponents: { Panel, Header },
 	parameters: {
 		componentSubtitle: "Basic"
 	}
 };
 export const Basic = () => {
-	const PanelContent = () => <div>Panel content</div>;
+	const PanelContent = ({ panelNo }: { panelNo: number }) => (
+		<div>Panel content {panelNo}</div>
+	);
 	const [value, setValue] = React.useState(2);
 	return (
 		<Collapse
@@ -26,14 +27,14 @@ export const Basic = () => {
 					header: {
 						text: "Panel Header 1"
 					},
-					content: <PanelContent />
+					content: <PanelContent panelNo={1} />
 				},
 				{
 					panelKey: 2,
 					header: {
 						text: "Panel Header 2"
 					},
-					content: <PanelContent />
+					content: <PanelContent panelNo={2} />
 				},
 				{
 					panelKey: 3,
@@ -41,7 +42,7 @@ export const Basic = () => {
 						text: "Panel Header 3"
 					},
 					disabled: true,
-					content: PanelContent
+					content: <PanelContent panelNo={3} />
 				}
 			]}
 		/>
@@ -50,26 +51,69 @@ export const Basic = () => {
 
 export const Extra = () => {
 	const [value, setValue] = React.useState(1);
-	const PanelContent = () => <div>Panel content</div>;
+	const [done, setDone] = React.useState([]);
+	const PanelContent = () => (
+		<div>
+			<p>
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+				Recusandae aspernatur accusantium impedit dolor maxime enim
+				dignissimos, incidunt necessitatibus non aut.
+			</p>
+			<Button
+				title="Continue"
+				onClick={() => {
+					done.push(value);
+					setDone([...done]);
+					setValue(2);
+				}}
+			/>
+		</div>
+	);
+	const PanelContent2 = () => (
+		<div>
+			<p>
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+				Recusandae aspernatur accusantium impedit dolor maxime enim
+				dignissimos, incidunt necessitatibus non aut.
+			</p>
+			<Button
+				title="Continue"
+				onClick={() => {
+					done.push(value);
+					setDone([...done]);
+					setValue(3);
+				}}
+			/>
+		</div>
+	);
+
+	const renderExtra = (panelKey: number) => {
+		if (done.includes(panelKey)) {
+			return <Icon name="filled_done_circle" color={COLORS.PRIMARY} />;
+		}
+		return null;
+	};
 	return (
 		<Collapse
 			activeKey={value}
-			onChange={(val: number) => setValue(val)}
+			onChange={(val: number) => {
+				setValue(val);
+			}}
 			panels={[
 				{
 					panelKey: 1,
 					content: <PanelContent />,
 					header: {
 						text: "Panel Header 1",
-						extra: <Icon name="settings" color={COLORS.GREY1} />
+						extra: renderExtra(1)
 					}
 				},
 				{
 					panelKey: 2,
-					content: <PanelContent />,
+					content: <PanelContent2 />,
 					header: {
 						text: "Panel Header 2",
-						extra: <Icon name="settings" color={COLORS.GREY1} />
+						extra: renderExtra(2)
 					}
 				},
 				{
@@ -80,7 +124,6 @@ export const Extra = () => {
 					}
 				}
 			]}
-			expandIconPosition="right"
 		/>
 	);
 };
