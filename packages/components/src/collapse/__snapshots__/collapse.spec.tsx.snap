@@ -3,7 +3,7 @@
 exports[`collapse renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="collapse__CollapseWrap-t8cnoc-0 dGBplW"
+    class="collapse__CollapseWrap-t8cnoc-0 dUyYsj"
   >
     <div
       class="tm-panel"
@@ -12,7 +12,7 @@ exports[`collapse renders correctly 1`] = `
         class="collapse__Body-t8cnoc-2 kxbXqM tm-panel-body"
       >
         <span
-          class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+          class="typography__Wrapper-sc-1jpifeu-0 jQVucy"
         >
           <span
             class="typography__Content-sc-1jpifeu-1 ijfWjz"
@@ -39,7 +39,7 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <span
-            class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+            class="typography__Wrapper-sc-1jpifeu-0 jQVucy"
           >
             <span
               class="typography__Content-sc-1jpifeu-1 ijfWjz"
@@ -64,7 +64,7 @@ exports[`collapse renders correctly 1`] = `
           style="display: inline-flex;"
         >
           <span
-            class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+            class="typography__Wrapper-sc-1jpifeu-0 jQVucy"
           >
             <span
               class="typography__Content-sc-1jpifeu-1 ijfWjz"

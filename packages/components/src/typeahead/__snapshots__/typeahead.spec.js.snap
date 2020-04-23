@@ -3,7 +3,7 @@
 exports[`Typeahead tests renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="select__SelectWrapper-sc-1trodvu-0 jtVoAg"
+    class="select__SelectWrapper-sc-1trodvu-0 cJNPQu"
     tabindex="0"
   >
     <div
@@ -14,7 +14,7 @@ exports[`Typeahead tests renders correctly 1`] = `
       </span>
     </div>
     <div
-      class="dropdown__DropdownWrapper-sc-4mjgs1-0 jNYjVA"
+      class="dropdown__DropdownWrapper-sc-4mjgs1-0 ioHhuV"
       data-testid="dropdown"
     >
       <ul

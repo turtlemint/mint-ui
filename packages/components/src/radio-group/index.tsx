@@ -72,6 +72,7 @@ export const RadioGroup = ({
 };
 
 const Wrapper = styled.div<{ disabled?: boolean; layout?: ButtonLayout }>`
+	${GlobalStyles};
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -86,22 +87,22 @@ const Wrapper = styled.div<{ disabled?: boolean; layout?: ButtonLayout }>`
 `;
 
 const RadioIcon = styled.span<{ isActive?: boolean; size?: ButtonSize }>`
-	height: 14px;
-	width: 14px;
+	box-sizing: border-box;
+	height: 16px;
+	width: 16px;
 	margin-right: 12px;
 	border-radius: 50%;
 	border: 2px solid ${COLORS.GREY3};
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	vertical-align: middle;
 	${({ isActive }) =>
 		isActive &&
 		css`
 			border: 2px solid ${COLORS.PRIMARY};
 			span {
-				height: 10px;
-				width: 10px;
+				height: 8px;
+				width: 8px;
 				border-radius: 50%;
 				background: ${COLORS.PRIMARY};
 			}
@@ -117,23 +118,23 @@ const RadioIcon = styled.span<{ isActive?: boolean; size?: ButtonSize }>`
 		isActive &&
 		css`
 			span {
-				height: 8px;
-				width: 8px;
+				height: 6px;
+				width: 6px;
 			}
 		`};
 	${({ size }) =>
 		size === "large" &&
 		css`
-			height: 16px;
-			width: 16px;
+			height: 18px;
+			width: 18px;
 		`};
 	${({ size, isActive }) =>
 		size === "large" &&
 		isActive &&
 		css`
 			span {
-				height: 12px;
-				width: 12px;
+				height: 10px;
+				width: 10px;
 			}
 		`};
 `;

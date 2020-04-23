@@ -3,7 +3,7 @@
 exports[`DatePicker tests renders correcty 1`] = `
 <DocumentFragment>
   <div
-    class="date-picker__DatePickerWrapper-sc-1xeybem-0 jFIckO"
+    class="date-picker__DatePickerWrapper-sc-1xeybem-0 fGhcMW"
   >
     <div
       class="react-datepicker-wrapper"
@@ -13,7 +13,7 @@ exports[`DatePicker tests renders correcty 1`] = `
       >
         <div>
           <div
-            class="input__StyledWrapper-sc-1pvgcfx-0 gNoaoS"
+            class="input__StyledWrapper-sc-1pvgcfx-0 hDtaum"
           >
             <input
               aria-label="tm-input"

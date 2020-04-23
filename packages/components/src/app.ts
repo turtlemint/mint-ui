@@ -13,6 +13,6 @@ export const GlobalStyles = css`
 	line-height: 1.5;
 	-webkit-font-feature-settings: "tnum";
 	font-feature-settings: "tnum";
-	color: ${COLORS.BLACK};
+	color: ${COLORS.GREY1};
 	font-size: 14px;
 `;
