@@ -33,7 +33,7 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__StyledHeader-t8cnoc-1 ghtGRh tm-panel-header"
+        class="collapse__StyledHeader-t8cnoc-1 dzBvNx tm-panel-header"
       >
         <div
           style="display: inline-flex;"
@@ -57,7 +57,7 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__StyledHeader-t8cnoc-1 fciMSp tm-panel-header"
+        class="collapse__StyledHeader-t8cnoc-1 ezdfbP tm-panel-header"
         disabled=""
       >
         <div
