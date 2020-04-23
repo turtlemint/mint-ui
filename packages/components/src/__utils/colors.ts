@@ -1,4 +1,4 @@
-import { transparentize } from "polished";
+import { lighten } from "polished";
 const BG_COLOR = "#f0f8fe";
 
 export const COLORS = {
@@ -6,7 +6,7 @@ export const COLORS = {
 	PRIMARY_LIGHT: "#0fb877",
 	PRIMARY_DARK: "#078a58",
 	BACKGROUND_COLOR: BG_COLOR,
-	BACKGROUND_COLOR_LIGHT: transparentize(0.6, BG_COLOR),
+	BACKGROUND_COLOR_LIGHT: lighten(0.4, BG_COLOR),
 	BACKGROUND_GREEN: "#f0fef9",
 	BACKGROUND_GREEN_DARK: "#e1f5ee",
 	DANGER: "#e94220",

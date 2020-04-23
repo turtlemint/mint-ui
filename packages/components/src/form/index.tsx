@@ -41,7 +41,15 @@ const validateRuleType = (type: string, value: string) => {
 const validateRegex = (expression: any, value: string) => {
 	return value.search(expression) !== -1 ? true : false;
 };
-
+const ifEmpty = (value: any): boolean => {
+	if (
+		!value ||
+		(_isObject(value) && !value.value) ||
+		(_isArray(value) && !value.length)
+	)
+		return true;
+	return false;
+};
 interface CompoundedComponent
 	extends React.ForwardRefExoticComponent<
 		FormProps & React.RefAttributes<HTMLFormElement>
@@ -60,16 +68,6 @@ const formWithRef = (props: FormProps, ref: any) => {
 	} = props;
 	const [state, setState] = React.useState<any>(formState ?? {});
 	const [errors, setErrors] = React.useState<any>({});
-
-	const ifEmpty = (value: any): boolean => {
-		if (
-			!value ||
-			(_isObject(value) && !value.value) ||
-			(_isArray(value) && !value.length)
-		)
-			return true;
-		return false;
-	};
 
 	// Called on blur
 	const handleError = (rules: Rule[], name: string, value: any) => {
@@ -140,7 +138,6 @@ const formWithRef = (props: FormProps, ref: any) => {
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		if (isError()) return;
-		console.log(state);
 		onSubmit(state, e);
 	};
 	const requiredFields: any = {};
