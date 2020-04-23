@@ -72,7 +72,7 @@ export const Panel = ({
 				{open ? null : <Header {...header} />}
 				{open ? (
 					<Body className="tm-panel-body">
-						<Title text={header.text} level={4} />
+						<Title text={header.text} level={4} weight="medium" />
 						<div
 							style={{
 								marginTop: "30px"
@@ -121,7 +121,7 @@ export const Header = ({ text, style, extra }: HeaderProps) => {
 		>
 			<div style={{ display: "inline-flex" }}>
 				{expandIconPosition === "left" ? getIcon() : null}
-				<Title text={text} level={4} />
+				<Title text={text} level={4} weight="medium" />
 			</div>
 			<div style={{ display: "inline-flex" }}>
 				{extra ? extra : null}
@@ -151,7 +151,6 @@ const StyledHeader = styled.div<{ disabled?: boolean }>`
 	padding: 12px 45px;
 	color: ${COLORS.INACTIVE_HEADING};
 	background: ${COLORS.BACKGROUND_COLOR_LIGHT};
-
 	border-bottom: 1px solid ${COLORS.BORDER};
 	cursor: pointer;
 	${({ disabled }) =>

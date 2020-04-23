@@ -15,7 +15,7 @@ exports[`collapse renders correctly 1`] = `
           class="typography__Wrapper-sc-1jpifeu-0 kiqios"
         >
           <span
-            class="typography__Content-sc-1jpifeu-1 fklVyP"
+            class="typography__Content-sc-1jpifeu-1 ijfWjz"
           >
             Panel Header 1
           </span>
@@ -42,7 +42,7 @@ exports[`collapse renders correctly 1`] = `
             class="typography__Wrapper-sc-1jpifeu-0 kiqios"
           >
             <span
-              class="typography__Content-sc-1jpifeu-1 fklVyP"
+              class="typography__Content-sc-1jpifeu-1 ijfWjz"
             >
               Panel Header 2
             </span>
@@ -67,7 +67,7 @@ exports[`collapse renders correctly 1`] = `
             class="typography__Wrapper-sc-1jpifeu-0 kiqios"
           >
             <span
-              class="typography__Content-sc-1jpifeu-1 fklVyP"
+              class="typography__Content-sc-1jpifeu-1 ijfWjz"
             >
               Panel Header 3
             </span>
