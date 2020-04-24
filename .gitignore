@@ -16,3 +16,4 @@ storybook-static
 .vscode
 packages/components/.cache
 packages/components/src/*/__snapshots__/
+__snapshots__

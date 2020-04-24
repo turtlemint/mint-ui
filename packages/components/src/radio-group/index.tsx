@@ -268,7 +268,6 @@ const Label = styled.label<Omit<LabelProps, "onClick">>`
 			align-items: center;
 			border: none;
 			border-right: none;
-			padding-left: 24px;
 			:last-child {
 				border-right: none;
 			}
