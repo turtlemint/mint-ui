@@ -72,6 +72,7 @@ export const RadioGroup = ({
 };
 
 const Wrapper = styled.div<{ disabled?: boolean; layout?: ButtonLayout }>`
+	${GlobalStyles};
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -85,30 +86,57 @@ const Wrapper = styled.div<{ disabled?: boolean; layout?: ButtonLayout }>`
 		`}
 `;
 
-const RadioIcon = styled.span<{ isActive?: boolean }>`
-	height: 14px;
-	width: 14px;
+const RadioIcon = styled.span<{ isActive?: boolean; size?: ButtonSize }>`
+	box-sizing: border-box;
+	height: 16px;
+	width: 16px;
 	margin-right: 12px;
 	border-radius: 50%;
 	border: 2px solid ${COLORS.GREY3};
-	display: inline-block;
-	vertical-align: middle;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 	${({ isActive }) =>
 		isActive &&
 		css`
 			border: 2px solid ${COLORS.PRIMARY};
 			span {
-				position: absolute;
-				height: 10px;
-				width: 10px;
+				height: 8px;
+				width: 8px;
 				border-radius: 50%;
 				background: ${COLORS.PRIMARY};
-				display: inline-block;
-				vertical-align: super;
-				margin-left: 2px;
-				margin-top: 2px;
 			}
 		`}
+	${({ size }) =>
+		size === "small" &&
+		css`
+			height: 12px;
+			width: 12px;
+		`};
+	${({ size, isActive }) =>
+		size === "small" &&
+		isActive &&
+		css`
+			span {
+				height: 6px;
+				width: 6px;
+			}
+		`};
+	${({ size }) =>
+		size === "large" &&
+		css`
+			height: 18px;
+			width: 18px;
+		`};
+	${({ size, isActive }) =>
+		size === "large" &&
+		isActive &&
+		css`
+			span {
+				height: 10px;
+				width: 10px;
+			}
+		`};
 `;
 
 interface ButtonProps {
@@ -142,7 +170,7 @@ const Button = ({
 			disabled={disabled}
 		>
 			{buttonStyle == "radio" && (
-				<RadioIcon isActive={activeValue === value}>
+				<RadioIcon isActive={activeValue === value} size={size}>
 					<span></span>
 				</RadioIcon>
 			)}
@@ -236,10 +264,10 @@ const Label = styled.label<Omit<LabelProps, "onClick">>`
 	${({ buttonStyle }) =>
 		buttonStyle === "radio" &&
 		css`
-			position: relative;
+			display: flex;
+			align-items: center;
 			border: none;
 			border-right: none;
-			padding-left: 24px;
 			:last-child {
 				border-right: none;
 			}

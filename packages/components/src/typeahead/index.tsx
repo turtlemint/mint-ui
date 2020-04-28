@@ -1,138 +1,109 @@
 import * as React from "react";
 import Input from "../input";
 import useDebounce from "../hooks/use-debounce";
+import fetchDataFromJson, {
+	TypeAheadDataProps
+} from "../__utils/fetch-data-json";
 import Dropdown, { SelectedOption } from "../select/dropdown";
-import Select, { SelectCTA, SelectWrapper } from "../select";
 import { ChangeHandler } from "../__utils/type";
-
-export interface LabeledValue {
-	key: string;
-	label: React.ReactNode;
-}
+import isEmpty from "lodash/fp/isEmpty";
 
 export interface TypeAheadProps {
-	className?: string;
 	name: string;
-	notFoundContent?: React.ReactNode | null;
+	onChange?: ChangeHandler<SelectedOption>;
+	data: TypeAheadDataProps;
+	onBlur?: (value: SelectedOption) => void;
 	disabled?: boolean;
 	style?: React.CSSProperties;
-	placeholder: string;
-	id?: string;
-	open?: boolean;
-	loading?: boolean;
-	value?: SelectedOption;
-	onChange?: ChangeHandler<SelectedOption>;
-	onBlur?: (value: any) => void;
-	fetchFunc: (value: string) => any;
-	children:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
+	dropdownStyle?: React.CSSProperties;
 }
 
 export const TypeAhead: React.FC<TypeAheadProps> = ({
-	className = "",
 	name,
-	open = false,
-	value,
-	onChange = () => {},
-	onBlur = () => {},
-	loading = false,
-	fetchFunc,
-	placeholder = "",
-	disabled = false,
-	children
+	data,
+	onChange,
+	onBlur,
+	disabled,
+	style,
+	dropdownStyle
 }: TypeAheadProps) => {
-	const [dropdownOpen, setDropdownOpen] = React.useState<boolean>(false);
-	React.useEffect(() => {
-		setDropdownOpen(open);
-	}, [open]);
+	const [search, setSearch] = React.useState<string>("");
+	const debouncedInput = useDebounce(search, 300);
 
-	const [inputValue, setInputValue] = React.useState<string>("");
-	const handleInputChange = (val: any) => {
-		setInputValue(val);
-	};
-	const debouncedInput = useDebounce(inputValue, 300);
+	const [selected, setSelected] = React.useState<SelectedOption | null>(null);
+
+	const [list, setList] = React.useState<unknown>([]);
+	const [openList, setOpenList] = React.useState<boolean>();
 
 	React.useEffect(() => {
-		if (debouncedInput) {
-			fetchFunc(debouncedInput);
+		if (!search) {
+			setSelected(null);
 		}
-	}, [debouncedInput]);
-
-	const [labelValue, setLabelValue] = React.useState<
-		SelectedOption | undefined
-	>(value);
-	const [showLabelInput, setShowLabelInput] = React.useState<boolean>(
-		value ? true : false
-	);
-	const [newPlaceholder, setNewPlaceholder] = React.useState<string>(
-		placeholder
-	);
-
+	}, [search]);
 	React.useEffect(() => {
-		if (labelValue) {
-			setNewPlaceholder(labelValue.text);
+		if (debouncedInput && isEmpty(selected)) {
+			if (data.searchKey) {
+				data.params[data.searchKey as string] = debouncedInput;
+			}
+			// modify the params for updated debounced input
+			fetchDataFromJson(data).then((response: SelectedOption[]) => {
+				setList(response);
+				setOpenList(true);
+			});
 		}
-	}, [labelValue]);
+	}, [debouncedInput, selected]);
 
-	const valueRef = React.useRef<any>(value);
-
+	const valueRef = React.useRef<SelectedOption>();
 	const handleSelect = (option: SelectedOption) => {
-		onChange(option, name);
-		setInputValue("");
-		setLabelValue(option);
-		setShowLabelInput(true);
-		setDropdownOpen(false);
+		setSelected(option);
+		// For Form Item capture
+		onBlur ? onBlur(option) : null;
 		valueRef.current = option;
-		onBlur(valueRef.current);
 	};
-	const handleBlur = () => {
-		onBlur(valueRef.current);
+	React.useEffect(() => {
+		if (selected) {
+			setSearch(selected.text);
+			setOpenList(false);
+			onChange ? onChange(selected, name) : null;
+		}
+	}, [selected]);
+
+	const renderInput = () => {
+		return (
+			<Input
+				key={-1}
+				block={true}
+				value={search}
+				disabled={disabled}
+				onChange={(val: string) => setSearch(val)}
+				placeholder="Search..."
+				onFocus={() => setOpenList(true)}
+				onBlur={() => {
+					setOpenList(false);
+					onBlur ? onBlur(valueRef.current as SelectedOption) : null;
+				}}
+			/>
+		);
 	};
-	const handleSelectedValueClick = () => {
-		setShowLabelInput(false);
-		setDropdownOpen(true);
-	};
-	const { Option } = Select;
-	return (
-		<SelectWrapper
-			block={false}
-			className={className}
-			onBlur={handleBlur}
-			disabled={disabled}
-			tabIndex={0}
-		>
-			{showLabelInput ? (
-				<SelectCTA
-					value={labelValue}
-					showArrow={false}
-					disabled={disabled}
-					onClick={handleSelectedValueClick}
-				/>
-			) : (
-				<Input
-					data-testid="typeahead-input"
-					block={true}
-					value={inputValue}
-					onChange={handleInputChange}
-					placeholder={newPlaceholder}
-				/>
-			)}
-			{loading ? (
-				<Dropdown data-testid="typeahead-loading-dropdown">
-					<Option value="loading">Loading...</Option>
-				</Dropdown>
-			) : null}
-			{dropdownOpen ? (
+
+	const render = () => {
+		const result = [];
+		if (openList && !isEmpty(list) && search) {
+			result.push(
+				renderInput(),
 				<Dropdown
-					data-testid="typeahead-dropdown"
+					key={-2}
 					onSelect={handleSelect}
-				>
-					{children}
-				</Dropdown>
-			) : null}
-		</SelectWrapper>
-	);
+					options={list as SelectedOption[]}
+					style={dropdownStyle}
+				/>
+			);
+		} else {
+			result.push(renderInput());
+		}
+		return result;
+	};
+	return <div style={style}>{render()}</div>;
 };
 
 export default TypeAhead;

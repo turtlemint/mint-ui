@@ -3,7 +3,7 @@
 exports[`Empty component tests default renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="empty__StyledContainer-mrl1vm-0 fERDmV"
+    class="empty__StyledContainer-mrl1vm-0 eBbnoP"
   >
     <div
       class="empty__StyledImageContainer-mrl1vm-1 eqpmbX"
@@ -80,7 +80,7 @@ exports[`Empty component tests default renders correctly 1`] = `
 exports[`Empty component tests simple image with prop image renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="empty__StyledContainer-mrl1vm-0 fERDmV"
+    class="empty__StyledContainer-mrl1vm-0 eBbnoP"
   >
     <div
       class="empty__StyledImageContainer-mrl1vm-1 eqpmbX"

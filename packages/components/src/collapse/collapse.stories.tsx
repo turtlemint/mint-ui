@@ -51,7 +51,7 @@ export const Basic = () => {
 
 export const Extra = () => {
 	const [value, setValue] = React.useState(1);
-	const [done, setDone] = React.useState([]);
+	const [done, setDone] = React.useState<number[]>([]);
 	const PanelContent = () => (
 		<div>
 			<p>
@@ -61,9 +61,13 @@ export const Extra = () => {
 			</p>
 			<Button
 				title="Continue"
+				btnType="solid"
+				btnStyle="primary"
 				onClick={() => {
-					done.push(value);
-					setDone([...done]);
+					if (!done.includes(value)) {
+						done.push(value);
+						setDone([...done]);
+					}
 					setValue(2);
 				}}
 			/>
@@ -78,10 +82,33 @@ export const Extra = () => {
 			</p>
 			<Button
 				title="Continue"
+				btnType="solid"
+				btnStyle="primary"
+				onClick={() => {
+					if (!done.includes(value)) {
+						done.push(value);
+						setDone([...done]);
+					}
+					setValue(3);
+				}}
+			/>
+		</div>
+	);
+	const PanelContent3 = () => (
+		<div>
+			<p>
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+				Recusandae aspernatur accusantium impedit dolor maxime enim
+				dignissimos, incidunt necessitatibus non aut.
+			</p>
+			<Button
+				title="Continue"
+				btnType="solid"
+				btnStyle="primary"
 				onClick={() => {
 					done.push(value);
 					setDone([...done]);
-					setValue(3);
+					alert("Alright! we are done here!");
 				}}
 			/>
 		</div>
@@ -118,7 +145,7 @@ export const Extra = () => {
 				},
 				{
 					panelKey: 3,
-					content: <PanelContent />,
+					content: <PanelContent3 />,
 					header: {
 						text: "Panel header 3"
 					}
