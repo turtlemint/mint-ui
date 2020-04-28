@@ -3,7 +3,7 @@
 exports[`Typography tests Font weights renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+    class="typography__Wrapper-sc-1jpifeu-0 jQVucy"
   >
     <span
       class="typography__Content-sc-1jpifeu-1 beRdms"
@@ -18,7 +18,7 @@ exports[`Typography tests Font weights renders correctly 1`] = `
 exports[`Typography tests Text Types renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+    class="typography__Wrapper-sc-1jpifeu-0 jQVucy"
   >
     <span
       class="typography__Content-sc-1jpifeu-1 bpfwXB"
@@ -32,7 +32,7 @@ exports[`Typography tests Text Types renders correctly 1`] = `
 exports[`Typography tests Text styles renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+    class="typography__Wrapper-sc-1jpifeu-0 jQVucy"
   >
     <span
       class="typography__Content-sc-1jpifeu-1 fexyZE"
@@ -46,7 +46,7 @@ exports[`Typography tests Text styles renders correctly 1`] = `
 exports[`Typography tests Title renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="typography__Wrapper-sc-1jpifeu-0 kiqios"
+    class="typography__Wrapper-sc-1jpifeu-0 jQVucy"
   >
     <span
       class="typography__Content-sc-1jpifeu-1 etKRG"

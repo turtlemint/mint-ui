@@ -4,7 +4,6 @@ import Input from "../input";
 import Select from "../select";
 import { Option } from "../select/dropdown";
 import TypeAhead from "../typeahead";
-import axios from "axios";
 import styled from "styled-components";
 import RadioGroup from "../radio-group";
 import Button from "../button";
@@ -28,7 +27,6 @@ const LayoutWrapper = styled.div`
 	margin: 0 auto;
 	width: 100%;
 `;
-
 export const seedState = () => {
 	const selectData = [
 		{
@@ -52,32 +50,26 @@ export const seedState = () => {
 	const handleSubmit = (state: any) => {
 		console.log("state", state);
 	};
-	const [data, setData] = React.useState([]);
-	const [open, setOpen] = React.useState(false);
-	const [fetching, setFetching] = React.useState(false);
-
-	const fetchUser = async () => {
-		setFetching(true);
-		setOpen(false);
-		const response = await axios.get(
-			"https://randomuser.me/api/?results=15"
-		);
-		const data = response.data.results.map((user: any) => ({
-			text: `${user.name.first} ${user.name.last}`,
-			value: user.login.username
-		}));
-		setData(data);
-		setOpen(true);
-		setFetching(false);
-	};
 
 	const formState = {
 		firstName: "Your",
 		lastName: "Name",
 		email: "",
-		state: selectData[1],
+		state: selectData[0],
 		radioGroup: "item-2",
 		maritalStatus: true
+	};
+	const dataConfig = {
+		url: "https://api.publicapis.org/entries",
+		params: {
+			// fill the params here or later in app flow dynamically as you wish
+			category: "business",
+			https: true
+		},
+		dataKey: "entries",
+		valueKey: "Link", // this will usually be id key
+		displayKey: "API",
+		searchKey: ""
 	};
 	return (
 		<LayoutWrapper>
@@ -127,9 +119,8 @@ export const seedState = () => {
 							},
 							{
 								message: "Email is not valid",
-								pattern: new RegExp(
-									/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?: [\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
-								)
+								pattern:
+									"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&' * +/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
 							}
 						]}
 						{...formItemLayout}
@@ -147,13 +138,10 @@ export const seedState = () => {
 						]}
 						{...formItemLayout}
 					>
-						<Select placeholder="Select user...">
-							{selectData.map((d: any) => (
-								<Option key={d.value} value={d.value}>
-									{d.text}
-								</Option>
-							))}
-						</Select>
+						<Select
+							placeholder="Select user..."
+							options={selectData}
+						/>
 					</Form.Item>
 					<Form.Item
 						name="city"
@@ -168,17 +156,9 @@ export const seedState = () => {
 					>
 						<TypeAhead
 							name="some-typeahead"
-							loading={fetching}
-							fetchFunc={fetchUser}
-							open={open}
+							data={dataConfig}
 							placeholder="Select user..."
-						>
-							{data.map((d: any) => (
-								<Option key={d.value} value={d.value}>
-									{d.text}
-								</Option>
-							))}
-						</TypeAhead>
+						/>
 					</Form.Item>
 					<Form.Item
 						name="radioGroup"
@@ -191,20 +171,13 @@ export const seedState = () => {
 						]}
 						{...formItemLayout}
 					>
-						<RadioGroup buttonStyle="solid">
-							<RadioGroup.Button value="item-1">
-								Item 1
-							</RadioGroup.Button>
-							<RadioGroup.Button value="item-2">
-								Item 2
-							</RadioGroup.Button>
-							<RadioGroup.Button value="item-3">
-								Item 3
-							</RadioGroup.Button>
-							<RadioGroup.Button value="item-4">
-								Item 4
-							</RadioGroup.Button>
-						</RadioGroup>
+						<RadioGroup
+							buttonStyle="solid"
+							radios={[
+								{ text: "Item 1", value: "item-1" },
+								{ text: "Item 2", value: "item-2" }
+							]}
+						/>
 					</Form.Item>
 					<Form.Row submit justify="center">
 						<Button

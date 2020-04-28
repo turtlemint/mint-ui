@@ -3,20 +3,20 @@
 exports[`Row Col renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="row__StyledRow-sc-1qfucex-0 ekZWZg"
+    class="row__StyledRow-sc-1qfucex-0 GPoNu"
   >
     <div
-      class="col__Col-u0epwl-0 frpOyF"
+      class="col__Col-u0epwl-0 cmgibT"
     >
       Some value
     </div>
     <div
-      class="col__Col-u0epwl-0 frpOyF"
+      class="col__Col-u0epwl-0 cmgibT"
     >
       Another value
     </div>
     <div
-      class="col__Col-u0epwl-0 frpOyF"
+      class="col__Col-u0epwl-0 cmgibT"
     >
       Third value
     </div>

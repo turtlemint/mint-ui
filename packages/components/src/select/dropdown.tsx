@@ -3,6 +3,66 @@ import styled, { css } from "styled-components";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 
+interface DropdownProps {
+	options: SelectedOption[];
+	onSelect: (option: SelectedOption) => void;
+	style?: React.CSSProperties;
+}
+
+export const Dropdown = ({ onSelect, options, style }: DropdownProps) => {
+	const handleSelect = (event: any) => {
+		event.preventDefault();
+		const text = event.target.innerText || event.target.textContent || "";
+		const value = event.target.getAttribute("value") || "";
+		onSelect ? onSelect({ value, text }) : null;
+	};
+
+	return (
+		<DropdownWrapper style={style}>
+			<List>
+				{options.map((item: SelectedOption) => (
+					<Option
+						key={item.value}
+						value={item.value}
+						handleSelect={handleSelect}
+					>
+						{item.text}
+					</Option>
+				))}
+			</List>
+		</DropdownWrapper>
+	);
+};
+export interface OptionProps {
+	disabled?: boolean;
+	value?: string | number;
+	title?: string;
+	children?: React.ReactNode;
+	className?: string;
+	style?: React.CSSProperties;
+	handleSelect: (event: any) => void;
+}
+
+export interface SelectedOption {
+	value: string | number;
+	text: string;
+}
+export const Option = ({
+	value,
+	disabled = false,
+	children,
+	handleSelect
+}: OptionProps) => {
+	return (
+		<StyledOption
+			value={value}
+			disabled={disabled}
+			onMouseDown={handleSelect}
+		>
+			{children}
+		</StyledOption>
+	);
+};
 export const DropdownWrapper = styled.div`
 	${GlobalStyles};
 	margin: 0;
@@ -31,16 +91,6 @@ export const List = styled.ul`
 	outline: none;
 `;
 
-export interface OptionProps {
-	disabled?: boolean;
-	value?: string | number;
-	title?: string;
-	children?: React.ReactNode;
-	className?: string;
-	style?: React.CSSProperties;
-	onClick?: any;
-}
-
 export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
 	display: block;
 	padding: 5px 12px;
@@ -67,62 +117,4 @@ export const StyledOption = styled.li<Pick<OptionProps, "disabled">>`
 		background-color: #e6f7ff;
 	}
 `;
-
-export interface SelectedOption {
-	value: string | number;
-	text: string;
-}
-export const Option = ({
-	value,
-	disabled = false,
-	children,
-	onClick
-}: OptionProps) => {
-	return (
-		<StyledOption value={value} disabled={disabled} onClick={onClick}>
-			{children}
-		</StyledOption>
-	);
-};
-
-interface DropdownProps {
-	onSelect?: (option: SelectedOption) => void;
-	listData?: any;
-	style?: React.CSSProperties;
-	children?:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
-}
-
-export const Dropdown = ({ onSelect, listData, children }: DropdownProps) => {
-	const handleSelect = (event: any) => {
-		const text = event.target.innerText || event.target.textContent || "";
-		const value = event.target.getAttribute("value") || "";
-		onSelect ? onSelect({ value, text }) : null;
-	};
-	return (
-		<DropdownWrapper data-testid="dropdown">
-			<List>
-				{listData
-					? listData.map((d: any) => (
-							<Option
-								key={d.value}
-								value={d.value}
-								onClick={handleSelect}
-							>
-								{d.text}
-							</Option>
-					  ))
-					: React.Children.map(
-							children as any,
-							(child: React.CElement<any, any>) =>
-								React.cloneElement(child, {
-									onClick: handleSelect
-								})
-					  )}
-			</List>
-		</DropdownWrapper>
-	);
-};
-
 export default Dropdown;

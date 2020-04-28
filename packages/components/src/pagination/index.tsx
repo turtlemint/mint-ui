@@ -6,8 +6,6 @@ import COLORS from "../__utils/colors";
 import Select from "../select";
 import { SelectedOption } from "../select/dropdown";
 
-const { Option } = Select;
-
 interface DataItem {
 	text: string;
 	value: number;
@@ -211,13 +209,8 @@ export const Pagination = ({
 					}}
 					style={{ width: "120px" }}
 					innerStyle={{ padding: "4px 8px" }}
-				>
-					{pageSizeMap.map((size: DataItem) => (
-						<Option key={size.value} value={size.value}>
-							{size.text}
-						</Option>
-					))}
-				</Select>
+					options={pageSizeMap}
+				/>
 			) : null}
 		</Wrapper>
 	);

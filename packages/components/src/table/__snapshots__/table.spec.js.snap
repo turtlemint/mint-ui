@@ -3,7 +3,7 @@
 exports[`table renders correctly 1`] = `
 <DocumentFragment>
   <table
-    class="table__TableEl-sc-1929wyb-0 fMoWOY"
+    class="table__TableEl-sc-1929wyb-0 dCmwvH"
   >
     <thead>
       <tr>
@@ -180,11 +180,11 @@ exports[`table renders correctly 1`] = `
     </tbody>
   </table>
   <div
-    class="row__StyledRow-sc-1qfucex-0 ekZWZg"
+    class="row__StyledRow-sc-1qfucex-0 GPoNu"
     style="margin-top: 20px;"
   >
     <div
-      class="col__Col-u0epwl-0 kmTwre"
+      class="col__Col-u0epwl-0 hxOaUk"
     />
   </div>
 </DocumentFragment>

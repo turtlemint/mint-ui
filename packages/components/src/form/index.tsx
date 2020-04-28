@@ -20,7 +20,7 @@ export interface Rule {
 	type?: string;
 	required?: boolean;
 	message: string;
-	pattern?: RegExp;
+	pattern?: any;
 	len?: number;
 	min?: number;
 	max?: number;
@@ -38,11 +38,18 @@ const validateRuleType = (type: string, value: string) => {
 			throw "type you mentioned is not defined";
 	}
 };
-
-const validateRegex = (pattern: RegExp, value: string) => {
-	return pattern.test(value);
+const validateRegex = (expression: any, value: string) => {
+	return value.search(expression) !== -1 ? true : false;
 };
-
+const ifEmpty = (value: any): boolean => {
+	if (
+		!value ||
+		(_isObject(value) && !value.value) ||
+		(_isArray(value) && !value.length)
+	)
+		return true;
+	return false;
+};
 interface CompoundedComponent
 	extends React.ForwardRefExoticComponent<
 		FormProps & React.RefAttributes<HTMLFormElement>
@@ -61,16 +68,6 @@ const formWithRef = (props: FormProps, ref: any) => {
 	} = props;
 	const [state, setState] = React.useState<any>(formState ?? {});
 	const [errors, setErrors] = React.useState<any>({});
-
-	const ifEmpty = (value: any): boolean => {
-		if (
-			!value ||
-			(_isObject(value) && !value.value) ||
-			(_isArray(value) && !value.length)
-		)
-			return true;
-		return false;
-	};
 
 	// Called on blur
 	const handleError = (rules: Rule[], name: string, value: any) => {
@@ -96,10 +93,7 @@ const formWithRef = (props: FormProps, ref: any) => {
 			}
 			const patternRule = rules.filter(item => item.pattern)[0];
 			if (patternRule) {
-				const isValid = validateRegex(
-					patternRule.pattern as RegExp,
-					value
-				);
+				const isValid = validateRegex(patternRule.pattern, value);
 				if (!isValid) {
 					setErrors({ ...errors, [name]: patternRule.message });
 					return;
@@ -144,7 +138,6 @@ const formWithRef = (props: FormProps, ref: any) => {
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		if (isError()) return;
-		console.log(state);
 		onSubmit(state, e);
 	};
 	const requiredFields: any = {};

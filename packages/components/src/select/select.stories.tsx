@@ -1,6 +1,6 @@
 import * as React from "react";
 import Select from "./index";
-import { Option, SelectedOption } from "./dropdown";
+import { SelectedOption } from "./dropdown";
 
 export default {
 	title: "Select",
@@ -9,8 +9,8 @@ export default {
 
 export const demo = () => {
 	interface DataItem {
-		text?: string;
-		value?: string;
+		text: string;
+		value: string;
 	}
 
 	const data: DataItem[] = [
@@ -35,34 +35,7 @@ export const demo = () => {
 	};
 	return (
 		<div style={{ height: "150px" }}>
-			<Select value={value} onChange={handleSelect}>
-				{data.map((d: any) => (
-					<Option key={d.value} value={d.value}>
-						{d.text}
-					</Option>
-				))}
-			</Select>
-		</div>
-	);
-};
-
-export const basic = () => {
-	const dataItems = ["Select Item", "Item 1", "Item 2", "Item 3", "Item 4"];
-	const [value, setValue] = React.useState<any>(dataItems[0]);
-	const handleSelect = (option: SelectedOption, name: string) => {
-		console.log(name, option);
-		const dataItem = dataItems.filter(item => item === option.value)[0];
-		setValue(dataItem);
-	};
-	return (
-		<div style={{ height: "150px" }}>
-			<Select value={value} onChange={handleSelect}>
-				{dataItems.map((d: any) => (
-					<Option key={d} value={d}>
-						{d}
-					</Option>
-				))}
-			</Select>
+			<Select value={value} onChange={handleSelect} options={data} />
 		</div>
 	);
 };
