@@ -4,7 +4,6 @@ import Input from "../input";
 import Select from "../select";
 import { Option } from "../select/dropdown";
 import TypeAhead from "../typeahead";
-import axios from "axios";
 import styled from "styled-components";
 import RadioGroup from "../radio-group";
 import Button from "../button";
@@ -51,34 +50,27 @@ export const seedState = () => {
 	const handleSubmit = (state: any) => {
 		console.log("state", state);
 	};
-	const [data, setData] = React.useState([]);
-	const [open, setOpen] = React.useState(false);
-	const [fetching, setFetching] = React.useState(false);
-
-	const fetchUser = async () => {
-		setFetching(true);
-		setOpen(false);
-		const response = await axios.get(
-			"https://randomuser.me/api/?results=15"
-		);
-		const data = response.data.results.map((user: any) => ({
-			text: `${user.name.first} ${user.name.last}`,
-			value: user.login.username
-		}));
-		setData(data);
-		setOpen(true);
-		setFetching(false);
-	};
 
 	const formState = {
 		firstName: "Your",
 		lastName: "Name",
 		email: "",
-		state: selectData[1],
+		state: selectData[0],
 		radioGroup: "item-2",
 		maritalStatus: true
 	};
-
+	const dataConfig = {
+		url: "https://api.publicapis.org/entries",
+		params: {
+			// fill the params here or later in app flow dynamically as you wish
+			category: "business",
+			https: true
+		},
+		dataKey: "entries",
+		valueKey: "Link", // this will usually be id key
+		displayKey: "API",
+		searchKey: ""
+	};
 	return (
 		<LayoutWrapper>
 			<Card boxShadow>
@@ -146,13 +138,10 @@ export const seedState = () => {
 						]}
 						{...formItemLayout}
 					>
-						<Select placeholder="Select user...">
-							{selectData.map((d: any) => (
-								<Option key={d.value} value={d.value}>
-									{d.text}
-								</Option>
-							))}
-						</Select>
+						<Select
+							placeholder="Select user..."
+							options={selectData}
+						/>
 					</Form.Item>
 					<Form.Item
 						name="city"
@@ -167,17 +156,9 @@ export const seedState = () => {
 					>
 						<TypeAhead
 							name="some-typeahead"
-							loading={fetching}
-							fetchFunc={fetchUser}
-							open={open}
+							data={dataConfig}
 							placeholder="Select user..."
-						>
-							{data.map((d: any) => (
-								<Option key={d.value} value={d.value}>
-									{d.text}
-								</Option>
-							))}
-						</TypeAhead>
+						/>
 					</Form.Item>
 					<Form.Item
 						name="radioGroup"

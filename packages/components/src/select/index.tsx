@@ -5,10 +5,9 @@ import Icon from "../icon";
 import COLORS from "../__utils/colors";
 import { GlobalStyles } from "../app";
 import { ChangeHandler } from "../__utils/type";
-import queryString from "query-string";
+import fetchDataFromJson, { SelectDataProps } from "../__utils/fetch-data-json";
 
 interface SelectProps {
-	/** name of the select element */
 	name?: string;
 	/** current value  */
 	value?: any;
@@ -16,6 +15,8 @@ interface SelectProps {
 	placeholder?: string;
 	/** callback for the change handler */
 	onChange?: ChangeHandler<SelectedOption>;
+	options?: SelectedOption[];
+	data?: SelectDataProps;
 	/** callback for the blur handler */
 	onBlur?: (option: SelectedOption) => void;
 	/** full width select */
@@ -25,17 +26,7 @@ interface SelectProps {
 	style?: React.CSSProperties;
 	/** Select CTA styles */
 	innerStyle?: React.CSSProperties;
-	data?: AsyncProps;
-	children?:
-		| React.ComponentElement<any, any>
-		| React.ComponentElement<any, any>[];
-}
-export interface AsyncProps {
-	url: string;
-	params: any;
-	dataKey: string;
-	valueKey: string;
-	displayKey: string;
+	dropdownStyle?: React.CSSProperties;
 }
 
 export const Select = ({
@@ -43,13 +34,14 @@ export const Select = ({
 	value,
 	placeholder,
 	onChange = () => {},
+	options,
+	data,
 	onBlur = () => {},
 	block = false,
 	disabled = false,
 	style,
 	innerStyle,
-	data,
-	children
+	dropdownStyle
 }: SelectProps) => {
 	const selectEl = React.useRef<HTMLDivElement>(null);
 	const [open, setOpen] = React.useState(false);
@@ -63,41 +55,34 @@ export const Select = ({
 		setOpen(false);
 		valueRef.current = option;
 	};
-	const [listData, setListData] = React.useState();
-	const toggleDropdown = () => {
-		if (data) {
-			const { url, params, valueKey, displayKey, dataKey } = data;
-			// Make an API call and set data for Dropdown
-			fetch(`${url}?${queryString.stringify(params)}`)
-				.then(response => response.json())
-				.then(jsonR => {
-					const finalList = jsonR[dataKey].reduce(
-						(acc: Array<any>, item: any) => {
-							acc.push({
-								value: item[valueKey],
-								text: item[displayKey]
-							});
-							return acc;
-						},
-						[]
-					);
-					setListData(finalList);
-					setOpen(!open);
-				});
-		} else {
-			setOpen(!open);
+	const [list, setList] = React.useState<SelectedOption[]>([
+		{ text: "", value: "" }
+	]);
+
+	React.useEffect(() => {
+		// Run this effect only when data object is present
+		//  and open is true
+		if (data && open) {
+			fetchDataFromJson(data).then((response: SelectedOption[]) => {
+				setList(response);
+			});
 		}
-	};
+	}, [open]);
+
 	const handleBlur = () => {
 		setOpen(false);
 		onBlur(valueRef.current);
 	};
 	const render = () => {
 		if (!open) return null;
-		if (listData)
-			return <Dropdown onSelect={handleSelect} listData={listData} />;
-
-		return <Dropdown onSelect={handleSelect}>{children}</Dropdown>;
+		if (data) return <Dropdown onSelect={handleSelect} options={list} />;
+		return (
+			<Dropdown
+				options={options as SelectedOption[]}
+				onSelect={handleSelect}
+				style={dropdownStyle}
+			/>
+		);
 	};
 	return (
 		<SelectWrapper
@@ -115,7 +100,7 @@ export const Select = ({
 				placeholder={placeholder}
 				showArrow={true}
 				disabled={disabled}
-				onClick={toggleDropdown}
+				onClick={() => setOpen(!open)}
 				style={innerStyle}
 			/>
 			{render()}
@@ -191,7 +176,7 @@ export const SelectWrapper = styled.div<{
 	max-width: ${props => (props.block ? "100%" : "328px")};
 	position: relative;
 	background-color: ${COLORS.WHITE};
-	outline-color: ${COLORS.PRIMARY_LIGHT};
+	outline: none;
 	${props =>
 		props.disabled &&
 		css`
