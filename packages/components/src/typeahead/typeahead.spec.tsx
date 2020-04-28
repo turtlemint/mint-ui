@@ -1,15 +1,8 @@
 import * as React from "react";
+import { render } from "@testing-library/react";
 import TypeAhead from "./index";
 
-export default {
-	title: "Typeahead",
-	component: TypeAhead,
-	parameters: {
-		componentSubtitle: "basic"
-	}
-};
-
-export const basic = () => {
+const Component = () => {
 	const dataConfig = {
 		url: "https://api.publicapis.org/entries",
 		params: {
@@ -32,3 +25,9 @@ export const basic = () => {
 		</div>
 	);
 };
+describe("Typeahead tests", () => {
+	test("renders correctly", () => {
+		const { asFragment } = render(<Component />);
+		expect(asFragment()).toMatchSnapshot();
+	});
+});
