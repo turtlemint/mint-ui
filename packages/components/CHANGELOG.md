@@ -1,3 +1,12 @@
+### 6.0.0
+#### Changed
+- Select static data options API changes
+- Select Async data options API changes
+- Typeahead API for JSON config structure
+- Snapshots and story accommodations for both the components
+#### Added
+- Typography component
+
 ### 5.1.0
 #### Changed
 - Adjusted Panel header fonts, spacing and colours to align more with Turtlemint theme
