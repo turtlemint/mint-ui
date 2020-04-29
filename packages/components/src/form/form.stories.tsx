@@ -13,6 +13,7 @@ import Col from "../grid/col";
 import COLORS from "../__utils/colors";
 import Card from "../card";
 import FormRow from "./row";
+import DatePicker from "../date-picker";
 
 export default {
 	title: "Form",
@@ -51,14 +52,14 @@ export const seedState = () => {
 		console.log("state", state);
 	};
 
-	const formState = {
-		firstName: "Your",
-		lastName: "Name",
-		email: "",
-		state: selectData[0],
-		radioGroup: "item-2",
-		maritalStatus: true
-	};
+	// const formState = {
+	// 	firstName: "Your",
+	// 	lastName: "Name",
+	// 	email: "",
+	// 	state: selectData[0],
+	// 	radioGroup: "item-2",
+	// 	maritalStatus: true
+	// };
 	const dataConfig = {
 		url: "https://api.publicapis.org/entries",
 		params: {
@@ -74,7 +75,7 @@ export const seedState = () => {
 	return (
 		<LayoutWrapper>
 			<Card boxShadow>
-				<Form name="full" formState={formState} onSubmit={handleSubmit}>
+				<Form name="full" onSubmit={handleSubmit}>
 					<Form.Item
 						label="First name"
 						name="firstName"
@@ -128,6 +129,13 @@ export const seedState = () => {
 						<Input type="text" name="email" placeholder="Email" />
 					</Form.Item>
 					<Form.Item
+						name="dob"
+						label="Date of birth"
+						{...formItemLayout}
+					>
+						<DatePicker />
+					</Form.Item>
+					<Form.Item
 						name="state"
 						label="State"
 						rules={[
@@ -154,11 +162,7 @@ export const seedState = () => {
 						]}
 						{...formItemLayout}
 					>
-						<TypeAhead
-							name="some-typeahead"
-							data={dataConfig}
-							placeholder="Select user..."
-						/>
+						<TypeAhead name="some-typeahead" data={dataConfig} />
 					</Form.Item>
 					<Form.Item
 						name="radioGroup"

@@ -25,6 +25,7 @@ import { default as RangeSelector } from "./src/range-selector";
 import { default as Title } from "./src/typography";
 import { default as Text } from "./src/typography";
 import { default as ProgressBar } from "./src/progress-bar";
+import { default as DatePicker } from "./src/date-picker";
 
 export {
 	Button,
@@ -54,5 +55,6 @@ export {
 	RangeSelector,
 	Title,
 	Text,
-	ProgressBar
+	ProgressBar,
+	DatePicker
 };
