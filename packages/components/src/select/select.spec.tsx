@@ -1,11 +1,8 @@
 import * as React from "react";
 import { render, cleanup } from "@testing-library/react";
 import Select from "./index";
+import { SelectedOption } from "./dropdown";
 
-interface SelectedOption {
-	text: string;
-	value: string;
-}
 afterEach(cleanup);
 
 const BasicSelectComp = () => {

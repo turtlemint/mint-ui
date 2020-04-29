@@ -7,9 +7,15 @@ interface DropdownProps {
 	options: SelectedOption[];
 	onSelect: (option: SelectedOption) => void;
 	style?: React.CSSProperties;
+	loading: boolean;
 }
 
-export const Dropdown = ({ onSelect, options, style }: DropdownProps) => {
+export const Dropdown = ({
+	onSelect,
+	options,
+	style,
+	loading
+}: DropdownProps) => {
 	const handleSelect = (event: any) => {
 		event.preventDefault();
 		const text = event.target.innerText || event.target.textContent || "";
@@ -20,6 +26,9 @@ export const Dropdown = ({ onSelect, options, style }: DropdownProps) => {
 	return (
 		<DropdownWrapper style={style}>
 			<List>
+				{loading ? (
+					<Option handleSelect={() => {}}>Loading...</Option>
+				) : null}
 				{options.map((item: SelectedOption) => (
 					<Option
 						key={item.value}
