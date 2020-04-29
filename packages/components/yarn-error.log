@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/vedant/.nvm/versions/node/v13.12.0/bin/node /Users/vedant/.yarn/lib/cli.js add @types/jest --dev
+  /Users/vedant/.nvm/versions/node/v13.12.0/bin/node /Users/vedant/.yarn/lib/cli.js add moment
 
 PATH: 
   /Users/vedant/.rvm/gems/ruby-2.2.4/bin:/Users/vedant/.rvm/gems/ruby-2.2.4@global/bin:/Users/vedant/.rvm/rubies/ruby-2.2.4/bin:/Users/vedant/.yarn/bin:/Users/vedant/.config/yarn/global/node_modules/.bin:/Users/vedant/.nvm/versions/node/v13.12.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/vedant/.rvm/bin
@@ -29,7 +29,7 @@ Trace:
 npm manifest: 
   {
       "name": "@turtlemint/mint-ui",
-      "version": "4.0.0",
+      "version": "6.0.0",
       "main": "dist/index.js",
       "types": "dist/index.d.ts",
       "repository": "https://github.com/turtlemint/mint-ui.git",
@@ -88,7 +88,8 @@ npm manifest:
       "license": "GPL-3.0",
       "devDependencies": {
           "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3"
-      }
+      },
+      "gitHead": "07fc057334b5b73cb708fb81c1dab2f8810ed8f6"
   }
 
 yarn manifest: 

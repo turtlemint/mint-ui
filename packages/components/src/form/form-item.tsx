@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
+import moment from "moment";
 import COLORS from "../__utils/colors";
 import { ChangeHandler } from "../__utils/type";
 import { Rule, DisplayType } from ".";
@@ -54,6 +55,8 @@ export const FormItem = ({
 	const handleBlur = (value: any) => {
 		rules ? handleError(rules, name, value) : null;
 	};
+	let [date] = React.useState(moment());
+	console.log(children.displayName, date);
 	return (
 		<Wrapper layout={layout} style={style}>
 			{layout !== "inline" ? (
@@ -136,13 +139,13 @@ const ErrorText = styled.div<{ children: React.ReactNode }>`
 	color: ${COLORS.DANGER};
 	margin-top: 4px;
 	word-wrap: break-word;
-	min-width: 100%;
+	max-width: 328px;
 `;
 export const HelpText = styled.p<{ children: React.ReactNode }>`
 	color: ${COLORS.GREY3};
-	min-width: 100%;
 	font-size: 12px;
 	margin: 4px 0;
+	max-width: 328px;
 `;
 
 export default FormItem;

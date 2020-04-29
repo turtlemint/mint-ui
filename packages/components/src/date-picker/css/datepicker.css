@@ -1,4 +1,11 @@
 
+.react-datepicker-wrapper{
+    width: 100%;   
+}
+.react-datepicker__input-container input{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
 .react-datepicker{
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
 		"Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica,
@@ -6,6 +13,7 @@
 		"Segoe UI Symbol";
 	padding:3px;
 }
+
 .react-datepicker__month{
 	margin: 0px;
 }
