@@ -14,6 +14,7 @@ export interface TypeAheadProps {
 	data: TypeAheadDataProps;
 	onBlur?: (value: SelectedOption) => void;
 	disabled?: boolean;
+	block?: boolean;
 	style?: React.CSSProperties;
 	dropdownStyle?: React.CSSProperties;
 }
@@ -24,6 +25,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 	onChange,
 	onBlur,
 	disabled,
+	block,
 	style,
 	dropdownStyle
 }: TypeAheadProps) => {
@@ -76,7 +78,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 		return (
 			<Input
 				key={-1}
-				block={true}
+				block={block}
 				value={search}
 				disabled={disabled}
 				onChange={(val: string) => setSearch(val)}

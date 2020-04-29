@@ -11,10 +11,13 @@ export default {
 };
 
 export const Default = () => {
-	let [date, updateDate] = React.useState(moment());
+	let [value, updateValue] = React.useState<moment.Moment>(moment());
 	return (
 		<DateSelectorWrapper>
-			<DatePicker date={date} onChange={updateDate} />
+			<DatePicker
+				value={value}
+				onChange={(val: moment.Moment) => updateValue(val)}
+			/>
 
 			<div
 				style={{
@@ -26,18 +29,18 @@ export const Default = () => {
 					borderBottomColor: COLORS.PRIMARY
 				}}
 			>
-				<span>Selected Date : {date.format("DD MMM YYYY")}</span>
+				<span>Selected Date : {value.format("DD MMM YYYY")}</span>
 			</div>
 		</DateSelectorWrapper>
 	);
 };
 
 export const MinMax = () => {
-	let [date, updateDate] = React.useState(moment());
+	let [date, updateDate] = React.useState<moment.Moment>(moment());
 	return (
 		<DateSelectorWrapper>
 			<DatePicker
-				date={date}
+				value={date}
 				onChange={updateDate}
 				minDate={moment().subtract(1, "year")}
 				maxDate={moment().add(1, "years")}
@@ -49,7 +52,7 @@ export const MinMax = () => {
 export const disabled = () => {
 	return (
 		<DateSelectorWrapper>
-			<DatePicker date={moment()} disabled={true} />
+			<DatePicker value={moment()} disabled={true} />
 		</DateSelectorWrapper>
 	);
 };
@@ -58,7 +61,7 @@ export const CustomHeaderStyle = () => {
 	return (
 		<DateSelectorWrapper>
 			<DatePicker
-				date={moment()}
+				value={moment()}
 				headerStyles={{
 					backgroundColor: "#475577",
 					color: "#475577"

@@ -9,7 +9,7 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__Body-t8cnoc-2 kxbXqM tm-panel-body"
+        class="tm-panel-body collapse__Body-t8cnoc-2 kxbXqM"
       >
         <span
           class="typography__Wrapper-sc-1jpifeu-0 jQVucy"
@@ -33,7 +33,7 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__StyledHeader-t8cnoc-1 dzBvNx tm-panel-header"
+        class="tm-panel-header collapse__StyledHeader-t8cnoc-1 dzBvNx"
       >
         <div
           style="display: inline-flex;"
@@ -57,7 +57,7 @@ exports[`collapse renders correctly 1`] = `
       class="tm-panel"
     >
       <div
-        class="collapse__StyledHeader-t8cnoc-1 ezdfbP tm-panel-header"
+        class="tm-panel-header collapse__StyledHeader-t8cnoc-1 ezdfbP"
         disabled=""
       >
         <div
