@@ -40,14 +40,18 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 			setSelected(null);
 		}
 	}, [search]);
+	const [loading, setLoading] = React.useState(false);
+
 	React.useEffect(() => {
 		if (debouncedInput && isEmpty(selected)) {
+			setLoading(true);
 			if (data.searchKey) {
 				data.params[data.searchKey as string] = debouncedInput;
 			}
 			// modify the params for updated debounced input
 			fetchDataFromJson(data).then((response: SelectedOption[]) => {
 				setList(response);
+				setLoading(false);
 				setOpenList(true);
 			});
 		}
@@ -93,6 +97,7 @@ export const TypeAhead: React.FC<TypeAheadProps> = ({
 				renderInput(),
 				<Dropdown
 					key={-2}
+					loading={loading}
 					onSelect={handleSelect}
 					options={list as SelectedOption[]}
 					style={dropdownStyle}
