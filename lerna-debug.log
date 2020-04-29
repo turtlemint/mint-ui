@@ -1,0 +1,9 @@
+40 error Error: Command failed: git push --follow-tags --no-verify origin master
+40 error kex_exchange_identification: Connection closed by remote host
+40 error fatal: Could not read from remote repository.
+40 error
+40 error Please make sure you have the correct access rights
+40 error and the repository exists.
+40 error
+40 error     at makeError (/Users/vedant/Projects/mint-ui/node_modules/execa/index.js:174:9)
+40 error     at /Users/vedant/Projects/mint-ui/node_modules/execa/index.js:278:16
