@@ -58,13 +58,15 @@ export const Select = ({
 	const [list, setList] = React.useState<SelectedOption[]>([
 		{ text: "", value: "" }
 	]);
-
+	const [loading, setLoading] = React.useState(false);
 	React.useEffect(() => {
 		// Run this effect only when data object is present
 		//  and open is true
 		if (data && open) {
+			setLoading(true);
 			fetchDataFromJson(data).then((response: SelectedOption[]) => {
 				setList(response);
+				setLoading(false);
 			});
 		}
 	}, [open]);
@@ -75,9 +77,17 @@ export const Select = ({
 	};
 	const render = () => {
 		if (!open) return null;
-		if (data) return <Dropdown onSelect={handleSelect} options={list} />;
+		if (data)
+			return (
+				<Dropdown
+					loading={loading}
+					onSelect={handleSelect}
+					options={list}
+				/>
+			);
 		return (
 			<Dropdown
+				loading={loading}
 				options={options as SelectedOption[]}
 				onSelect={handleSelect}
 				style={dropdownStyle}
