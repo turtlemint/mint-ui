@@ -2,7 +2,6 @@ import * as React from "react";
 import Form, { DisplayType } from "./index";
 import Input from "../input";
 import Select from "../select";
-import { Option } from "../select/dropdown";
 import TypeAhead from "../typeahead";
 import styled from "styled-components";
 import RadioGroup from "../radio-group";
@@ -309,10 +308,10 @@ export const layout = () => {
 };
 
 export const SideEffects = () => {
-	const [state, setState] = React.useState({
+	const state = {
 		statename: "",
 		city: undefined
-	});
+	};
 	const formRef = React.useRef<HTMLFormElement>();
 
 	const [formError, setFormError] = React.useState<boolean>(false);
@@ -333,7 +332,7 @@ export const SideEffects = () => {
 				statename: "Karnataka"
 			};
 		}
-		setState(newState);
+		formRef.current.setFormState(newState);
 	};
 	return (
 		<LayoutWrapper>
@@ -372,10 +371,13 @@ export const SideEffects = () => {
 							}
 						]}
 					>
-						<Select placeholder="Select City">
-							<Option value="udaipur">Udaipur</Option>
-							<Option value="coorg">Coorg</Option>
-						</Select>
+						<Select
+							options={[
+								{ text: "Udaipur", value: "udaipur" },
+								{ text: "Coorg", value: "coorg" }
+							]}
+							placeholder="Select City"
+						/>
 					</Form.Item>
 
 					<Form.Row submit justify="center">
