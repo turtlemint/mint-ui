@@ -55,6 +55,12 @@ import Report from "../icons/Report";
 import Attachment from "../icons/Attachment";
 import CloudDownload from "../icons/CloudDownload";
 import Calendar from "../icons/Calendar";
+import AddCircleFilled from "../icons/AddCircleFilled";
+import Gold from "../icons/Gold";
+import Loans from "../icons/Loans";
+import MutualFunds from "../icons/MutualFunds";
+import SomethingElse from "../icons/SomethingElse";
+import Mobile from "../icons/Mobile";
 
 const IconDict: IDict<any> = {
 	announcement: Announcement,
@@ -109,7 +115,13 @@ const IconDict: IDict<any> = {
 	report: Report,
 	attachment: Attachment,
 	cloud_download: CloudDownload,
-	calendar: Calendar
+	calendar: Calendar,
+	add_circle_filled: AddCircleFilled,
+	gold: Gold,
+	loans: Loans,
+	mutual_funds: MutualFunds,
+	something_else: SomethingElse,
+	mobile: Mobile
 };
 
 interface IconProps {

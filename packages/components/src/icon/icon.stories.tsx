@@ -331,7 +331,43 @@ export const allIcons = () => {
 				<IconWrapper>
 					<Icon name="calendar" {...props} />
 				</IconWrapper>
-				<Caption>Calendar</Caption>
+				<Caption>calendar</Caption>
+			</Wrapper>
+			<Wrapper>
+				<IconWrapper>
+					<Icon name="add_circle_filled" {...props} />
+				</IconWrapper>
+				<Caption>add_circle_filled</Caption>
+			</Wrapper>
+			<Wrapper>
+				<IconWrapper>
+					<Icon name="gold" {...props} />
+				</IconWrapper>
+				<Caption>gold</Caption>
+			</Wrapper>
+			<Wrapper>
+				<IconWrapper>
+					<Icon name="loans" {...props} />
+				</IconWrapper>
+				<Caption>loans</Caption>
+			</Wrapper>
+			<Wrapper>
+				<IconWrapper>
+					<Icon name="mutual_funds" {...props} />
+				</IconWrapper>
+				<Caption>mutual_funds</Caption>
+			</Wrapper>
+			<Wrapper>
+				<IconWrapper>
+					<Icon name="something_else" {...props} />
+				</IconWrapper>
+				<Caption>something_else</Caption>
+			</Wrapper>
+			<Wrapper>
+				<IconWrapper>
+					<Icon name="mobile" {...props} />
+				</IconWrapper>
+				<Caption>mobile</Caption>
 			</Wrapper>
 		</>
 	);
