@@ -1,3 +1,12 @@
+### 6.1.3
+#### Changed
+- Select with modal support
+- Select data options with custom key support
+- Select with group data options support
+- Snapshots and story accommodations for both the components
+#### Added
+- New Icon's added - Gold, Loans, Mutual Funds, Something else, Mobile, Circle filled
+
 ### 6.0.0
 #### Changed
 - Select static data options API changes
