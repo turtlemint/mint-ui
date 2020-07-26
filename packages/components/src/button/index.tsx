@@ -193,7 +193,7 @@ const BaseButton = css<ButtonProps>`
 		size === "small" &&
 		css`
 			font-size: 14px;
-			line-height: 14px;
+			line-height: 18px;
 			min-height: 36px;
 			padding: 8px 15px;
 		`};
