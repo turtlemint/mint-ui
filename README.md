@@ -17,7 +17,7 @@ UI components for web - A React implementation
 
 ## ✨ Features 
 
-- A modern and fitting UI design system for startup web applications.
+- A modern and fitting UI design system for scalable web applications.
 - Boasts of **Composite UI** - A rendering engine that lays out any Nth level deep nested hierarchical structure.
 - A set of high-quality React components out of the box.
 - Written in TypeScript with predictable static types. 
