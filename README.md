@@ -1,6 +1,6 @@
 <div align="center">
   <a href="http://mint-ui.netlify.com">
-    <img width="200" src="public/mintui-logo.svg">
+    <img width="200" src="packages/components/public/mintui-logo.svg">
   </a>
 </div>
 
