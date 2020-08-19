@@ -12,7 +12,7 @@ UI components for web - A React implementation
 ![NPM size](https://badgen.net/bundlephobia/minzip/@turtlemint/mint-ui)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fmint-ui.netlify.com)
 ![Netlify Status](https://img.shields.io/netlify/f808dfbe-b589-4cca-8149-3a169f9f44bb)
-![NPM license](https://img.shields.io/npm/l/@turtlemint/mint-ui)
+![NPM](https://img.shields.io/npm/l/@turtlemint/mint-ui)
 </div>
 
 ## ✨ Features 
