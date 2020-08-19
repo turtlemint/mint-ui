@@ -65,7 +65,7 @@
     "jest-resolve": "^24.9.0",
     "jest-styled-components": "^6.3.3",
     "lerna": "3.16.4",
-    "lodash": "4.17.14",
+    "lodash": "4.17.19",
     "prettier": "^1.18.2",
     "react": "16.9.0",
     "react-docgen-typescript-loader": "^3.2.1",
