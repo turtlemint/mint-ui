@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/turtlemint/mint-ui)
+
 <div align="center">
   <a href="http://mint-ui.netlify.com">
     <img width="200" src="packages/components/public/mintui-logo.svg">
